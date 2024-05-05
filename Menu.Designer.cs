@@ -1,4 +1,5 @@
-﻿namespace GrupoE_Protitipos
+﻿
+namespace GrupoE_Protitipos
 {
     partial class Menu
     {
@@ -94,7 +95,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(51, 170);
+            button7.Location = new Point(54, 151);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 6;
@@ -115,18 +116,24 @@
             Controls.Add(button1);
             Name = "Menu";
             Text = "Menu Principal";
-            Load += this.Menu_Load;
+            Load += Menu_Load;
             ResumeLayout(false);
+        }
+
+        public void Menu_Load(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        public Button button1;
+        public Button button2;
+        public Button button3;
+        public Button button4;
+        public Button button5;
+        public Button button6;
         private Button button7;
     }
+
 }
