@@ -35,8 +35,6 @@ namespace GrupoE_Protitipos
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -57,6 +55,7 @@ namespace GrupoE_Protitipos
             button2.TabIndex = 1;
             button2.Text = "Procesamiento orden de preparacion";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -66,6 +65,7 @@ namespace GrupoE_Protitipos
             button3.TabIndex = 2;
             button3.Text = "Orden recepción";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -75,6 +75,7 @@ namespace GrupoE_Protitipos
             button4.TabIndex = 3;
             button4.Text = "Orden de seleccion";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -84,6 +85,7 @@ namespace GrupoE_Protitipos
             button5.TabIndex = 4;
             button5.Text = "Orden de entrega";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -94,31 +96,11 @@ namespace GrupoE_Protitipos
             button6.Text = "Estado de ordenes";
             button6.UseVisualStyleBackColor = true;
             // 
-            // button7
-            // 
-            button7.Location = new Point(54, 151);
-            button7.Name = "button7";
-            button7.Size = new Size(94, 29);
-            button7.TabIndex = 6;
-            button7.Text = "Mari";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            button8.Location = new Point(60, 269);
-            button8.Name = "button8";
-            button8.Size = new Size(94, 29);
-            button8.TabIndex = 7;
-            button8.Text = "Alan";
-            button8.UseVisualStyleBackColor = true;
-            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button8);
-            Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
@@ -144,8 +126,6 @@ namespace GrupoE_Protitipos
         public Button button4;
         public Button button5;
         public Button button6;
-        private Button button7;
-        private Button button8;
     }
 
 }
