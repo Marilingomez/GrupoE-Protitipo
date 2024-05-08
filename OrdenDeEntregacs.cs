@@ -14,7 +14,7 @@ namespace GrupoE_Protitipos
 {
     public partial class OrdenDeEntregacs : Form
     {
-        OrdenEntregaModelo modelo = new();
+        OrdenEntregaModelo modelo=new();
         public OrdenDeEntregacs()
         {
             InitializeComponent();
