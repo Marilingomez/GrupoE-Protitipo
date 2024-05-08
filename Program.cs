@@ -1,3 +1,5 @@
+using GrupoE_Protitipos.Entidades;
+
 namespace GrupoE_Protitipos
 {
     internal static class Program

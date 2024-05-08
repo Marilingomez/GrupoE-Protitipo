@@ -1,46 +1,17 @@
-using GrupoE_Protitipos.Formularios;
-using GrupoE_Protitipos.Utiles;
-using GrupoE_Protitipos.Entidades;
-using System.Reflection.Metadata.Ecma335;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace GrupoE_Protitipos
+namespace GrupoE_Protitipos.Entidades
 {
-    public partial class Menu : Form
+    public class PruebaDos
     {
+        internal static List<Deposito> depositos = new();
 
-        public Menu()
-        {
-            InitializeComponent();
-        }
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-            Form formConsultaDisponibilidad = new ConsultaDisponibilidad();
-            formConsultaDisponibilidad.Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Form formordendeentrega = new OrdenDeEntregacs();
-            formordendeentrega.Show();
-        }
-
-        private List<Deposito> leerDepositos()
+        internal static List<Deposito> LeerDepositos()
         {
             string ruta = @"../../../InfoPrecargada/Depositos.txt";
             List<Deposito> depositos = new List<Deposito>();
@@ -53,7 +24,7 @@ namespace GrupoE_Protitipos
                     string linea;
                     while ((linea = sr.ReadLine()) != null)
                     {
-                        // Dividir la l�nea en partes usando el punto y coma como separador
+                        // Dividir la línea en partes usando el punto y coma como separador
                         string[] partes = linea.Split(';');
 
                         // Convertir los datos a los tipos adecuados
@@ -73,7 +44,11 @@ namespace GrupoE_Protitipos
                 Console.WriteLine("Error al leer el archivo: " + ex.Message);
             }
 
+            MessageBox.Show("cantidad " + depositos.Count.ToString());
+
             return depositos;
         }
+
+        internal static List<Deposito> ObtenerDepositos() { return depositos; }
     }
 }

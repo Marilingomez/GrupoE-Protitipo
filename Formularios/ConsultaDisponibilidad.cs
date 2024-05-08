@@ -1,49 +1,32 @@
-using GrupoE_Protitipos.Formularios;
-using GrupoE_Protitipos.Utiles;
-using GrupoE_Protitipos.Entidades;
-using System.Reflection.Metadata.Ecma335;
+﻿using GrupoE_Protitipos.Entidades;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace GrupoE_Protitipos
+namespace GrupoE_Protitipos.Formularios
 {
-    public partial class Menu : Form
+    public partial class ConsultaDisponibilidad : Form
     {
-
-        public Menu()
+        List<Deposito> depositos = new List<Deposito>();
+        public ConsultaDisponibilidad()
         {
             InitializeComponent();
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void ConsultaDisponibilidad_Load(object sender, EventArgs e)
         {
-            Form formConsultaDisponibilidad = new ConsultaDisponibilidad();
-            formConsultaDisponibilidad.Show();
+            leerDepositosDesdeTxt();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Form formordendeentrega = new OrdenDeEntregacs();
-            formordendeentrega.Show();
-        }
-
-        private List<Deposito> leerDepositos()
+        private void leerDepositosDesdeTxt()
         {
             string ruta = @"../../../InfoPrecargada/Depositos.txt";
-            List<Deposito> depositos = new List<Deposito>();
 
             try
             {
@@ -53,7 +36,7 @@ namespace GrupoE_Protitipos
                     string linea;
                     while ((linea = sr.ReadLine()) != null)
                     {
-                        // Dividir la l�nea en partes usando el punto y coma como separador
+                        // Dividir la línea en partes usando el punto y coma como separador
                         string[] partes = linea.Split(';');
 
                         // Convertir los datos a los tipos adecuados
@@ -64,6 +47,7 @@ namespace GrupoE_Protitipos
                             // Crear una nueva instancia de Deposito y agregarla a la lista
                             Deposito deposito = new Deposito(id, ubicacion);
                             depositos.Add(deposito);
+                            comboBox1.Items.Add(deposito.Ubicacion);
                         }
                     }
                 }
@@ -73,7 +57,7 @@ namespace GrupoE_Protitipos
                 Console.WriteLine("Error al leer el archivo: " + ex.Message);
             }
 
-            return depositos;
+            MessageBox.Show("cantidad " + depositos.Count.ToString());
         }
     }
 }
