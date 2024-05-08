@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             OrdenSeleccionadaList = new ListView();
-            ID = new ColumnHeader();
-            Cliente = new ColumnHeader();
+            IDCol = new ColumnHeader();
+            ClienteCol = new ColumnHeader();
             SeleccionarBoton = new Button();
             OrdenEntrega = new ListView();
-            IDSeleccionado = new ColumnHeader();
-            ClienteSeleccionado = new ColumnHeader();
+            IDSeleccionadoCol = new ColumnHeader();
+            ClienteSeleccionadoCol = new ColumnHeader();
             GenerarBoton = new Button();
             VolverBoton = new Button();
             CancelarBoton = new Button();
@@ -61,12 +61,13 @@
             // 
             // OrdenSeleccionadaList
             // 
-            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { ID, Cliente });
+            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDCol, ClienteCol });
             OrdenSeleccionadaList.Location = new Point(6, 21);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
             OrdenSeleccionadaList.Size = new Size(236, 121);
             OrdenSeleccionadaList.TabIndex = 0;
             OrdenSeleccionadaList.UseCompatibleStateImageBehavior = false;
+            OrdenSeleccionadaList.SelectedIndexChanged += OrdenSeleccionadaList_SelectedIndexChanged;
             // 
             // SeleccionarBoton
             // 
@@ -76,10 +77,11 @@
             SeleccionarBoton.TabIndex = 1;
             SeleccionarBoton.Text = "Seleccionar";
             SeleccionarBoton.UseVisualStyleBackColor = true;
+            SeleccionarBoton.Click += SeleccionarBoton_Click;
             // 
             // OrdenEntrega
             // 
-            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDSeleccionado, ClienteSeleccionado });
+            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDSeleccionadoCol, ClienteSeleccionadoCol });
             OrdenEntrega.Location = new Point(282, 30);
             OrdenEntrega.Name = "OrdenEntrega";
             OrdenEntrega.Size = new Size(236, 121);
@@ -243,6 +245,7 @@
             IDtext.Name = "IDtext";
             IDtext.Size = new Size(226, 27);
             IDtext.TabIndex = 1;
+            IDtext.TextChanged += IDtext_TextChanged;
             // 
             // label1
             // 
@@ -275,7 +278,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(537, 551);
+            ClientSize = new Size(550, 551);
             Controls.Add(EliminarBoton);
             Controls.Add(EditarBoton);
             Controls.Add(groupBox3);
@@ -313,8 +316,8 @@
         private TextBox DepositoText;
         private Label label2;
         private TextBox FechaText;
-        private ColumnHeader ID;
-        private ColumnHeader Cliente;
+        private ColumnHeader IDCol;
+        private ColumnHeader ClienteCol;
         private TextBox ClienteText;
         private Label label4;
         private TextBox DireccionText;
@@ -322,7 +325,7 @@
         private TextBox Notastext;
         private Label label6;
         private Label label3;
-        private ColumnHeader IDSeleccionado;
-        private ColumnHeader ClienteSeleccionado;
+        private ColumnHeader IDSeleccionadoCol;
+        private ColumnHeader ClienteSeleccionadoCol;
     }
 }

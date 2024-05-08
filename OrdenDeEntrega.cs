@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrupoE_Protitipos
 {
-    internal class OrdendeEntregamodelo
-
+    internal class OrdenDeEntrega
     {
-        public List<OrdenSeleccionada> OrdenSeleccionadas { get; set; }
-
-
     }
 }

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace GrupoE_Protitipos
 {
-    internal class OrdendeEntregamodelo
-
+    internal class OrdenSeleccionada
     {
-        public List<OrdenSeleccionada> OrdenSeleccionadas { get; set; }
-
-
+        public string ID { get; set; }
+        public string Cliente { get; set;}
     }
 }
