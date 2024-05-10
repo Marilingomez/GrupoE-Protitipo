@@ -7,9 +7,10 @@ namespace GrupoE_Protitipos
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEstadoOrdenes_Click(object sender, EventArgs e)
         {
-
+            Form formulario = new ConsultarOrdenes();
+            formulario.Show();
         }
     }
 }
