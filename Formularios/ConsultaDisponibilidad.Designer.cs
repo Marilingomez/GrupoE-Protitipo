@@ -29,35 +29,69 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            comboBox1 = new ComboBox();
+            desplegableDepositos = new ComboBox();
+            espacio = new TextBox();
+            label2 = new Label();
+            ConsultarEspacio = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(109, 73);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(54, 15);
             label1.TabIndex = 1;
             label1.Text = "Depósito";
             // 
-            // comboBox1
+            // desplegableDepositos
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(109, 91);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 2;
+            desplegableDepositos.DropDownStyle = ComboBoxStyle.DropDownList;
+            desplegableDepositos.FormattingEnabled = true;
+            desplegableDepositos.Location = new Point(12, 27);
+            desplegableDepositos.Name = "desplegableDepositos";
+            desplegableDepositos.Size = new Size(121, 23);
+            desplegableDepositos.TabIndex = 2;
+            // 
+            // espacio
+            // 
+            espacio.Location = new Point(12, 81);
+            espacio.Name = "espacio";
+            espacio.Size = new Size(100, 23);
+            espacio.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 63);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Espacio a consultar";
+            // 
+            // ConsultarEspacio
+            // 
+            ConsultarEspacio.Location = new Point(12, 121);
+            ConsultarEspacio.Name = "ConsultarEspacio";
+            ConsultarEspacio.Size = new Size(121, 23);
+            ConsultarEspacio.TabIndex = 5;
+            ConsultarEspacio.Text = "Consultar espacio";
+            ConsultarEspacio.UseVisualStyleBackColor = true;
+            ConsultarEspacio.Click += ConsultarEspacio_Click;
             // 
             // ConsultaDisponibilidad
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(comboBox1);
+            Controls.Add(ConsultarEspacio);
+            Controls.Add(label2);
+            Controls.Add(espacio);
+            Controls.Add(desplegableDepositos);
             Controls.Add(label1);
             Name = "ConsultaDisponibilidad";
             Text = "ConsultaDisponibilidad";
+            FormClosed += ConsultaDisponibilidad_Closed;
             Load += ConsultaDisponibilidad_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -65,6 +99,9 @@
 
         #endregion
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox desplegableDepositos;
+        private TextBox espacio;
+        private Label label2;
+        private Button ConsultarEspacio;
     }
 }

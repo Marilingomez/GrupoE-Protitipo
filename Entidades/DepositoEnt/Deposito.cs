@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace GrupoE_Protitipos.Entidades
+﻿namespace GrupoE_Protitipos.Entidades.Deposito
 {
-    internal class Deposito
+    public class Deposito
     {
         public Deposito(int id, string ubicacion)
         {
@@ -12,6 +10,7 @@ namespace GrupoE_Protitipos.Entidades
 
         public int Id { get; set; }
         public string Ubicacion { get; set; }
+        public int Capacidad { get; set; }
     }
 }
 

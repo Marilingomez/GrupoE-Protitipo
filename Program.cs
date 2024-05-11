@@ -1,4 +1,4 @@
-using GrupoE_Protitipos.Entidades;
+using GrupoE_Protitipos.Entidades.Deposito.ArchivoDeposito;
 
 namespace GrupoE_Protitipos
 {
@@ -14,6 +14,7 @@ namespace GrupoE_Protitipos
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Menu());
+            ArchivoDeposito.GrabarDatos();
         }
     }
 }
