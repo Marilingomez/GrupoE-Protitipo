@@ -30,11 +30,11 @@
         {
             OrdenSeleccionadaList = new ListView();
             IDCol = new ColumnHeader();
-            ClienteCol = new ColumnHeader();
+            CUITCol = new ColumnHeader();
             SeleccionarBoton = new Button();
             OrdenEntrega = new ListView();
             IDSeleccionadoCol = new ColumnHeader();
-            ClienteSeleccionadoCol = new ColumnHeader();
+            CUITSeleccionadoCol = new ColumnHeader();
             GenerarBoton = new Button();
             VolverBoton = new Button();
             CancelarBoton = new Button();
@@ -61,13 +61,23 @@
             // 
             // OrdenSeleccionadaList
             // 
-            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDCol, ClienteCol });
+            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDCol, CUITCol });
             OrdenSeleccionadaList.Location = new Point(6, 21);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
             OrdenSeleccionadaList.Size = new Size(236, 121);
             OrdenSeleccionadaList.TabIndex = 0;
             OrdenSeleccionadaList.UseCompatibleStateImageBehavior = false;
-            OrdenSeleccionadaList.SelectedIndexChanged += OrdenSeleccionadaList_SelectedIndexChanged;
+            OrdenSeleccionadaList.View = View.Details;
+            // 
+            // IDCol
+            // 
+            IDCol.Text = "ID";
+            IDCol.Width = 90;
+            // 
+            // CUITCol
+            // 
+            CUITCol.Text = "CUIT";
+            CUITCol.Width = 120;
             // 
             // SeleccionarBoton
             // 
@@ -81,25 +91,38 @@
             // 
             // OrdenEntrega
             // 
-            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDSeleccionadoCol, ClienteSeleccionadoCol });
+            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDSeleccionadoCol, CUITSeleccionadoCol });
             OrdenEntrega.Location = new Point(282, 30);
             OrdenEntrega.Name = "OrdenEntrega";
             OrdenEntrega.Size = new Size(236, 121);
             OrdenEntrega.TabIndex = 2;
             OrdenEntrega.UseCompatibleStateImageBehavior = false;
+            OrdenEntrega.View = View.Details;
+            OrdenEntrega.SelectedIndexChanged += OrdenEntrega_SelectedIndexChanged;
+            // 
+            // IDSeleccionadoCol
+            // 
+            IDSeleccionadoCol.Text = "ID";
+            IDSeleccionadoCol.Width = 90;
+            // 
+            // CUITSeleccionadoCol
+            // 
+            CUITSeleccionadoCol.Text = "CUIT";
+            CUITSeleccionadoCol.Width = 120;
             // 
             // GenerarBoton
             // 
-            GenerarBoton.Location = new Point(32, 466);
+            GenerarBoton.Location = new Point(28, 441);
             GenerarBoton.Name = "GenerarBoton";
             GenerarBoton.Size = new Size(144, 29);
             GenerarBoton.TabIndex = 3;
             GenerarBoton.Text = "Generar ";
             GenerarBoton.UseVisualStyleBackColor = true;
+            GenerarBoton.Click += GenerarBoton_Click;
             // 
             // VolverBoton
             // 
-            VolverBoton.Location = new Point(368, 510);
+            VolverBoton.Location = new Point(364, 485);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(144, 29);
             VolverBoton.TabIndex = 4;
@@ -135,7 +158,6 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Seleccion";
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // groupBox3
             // 
@@ -153,7 +175,7 @@
             groupBox3.Controls.Add(label1);
             groupBox3.Location = new Point(16, 207);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(502, 238);
+            groupBox3.Size = new Size(502, 212);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Orden de Entrega";
@@ -202,9 +224,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(266, 26);
             label4.Name = "label4";
-            label4.Size = new Size(55, 20);
+            label4.Size = new Size(40, 20);
             label4.TabIndex = 6;
-            label4.Text = "Cliente";
+            label4.Text = "CUIT";
             // 
             // FechaText
             // 
@@ -212,7 +234,6 @@
             FechaText.Name = "FechaText";
             FechaText.Size = new Size(230, 27);
             FechaText.TabIndex = 5;
-            FechaText.TextChanged += textBox3_TextChanged;
             // 
             // label3
             // 
@@ -245,7 +266,6 @@
             IDtext.Name = "IDtext";
             IDtext.Size = new Size(226, 27);
             IDtext.TabIndex = 1;
-            IDtext.TextChanged += IDtext_TextChanged;
             // 
             // label1
             // 
@@ -258,27 +278,29 @@
             // 
             // EditarBoton
             // 
-            EditarBoton.Location = new Point(193, 466);
+            EditarBoton.Location = new Point(189, 441);
             EditarBoton.Name = "EditarBoton";
             EditarBoton.Size = new Size(144, 29);
             EditarBoton.TabIndex = 10;
             EditarBoton.Text = "Editar ";
             EditarBoton.UseVisualStyleBackColor = true;
+            EditarBoton.Click += EditarBoton_Click;
             // 
             // EliminarBoton
             // 
-            EliminarBoton.Location = new Point(368, 466);
+            EliminarBoton.Location = new Point(364, 441);
             EliminarBoton.Name = "EliminarBoton";
             EliminarBoton.Size = new Size(144, 29);
             EliminarBoton.TabIndex = 11;
             EliminarBoton.Text = "Eliminar ";
             EliminarBoton.UseVisualStyleBackColor = true;
+            EliminarBoton.Click += EliminarBoton_Click;
             // 
             // OrdenDeEntregacs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(550, 551);
+            ClientSize = new Size(550, 531);
             Controls.Add(EliminarBoton);
             Controls.Add(EditarBoton);
             Controls.Add(groupBox3);
@@ -317,7 +339,7 @@
         private Label label2;
         private TextBox FechaText;
         private ColumnHeader IDCol;
-        private ColumnHeader ClienteCol;
+        private ColumnHeader CUITCol;
         private TextBox ClienteText;
         private Label label4;
         private TextBox DireccionText;
@@ -326,6 +348,6 @@
         private Label label6;
         private Label label3;
         private ColumnHeader IDSeleccionadoCol;
-        private ColumnHeader ClienteSeleccionadoCol;
+        private ColumnHeader CUITSeleccionadoCol;
     }
 }

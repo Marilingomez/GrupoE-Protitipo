@@ -100,7 +100,7 @@ namespace GrupoE_Protitipos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(633, 450);
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
