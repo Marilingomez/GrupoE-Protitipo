@@ -44,7 +44,7 @@
             buttonAgregar = new Button();
             buttonEliminar = new Button();
             buttonFinalizar = new Button();
-            button1 = new Button();
+            buttonMenuPrincipal = new Button();
             SuspendLayout();
             // 
             // listBox1
@@ -188,21 +188,22 @@
             buttonFinalizar.Text = "Finalizar y Guardar";
             buttonFinalizar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonMenuPrincipal
             // 
-            button1.Location = new Point(695, 411);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 27);
-            button1.TabIndex = 19;
-            button1.Text = "Menú";
-            button1.UseVisualStyleBackColor = true;
+            buttonMenuPrincipal.Location = new Point(695, 411);
+            buttonMenuPrincipal.Name = "buttonMenuPrincipal";
+            buttonMenuPrincipal.Size = new Size(93, 27);
+            buttonMenuPrincipal.TabIndex = 19;
+            buttonMenuPrincipal.Text = "Menú";
+            buttonMenuPrincipal.UseVisualStyleBackColor = true;
+            buttonMenuPrincipal.Click += buttonMenuPrincipal_Click;
             // 
             // OrdenDeSeleccion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            Controls.Add(buttonMenuPrincipal);
             Controls.Add(buttonFinalizar);
             Controls.Add(buttonEliminar);
             Controls.Add(buttonAgregar);
@@ -221,7 +222,6 @@
             Controls.Add(listBox1);
             Name = "OrdenDeSeleccion";
             Text = "Orden de Selección";
-            //Load += this.OrdenDeSeleccion_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,6 +244,6 @@
         private Button buttonAgregar;
         private Button buttonEliminar;
         private Button buttonFinalizar;
-        private Button button1;
+        private Button buttonMenuPrincipal;
     }
 }

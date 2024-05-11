@@ -143,7 +143,7 @@ namespace GrupoE_Protitipos
                 string maestroOrdenesPreparacionFilePath = @"C:\Users\risu_\OneDrive\Escritorio\CAI\Almacenes\maestroOrdenesPreparación.txt";
                 string[] lineas = File.ReadAllLines(maestroOrdenesPreparacionFilePath);
                 List<string> nuevasLineas = new();
-               // List<string> nuevasLineas = new List<string>();
+                // List<string> nuevasLineas = new List<string>();
                 foreach (string linea in lineas)
                 {
                     if (!linea.Equals(elementoAEliminar))
@@ -160,6 +160,11 @@ namespace GrupoE_Protitipos
             {
                 MessageBox.Show("Error al finalizar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
