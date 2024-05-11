@@ -24,7 +24,8 @@ namespace GrupoE_Protitipos
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Form formOrdenSeleccion = new OrdenDeSeleccion();
+            formOrdenSeleccion.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
