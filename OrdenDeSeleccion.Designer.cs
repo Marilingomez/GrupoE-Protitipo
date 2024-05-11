@@ -169,6 +169,7 @@
             buttonAgregar.TabIndex = 16;
             buttonAgregar.Text = "Agregar";
             buttonAgregar.UseVisualStyleBackColor = true;
+            buttonAgregar.Click += buttonAgregar_Click_1;
             // 
             // buttonEliminar
             // 
@@ -178,6 +179,7 @@
             buttonEliminar.TabIndex = 17;
             buttonEliminar.Text = "Eliminar";
             buttonEliminar.UseVisualStyleBackColor = true;
+            buttonEliminar.Click += buttonEliminar_Click_1;
             // 
             // buttonFinalizar
             // 
@@ -187,6 +189,7 @@
             buttonFinalizar.TabIndex = 18;
             buttonFinalizar.Text = "Finalizar y Guardar";
             buttonFinalizar.UseVisualStyleBackColor = true;
+            buttonFinalizar.Click += buttonFinalizar_Click_1;
             // 
             // buttonMenuPrincipal
             // 
