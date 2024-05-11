@@ -221,7 +221,7 @@
             Controls.Add(listBox1);
             Name = "OrdenDeSeleccion";
             Text = "Orden de Selección";
-            Load += this.OrdenDeSeleccion_Load;
+            //Load += this.OrdenDeSeleccion_Load;
             ResumeLayout(false);
             PerformLayout();
         }

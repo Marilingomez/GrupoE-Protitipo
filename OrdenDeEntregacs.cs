@@ -27,8 +27,8 @@ namespace GrupoE_Protitipos
             {
                 var fila = new ListViewItem();
                
-                fila.Text = ordenseleccionada.ID;
-                fila.SubItems.Add(ordenseleccionada.Cliente);
+               // fila.Text = ordenseleccionada.ID;
+               // fila.SubItems.Add(ordenseleccionada.Cliente);
                 OrdenSeleccionadaList.Items.Add(fila);
             }
         }
