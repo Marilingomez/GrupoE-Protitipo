@@ -17,7 +17,7 @@ namespace GrupoE_Protitipos
         public OrdenDeSeleccion()
         {
             InitializeComponent();
-            LoadDataFromFile("C:\\Users\\risu_\\OneDrive\\Escritorio\\CAI\\Almacenes\\maestroOrdenesPreparación.txt");
+            LoadDataFromFile(@"../../../InfoPrecargada/maestroOrdenesPreparacion.txt");
             
             listBox1.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
         }
@@ -66,7 +66,7 @@ namespace GrupoE_Protitipos
             try
             {
                 // Ruta de la carpeta de detalles
-                string detallesFolder = @"C:\Users\risu_\OneDrive\Escritorio\CAI\Almacenes\DetalleOrdenesPreparación";
+                string detallesFolder = @"../../../InfoPrecargada/DetalleOrdenesPreparacion";
                 // Construir la ruta del archivo de detalle
                 string detalleFilePath = Path.Combine(detallesFolder, selectedItem + ".txt"); // Suponiendo que los archivos de detalle tienen el mismo nombre que los elementos seleccionados en el primer ListBox
 
@@ -137,12 +137,12 @@ namespace GrupoE_Protitipos
             try
             {
                 // Guardar los datos de la listBox2 en un archivo .txt
-                string maestroOrdenesSeleccionadasFilePath = @"C:\Users\risu_\OneDrive\Escritorio\CAI\Almacenes\maestroOrdenesSeleccionadas.txt";
+                string maestroOrdenesSeleccionadasFilePath = @"../../../InfoPrecargada/maestroOrdenesSeleccionadas.txt";
                 File.WriteAllLines(maestroOrdenesSeleccionadasFilePath, listBox2.Items.Cast<string>());
 
                 // Eliminar el elemento en maestroOrdenesPreparación que coincida con el elemento en textBox1
                 string elementoAEliminar = textBox1.Text;
-                string maestroOrdenesPreparacionFilePath = @"C:\Users\risu_\OneDrive\Escritorio\CAI\Almacenes\maestroOrdenesPreparación.txt";
+                string maestroOrdenesPreparacionFilePath = @"../../../InfoPrecargada/maestroOrdenesPreparacion.txt";
                 string[] lineas = File.ReadAllLines(maestroOrdenesPreparacionFilePath);
                 List<string> nuevasLineas = new();
                 // List<string> nuevasLineas = new List<string>();
@@ -207,12 +207,12 @@ namespace GrupoE_Protitipos
             try
             {
                 // Guardar los datos de la listBox2 en un archivo .txt
-                string maestroOrdenesSeleccionadasFilePath = @"C:\Users\risu_\OneDrive\Escritorio\CAI\Almacenes\maestroOrdenesSeleccionadas.txt";
+                string maestroOrdenesSeleccionadasFilePath = @"../../../InfoPrecargada/maestroOrdenesSeleccionadas.txt";
                 File.WriteAllLines(maestroOrdenesSeleccionadasFilePath, listBox2.Items.Cast<string>());
 
                 // Eliminar el elemento en maestroOrdenesPreparación que coincida con el elemento en textBox1
                 string elementoAEliminar = textBox1.Text;
-                string maestroOrdenesPreparacionFilePath = @"C:\Users\risu_\OneDrive\Escritorio\CAI\Almacenes\maestroOrdenesPreparación.txt";
+                string maestroOrdenesPreparacionFilePath = @"../../../InfoPrecargada/maestroOrdenesPreparacion.txt";
                 string[] lineas = File.ReadAllLines(maestroOrdenesPreparacionFilePath);
                 List<string> nuevasLineas = new();
                 // List<string> nuevasLineas = new List<string>();

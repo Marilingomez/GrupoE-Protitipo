@@ -1,7 +1,4 @@
 using GrupoE_Protitipos.Formularios;
-using GrupoE_Protitipos.Utiles;
-using System.Reflection.Metadata.Ecma335;
-using GrupoE_Protitipos.Entidades.Deposito;
 
 namespace GrupoE_Protitipos
 {
