@@ -107,7 +107,7 @@
             Salir.TabIndex = 4;
             Salir.Text = "Salir";
             Salir.UseVisualStyleBackColor = true;
-            Salir.Click += Confirmar_Click;
+            Salir.Click += Salir_Click;
             // 
             // DetallesList
             // 

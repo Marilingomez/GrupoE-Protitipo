@@ -46,6 +46,11 @@ namespace GrupoE_Protitipos
             }
         }
 
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void Ordenes_Load(object sender, EventArgs e)
         {
             // Llenar ListView1 con las órdenes
