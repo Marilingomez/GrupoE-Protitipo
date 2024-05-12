@@ -30,7 +30,7 @@ namespace GrupoE_Protitipos
         private void InitializeComponent()
         {
             btnConsultaDisponibilidad = new Button();
-            button2 = new Button();
+            btnOrdenDePreparacion = new Button();
             button3 = new Button();
             btnOrdenDeSeleccion = new Button();
             btnOrdenDeEntrega = new Button();
@@ -48,16 +48,16 @@ namespace GrupoE_Protitipos
             btnConsultaDisponibilidad.UseVisualStyleBackColor = true;
             btnConsultaDisponibilidad.Click += btnConsultaDisponibilidad_Click;
             // 
-            // button2
+            // btnOrdenDePreparacion
             // 
-            button2.Location = new Point(144, 132);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(270, 35);
-            button2.TabIndex = 1;
-            button2.Text = "Procesamiento orden de preparacion";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnOrdenDePreparacion.Location = new Point(144, 132);
+            btnOrdenDePreparacion.Margin = new Padding(3, 2, 3, 2);
+            btnOrdenDePreparacion.Name = "btnOrdenDePreparacion";
+            btnOrdenDePreparacion.Size = new Size(270, 35);
+            btnOrdenDePreparacion.TabIndex = 1;
+            btnOrdenDePreparacion.Text = "Procesamiento orden de preparacion";
+            btnOrdenDePreparacion.UseVisualStyleBackColor = true;
+            btnOrdenDePreparacion.Click += btnOrdenDePreparacion_Click;
             // 
             // button3
             // 
@@ -112,7 +112,7 @@ namespace GrupoE_Protitipos
             Controls.Add(btnOrdenDeEntrega);
             Controls.Add(btnOrdenDeSeleccion);
             Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnOrdenDePreparacion);
             Controls.Add(btnConsultaDisponibilidad);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Menu";
@@ -129,7 +129,7 @@ namespace GrupoE_Protitipos
         #endregion
 
         private Button btnConsultaDisponibilidad;
-        private Button button2;
+        private Button btnOrdenDePreparacion;
         private Button button3;
         private Button btnOrdenDeSeleccion;
         private Button btnOrdenDeEntrega;

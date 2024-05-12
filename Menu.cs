@@ -24,9 +24,10 @@ namespace GrupoE_Protitipos
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnOrdenDePreparacion_Click(object sender, EventArgs e)
         {
-
+            Form formOrdenDePreparacion = new OrdenesPreparacion();
+            formOrdenDePreparacion.Show();
         }
 
         private void btnOrdenDeSeleccion_Click(object sender, EventArgs e)
