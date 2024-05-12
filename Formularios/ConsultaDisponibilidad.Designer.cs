@@ -33,6 +33,7 @@
             espacio = new TextBox();
             label2 = new Label();
             ConsultarEspacio = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -79,11 +80,22 @@
             ConsultarEspacio.UseVisualStyleBackColor = true;
             ConsultarEspacio.Click += ConsultarEspacio_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(185, 262);
+            button1.Name = "button1";
+            button1.Size = new Size(106, 23);
+            button1.TabIndex = 6;
+            button1.Text = "Volver al Menu";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ConsultaDisponibilidad
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(303, 297);
+            Controls.Add(button1);
             Controls.Add(ConsultarEspacio);
             Controls.Add(label2);
             Controls.Add(espacio);
@@ -103,5 +115,6 @@
         private TextBox espacio;
         private Label label2;
         private Button ConsultarEspacio;
+        private Button button1;
     }
 }

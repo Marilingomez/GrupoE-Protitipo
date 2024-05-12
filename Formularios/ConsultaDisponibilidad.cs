@@ -26,7 +26,8 @@ namespace GrupoE_Protitipos.Formularios
         private void ConsultarEspacio_Click(object sender, EventArgs e)
         {
             string errores = validarDatos();
-            if (errores != "") {
+            if (errores != "")
+            {
                 MessageBox.Show(errores, "Datos incorrectos.");
                 espacio.Focus();
                 return;
@@ -46,7 +47,8 @@ namespace GrupoE_Protitipos.Formularios
                     "Existe espacio suficiente en el deposito para almacenar la mercaderia" + Environment.NewLine +
                     detalleEspacio, "Operación disponible"
                     );
-            } else
+            }
+            else
             {
                 MessageBox.Show(
                     "No existe espacio suficiente en el deposito para almacenar la mercaderia" + Environment.NewLine +
@@ -70,6 +72,11 @@ namespace GrupoE_Protitipos.Formularios
             errores = Validadores.EsNumero(espacio.Text, "Espacio a consultar");
 
             return errores;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
