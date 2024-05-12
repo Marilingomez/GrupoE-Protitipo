@@ -35,7 +35,7 @@ namespace GrupoE_Protitipos
             foreach (var ordenseleccionada in ordenesSeleccionadas)
             {
                 var fila = new ListViewItem();
-
+               
                 fila.Text = ordenseleccionada.ID;
                 fila.SubItems.Add(ordenseleccionada.Cliente);
                 OrdenSeleccionadaList.Items.Add(fila);
