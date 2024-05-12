@@ -29,31 +29,31 @@ namespace GrupoE_Protitipos
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnConsultaDisponibilidad = new Button();
             button2 = new Button();
             button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            btnOrdenDeSeleccion = new Button();
+            btnOrdenDeEntrega = new Button();
             btnEstadoOrdenes = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnConsultaDisponibilidad
             // 
-            button1.Location = new Point(206, 53);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(386, 58);
-            button1.TabIndex = 0;
-            button1.Text = "Informar espacio disponible";
-            button1.UseVisualStyleBackColor = true;
-
+            btnConsultaDisponibilidad.Location = new Point(144, 32);
+            btnConsultaDisponibilidad.Margin = new Padding(3, 2, 3, 2);
+            btnConsultaDisponibilidad.Name = "btnConsultaDisponibilidad";
+            btnConsultaDisponibilidad.Size = new Size(270, 35);
+            btnConsultaDisponibilidad.TabIndex = 0;
+            btnConsultaDisponibilidad.Text = "Informar espacio disponible";
+            btnConsultaDisponibilidad.UseVisualStyleBackColor = true;
+            btnConsultaDisponibilidad.Click += btnConsultaDisponibilidad_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(206, 220);
-            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Location = new Point(144, 132);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(386, 58);
+            button2.Size = new Size(270, 35);
             button2.TabIndex = 1;
             button2.Text = "Procesamiento orden de preparacion";
             button2.UseVisualStyleBackColor = true;
@@ -61,43 +61,43 @@ namespace GrupoE_Protitipos
             // 
             // button3
             // 
-            button3.Location = new Point(206, 138);
-            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Location = new Point(144, 83);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(386, 58);
+            button3.Size = new Size(270, 35);
             button3.TabIndex = 2;
             button3.Text = "Orden recepción";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // button4
+            // btnOrdenDeSeleccion
             // 
-            button4.Location = new Point(206, 297);
-            button4.Margin = new Padding(4, 3, 4, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(386, 58);
-            button4.TabIndex = 3;
-            button4.Text = "Orden de seleccion";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnOrdenDeSeleccion.Location = new Point(144, 178);
+            btnOrdenDeSeleccion.Margin = new Padding(3, 2, 3, 2);
+            btnOrdenDeSeleccion.Name = "btnOrdenDeSeleccion";
+            btnOrdenDeSeleccion.Size = new Size(270, 35);
+            btnOrdenDeSeleccion.TabIndex = 3;
+            btnOrdenDeSeleccion.Text = "Orden de seleccion";
+            btnOrdenDeSeleccion.UseVisualStyleBackColor = true;
+            btnOrdenDeSeleccion.Click += btnOrdenDeSeleccion_Click;
             // 
-            // button5
+            // btnOrdenDeEntrega
             // 
-            button5.Location = new Point(206, 377);
-            button5.Margin = new Padding(4, 3, 4, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(386, 58);
-            button5.TabIndex = 4;
-            button5.Text = "Orden de entrega";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            btnOrdenDeEntrega.Location = new Point(144, 226);
+            btnOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
+            btnOrdenDeEntrega.Name = "btnOrdenDeEntrega";
+            btnOrdenDeEntrega.Size = new Size(270, 35);
+            btnOrdenDeEntrega.TabIndex = 4;
+            btnOrdenDeEntrega.Text = "Orden de entrega";
+            btnOrdenDeEntrega.UseVisualStyleBackColor = true;
+            btnOrdenDeEntrega.Click += btnOrdenDeEntrega_Click;
             // 
             // btnEstadoOrdenes
             // 
-            btnEstadoOrdenes.Location = new Point(206, 457);
-            btnEstadoOrdenes.Margin = new Padding(4, 3, 4, 3);
+            btnEstadoOrdenes.Location = new Point(144, 274);
+            btnEstadoOrdenes.Margin = new Padding(3, 2, 3, 2);
             btnEstadoOrdenes.Name = "btnEstadoOrdenes";
-            btnEstadoOrdenes.Size = new Size(386, 58);
+            btnEstadoOrdenes.Size = new Size(270, 35);
             btnEstadoOrdenes.TabIndex = 5;
             btnEstadoOrdenes.Text = "Estado de ordenes";
             btnEstadoOrdenes.UseVisualStyleBackColor = true;
@@ -105,16 +105,16 @@ namespace GrupoE_Protitipos
             // 
             // Menu
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(747, 563);
+            ClientSize = new Size(523, 338);
             Controls.Add(btnEstadoOrdenes);
-            Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(btnOrdenDeEntrega);
+            Controls.Add(btnOrdenDeSeleccion);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(button1);
-            Margin = new Padding(4, 3, 4, 3);
+            Controls.Add(btnConsultaDisponibilidad);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Menu";
             Text = "Menu Principal";
             Load += Menu_Load;
@@ -128,11 +128,11 @@ namespace GrupoE_Protitipos
 
         #endregion
 
-        private Button button1;
+        private Button btnConsultaDisponibilidad;
         private Button button2;
         private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button btnOrdenDeSeleccion;
+        private Button btnOrdenDeEntrega;
         private Button btnEstadoOrdenes;
     }
 

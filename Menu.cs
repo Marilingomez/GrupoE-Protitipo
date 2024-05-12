@@ -13,7 +13,7 @@ namespace GrupoE_Protitipos
             InitializeComponent();
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        public void btnConsultaDisponibilidad_Click(object sender, EventArgs e)
         {
             Form formConsultaDisponibilidad = new ConsultaDisponibilidad();
             formConsultaDisponibilidad.Show();
@@ -29,52 +29,16 @@ namespace GrupoE_Protitipos
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnOrdenDeSeleccion_Click(object sender, EventArgs e)
         {
             Form formOrdenSeleccion = new OrdenDeSeleccion();
             formOrdenSeleccion.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnOrdenDeEntrega_Click(object sender, EventArgs e)
         {
             Form formordendeentrega = new OrdenDeEntregacs();
             formordendeentrega.Show();
-        }
-
-        private List<Deposito> leerDepositos()
-        {
-            string ruta = @"../../../InfoPrecargada/Depositos.txt";
-            List<Deposito> depositos = new List<Deposito>();
-
-            try
-            {
-                // Abrir el archivo para lectura
-                using (StreamReader sr = new StreamReader(ruta))
-                {
-                    string linea;
-                    while ((linea = sr.ReadLine()) != null)
-                    {
-                        // Dividir la línea en partes usando el punto y coma como separador
-                        string[] partes = linea.Split(';');
-
-                        // Convertir los datos a los tipos adecuados
-                        if (partes.Length == 2 && int.TryParse(partes[0], out int id))
-                        {
-                            string ubicacion = partes[1];
-
-                            // Crear una nueva instancia de Deposito y agregarla a la lista
-                            Deposito deposito = new Deposito(id, ubicacion);
-                            depositos.Add(deposito);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al leer el archivo: " + ex.Message);
-            }
-
-            return depositos;
         }
 
         private void btnEstadoOrdenes_Click(object sender, EventArgs e)
