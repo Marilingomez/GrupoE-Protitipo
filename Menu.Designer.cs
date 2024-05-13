@@ -61,10 +61,10 @@ namespace GrupoE_Protitipos
             // 
             // OrdendeRecepcionBtn
             // 
-            OrdendeRecepcionBtn.Location = new Point(206, 139);
-            OrdendeRecepcionBtn.Margin = new Padding(4, 4, 4, 4);
+            OrdendeRecepcionBtn.Location = new Point(144, 84);
+            OrdendeRecepcionBtn.Margin = new Padding(4);
             OrdendeRecepcionBtn.Name = "OrdendeRecepcionBtn";
-            OrdendeRecepcionBtn.Size = new Size(385, 59);
+            OrdendeRecepcionBtn.Size = new Size(270, 35);
             OrdendeRecepcionBtn.TabIndex = 2;
             OrdendeRecepcionBtn.Text = "Orden recepción";
             OrdendeRecepcionBtn.UseVisualStyleBackColor = true;
