@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoE_Protitipos.Recepcion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,19 @@ namespace GrupoE_Protitipos
         private void VolverOrdenRecepBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void CrearOrdenRecepBtn_Click(object sender, EventArgs e)
+        {
+            Form CrearOrdenDeRecepcion = new CrearOrdenDeRecepcion();
+            CrearOrdenDeRecepcion.Show();
+        }
+
+
+        public void ConfirmarOrdenRecepBtn_Click(object sender, EventArgs e)
+        {
+            Form ConfirmarOrdenDeRecepcion = new ConfirmarOrdenDeRecepcion();
+            ConfirmarOrdenDeRecepcion.Show();
         }
     }
 }

@@ -42,6 +42,7 @@
             CrearOrdenRecepBtn.TabIndex = 3;
             CrearOrdenRecepBtn.Text = "Crear orden de recepción";
             CrearOrdenRecepBtn.UseVisualStyleBackColor = true;
+            CrearOrdenRecepBtn.Click += CrearOrdenRecepBtn_Click;
             // 
             // ConfirmarOrdenRecepBtn
             // 
@@ -52,6 +53,7 @@
             ConfirmarOrdenRecepBtn.TabIndex = 4;
             ConfirmarOrdenRecepBtn.Text = "Confirmar orden de recepción";
             ConfirmarOrdenRecepBtn.UseVisualStyleBackColor = true;
+            ConfirmarOrdenRecepBtn.Click += ConfirmarOrdenRecepBtn_Click;
             // 
             // VolverOrdenRecepBtn
             // 
