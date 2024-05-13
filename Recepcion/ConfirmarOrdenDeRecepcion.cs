@@ -21,5 +21,15 @@ namespace GrupoE_Protitipos.Recepcion
         {
 
         }
+
+        private void CrearOrdenBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VolverOrdenRecepBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

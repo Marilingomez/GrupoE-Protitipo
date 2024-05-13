@@ -31,5 +31,10 @@ namespace GrupoE_Protitipos.Recepcion
         {
 
         }
+
+        private void VolverOrdenRecepBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

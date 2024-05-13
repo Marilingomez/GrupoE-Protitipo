@@ -30,6 +30,7 @@
         {
             CrearOrdenRecepBtn = new Button();
             ConfirmarOrdenRecepBtn = new Button();
+            VolverOrdenRecepBtn = new Button();
             SuspendLayout();
             // 
             // CrearOrdenRecepBtn
@@ -52,11 +53,23 @@
             ConfirmarOrdenRecepBtn.Text = "Confirmar orden de recepción";
             ConfirmarOrdenRecepBtn.UseVisualStyleBackColor = true;
             // 
+            // VolverOrdenRecepBtn
+            // 
+            VolverOrdenRecepBtn.Location = new Point(607, 312);
+            VolverOrdenRecepBtn.Margin = new Padding(4);
+            VolverOrdenRecepBtn.Name = "VolverOrdenRecepBtn";
+            VolverOrdenRecepBtn.Size = new Size(180, 36);
+            VolverOrdenRecepBtn.TabIndex = 19;
+            VolverOrdenRecepBtn.Text = "Volver";
+            VolverOrdenRecepBtn.UseVisualStyleBackColor = true;
+            VolverOrdenRecepBtn.Click += VolverOrdenRecepBtn_Click;
+            // 
             // formordenderecpcion
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 361);
+            Controls.Add(VolverOrdenRecepBtn);
             Controls.Add(ConfirmarOrdenRecepBtn);
             Controls.Add(CrearOrdenRecepBtn);
             Name = "formordenderecpcion";
@@ -69,5 +82,6 @@
 
         public Button CrearOrdenRecepBtn;
         public Button ConfirmarOrdenRecepBtn;
+        private Button VolverOrdenRecepBtn;
     }
 }

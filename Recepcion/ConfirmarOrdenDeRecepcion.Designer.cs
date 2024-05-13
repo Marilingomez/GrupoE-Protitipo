@@ -37,6 +37,9 @@
             ProdcutoCol = new ColumnHeader();
             CantidadCol = new ColumnHeader();
             ClienteCol = new ColumnHeader();
+            RechazarOrdenRecepBtn = new Button();
+            VolverOrdenRecepBtn = new Button();
+            ConfirmarOrdenBtn = new Button();
             CrearOrdenderecepGbox.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -116,11 +119,46 @@
             ClienteCol.Text = "Cliente";
             ClienteCol.Width = 120;
             // 
+            // RechazarOrdenRecepBtn
+            // 
+            RechazarOrdenRecepBtn.Location = new Point(304, 409);
+            RechazarOrdenRecepBtn.Margin = new Padding(4);
+            RechazarOrdenRecepBtn.Name = "RechazarOrdenRecepBtn";
+            RechazarOrdenRecepBtn.Size = new Size(180, 36);
+            RechazarOrdenRecepBtn.TabIndex = 19;
+            RechazarOrdenRecepBtn.Text = "Rechazar";
+            RechazarOrdenRecepBtn.UseVisualStyleBackColor = true;
+            // 
+            // VolverOrdenRecepBtn
+            // 
+            VolverOrdenRecepBtn.Location = new Point(304, 470);
+            VolverOrdenRecepBtn.Margin = new Padding(4);
+            VolverOrdenRecepBtn.Name = "VolverOrdenRecepBtn";
+            VolverOrdenRecepBtn.Size = new Size(180, 36);
+            VolverOrdenRecepBtn.TabIndex = 18;
+            VolverOrdenRecepBtn.Text = "Volver";
+            VolverOrdenRecepBtn.UseVisualStyleBackColor = true;
+            VolverOrdenRecepBtn.Click += VolverOrdenRecepBtn_Click;
+            // 
+            // ConfirmarOrdenBtn
+            // 
+            ConfirmarOrdenBtn.Location = new Point(103, 409);
+            ConfirmarOrdenBtn.Margin = new Padding(4);
+            ConfirmarOrdenBtn.Name = "ConfirmarOrdenBtn";
+            ConfirmarOrdenBtn.Size = new Size(180, 36);
+            ConfirmarOrdenBtn.TabIndex = 17;
+            ConfirmarOrdenBtn.Text = "Confirmar";
+            ConfirmarOrdenBtn.UseVisualStyleBackColor = true;
+            ConfirmarOrdenBtn.Click += CrearOrdenBtn_Click;
+            // 
             // ConfirmarOrdenDeRecepcion
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 572);
+            ClientSize = new Size(549, 572);
+            Controls.Add(RechazarOrdenRecepBtn);
+            Controls.Add(VolverOrdenRecepBtn);
+            Controls.Add(ConfirmarOrdenBtn);
             Controls.Add(groupBox1);
             Controls.Add(CrearOrdenderecepGbox);
             Name = "ConfirmarOrdenDeRecepcion";
@@ -142,5 +180,8 @@
         private ColumnHeader ProdcutoCol;
         private ColumnHeader CantidadCol;
         private ColumnHeader ClienteCol;
+        private Button RechazarOrdenRecepBtn;
+        private Button VolverOrdenRecepBtn;
+        private Button ConfirmarOrdenBtn;
     }
 }

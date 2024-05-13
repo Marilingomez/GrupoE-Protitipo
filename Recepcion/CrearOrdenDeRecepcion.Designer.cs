@@ -208,6 +208,7 @@
             VolverOrdenRecepBtn.TabIndex = 13;
             VolverOrdenRecepBtn.Text = "Volver";
             VolverOrdenRecepBtn.UseVisualStyleBackColor = true;
+            VolverOrdenRecepBtn.Click += VolverOrdenRecepBtn_Click;
             // 
             // CrearOrdenBtn
             // 

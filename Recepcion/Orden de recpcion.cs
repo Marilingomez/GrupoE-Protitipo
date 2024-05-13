@@ -16,5 +16,10 @@ namespace GrupoE_Protitipos
         {
             InitializeComponent();
         }
+
+        private void VolverOrdenRecepBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
