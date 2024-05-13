@@ -36,5 +36,15 @@ namespace GrupoE_Protitipos.Recepcion
         {
             this.Close();
         }
+
+        private void CrearOrdenderecepGbox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

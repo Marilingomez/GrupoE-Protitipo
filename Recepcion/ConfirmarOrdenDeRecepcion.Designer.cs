@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ListViewItem listViewItem1 = new ListViewItem("10001");
             ProductoAingresarbtn = new Label();
             textBox6 = new TextBox();
             CrearOrdenderecepGbox = new GroupBox();
@@ -40,6 +41,7 @@
             RechazarOrdenRecepBtn = new Button();
             VolverOrdenRecepBtn = new Button();
             ConfirmarOrdenBtn = new Button();
+            DepositoCol = new ColumnHeader();
             CrearOrdenderecepGbox.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -47,31 +49,30 @@
             // ProductoAingresarbtn
             // 
             ProductoAingresarbtn.AutoSize = true;
-            ProductoAingresarbtn.Location = new Point(22, 34);
-            ProductoAingresarbtn.Margin = new Padding(4, 0, 4, 0);
+            ProductoAingresarbtn.Location = new Point(15, 20);
             ProductoAingresarbtn.Name = "ProductoAingresarbtn";
-            ProductoAingresarbtn.Size = new Size(157, 25);
+            ProductoAingresarbtn.Size = new Size(103, 15);
             ProductoAingresarbtn.TabIndex = 0;
             ProductoAingresarbtn.Text = "Numero de Orden";
             ProductoAingresarbtn.Click += ProductoAingresarbtn_Click;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(20, 61);
-            textBox6.Margin = new Padding(4);
+            textBox6.Location = new Point(14, 37);
+            textBox6.Margin = new Padding(3, 2, 3, 2);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(282, 31);
+            textBox6.Size = new Size(199, 23);
             textBox6.TabIndex = 1;
             // 
             // CrearOrdenderecepGbox
             // 
             CrearOrdenderecepGbox.Controls.Add(textBox6);
             CrearOrdenderecepGbox.Controls.Add(ProductoAingresarbtn);
-            CrearOrdenderecepGbox.Location = new Point(36, 46);
-            CrearOrdenderecepGbox.Margin = new Padding(4);
+            CrearOrdenderecepGbox.Location = new Point(25, 28);
+            CrearOrdenderecepGbox.Margin = new Padding(3, 2, 3, 2);
             CrearOrdenderecepGbox.Name = "CrearOrdenderecepGbox";
-            CrearOrdenderecepGbox.Padding = new Padding(4);
-            CrearOrdenderecepGbox.Size = new Size(367, 129);
+            CrearOrdenderecepGbox.Padding = new Padding(3, 2, 3, 2);
+            CrearOrdenderecepGbox.Size = new Size(257, 77);
             CrearOrdenderecepGbox.TabIndex = 15;
             CrearOrdenderecepGbox.TabStop = false;
             CrearOrdenderecepGbox.Text = "Orden de Recepcion";
@@ -79,25 +80,27 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(OrdenSeleccionadaList);
-            groupBox1.Location = new Point(36, 183);
-            groupBox1.Margin = new Padding(4);
+            groupBox1.Location = new Point(25, 110);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(448, 196);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(582, 118);
             groupBox1.TabIndex = 16;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ordenes Seleccionadas";
             // 
             // OrdenSeleccionadaList
             // 
-            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { OrdenCol, ProdcutoCol, CantidadCol, ClienteCol });
-            OrdenSeleccionadaList.Location = new Point(8, 26);
-            OrdenSeleccionadaList.Margin = new Padding(4);
+            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { OrdenCol, ProdcutoCol, CantidadCol, ClienteCol, DepositoCol });
+            OrdenSeleccionadaList.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            OrdenSeleccionadaList.Location = new Point(6, 16);
+            OrdenSeleccionadaList.Margin = new Padding(3, 2, 3, 2);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
-            OrdenSeleccionadaList.Size = new Size(410, 150);
+            OrdenSeleccionadaList.Size = new Size(576, 92);
             OrdenSeleccionadaList.TabIndex = 0;
             OrdenSeleccionadaList.UseCompatibleStateImageBehavior = false;
             OrdenSeleccionadaList.View = View.Details;
+            OrdenSeleccionadaList.SelectedIndexChanged += OrdenSeleccionadaList_SelectedIndexChanged;
             // 
             // OrdenCol
             // 
@@ -121,20 +124,20 @@
             // 
             // RechazarOrdenRecepBtn
             // 
-            RechazarOrdenRecepBtn.Location = new Point(304, 409);
-            RechazarOrdenRecepBtn.Margin = new Padding(4);
+            RechazarOrdenRecepBtn.Location = new Point(481, 241);
+            RechazarOrdenRecepBtn.Margin = new Padding(3, 2, 3, 2);
             RechazarOrdenRecepBtn.Name = "RechazarOrdenRecepBtn";
-            RechazarOrdenRecepBtn.Size = new Size(180, 36);
+            RechazarOrdenRecepBtn.Size = new Size(126, 22);
             RechazarOrdenRecepBtn.TabIndex = 19;
             RechazarOrdenRecepBtn.Text = "Rechazar";
             RechazarOrdenRecepBtn.UseVisualStyleBackColor = true;
             // 
             // VolverOrdenRecepBtn
             // 
-            VolverOrdenRecepBtn.Location = new Point(304, 470);
-            VolverOrdenRecepBtn.Margin = new Padding(4);
+            VolverOrdenRecepBtn.Location = new Point(481, 278);
+            VolverOrdenRecepBtn.Margin = new Padding(3, 2, 3, 2);
             VolverOrdenRecepBtn.Name = "VolverOrdenRecepBtn";
-            VolverOrdenRecepBtn.Size = new Size(180, 36);
+            VolverOrdenRecepBtn.Size = new Size(126, 22);
             VolverOrdenRecepBtn.TabIndex = 18;
             VolverOrdenRecepBtn.Text = "Volver";
             VolverOrdenRecepBtn.UseVisualStyleBackColor = true;
@@ -142,25 +145,30 @@
             // 
             // ConfirmarOrdenBtn
             // 
-            ConfirmarOrdenBtn.Location = new Point(103, 409);
-            ConfirmarOrdenBtn.Margin = new Padding(4);
+            ConfirmarOrdenBtn.Location = new Point(340, 241);
+            ConfirmarOrdenBtn.Margin = new Padding(3, 2, 3, 2);
             ConfirmarOrdenBtn.Name = "ConfirmarOrdenBtn";
-            ConfirmarOrdenBtn.Size = new Size(180, 36);
+            ConfirmarOrdenBtn.Size = new Size(126, 22);
             ConfirmarOrdenBtn.TabIndex = 17;
             ConfirmarOrdenBtn.Text = "Confirmar";
             ConfirmarOrdenBtn.UseVisualStyleBackColor = true;
             ConfirmarOrdenBtn.Click += CrearOrdenBtn_Click;
             // 
+            // DepositoCol
+            // 
+            DepositoCol.Text = "Depósito";
+            // 
             // ConfirmarOrdenDeRecepcion
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(549, 572);
+            ClientSize = new Size(667, 343);
             Controls.Add(RechazarOrdenRecepBtn);
             Controls.Add(VolverOrdenRecepBtn);
             Controls.Add(ConfirmarOrdenBtn);
             Controls.Add(groupBox1);
             Controls.Add(CrearOrdenderecepGbox);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ConfirmarOrdenDeRecepcion";
             Text = "Confirmar orden de recepcion";
             CrearOrdenderecepGbox.ResumeLayout(false);
@@ -183,5 +191,6 @@
         private Button RechazarOrdenRecepBtn;
         private Button VolverOrdenRecepBtn;
         private Button ConfirmarOrdenBtn;
+        private ColumnHeader DepositoCol;
     }
 }

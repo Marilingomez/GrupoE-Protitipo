@@ -31,5 +31,10 @@ namespace GrupoE_Protitipos.Recepcion
         {
             this.Close();
         }
+
+        private void OrdenSeleccionadaList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
