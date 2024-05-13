@@ -16,9 +16,10 @@ namespace GrupoE_Protitipos
             formConsultaDisponibilidad.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void OrdendeRecepcionBtn_Click(object sender, EventArgs e)
         {
-
+            Form formordenderecpcion = new formordenderecpcion();
+            formordenderecpcion.Show();
         }
 
         private void btnOrdenDePreparacion_Click(object sender, EventArgs e)

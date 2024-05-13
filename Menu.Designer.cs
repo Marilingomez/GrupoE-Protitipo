@@ -31,7 +31,7 @@ namespace GrupoE_Protitipos
         {
             btnConsultaDisponibilidad = new Button();
             btnOrdenDePreparacion = new Button();
-            button3 = new Button();
+            OrdendeRecepcionBtn = new Button();
             btnOrdenDeSeleccion = new Button();
             btnOrdenDeEntrega = new Button();
             btnEstadoOrdenes = new Button();
@@ -59,16 +59,16 @@ namespace GrupoE_Protitipos
             btnOrdenDePreparacion.UseVisualStyleBackColor = true;
             btnOrdenDePreparacion.Click += btnOrdenDePreparacion_Click;
             // 
-            // button3
+            // OrdendeRecepcionBtn
             // 
-            button3.Location = new Point(144, 83);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(270, 35);
-            button3.TabIndex = 2;
-            button3.Text = "Orden recepción";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            OrdendeRecepcionBtn.Location = new Point(206, 139);
+            OrdendeRecepcionBtn.Margin = new Padding(4, 4, 4, 4);
+            OrdendeRecepcionBtn.Name = "OrdendeRecepcionBtn";
+            OrdendeRecepcionBtn.Size = new Size(385, 59);
+            OrdendeRecepcionBtn.TabIndex = 2;
+            OrdendeRecepcionBtn.Text = "Orden recepción";
+            OrdendeRecepcionBtn.UseVisualStyleBackColor = true;
+            OrdendeRecepcionBtn.Click += OrdendeRecepcionBtn_Click;
             // 
             // btnOrdenDeSeleccion
             // 
@@ -111,7 +111,7 @@ namespace GrupoE_Protitipos
             Controls.Add(btnEstadoOrdenes);
             Controls.Add(btnOrdenDeEntrega);
             Controls.Add(btnOrdenDeSeleccion);
-            Controls.Add(button3);
+            Controls.Add(OrdendeRecepcionBtn);
             Controls.Add(btnOrdenDePreparacion);
             Controls.Add(btnConsultaDisponibilidad);
             Margin = new Padding(3, 2, 3, 2);
@@ -130,7 +130,7 @@ namespace GrupoE_Protitipos
 
         private Button btnConsultaDisponibilidad;
         private Button btnOrdenDePreparacion;
-        private Button button3;
+        private Button OrdendeRecepcionBtn;
         private Button btnOrdenDeSeleccion;
         private Button btnOrdenDeEntrega;
         private Button btnEstadoOrdenes;
