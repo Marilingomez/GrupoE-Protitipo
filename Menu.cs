@@ -14,8 +14,8 @@ namespace GrupoE_Protitipos
 
         private void OrdendeRecepcionBtn_Click(object sender, EventArgs e)
         {
-            //Form formordenderecpcion = new OrdenDeRecepcioncs();
-            //formordenderecpcion.Show();
+            Form formordenderecpcion = new formordenderecpcion();
+            formordenderecpcion.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
