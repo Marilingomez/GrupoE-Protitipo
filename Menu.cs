@@ -1,4 +1,5 @@
-using GrupoE_Protitipos.Formularios;
+using GrupoE_Protitipos.ConsultaDisponibilidad;
+using GrupoE_Protitipos.OrdenDeEntrega;
 
 namespace GrupoE_Protitipos
 {
@@ -12,37 +13,37 @@ namespace GrupoE_Protitipos
 
         public void btnConsultaDisponibilidad_Click(object sender, EventArgs e)
         {
-            Form formConsultaDisponibilidad = new ConsultaDisponibilidad();
+            Form formConsultaDisponibilidad = new FormConsultaDisponibilidad();
             formConsultaDisponibilidad.Show();
         }
 
         private void OrdendeRecepcionBtn_Click(object sender, EventArgs e)
         {
-            Form formordenderecpcion = new formordenderecpcion();
-            formordenderecpcion.Show();
+            Form formOrdenDeRecepcion = new FormOrdenDeRecepcion();
+            formOrdenDeRecepcion.Show();
         }
 
         private void btnOrdenDePreparacion_Click(object sender, EventArgs e)
         {
-            Form formOrdenDePreparacion = new OrdenesPreparacion();
+            Form formOrdenDePreparacion = new FormOrdenDePreparacion();
             formOrdenDePreparacion.Show();
         }
 
         private void btnOrdenDeSeleccion_Click(object sender, EventArgs e)
         {
-            Form formOrdenSeleccion = new OrdenDeSeleccion();
+            Form formOrdenSeleccion = new FormOrdenDeSeleccion();
             formOrdenSeleccion.Show();
         }
 
         private void btnOrdenDeEntrega_Click(object sender, EventArgs e)
         {
-            Form formordendeentrega = new OrdenDeEntregacs();
+            Form formordendeentrega = new FormOrdenDeEntrega();
             formordendeentrega.Show();
         }
 
         private void btnEstadoOrdenes_Click(object sender, EventArgs e)
         {
-            Form formulario = new ConsultarOrdenes();
+            Form formulario = new FormConsultarOrdenes();
             formulario.Show();
         }
     }
