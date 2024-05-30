@@ -83,24 +83,22 @@ namespace GrupoE_Protitipos
         }
         private void MostrarDetallesProductos(string orden)
         {
-            listProductos.Items.Clear();
-
             switch (orden)
             {
                 case "Orden01":
-                    listProductos.Items.Add("Ubicacion AAA, Remeras 15, Camperas 30.");
+                    listProductos.Items.Add("Orden01: Ubicacion AAA, Remeras 15, Camperas 30.");
                     break;
                 case "Orden02":
-                    listProductos.Items.Add("Ubicacion BBB, Pelotas 20, Mini arcos 40.");
+                    listProductos.Items.Add("Orden02: Ubicacion BBB, Pelotas 20, Mini arcos 40.");
                     break;
                 case "Orden03":
-                    listProductos.Items.Add("Ubicacion CCC, 10 Notebooks.");
+                    listProductos.Items.Add("Orden03: Ubicacion CCC, 10 Notebooks.");
                     break;
                 case "Orden04":
-                    listProductos.Items.Add("Ubicacion DDD, 50 termos, 100 bombillas.");
+                    listProductos.Items.Add("Orden04: Ubicacion DDD, 50 termos, 100 bombillas.");
                     break;
                 case "Orden05":
-                    listProductos.Items.Add("Ubicación EEE, Buzos 25, Zapatillas 10, Gorras 30.");
+                    listProductos.Items.Add("Orden05: Ubicación EEE, Buzos 25, Zapatillas 10, Gorras 30.");
                     break;
             }
         }        
