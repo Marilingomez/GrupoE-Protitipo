@@ -13,8 +13,14 @@ namespace GrupoE_Protitipos.ConsultaDisponibilidad
         private void ConsultaDisponibilidad_Load(object sender, EventArgs e)
         {
             modelo = new ConsultaDisponibilidadModelo();
+
+            // Carga desplegable deposito
             modelo.Depositos.ForEach(de => { desplegableDepositos.Items.Add(de.Ubicacion); });
             desplegableDepositos.SelectedIndex = 0;
+
+            // Carga desplegable cliente
+            modelo.Clientes.ForEach(cl => { desplegableClientes.Items.Add(cl.Name); });
+            desplegableClientes.SelectedIndex = 0;
         }
 
         private void ConsultaDisponibilidad_Closed(object sender, EventArgs e)
@@ -24,53 +30,41 @@ namespace GrupoE_Protitipos.ConsultaDisponibilidad
 
         private void ConsultarEspacio_Click(object sender, EventArgs e)
         {
-            string errores = validarDatos();
-            if (errores != "")
-            {
-                MessageBox.Show(errores, "Datos incorrectos.");
-                espacio.Focus();
-                return;
-            }
-
-            int espacioConsultado = int.Parse(espacio.Text);
-
+            // Obtiene deposito
             string depositoSeleccionado = desplegableDepositos.Text;
             Deposito deposito = modelo.Depositos.Find(it => it.Ubicacion == depositoSeleccionado);
 
-            string detalleEspacio = "Espacio consultado: " + espacioConsultado + "." + Environment.NewLine +
-                    "Espacio disponible en el almacen seleccionado: " + deposito.Capacidad + ".";
+            // Obtiene cliente
+            string clienteSeleccionado = desplegableClientes.Text;
+            Cliente cliente = modelo.Clientes.Find(it => it.Name == clienteSeleccionado);
 
-            if (espacioConsultado < deposito.Capacidad)
+            // Obtiene capacidad contratada por el cliente en el deposito
+            DetalleCapacidadContratada detalle = cliente.Lista.Find(de => de.IdDeposito == deposito.Id);
+
+            // Obtiene inventario del cliente en el deposito
+            List<Inventario> inventarios = 
+                modelo.Inventario.FindAll(inv => inv.IdCliente == cliente.Id && inv.IdDeposito == deposito.Id);
+
+            // Determino capacidad contratada, usada y disponible y la disponibilizo en el formulario
+            int capacidadContratada = detalle.CantidadContratada;
+            int capacidadUsada = capacidadContratada - inventarios.Count();
+            int capacidadDisponible = capacidadContratada - capacidadUsada;
+
+            espacioContratado.Text = capacidadContratada.ToString();
+            espacioUtilizado.Text = capacidadUsada.ToString();
+            espacioDisponible.Text = capacidadDisponible.ToString();
+
+            // Completo el detalle de inventario
+            foreach (var espacio in inventarios)
             {
-                MessageBox.Show(
-                    "Existe espacio suficiente en el deposito para almacenar la mercaderia" + Environment.NewLine +
-                    detalleEspacio, "Operación disponible"
-                    );
+                foreach (var producto in espacio.Productos)
+                {
+                    ListViewItem item = new ListViewItem(espacio.obtenerUbicacion());
+                    item.SubItems.Add(producto.NombreProducto);
+                    item.SubItems.Add(producto.Cantidad.ToString());
+                    detalleStock.Items.Add(item);
+                }
             }
-            else
-            {
-                MessageBox.Show(
-                    "No existe espacio suficiente en el deposito para almacenar la mercaderia" + Environment.NewLine +
-                    detalleEspacio, "Operación no disponible"
-                    );
-            }
-
-            espacio.Clear();
-        }
-
-        private string validarDatos()
-        {
-            string errores;
-
-            errores = Validadores.EstaVacio(espacio.Text, "Espacio a consultar");
-            if (errores != "")
-            {
-                return errores;
-            }
-
-            errores = Validadores.EsNumero(espacio.Text, "Espacio a consultar");
-
-            return errores;
         }
 
         private void button1_Click(object sender, EventArgs e)
