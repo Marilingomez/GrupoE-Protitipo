@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             OrdenSeleccionadaList = new ListView();
-            IDCol = new ColumnHeader();
-            CUITCol = new ColumnHeader();
+            IDOrdenCol = new ColumnHeader();
+            IDClienteCol = new ColumnHeader();
+            IDProductosCol = new ColumnHeader();
+            CantidadCol = new ColumnHeader();
+            PosicionDepositoCol = new ColumnHeader();
             SeleccionarBoton = new Button();
             OrdenEntrega = new ListView();
-            IDSeleccionadoCol = new ColumnHeader();
-            CUITSeleccionadoCol = new ColumnHeader();
+            IDOrdenSCol = new ColumnHeader();
+            IdClienteSCol = new ColumnHeader();
+            IDProductosSCol = new ColumnHeader();
+            CantidadSCol = new ColumnHeader();
+            PosicionSCol = new ColumnHeader();
             GenerarBoton = new Button();
             VolverBoton = new Button();
-            CancelarBoton = new Button();
+            EliminarSeleccionBoton = new Button();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
-            DireccionText = new TextBox();
-            label5 = new Label();
-            Notastext = new TextBox();
-            label6 = new Label();
-            ClienteText = new TextBox();
+            TransportistaCUITText = new TextBox();
             label4 = new Label();
             FechaText = new TextBox();
             label3 = new Label();
@@ -53,37 +55,52 @@
             label2 = new Label();
             IDtext = new TextBox();
             label1 = new Label();
-            EditarBoton = new Button();
-            EliminarBoton = new Button();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // OrdenSeleccionadaList
             // 
-            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDCol, CUITCol });
-            OrdenSeleccionadaList.Location = new Point(6, 21);
+            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, IDProductosCol, CantidadCol, PosicionDepositoCol });
+            OrdenSeleccionadaList.Location = new Point(6, 30);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
-            OrdenSeleccionadaList.Size = new Size(236, 121);
+            OrdenSeleccionadaList.Size = new Size(494, 121);
             OrdenSeleccionadaList.TabIndex = 0;
             OrdenSeleccionadaList.UseCompatibleStateImageBehavior = false;
             OrdenSeleccionadaList.View = View.Details;
+            OrdenSeleccionadaList.SelectedIndexChanged += OrdenSeleccionadaList_SelectedIndexChanged;
             // 
-            // IDCol
+            // IDOrdenCol
             // 
-            IDCol.Text = "ID";
-            IDCol.Width = 90;
+            IDOrdenCol.Text = "ID Orden ";
+            IDOrdenCol.Width = 100;
             // 
-            // CUITCol
+            // IDClienteCol
             // 
-            CUITCol.Text = "CUIT";
-            CUITCol.Width = 120;
+            IDClienteCol.Text = "ID Cliente";
+            IDClienteCol.Width = 100;
+            // 
+            // IDProductosCol
+            // 
+            IDProductosCol.Text = "ID Productos";
+            IDProductosCol.Width = 100;
+            // 
+            // CantidadCol
+            // 
+            CantidadCol.Text = "Cantidad";
+            CantidadCol.Width = 100;
+            // 
+            // PosicionDepositoCol
+            // 
+            PosicionDepositoCol.Text = "Posicion";
+            PosicionDepositoCol.Width = 100;
             // 
             // SeleccionarBoton
             // 
-            SeleccionarBoton.Location = new Point(26, 172);
+            SeleccionarBoton.Location = new Point(36, 383);
             SeleccionarBoton.Name = "SeleccionarBoton";
-            SeleccionarBoton.Size = new Size(236, 29);
+            SeleccionarBoton.Size = new Size(139, 29);
             SeleccionarBoton.TabIndex = 1;
             SeleccionarBoton.Text = "Seleccionar";
             SeleccionarBoton.UseVisualStyleBackColor = true;
@@ -91,28 +108,43 @@
             // 
             // OrdenEntrega
             // 
-            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDSeleccionadoCol, CUITSeleccionadoCol });
-            OrdenEntrega.Location = new Point(282, 30);
+            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, IDProductosSCol, CantidadSCol, PosicionSCol });
+            OrdenEntrega.Location = new Point(6, 26);
             OrdenEntrega.Name = "OrdenEntrega";
-            OrdenEntrega.Size = new Size(236, 121);
+            OrdenEntrega.Size = new Size(488, 121);
             OrdenEntrega.TabIndex = 2;
             OrdenEntrega.UseCompatibleStateImageBehavior = false;
             OrdenEntrega.View = View.Details;
             OrdenEntrega.SelectedIndexChanged += OrdenEntrega_SelectedIndexChanged;
             // 
-            // IDSeleccionadoCol
+            // IDOrdenSCol
             // 
-            IDSeleccionadoCol.Text = "ID";
-            IDSeleccionadoCol.Width = 90;
+            IDOrdenSCol.Text = "ID Orden";
+            IDOrdenSCol.Width = 100;
             // 
-            // CUITSeleccionadoCol
+            // IdClienteSCol
             // 
-            CUITSeleccionadoCol.Text = "CUIT";
-            CUITSeleccionadoCol.Width = 120;
+            IdClienteSCol.Text = "ID Cliente";
+            IdClienteSCol.Width = 100;
+            // 
+            // IDProductosSCol
+            // 
+            IDProductosSCol.Text = "ID Productos";
+            IDProductosSCol.Width = 100;
+            // 
+            // CantidadSCol
+            // 
+            CantidadSCol.Text = "Cantidad";
+            CantidadSCol.Width = 100;
+            // 
+            // PosicionSCol
+            // 
+            PosicionSCol.Text = "Posicion";
+            PosicionSCol.Width = 100;
             // 
             // GenerarBoton
             // 
-            GenerarBoton.Location = new Point(28, 441);
+            GenerarBoton.Location = new Point(226, 628);
             GenerarBoton.Name = "GenerarBoton";
             GenerarBoton.Size = new Size(144, 29);
             GenerarBoton.TabIndex = 3;
@@ -122,7 +154,7 @@
             // 
             // VolverBoton
             // 
-            VolverBoton.Location = new Point(364, 485);
+            VolverBoton.Location = new Point(386, 628);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(144, 29);
             VolverBoton.TabIndex = 4;
@@ -130,42 +162,40 @@
             VolverBoton.UseVisualStyleBackColor = true;
             VolverBoton.Click += VolverBoton_Click;
             // 
-            // CancelarBoton
+            // EliminarSeleccionBoton
             // 
-            CancelarBoton.Location = new Point(282, 172);
-            CancelarBoton.Name = "CancelarBoton";
-            CancelarBoton.Size = new Size(236, 29);
-            CancelarBoton.TabIndex = 5;
-            CancelarBoton.Text = "Cancelar";
-            CancelarBoton.UseVisualStyleBackColor = true;
-            CancelarBoton.Click += CancelarBoton_Click;
+            EliminarSeleccionBoton.Location = new Point(36, 593);
+            EliminarSeleccionBoton.Name = "EliminarSeleccionBoton";
+            EliminarSeleccionBoton.Size = new Size(139, 29);
+            EliminarSeleccionBoton.TabIndex = 5;
+            EliminarSeleccionBoton.Text = "Eliminar selección";
+            EliminarSeleccionBoton.UseVisualStyleBackColor = true;
+            EliminarSeleccionBoton.Click += CancelarBoton_Click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(OrdenSeleccionadaList);
-            groupBox1.Location = new Point(16, 9);
+            groupBox1.Location = new Point(30, 220);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(260, 157);
+            groupBox1.Size = new Size(500, 157);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Ordenes Seleccionadas";
+            groupBox1.Text = "Ordenes Preparadas";
             // 
             // groupBox2
             // 
-            groupBox2.Location = new Point(273, 9);
+            groupBox2.Controls.Add(OrdenEntrega);
+            groupBox2.Location = new Point(32, 430);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(250, 157);
+            groupBox2.Size = new Size(494, 157);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Seleccion";
+            groupBox2.Text = "Selección de Ordenes Preparadas";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(DireccionText);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(Notastext);
-            groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(ClienteText);
+            groupBox3.Controls.Add(TransportistaCUITText);
             groupBox3.Controls.Add(label4);
             groupBox3.Controls.Add(FechaText);
             groupBox3.Controls.Add(label3);
@@ -173,60 +203,29 @@
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(IDtext);
             groupBox3.Controls.Add(label1);
-            groupBox3.Location = new Point(16, 207);
+            groupBox3.Location = new Point(30, 34);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(502, 212);
+            groupBox3.Size = new Size(809, 165);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Orden de Entrega";
+            groupBox3.Enter += groupBox3_Enter;
             // 
-            // DireccionText
+            // TransportistaCUITText
             // 
-            DireccionText.Location = new Point(16, 170);
-            DireccionText.Name = "DireccionText";
-            DireccionText.Size = new Size(230, 27);
-            DireccionText.TabIndex = 11;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(16, 147);
-            label5.Name = "label5";
-            label5.Size = new Size(148, 20);
-            label5.TabIndex = 10;
-            label5.Text = "Direccion de entrega";
-            // 
-            // Notastext
-            // 
-            Notastext.Location = new Point(266, 170);
-            Notastext.Name = "Notastext";
-            Notastext.Size = new Size(230, 27);
-            Notastext.TabIndex = 9;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(266, 147);
-            label6.Name = "label6";
-            label6.Size = new Size(48, 20);
-            label6.TabIndex = 8;
-            label6.Text = "Notas";
-            // 
-            // ClienteText
-            // 
-            ClienteText.Location = new Point(266, 49);
-            ClienteText.Name = "ClienteText";
-            ClienteText.Size = new Size(226, 27);
-            ClienteText.TabIndex = 7;
+            TransportistaCUITText.Location = new Point(270, 49);
+            TransportistaCUITText.Name = "TransportistaCUITText";
+            TransportistaCUITText.Size = new Size(226, 27);
+            TransportistaCUITText.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(266, 26);
+            label4.Location = new Point(270, 23);
             label4.Name = "label4";
-            label4.Size = new Size(40, 20);
+            label4.Size = new Size(129, 20);
             label4.TabIndex = 6;
-            label4.Text = "CUIT";
+            label4.Text = "Transportista CUIT";
             // 
             // FechaText
             // 
@@ -246,7 +245,7 @@
             // 
             // DepositoText
             // 
-            DepositoText.Location = new Point(266, 113);
+            DepositoText.Location = new Point(270, 113);
             DepositoText.Name = "DepositoText";
             DepositoText.Size = new Size(230, 27);
             DepositoText.TabIndex = 3;
@@ -254,7 +253,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(266, 90);
+            label2.Location = new Point(270, 90);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
             label2.TabIndex = 2;
@@ -266,6 +265,7 @@
             IDtext.Name = "IDtext";
             IDtext.Size = new Size(226, 27);
             IDtext.TabIndex = 1;
+            IDtext.TextChanged += IDtext_TextChanged;
             // 
             // label1
             // 
@@ -276,45 +276,23 @@
             label1.TabIndex = 0;
             label1.Text = "ID";
             // 
-            // EditarBoton
-            // 
-            EditarBoton.Location = new Point(189, 441);
-            EditarBoton.Name = "EditarBoton";
-            EditarBoton.Size = new Size(144, 29);
-            EditarBoton.TabIndex = 10;
-            EditarBoton.Text = "Editar ";
-            EditarBoton.UseVisualStyleBackColor = true;
-            EditarBoton.Click += EditarBoton_Click;
-            // 
-            // EliminarBoton
-            // 
-            EliminarBoton.Location = new Point(364, 441);
-            EliminarBoton.Name = "EliminarBoton";
-            EliminarBoton.Size = new Size(144, 29);
-            EliminarBoton.TabIndex = 11;
-            EliminarBoton.Text = "Eliminar ";
-            EliminarBoton.UseVisualStyleBackColor = true;
-            EliminarBoton.Click += EliminarBoton_Click;
-            // 
-            // OrdenDeEntregacs
+            // FormOrdenDeEntrega
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(550, 531);
-            Controls.Add(EliminarBoton);
-            Controls.Add(EditarBoton);
+            ClientSize = new Size(585, 687);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
-            Controls.Add(CancelarBoton);
+            Controls.Add(EliminarSeleccionBoton);
             Controls.Add(VolverBoton);
             Controls.Add(GenerarBoton);
-            Controls.Add(OrdenEntrega);
             Controls.Add(SeleccionarBoton);
             Controls.Add(groupBox2);
-            Name = "OrdenDeEntregacs";
-            Text = "OrdenDeEntregacs";
+            Name = "FormOrdenDeEntrega";
+            Text = " ";
             Load += OrdenDeEntregacs_Load;
             groupBox1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ResumeLayout(false);
@@ -327,27 +305,27 @@
         private ListView OrdenEntrega;
         private Button GenerarBoton;
         private Button VolverBoton;
-        private Button CancelarBoton;
+        private Button EliminarSeleccionBoton;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
-        private Button EditarBoton;
-        private Button EliminarBoton;
         private Label label1;
         private TextBox IDtext;
         private TextBox DepositoText;
         private Label label2;
         private TextBox FechaText;
-        private ColumnHeader IDCol;
-        private ColumnHeader CUITCol;
-        private TextBox ClienteText;
+        private ColumnHeader IDOrdenCol;
+        private ColumnHeader IDClienteCol;
+        private TextBox TransportistaCUITText;
         private Label label4;
-        private TextBox DireccionText;
-        private Label label5;
-        private TextBox Notastext;
-        private Label label6;
         private Label label3;
-        private ColumnHeader IDSeleccionadoCol;
-        private ColumnHeader CUITSeleccionadoCol;
+        private ColumnHeader IDOrdenSCol;
+        private ColumnHeader IdClienteSCol;
+        private ColumnHeader IDProductosCol;
+        private ColumnHeader CantidadCol;
+        private ColumnHeader PosicionDepositoCol;
+        private ColumnHeader IDProductosSCol;
+        private ColumnHeader CantidadSCol;
+        private ColumnHeader PosicionSCol;
     }
 }

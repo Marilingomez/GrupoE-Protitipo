@@ -1,26 +1,38 @@
-﻿using GrupoE_Protitipos.OrdenDeEntrega.EditarOrdenDeEntrega;
+﻿using GrupoE_Protitipos.ConsultaDisponibilidad;
+using GrupoE_Protitipos.ConsultarOrdenes;
+using GrupoE_Protitipos.OrdenDeEntrega.EditarOrdenDeEntrega;
 
 namespace GrupoE_Protitipos.OrdenDeEntrega
 {
     public partial class FormOrdenDeEntrega : Form
     {
-        OrdenEntregaModelo modelo = new();
+        OrdenPreparacionModelo modelo = new();
+        OrdenEntregaModelo modeloentrega = new();
 
-        private List<OrdenSeleccionada> ordenes = new List<OrdenSeleccionada>();
+        private List<OrdenPreparacion> ordenes = new List<OrdenPreparacion>();
+        private List<OrdenDeEntrega> ordenesdeentrega = new List<OrdenDeEntrega>();
         List<ListViewItem> itemsSeleccionados = new List<ListViewItem>();
         public FormOrdenDeEntrega()
         {
             InitializeComponent();
+            
         }
 
         private void OrdenDeEntregacs_Load(object sender, EventArgs e)
         {
-            foreach (var ordenseleccionada in modelo.OrdenesSeleccionadas)
+            
+            
+            
+            
+            foreach (var ordenpreparacion in modelo.OrdenesPreparacion)
             {
                 var fila = new ListViewItem();
-               
-                fila.Text = ordenseleccionada.ID;
-                fila.SubItems.Add(ordenseleccionada.Cliente);
+
+                fila.Text = ordenpreparacion.IdOrden;
+                fila.SubItems.Add(ordenpreparacion.IdCliente);
+                fila.SubItems.Add(ordenpreparacion.IdProducto);
+                fila.SubItems.Add(ordenpreparacion.Cantidad);
+                fila.SubItems.Add(ordenpreparacion.Posicion);
                 OrdenSeleccionadaList.Items.Add(fila);
             }
         }
@@ -34,9 +46,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 OrdenSeleccionadaList.Items.Add((ListViewItem)item.Clone());
             }
 
-            IDtext.Clear();
-            ClienteText.Clear();
-            
+           
         }
 
         private void VolverBoton_Click(object sender, EventArgs e)
@@ -44,7 +54,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             this.Close();
         }
 
-        
+
 
         private void SeleccionarBoton_Click(object sender, EventArgs e)
         {
@@ -72,7 +82,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             }
         }
 
-     
+
 
         private void OrdenEntrega_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,8 +94,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 string id = selectedItem.SubItems[0].Text;
                 string cliente = selectedItem.SubItems[1].Text;
 
-                IDtext.Text = id;
-                ClienteText.Text = cliente;
+                
 
             }
         }
@@ -101,7 +110,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
         {
             if (OrdenEntrega.Items.Count > 0)
             {
-                
+
                 if (string.IsNullOrWhiteSpace(FechaText.Text))
                 {
                     MessageBox.Show("Por favor ingrese la fecha.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -116,46 +125,33 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(DireccionText.Text))
-                {
-                    MessageBox.Show("Por favor ingrese la dirección de entrega.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
-                
-                if (Notastext.Text.Length > 100)
-                {
-                    MessageBox.Show("Las notas no pueden exceder los 100 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 string id = IDtext.Text;
-                string cliente = ClienteText.Text;
+                string transportistacuit = TransportistaCUITText.Text;
                 string fecha = FechaText.Text;
                 string deposito = DepositoText.Text;
-                string direccion = DireccionText.Text;
-                string notas = Notastext.Text;
 
-                OrdenSeleccionada nuevaOrden = new OrdenSeleccionada(id, cliente)
+                OrdenDeEntrega nuevaOrden = new OrdenDeEntrega(id, transportistacuit, fecha, deposito)
                 {
+                    ID = id,
+                    TransportistaCUIT = transportistacuit,
                     Fecha = fecha,
                     Deposito = deposito,
-                    Direccion = direccion,
-                    Notas = notas
+
                 };
 
-                
-                ordenes.Add(nuevaOrden);
+
+                modeloentrega.GuardarOrdenEntrega(nuevaOrden);
 
                 MessageBox.Show("La orden se ha generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 IDtext.Clear();
-                ClienteText.Clear();
+                TransportistaCUITText.Clear();
                 FechaText.Clear();
                 DepositoText.Clear();
-                DireccionText.Clear();
-                Notastext.Clear();
+
 
                 OrdenEntrega.Items.Clear();
             }
@@ -167,14 +163,35 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
 
         private void EditarBoton_Click(object sender, EventArgs e)
         {
-            FormEditarOrdenEntrega formularioEditar = new FormEditarOrdenEntrega();
+            //FormEditarOrdenEntrega formularioEditar = new FormEditarOrdenEntrega();
 
-            
-            formularioEditar.MostrarOrdenes(ordenes);
-            formularioEditar.Show();
+
+            //formularioEditar.MostrarOrdenes(ordenesdeentrega);
+            //formularioEditar.Show();
 
 
         }
-    }
-    }
+
+        private void OrdenSeleccionadaList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IDtext_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+        
+    } 
+}
 

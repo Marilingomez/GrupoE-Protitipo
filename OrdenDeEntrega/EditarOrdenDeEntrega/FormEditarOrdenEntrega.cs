@@ -8,19 +8,19 @@
             InitializeComponent();
         }
 
-        public void MostrarOrdenes(List<OrdenSeleccionada> ordenes)
-        {
-            foreach (var orden in ordenes)
-            {
-                ListViewItem item = new ListViewItem(orden.ID);
-                item.SubItems.Add(orden.Cliente);
-                item.SubItems.Add(orden.Deposito);
-                item.SubItems.Add(orden.Fecha);
-                item.SubItems.Add(orden.Direccion);
-                item.SubItems.Add(orden.Notas);
-                EditarOrden.Items.Add(item);
-            }
-        }
+        //public void MostrarOrdenes(List<OrdenSeleccionada> ordenes)
+        //{
+          //  foreach (var orden in ordenes)
+            //{
+              //  ListViewItem item = new ListViewItem(orden.ID);
+                //item.SubItems.Add(orden.Cliente);
+                //item.SubItems.Add(orden.Deposito);
+                //item.SubItems.Add(orden.Fecha);
+                //item.SubItems.Add(orden.Direccion);
+                //item.SubItems.Add(orden.Notas);
+                //EditarOrden.Items.Add(item);
+            //}
+        //}
 
 
 
