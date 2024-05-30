@@ -56,9 +56,9 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(14, 12);
             label1.Name = "label1";
-            label1.Size = new Size(54, 15);
+            label1.Size = new Size(70, 20);
             label1.TabIndex = 1;
             label1.Text = "Depósito";
             // 
@@ -66,16 +66,18 @@
             // 
             desplegableDepositos.DropDownStyle = ComboBoxStyle.DropDownList;
             desplegableDepositos.FormattingEnabled = true;
-            desplegableDepositos.Location = new Point(12, 27);
+            desplegableDepositos.Location = new Point(14, 36);
+            desplegableDepositos.Margin = new Padding(3, 4, 3, 4);
             desplegableDepositos.Name = "desplegableDepositos";
-            desplegableDepositos.Size = new Size(121, 23);
+            desplegableDepositos.Size = new Size(138, 28);
             desplegableDepositos.TabIndex = 2;
+            desplegableDepositos.SelectedIndexChanged += desplegableDepositos_SelectedIndexChanged;
             // 
             // ConsultarEspacio
             // 
             ConsultarEspacio.Location = new Point(409, 27);
             ConsultarEspacio.Name = "ConsultarEspacio";
-            ConsultarEspacio.Size = new Size(121, 23);
+            ConsultarEspacio.Size = new Size(138, 31);
             ConsultarEspacio.TabIndex = 5;
             ConsultarEspacio.Text = "Consultar espacio";
             ConsultarEspacio.UseVisualStyleBackColor = true;
@@ -85,7 +87,7 @@
             // 
             button1.Location = new Point(430, 363);
             button1.Name = "button1";
-            button1.Size = new Size(106, 23);
+            button1.Size = new Size(121, 31);
             button1.TabIndex = 6;
             button1.Text = "Volver al Menu";
             button1.UseVisualStyleBackColor = true;
@@ -234,7 +236,7 @@
             // 
             // FormConsultaDisponibilidad
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(548, 398);
             Controls.Add(groupBox2);

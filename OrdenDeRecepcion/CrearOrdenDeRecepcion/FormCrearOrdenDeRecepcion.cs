@@ -48,5 +48,10 @@ namespace GrupoE_Protitipos.Recepcion
         {
 
         }
+
+        private void FormCrearOrdenDeRecepcion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

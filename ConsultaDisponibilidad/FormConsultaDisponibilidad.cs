@@ -71,5 +71,10 @@ namespace GrupoE_Protitipos.ConsultaDisponibilidad
         {
             this.Close();
         }
+
+        private void desplegableDepositos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
