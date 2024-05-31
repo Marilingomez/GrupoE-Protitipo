@@ -8,7 +8,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
 {
     public class OrdenDeEntrega
     {
-
+        //lista
         public List<OrdenPreparacion> ordenes = new List<OrdenPreparacion>();
 
         public string ID { get; set; }
