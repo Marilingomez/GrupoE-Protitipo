@@ -15,15 +15,11 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
         public FormOrdenDeEntrega()
         {
             InitializeComponent();
-            
+
         }
 
         private void OrdenDeEntregacs_Load(object sender, EventArgs e)
         {
-            
-            
-            
-            
             foreach (var ordenpreparacion in modelo.OrdenesPreparacion)
             {
                 var fila = new ListViewItem();
@@ -35,6 +31,9 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 fila.SubItems.Add(ordenpreparacion.Posicion);
                 OrdenSeleccionadaList.Items.Add(fila);
             }
+
+            int nuevoIdEntrega = nuevoIdOrdenDeEntrega();
+            IDtext.Text = nuevoIdEntrega.ToString();
         }
 
         private void CancelarBoton_Click(object sender, EventArgs e)
@@ -46,7 +45,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 OrdenSeleccionadaList.Items.Add((ListViewItem)item.Clone());
             }
 
-           
+
         }
 
         private void VolverBoton_Click(object sender, EventArgs e)
@@ -94,7 +93,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 string id = selectedItem.SubItems[0].Text;
                 string cliente = selectedItem.SubItems[1].Text;
 
-                
+
 
             }
         }
@@ -147,7 +146,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 MessageBox.Show("La orden se ha generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                IDtext.Clear();
+                IDtext.Text = nuevoIdOrdenDeEntrega().ToString();
                 TransportistaCUITText.Clear();
                 FechaText.Clear();
                 DepositoText.Clear();
@@ -189,9 +188,16 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
 
         private void IDtext_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
-        
-    } 
+
+        private int nuevoIdOrdenDeEntrega()
+        {
+            string ultimoIdEntregaString = modeloentrega.OrdenesDeEntrega.Last().ID;
+            int ultimoIdEntrega = int.Parse(ultimoIdEntregaString);
+            int nuevoIdEntrega = ultimoIdEntrega + 1;
+            return nuevoIdEntrega;
+        }
+    }
 }
 

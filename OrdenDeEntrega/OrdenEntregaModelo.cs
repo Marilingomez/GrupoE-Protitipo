@@ -8,11 +8,13 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
 {
     public class OrdenEntregaModelo
     {
-        public List<OrdenDeEntrega> OrdenesPreparacion = new List<OrdenDeEntrega>();
+        public List<OrdenDeEntrega> OrdenesDeEntrega = new List<OrdenDeEntrega>() { 
+            new OrdenDeEntrega("1", "2333333", "2025/07/23", "1")
+        };
 
         public void GuardarOrdenEntrega(OrdenDeEntrega orden) 
         {
-            OrdenesPreparacion.Add(orden);
+            OrdenesDeEntrega.Add(orden);
         }
     }
     

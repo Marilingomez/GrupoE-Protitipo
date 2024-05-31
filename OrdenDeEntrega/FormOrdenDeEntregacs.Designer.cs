@@ -63,9 +63,11 @@
             // OrdenSeleccionadaList
             // 
             OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, IDProductosCol, CantidadCol, PosicionDepositoCol });
-            OrdenSeleccionadaList.Location = new Point(6, 30);
+            OrdenSeleccionadaList.FullRowSelect = true;
+            OrdenSeleccionadaList.Location = new Point(5, 22);
+            OrdenSeleccionadaList.Margin = new Padding(3, 2, 3, 2);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
-            OrdenSeleccionadaList.Size = new Size(494, 121);
+            OrdenSeleccionadaList.Size = new Size(433, 92);
             OrdenSeleccionadaList.TabIndex = 0;
             OrdenSeleccionadaList.UseCompatibleStateImageBehavior = false;
             OrdenSeleccionadaList.View = View.Details;
@@ -98,9 +100,10 @@
             // 
             // SeleccionarBoton
             // 
-            SeleccionarBoton.Location = new Point(36, 383);
+            SeleccionarBoton.Location = new Point(32, 287);
+            SeleccionarBoton.Margin = new Padding(3, 2, 3, 2);
             SeleccionarBoton.Name = "SeleccionarBoton";
-            SeleccionarBoton.Size = new Size(139, 29);
+            SeleccionarBoton.Size = new Size(122, 22);
             SeleccionarBoton.TabIndex = 1;
             SeleccionarBoton.Text = "Seleccionar";
             SeleccionarBoton.UseVisualStyleBackColor = true;
@@ -109,9 +112,10 @@
             // OrdenEntrega
             // 
             OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, IDProductosSCol, CantidadSCol, PosicionSCol });
-            OrdenEntrega.Location = new Point(6, 26);
+            OrdenEntrega.Location = new Point(5, 20);
+            OrdenEntrega.Margin = new Padding(3, 2, 3, 2);
             OrdenEntrega.Name = "OrdenEntrega";
-            OrdenEntrega.Size = new Size(488, 121);
+            OrdenEntrega.Size = new Size(428, 92);
             OrdenEntrega.TabIndex = 2;
             OrdenEntrega.UseCompatibleStateImageBehavior = false;
             OrdenEntrega.View = View.Details;
@@ -144,9 +148,10 @@
             // 
             // GenerarBoton
             // 
-            GenerarBoton.Location = new Point(226, 628);
+            GenerarBoton.Location = new Point(198, 471);
+            GenerarBoton.Margin = new Padding(3, 2, 3, 2);
             GenerarBoton.Name = "GenerarBoton";
-            GenerarBoton.Size = new Size(144, 29);
+            GenerarBoton.Size = new Size(126, 22);
             GenerarBoton.TabIndex = 3;
             GenerarBoton.Text = "Generar ";
             GenerarBoton.UseVisualStyleBackColor = true;
@@ -154,9 +159,10 @@
             // 
             // VolverBoton
             // 
-            VolverBoton.Location = new Point(386, 628);
+            VolverBoton.Location = new Point(338, 471);
+            VolverBoton.Margin = new Padding(3, 2, 3, 2);
             VolverBoton.Name = "VolverBoton";
-            VolverBoton.Size = new Size(144, 29);
+            VolverBoton.Size = new Size(126, 22);
             VolverBoton.TabIndex = 4;
             VolverBoton.Text = "Volver";
             VolverBoton.UseVisualStyleBackColor = true;
@@ -164,9 +170,10 @@
             // 
             // EliminarSeleccionBoton
             // 
-            EliminarSeleccionBoton.Location = new Point(36, 593);
+            EliminarSeleccionBoton.Location = new Point(32, 445);
+            EliminarSeleccionBoton.Margin = new Padding(3, 2, 3, 2);
             EliminarSeleccionBoton.Name = "EliminarSeleccionBoton";
-            EliminarSeleccionBoton.Size = new Size(139, 29);
+            EliminarSeleccionBoton.Size = new Size(122, 22);
             EliminarSeleccionBoton.TabIndex = 5;
             EliminarSeleccionBoton.Text = "Eliminar selección";
             EliminarSeleccionBoton.UseVisualStyleBackColor = true;
@@ -175,9 +182,11 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(OrdenSeleccionadaList);
-            groupBox1.Location = new Point(30, 220);
+            groupBox1.Location = new Point(26, 165);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(500, 157);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(438, 118);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ordenes Preparadas";
@@ -185,9 +194,11 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(OrdenEntrega);
-            groupBox2.Location = new Point(32, 430);
+            groupBox2.Location = new Point(28, 322);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(494, 157);
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(432, 118);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Selección de Ordenes Preparadas";
@@ -203,9 +214,11 @@
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(IDtext);
             groupBox3.Controls.Add(label1);
-            groupBox3.Location = new Point(30, 34);
+            groupBox3.Location = new Point(26, 26);
+            groupBox3.Margin = new Padding(3, 2, 3, 2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(809, 165);
+            groupBox3.Padding = new Padding(3, 2, 3, 2);
+            groupBox3.Size = new Size(708, 124);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Orden de Entrega";
@@ -213,74 +226,79 @@
             // 
             // TransportistaCUITText
             // 
-            TransportistaCUITText.Location = new Point(270, 49);
+            TransportistaCUITText.Location = new Point(236, 37);
+            TransportistaCUITText.Margin = new Padding(3, 2, 3, 2);
             TransportistaCUITText.Name = "TransportistaCUITText";
-            TransportistaCUITText.Size = new Size(226, 27);
+            TransportistaCUITText.Size = new Size(198, 23);
             TransportistaCUITText.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(270, 23);
+            label4.Location = new Point(236, 17);
             label4.Name = "label4";
-            label4.Size = new Size(129, 20);
+            label4.Size = new Size(102, 15);
             label4.TabIndex = 6;
             label4.Text = "Transportista CUIT";
             // 
             // FechaText
             // 
-            FechaText.Location = new Point(16, 113);
+            FechaText.Location = new Point(14, 85);
+            FechaText.Margin = new Padding(3, 2, 3, 2);
             FechaText.Name = "FechaText";
-            FechaText.Size = new Size(230, 27);
+            FechaText.Size = new Size(202, 23);
             FechaText.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(16, 90);
+            label3.Location = new Point(14, 68);
             label3.Name = "label3";
-            label3.Size = new Size(47, 20);
+            label3.Size = new Size(38, 15);
             label3.TabIndex = 4;
             label3.Text = "Fecha";
             // 
             // DepositoText
             // 
-            DepositoText.Location = new Point(270, 113);
+            DepositoText.Location = new Point(236, 85);
+            DepositoText.Margin = new Padding(3, 2, 3, 2);
             DepositoText.Name = "DepositoText";
-            DepositoText.Size = new Size(230, 27);
+            DepositoText.Size = new Size(202, 23);
             DepositoText.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(270, 90);
+            label2.Location = new Point(236, 68);
             label2.Name = "label2";
-            label2.Size = new Size(70, 20);
+            label2.Size = new Size(54, 15);
             label2.TabIndex = 2;
             label2.Text = "Deposito";
             // 
             // IDtext
             // 
-            IDtext.Location = new Point(16, 49);
+            IDtext.Location = new Point(14, 37);
+            IDtext.Margin = new Padding(3, 2, 3, 2);
             IDtext.Name = "IDtext";
-            IDtext.Size = new Size(226, 27);
+            IDtext.ReadOnly = true;
+            IDtext.Size = new Size(198, 23);
             IDtext.TabIndex = 1;
             IDtext.TextChanged += IDtext_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(16, 26);
+            label1.Location = new Point(14, 20);
             label1.Name = "label1";
-            label1.Size = new Size(24, 20);
+            label1.Size = new Size(18, 15);
             label1.TabIndex = 0;
             label1.Text = "ID";
             // 
             // FormOrdenDeEntrega
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(585, 687);
+            ClientSize = new Size(512, 515);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(EliminarSeleccionBoton);
@@ -288,6 +306,7 @@
             Controls.Add(GenerarBoton);
             Controls.Add(SeleccionarBoton);
             Controls.Add(groupBox2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormOrdenDeEntrega";
             Text = " ";
             Load += OrdenDeEntregacs_Load;
