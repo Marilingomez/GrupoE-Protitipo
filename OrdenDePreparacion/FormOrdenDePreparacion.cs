@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,108 +23,219 @@ namespace GrupoE_Protitipos
 
         private void Confirmar_Click(object sender, EventArgs e)
         {
-            // Verificar si se ha seleccionado una fila
-            if (OrdenesList.SelectedItems.Count > 0)
-            {
-                // Obtener la fila seleccionada
-                ListViewItem selectedRow = OrdenesList.SelectedItems[0];
-
-                // Obtener el índice de la fila seleccionada
-                int selectedIndex = OrdenesList.SelectedIndices[0];
-
-                // Actualizar el estado de la orden en la lista de modelo
-                modelo.Ordenes[selectedIndex].Estado = "PENDIENTE";
-
-                // Actualizar la vista del ListView
-                selectedRow.SubItems[2].Text = "PENDIENTE"; // Suponiendo que "Estado" es la tercera columna (índice 2) en tu ListView
-
-                // Opcionalmente, puedes mostrar un mensaje para indicar que se ha confirmado la orden
-                MessageBox.Show("La orden ha sido confirmada como PENDIENTE.", "Confirmación");
-            }
-            else
-            {
-                // Si no se ha seleccionado ninguna fila, mostrar un mensaje de error
-                MessageBox.Show("Por favor, seleccione una orden antes de confirmar.", "Error");
-            }
+            //eliminar
         }
 
         private void Salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //eliminar
         }
 
         private void Ordenes_Load(object sender, EventArgs e)
         {
-            // Llenar ListView1 con las órdenes
-            foreach (var orden in modelo.Ordenes)
-            {
-                var fila = new ListViewItem();
-                fila.Text = orden.ID.ToString();
-                fila.SubItems.Add(orden.Cliente.ToString());
-                fila.SubItems.Add(orden.Estado);
-                OrdenesList.Items.Add(fila);
-            }
-
+            // Obtener la fecha actual y asignarla al TextBox FechaBox
+            FechaBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            // Inicializar el ID de la orden utilizando el método del modelo
+            IdOrdenBox.Text = modelo.ObtenerSiguienteIdOrden().ToString();
         }
 
         private void OrdenesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Limpiar ListView2 antes de agregar nuevos detalles
-            DetallesList.Items.Clear();
-
-            // Verificar si se ha seleccionado una fila en ListView1
-            if (OrdenesList.SelectedItems.Count > 0)
-            {
-                // Obtener el ID de la orden seleccionada
-                int orderId = Convert.ToInt32(OrdenesList.SelectedItems[0].Text);
-
-                // Buscar la orden correspondiente en el modelo
-                OrdenPreparacion ordenSeleccionada = modelo.Ordenes.FirstOrDefault(o => o.ID == orderId);
-
-                // Agregar detalles de la orden seleccionada a ListView2
-                foreach (var detalle in ordenSeleccionada.Detalles)
-                {
-                    var fila = new ListViewItem();
-                    fila.Text = detalle.Producto;
-                    fila.SubItems.Add(detalle.Cantidad.ToString());
-                    DetallesList.Items.Add(fila);
-                }
-
-
-            }
+            //lista
         }
 
-        private void Cancelar_Click(object sender, EventArgs e)
+       
+
+        private void AgregarBoton_Click(object sender, EventArgs e)
         {
-            // Verificar si se ha seleccionado una fila en OrdenesList
-            if (OrdenesList.SelectedItems.Count > 0)
+            var errores = new List<string>();
+            if (!int.TryParse(this.FilaBox.Text, out var fila))
+            {
+                errores.Add("La fila debe ser numérica");
+                MessageBox.Show("La fila debe ser numérica");
+                return;
+            }
+
+            if (!int.TryParse(this.ColumnaBox.Text, out var columna))
+            {
+                errores.Add("La columna debe ser numérica");
+                MessageBox.Show("La columna debe ser numérica");
+                return;
+            }
+
+            if (!int.TryParse(this.CantidadBox.Text, out var cantidad))
+            {
+                errores.Add("La cantidad debe ser numérica");
+                MessageBox.Show("La cantidad debe ser numérica");
+                return;
+            }
+
+            if (errores.Count > 0)
+            {
+                MessageBox.Show(string.Join("\n", errores));
+                return;
+            }
+
+
+            // Crear una nueva instancia de OrdenDePreparacion
+            var ordendepreparacion = new Ordendepreparacion
+            {
+                IdCliente = IdClienteBox.Text,
+                FechaAlta = DateTime.Today,
+                idproducto = IdProductoBox.Text,
+                cantidad = cantidad,
+                deposito = DepositoBox.Text,
+                columna = columna,
+                fila = fila
+            };
+
+            string error = modelo.Validar(ordendepreparacion);
+            if (error == null)
+            {
+                MessageBox.Show("Todo Ok!");
+            }
+            else
+            {
+                MessageBox.Show(error);
+            }
+
+            // Crear un nuevo objeto para representar los datos ingresados
+            var nuevoDetalle = new ListViewItem(new string[]
+            {
+                this.IdProductoBox.Text,
+                cantidad.ToString(),
+                this.DepositoBox.Text,
+                 columna.ToString(),
+                fila.ToString(),
+                ordendepreparacion.FechaAlta.ToString("dd/MM/yyyy")
+            });
+
+            // Agregar el nuevo detalle a la lista visual
+            DetallesList.Items.Add(nuevoDetalle);
+
+            MessageBox.Show("Datos agregados correctamente a la lista.");
+
+            // Limpiar los campos del formulario después de agregar el detalle
+            LimpiarCamposAgregar();
+
+        }
+
+        private void SalirBoton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void EliminarBoton_Click(object sender, EventArgs e)
+        {
+            // Verificar si hay una fila seleccionada
+            if (DetallesList.SelectedItems.Count > 0)
             {
                 // Obtener el índice de la fila seleccionada
-                int selectedIndex = OrdenesList.SelectedIndices[0];
+                int indiceSeleccionado = DetallesList.SelectedIndices[0];
 
-                // Verificar si la fila seleccionada tiene el estado pendiente
-                if (OrdenesList.SelectedItems[0].SubItems[2].Text == "PENDIENTE")
+                // Mostrar un mensaje de confirmación
+                var confirmacion = MessageBox.Show("¿Estás seguro que deseas eliminar este detalle?", "Confirmación de eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmacion == DialogResult.Yes)
                 {
-                    // Eliminar el estado pendiente de la fila seleccionada
-                    modelo.Ordenes[selectedIndex].Estado = null;
+                    // Eliminar la fila seleccionada del ListView
+                    DetallesList.Items.RemoveAt(indiceSeleccionado);
 
-                    // Actualizar la vista del ListView
-                    OrdenesList.SelectedItems[0].SubItems[2].Text = ""; // Limpiar el estado en la vista
-
-                    // Opcionalmente, mostrar un mensaje de confirmación
-                    MessageBox.Show("El estado pendiente ha sido eliminado de la orden seleccionada.", "Cancelación");
-                }
-                else
-                {
-                    // Si la fila seleccionada no tiene el estado pendiente, mostrar un mensaje de error
-                    MessageBox.Show("La orden seleccionada no tiene el estado pendiente para ser cancelado.", "Error");
+                    MessageBox.Show("Detalle eliminado correctamente.");
                 }
             }
             else
             {
-                // Si no se ha seleccionado ninguna fila, mostrar un mensaje de error
-                MessageBox.Show("Por favor, seleccione una orden antes de cancelar.", "Error");
+                MessageBox.Show("Por favor, selecciona un detalle para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
+
+        private void ConfirmarBoton_Click(object sender, EventArgs e)
+        {
+            // Verificar si hay detalles en la lista para confirmar
+            if (DetallesList.Items.Count == 0)
+            {
+                MessageBox.Show("No hay detalles para confirmar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Crear una nueva instancia de Ordendepreparacion
+            var nuevaOrden = new Ordendepreparacion
+            {
+                IdCliente = IdClienteBox.Text,
+                FechaAlta = DateTime.Today,
+                idproducto = IdProductoBox.Text,
+                DetalleOrdenes = new List<DetalleOrden>()
+            };
+
+            // Recorrer los detalles en DetallesList y agregarlos a la nueva orden
+            foreach (ListViewItem item in DetallesList.Items)
+            {
+                int cantidad = int.Parse(item.SubItems[1].Text);
+                string deposito = item.SubItems[2].Text;
+                int columna = int.Parse(item.SubItems[3].Text);
+                int fila = int.Parse(item.SubItems[4].Text);
+
+                var detalle = new DetalleOrden
+                {
+                    IdProducto = item.SubItems[0].Text,
+                    Cantidad = cantidad,
+                    Deposito = deposito,
+                    Columna = columna,
+                    Fila = fila
+                };
+
+                nuevaOrden.DetalleOrdenes.Add(detalle);
+            }
+
+            // Validar la nueva orden antes de agregarla
+            string errores = nuevaOrden.validar();
+            if (!string.IsNullOrEmpty(errores))
+            {
+                MessageBox.Show(errores, "Errores de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            // Agregar la nueva orden al modelo o al repositorio de órdenes
+            modelo.AgregarOrden(nuevaOrden); 
+
+            // Limpiar los campos o la lista después de confirmar
+            LimpiarCampos(); 
+
+            MessageBox.Show("Orden confirmada y guardada correctamente.", "Confirmación");
+
+            // Actualizar el ID de la orden para la próxima orden utilizando el método del modelo
+            IdOrdenBox.Text = modelo.ObtenerSiguienteIdOrden().ToString();
+
+
+
+        }
+
+        private void LimpiarCampos()
+        {
+            // Limpiar los controles del formulario o la lista (ejemplo)
+            IdClienteBox.Text = string.Empty;
+            FechaBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            IdProductoBox.Text = string.Empty;
+            DepositoBox.Text = string.Empty;
+            FilaBox.Text = string.Empty;
+            ColumnaBox.Text = string.Empty;
+            CantidadBox.Text = string.Empty;
+            DetallesList.Items.Clear();
+        }
+
+        private void LimpiarCamposAgregar()
+        {
+            // Limpiar solo los controles del formulario
+            IdProductoBox.Text = string.Empty;
+            DepositoBox.Text = string.Empty;
+            FilaBox.Text = string.Empty;
+            ColumnaBox.Text = string.Empty;
+            CantidadBox.Text = string.Empty;
+        }
+
+
     }
 }
