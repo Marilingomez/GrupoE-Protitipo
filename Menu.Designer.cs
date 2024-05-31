@@ -35,6 +35,7 @@ namespace GrupoE_Protitipos
             btnOrdenDeSeleccion = new Button();
             btnOrdenDeEntrega = new Button();
             btnEstadoOrdenes = new Button();
+            confirmarOrdenDeSeleccion = new Button();
             SuspendLayout();
             // 
             // btnConsultaDisponibilidad
@@ -83,7 +84,7 @@ namespace GrupoE_Protitipos
             // 
             // btnOrdenDeEntrega
             // 
-            btnOrdenDeEntrega.Location = new Point(144, 226);
+            btnOrdenDeEntrega.Location = new Point(144, 315);
             btnOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
             btnOrdenDeEntrega.Name = "btnOrdenDeEntrega";
             btnOrdenDeEntrega.Size = new Size(270, 35);
@@ -94,7 +95,7 @@ namespace GrupoE_Protitipos
             // 
             // btnEstadoOrdenes
             // 
-            btnEstadoOrdenes.Location = new Point(144, 274);
+            btnEstadoOrdenes.Location = new Point(144, 366);
             btnEstadoOrdenes.Margin = new Padding(3, 2, 3, 2);
             btnEstadoOrdenes.Name = "btnEstadoOrdenes";
             btnEstadoOrdenes.Size = new Size(270, 35);
@@ -103,11 +104,23 @@ namespace GrupoE_Protitipos
             btnEstadoOrdenes.UseVisualStyleBackColor = true;
             btnEstadoOrdenes.Click += btnEstadoOrdenes_Click;
             // 
+            // confirmarOrdenDeSeleccion
+            // 
+            confirmarOrdenDeSeleccion.Location = new Point(144, 226);
+            confirmarOrdenDeSeleccion.Margin = new Padding(3, 2, 3, 2);
+            confirmarOrdenDeSeleccion.Name = "confirmarOrdenDeSeleccion";
+            confirmarOrdenDeSeleccion.Size = new Size(270, 35);
+            confirmarOrdenDeSeleccion.TabIndex = 6;
+            confirmarOrdenDeSeleccion.Text = "Confirmar orden de seleccion";
+            confirmarOrdenDeSeleccion.UseVisualStyleBackColor = true;
+            confirmarOrdenDeSeleccion.Click += confirmarOrdenDeSeleccion_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(523, 338);
+            ClientSize = new Size(523, 443);
+            Controls.Add(confirmarOrdenDeSeleccion);
             Controls.Add(btnEstadoOrdenes);
             Controls.Add(btnOrdenDeEntrega);
             Controls.Add(btnOrdenDeSeleccion);
@@ -134,6 +147,7 @@ namespace GrupoE_Protitipos
         private Button btnOrdenDeSeleccion;
         private Button btnOrdenDeEntrega;
         private Button btnEstadoOrdenes;
+        private Button confirmarOrdenDeSeleccion;
     }
 
 }

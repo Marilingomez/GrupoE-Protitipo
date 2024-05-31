@@ -1,3 +1,4 @@
+using GrupoE_Protitipos.ConfirmarOrdenDeSeleccion;
 using GrupoE_Protitipos.ConsultaDisponibilidad;
 using GrupoE_Protitipos.OrdenDeEntrega;
 
@@ -45,6 +46,12 @@ namespace GrupoE_Protitipos
         {
             Form formulario = new FormConsultarOrdenes();
             formulario.Show();
+        }
+
+        private void confirmarOrdenDeSeleccion_Click(object sender, EventArgs e)
+        {
+            Form formConfirmarOrdenDeSeleccion = new FormConfirmarOrdenDeSeleccion();
+            formConfirmarOrdenDeSeleccion.Show();
         }
     }
 }
