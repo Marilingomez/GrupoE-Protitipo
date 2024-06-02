@@ -120,20 +120,23 @@
             // columnHeader1
             // 
             columnHeader1.Text = "Producto";
+            columnHeader1.Width = 90;
             // 
             // columnHeader2
             // 
             columnHeader2.Text = "Cantidad";
+            columnHeader2.Width = 90;
             // 
             // columnHeader3
             // 
             columnHeader3.Text = "Ubicacion";
+            columnHeader3.Width = 100;
             // 
             // FormConfirmarOrdenDeSeleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(346, 555);
+            ClientSize = new Size(346, 484);
             Controls.Add(listDetalleOrden);
             Controls.Add(button2);
             Controls.Add(btnConfirmar);
