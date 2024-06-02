@@ -34,7 +34,7 @@ namespace GrupoE_Protitipos
         {
             if (listPreparar.SelectedItem == null)
             {
-                MessageBox.Show("Debe seleccionar una orden.");
+                MessageBox.Show("Debe seleccionar una orden de la lista ´Órdenes a preparar´.");
                 return;
             }
 
@@ -50,7 +50,7 @@ namespace GrupoE_Protitipos
         {
             if (listSeleccionada.SelectedItem == null)
             {
-                MessageBox.Show("Debe seleccionar una orden.");
+                MessageBox.Show("Debe seleccionar una orden de la lista ´Órdenes a seleccionar´.");
                 return;
             }
 
@@ -66,7 +66,7 @@ namespace GrupoE_Protitipos
         {
             if (listProductos.Items.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar al menos una orden.");
+                MessageBox.Show("Debe agregar al menos una orden a lista ´Órdenes a seleccionar´.");
                 return;
             }
 
@@ -86,19 +86,24 @@ namespace GrupoE_Protitipos
             switch (orden)
             {
                 case "Orden01":
-                    listProductos.Items.Add("Orden01: Ubicacion AAA, Remeras 15, Camperas 30.");
+                    listProductos.Items.Add("Ubicacion AAA - Remeras - 15.");
+                    listProductos.Items.Add("Ubicacion AAB - Camperas - 30.");
                     break;
                 case "Orden02":
-                    listProductos.Items.Add("Orden02: Ubicacion BBB, Pelotas 20, Mini arcos 40.");
+                    listProductos.Items.Add("Ubicacion BBA - Pelotas - 20.");
+                    listProductos.Items.Add("Ubicacion BBB - Mini arcos - 40.");
                     break;
                 case "Orden03":
-                    listProductos.Items.Add("Orden03: Ubicacion CCC, 10 Notebooks.");
+                    listProductos.Items.Add("Ubicacion CCA - Notebooks - 10.");
                     break;
                 case "Orden04":
-                    listProductos.Items.Add("Orden04: Ubicacion DDD, 50 termos, 100 bombillas.");
+                    listProductos.Items.Add("Ubicacion DDA - Termos - 50.");
+                    listProductos.Items.Add("Ubicacion DDB - Bombillas - 100.");
                     break;
                 case "Orden05":
-                    listProductos.Items.Add("Orden05: Ubicación EEE, Buzos 25, Zapatillas 10, Gorras 30.");
+                    listProductos.Items.Add("Ubicación EEA - Buzos - 25.");
+                    listProductos.Items.Add("Ubicación EEB - Zapatillas - 10.");
+                    listProductos.Items.Add("Ubicación EEC - Gorras - 30.");
                     break;
             }
         }        
