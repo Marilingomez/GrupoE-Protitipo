@@ -34,7 +34,7 @@
             label3 = new Label();
             dateTimePicker1 = new DateTimePicker();
             btnConfirmar = new Button();
-            button2 = new Button();
+            MenuPrincipalVolver = new Button();
             listDetalleOrden = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
@@ -97,14 +97,15 @@
             btnConfirmar.UseVisualStyleBackColor = true;
             btnConfirmar.Click += button1_Click;
             // 
-            // button2
+            // MenuPrincipalVolver
             // 
-            button2.Location = new Point(207, 453);
-            button2.Name = "button2";
-            button2.Size = new Size(101, 23);
-            button2.TabIndex = 11;
-            button2.Text = "Menu principal";
-            button2.UseVisualStyleBackColor = true;
+            MenuPrincipalVolver.Location = new Point(207, 453);
+            MenuPrincipalVolver.Name = "MenuPrincipalVolver";
+            MenuPrincipalVolver.Size = new Size(101, 23);
+            MenuPrincipalVolver.TabIndex = 11;
+            MenuPrincipalVolver.Text = "Menu principal";
+            MenuPrincipalVolver.UseVisualStyleBackColor = true;
+            MenuPrincipalVolver.Click += MenuPrincipalVolver_Click;
             // 
             // listDetalleOrden
             // 
@@ -138,7 +139,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(346, 484);
             Controls.Add(listDetalleOrden);
-            Controls.Add(button2);
+            Controls.Add(MenuPrincipalVolver);
             Controls.Add(btnConfirmar);
             Controls.Add(dateTimePicker1);
             Controls.Add(label3);
@@ -160,7 +161,7 @@
         private Label label3;
         private DateTimePicker dateTimePicker1;
         private Button btnConfirmar;
-        private Button button2;
+        private Button MenuPrincipalVolver;
         private ListView listDetalleOrden;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;

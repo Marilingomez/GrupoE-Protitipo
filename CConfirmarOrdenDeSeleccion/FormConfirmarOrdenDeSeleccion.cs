@@ -59,5 +59,10 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
                 listOrdSeleccion.Items.Add(orden.IdOrden);
             }
         }
+
+        private void MenuPrincipalVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
