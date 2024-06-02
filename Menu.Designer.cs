@@ -37,6 +37,7 @@ namespace GrupoE_Protitipos
             btnEstadoOrdenes = new Button();
             confirmarOrdenDeSeleccion = new Button();
             btnConfirmarOrdenDeEntrega = new Button();
+            btnPrepararMercaderia = new Button();
             SuspendLayout();
             // 
             // btnConsultaDisponibilidad
@@ -85,7 +86,7 @@ namespace GrupoE_Protitipos
             // 
             // btnOrdenDeEntrega
             // 
-            btnOrdenDeEntrega.Location = new Point(144, 275);
+            btnOrdenDeEntrega.Location = new Point(144, 319);
             btnOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
             btnOrdenDeEntrega.Name = "btnOrdenDeEntrega";
             btnOrdenDeEntrega.Size = new Size(270, 35);
@@ -96,7 +97,7 @@ namespace GrupoE_Protitipos
             // 
             // btnEstadoOrdenes
             // 
-            btnEstadoOrdenes.Location = new Point(144, 371);
+            btnEstadoOrdenes.Location = new Point(144, 418);
             btnEstadoOrdenes.Margin = new Padding(3, 2, 3, 2);
             btnEstadoOrdenes.Name = "btnEstadoOrdenes";
             btnEstadoOrdenes.Size = new Size(270, 35);
@@ -118,7 +119,7 @@ namespace GrupoE_Protitipos
             // 
             // btnConfirmarOrdenDeEntrega
             // 
-            btnConfirmarOrdenDeEntrega.Location = new Point(144, 323);
+            btnConfirmarOrdenDeEntrega.Location = new Point(144, 368);
             btnConfirmarOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
             btnConfirmarOrdenDeEntrega.Name = "btnConfirmarOrdenDeEntrega";
             btnConfirmarOrdenDeEntrega.Size = new Size(270, 35);
@@ -127,11 +128,23 @@ namespace GrupoE_Protitipos
             btnConfirmarOrdenDeEntrega.UseVisualStyleBackColor = true;
             btnConfirmarOrdenDeEntrega.Click += btnConfirmarOrdenDeEntrega_Click;
             // 
+            // btnPrepararMercaderia
+            // 
+            btnPrepararMercaderia.Location = new Point(144, 265);
+            btnPrepararMercaderia.Margin = new Padding(3, 2, 3, 2);
+            btnPrepararMercaderia.Name = "btnPrepararMercaderia";
+            btnPrepararMercaderia.Size = new Size(270, 35);
+            btnPrepararMercaderia.TabIndex = 8;
+            btnPrepararMercaderia.Text = "Preparar Mercaderia";
+            btnPrepararMercaderia.UseVisualStyleBackColor = true;
+            btnPrepararMercaderia.Click += btnPrepararMercaderia_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(523, 443);
+            ClientSize = new Size(523, 501);
+            Controls.Add(btnPrepararMercaderia);
             Controls.Add(btnConfirmarOrdenDeEntrega);
             Controls.Add(confirmarOrdenDeSeleccion);
             Controls.Add(btnEstadoOrdenes);
@@ -162,6 +175,7 @@ namespace GrupoE_Protitipos
         private Button btnEstadoOrdenes;
         private Button confirmarOrdenDeSeleccion;
         private Button btnConfirmarOrdenDeEntrega;
+        private Button btnPrepararMercaderia;
     }
 
 }

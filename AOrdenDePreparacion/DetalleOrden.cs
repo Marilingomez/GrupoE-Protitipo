@@ -3,7 +3,6 @@
     internal class DetalleOrden
     {
         public string IdProducto { get; internal set; }
-
         public int Cantidad { get; internal set; }
         public string Deposito { get; internal set; }
         public int Columna { get; internal set; }
