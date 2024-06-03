@@ -1,5 +1,6 @@
 ﻿using GrupoE_Protitipos.ConfirmarOrdenDeEntrega;
 using GrupoE_Protitipos.ConsultarOrdenes;
+using GrupoE_Protitipos.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,7 +91,7 @@ namespace GrupoE_Protitipos.DPreparacionOrden
                 {
                     ListViewItem item = new ListViewItem(new[] {
                         orden.IdOrden.ToString(),
-                        orden.IdCliente.ToString(),
+                        orden.CuitCliente.ToString(),
                         orden.Prioridad.ToString()
                     });
                     listOrdenesSeleccionada.Items.Add(item);
@@ -100,7 +101,7 @@ namespace GrupoE_Protitipos.DPreparacionOrden
 
         private void cargaProductos(OrdenDePreparacionEntidad orden)
         {
-            foreach (var producto in orden.DetalleProductos)
+            foreach (var producto in orden.DetalleOrdenes)
             {
                 ListViewItem item = new ListViewItem(new[] {
                         producto.IdProducto.ToString(),

@@ -1,6 +1,6 @@
 ﻿namespace GrupoE_Protitipos.OrdenDePreparacion
 {
-    internal class DetalleOrden
+    public class DetalleOrden
     {
         public string IdProducto { get; internal set; }
         public int Cantidad { get; internal set; }

@@ -1,0 +1,17 @@
+[
+  {
+    "IdCliente": 1,
+    "CuitCliente": "22-15151515-1",
+    "NombreFantasia": "El cliente uno"
+  },
+  {
+    "IdCliente": 2,
+    "CuitCliente": "22-75757575-1",
+    "NombreFantasia": "El cliente dos"
+  },
+  {
+    "IdCliente": 3,
+    "CuitCliente": "22-49494949-1",
+    "NombreFantasia": "El cliente tres"
+  }
+]

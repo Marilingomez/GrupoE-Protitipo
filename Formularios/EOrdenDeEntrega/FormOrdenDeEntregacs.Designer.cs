@@ -47,9 +47,9 @@
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
+            fechaPicker = new DateTimePicker();
             TransportistaCUITText = new TextBox();
             label4 = new Label();
-            FechaText = new TextBox();
             label3 = new Label();
             DepositoText = new TextBox();
             label2 = new Label();
@@ -67,11 +67,10 @@
             OrdenSeleccionadaList.Location = new Point(5, 22);
             OrdenSeleccionadaList.Margin = new Padding(3, 2, 3, 2);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
-            OrdenSeleccionadaList.Size = new Size(433, 92);
+            OrdenSeleccionadaList.Size = new Size(510, 143);
             OrdenSeleccionadaList.TabIndex = 0;
             OrdenSeleccionadaList.UseCompatibleStateImageBehavior = false;
             OrdenSeleccionadaList.View = View.Details;
-            OrdenSeleccionadaList.SelectedIndexChanged += OrdenSeleccionadaList_SelectedIndexChanged;
             // 
             // IDOrdenCol
             // 
@@ -100,7 +99,7 @@
             // 
             // SeleccionarBoton
             // 
-            SeleccionarBoton.Location = new Point(32, 287);
+            SeleccionarBoton.Location = new Point(30, 338);
             SeleccionarBoton.Margin = new Padding(3, 2, 3, 2);
             SeleccionarBoton.Name = "SeleccionarBoton";
             SeleccionarBoton.Size = new Size(122, 22);
@@ -115,7 +114,7 @@
             OrdenEntrega.Location = new Point(5, 20);
             OrdenEntrega.Margin = new Padding(3, 2, 3, 2);
             OrdenEntrega.Name = "OrdenEntrega";
-            OrdenEntrega.Size = new Size(428, 92);
+            OrdenEntrega.Size = new Size(508, 125);
             OrdenEntrega.TabIndex = 2;
             OrdenEntrega.UseCompatibleStateImageBehavior = false;
             OrdenEntrega.View = View.Details;
@@ -148,7 +147,7 @@
             // 
             // GenerarBoton
             // 
-            GenerarBoton.Location = new Point(198, 471);
+            GenerarBoton.Location = new Point(196, 554);
             GenerarBoton.Margin = new Padding(3, 2, 3, 2);
             GenerarBoton.Name = "GenerarBoton";
             GenerarBoton.Size = new Size(126, 22);
@@ -159,7 +158,7 @@
             // 
             // VolverBoton
             // 
-            VolverBoton.Location = new Point(338, 471);
+            VolverBoton.Location = new Point(336, 554);
             VolverBoton.Margin = new Padding(3, 2, 3, 2);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(126, 22);
@@ -170,7 +169,7 @@
             // 
             // EliminarSeleccionBoton
             // 
-            EliminarSeleccionBoton.Location = new Point(32, 445);
+            EliminarSeleccionBoton.Location = new Point(30, 528);
             EliminarSeleccionBoton.Margin = new Padding(3, 2, 3, 2);
             EliminarSeleccionBoton.Name = "EliminarSeleccionBoton";
             EliminarSeleccionBoton.Size = new Size(122, 22);
@@ -186,7 +185,7 @@
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(438, 118);
+            groupBox1.Size = new Size(521, 169);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ordenes Preparadas";
@@ -194,21 +193,20 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(OrdenEntrega);
-            groupBox2.Location = new Point(28, 322);
+            groupBox2.Location = new Point(26, 375);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(432, 118);
+            groupBox2.Size = new Size(519, 149);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Selección de Ordenes Preparadas";
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(fechaPicker);
             groupBox3.Controls.Add(TransportistaCUITText);
             groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(FechaText);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(DepositoText);
             groupBox3.Controls.Add(label2);
@@ -222,7 +220,13 @@
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Orden de Entrega";
-            groupBox3.Enter += groupBox3_Enter;
+            // 
+            // fechaPicker
+            // 
+            fechaPicker.Location = new Point(14, 86);
+            fechaPicker.Name = "fechaPicker";
+            fechaPicker.Size = new Size(200, 23);
+            fechaPicker.TabIndex = 8;
             // 
             // TransportistaCUITText
             // 
@@ -240,14 +244,6 @@
             label4.Size = new Size(102, 15);
             label4.TabIndex = 6;
             label4.Text = "Transportista CUIT";
-            // 
-            // FechaText
-            // 
-            FechaText.Location = new Point(14, 85);
-            FechaText.Margin = new Padding(3, 2, 3, 2);
-            FechaText.Name = "FechaText";
-            FechaText.Size = new Size(202, 23);
-            FechaText.TabIndex = 5;
             // 
             // label3
             // 
@@ -283,7 +279,6 @@
             IDtext.ReadOnly = true;
             IDtext.Size = new Size(198, 23);
             IDtext.TabIndex = 1;
-            IDtext.TextChanged += IDtext_TextChanged;
             // 
             // label1
             // 
@@ -298,7 +293,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(512, 515);
+            ClientSize = new Size(704, 601);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(EliminarSeleccionBoton);
@@ -332,7 +327,6 @@
         private TextBox IDtext;
         private TextBox DepositoText;
         private Label label2;
-        private TextBox FechaText;
         private ColumnHeader IDOrdenCol;
         private ColumnHeader IDClienteCol;
         private TextBox TransportistaCUITText;
@@ -346,5 +340,6 @@
         private ColumnHeader IDProductosSCol;
         private ColumnHeader CantidadSCol;
         private ColumnHeader PosicionSCol;
+        private DateTimePicker fechaPicker;
     }
 }

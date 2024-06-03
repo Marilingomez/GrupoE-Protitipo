@@ -1,4 +1,5 @@
-﻿using GrupoE_Protitipos.Utiles;
+﻿using GrupoE_Protitipos.Entidades;
+using GrupoE_Protitipos.Utiles;
 
 namespace GrupoE_Protitipos.ConsultaDisponibilidad
 {
@@ -15,12 +16,12 @@ namespace GrupoE_Protitipos.ConsultaDisponibilidad
             modelo = new ConsultaDisponibilidadModelo();
 
             // Carga desplegable deposito
-            modelo.Depositos.ForEach(de => { desplegableDepositos.Items.Add(de.Ubicacion); });
-            desplegableDepositos.SelectedIndex = 0;
+            modelo.Depositos.ForEach(de => { desplegableDepositos.Items.Add(de.Provincia); });
+            // desplegableDepositos.SelectedIndex = 1;
 
             // Carga desplegable cliente
-            modelo.Clientes.ForEach(cl => { desplegableClientes.Items.Add(cl.Name); });
-            desplegableClientes.SelectedIndex = 0;
+            modelo.Clientes.ForEach(cl => { desplegableClientes.Items.Add(cl.NombreFantasia); });
+            // desplegableClientes.SelectedIndex = 1;
         }
 
         private void ConsultaDisponibilidad_Closed(object sender, EventArgs e)
@@ -32,22 +33,26 @@ namespace GrupoE_Protitipos.ConsultaDisponibilidad
         {
             // Obtiene deposito
             string depositoSeleccionado = desplegableDepositos.Text;
-            Deposito deposito = modelo.Depositos.Find(it => it.Ubicacion == depositoSeleccionado);
+            DepositoEntidad deposito = modelo.Depositos.Find(it => it.Provincia == depositoSeleccionado);
 
             // Obtiene cliente
             string clienteSeleccionado = desplegableClientes.Text;
-            Cliente cliente = modelo.Clientes.Find(it => it.Name == clienteSeleccionado);
+            ClienteEntidad cliente = modelo.Clientes.Find(it => it.NombreFantasia == clienteSeleccionado);
 
             // Obtiene capacidad contratada por el cliente en el deposito
-            DetalleCapacidadContratada detalle = cliente.Lista.Find(de => de.IdDeposito == deposito.Id);
+            //DetalleCapacidadContratada detalle = cliente.Lista.Find(de => de.IdDeposito == deposito.IdDeposito);
 
             // Obtiene inventario del cliente en el deposito
-            List<Inventario> inventarios = 
-                modelo.Inventario.FindAll(inv => inv.IdCliente == cliente.Id && inv.IdDeposito == deposito.Id);
+            //List<Inventario> inventarios = 
+            //    modelo.Inventario.FindAll(inv => inv.IdCliente == cliente.Id && inv.IdDeposito == deposito.IdDeposito);
 
             // Determino capacidad contratada, usada y disponible y la disponibilizo en el formulario
-            int capacidadContratada = detalle.CantidadContratada;
-            int capacidadUsada = capacidadContratada - inventarios.Count();
+            //int capacidadContratada = detalle.CantidadContratada;
+            //int capacidadUsada = capacidadContratada - inventarios.Count();
+            //int capacidadDisponible = capacidadContratada - capacidadUsada;
+
+            int capacidadContratada = 50;
+            int capacidadUsada = capacidadContratada - 100;
             int capacidadDisponible = capacidadContratada - capacidadUsada;
 
             espacioContratado.Text = capacidadContratada.ToString();
@@ -55,16 +60,16 @@ namespace GrupoE_Protitipos.ConsultaDisponibilidad
             espacioDisponible.Text = capacidadDisponible.ToString();
 
             // Completo el detalle de inventario
-            foreach (var espacio in inventarios)
-            {
-                foreach (var producto in espacio.Productos)
-                {
-                    ListViewItem item = new ListViewItem(espacio.obtenerUbicacion());
-                    item.SubItems.Add(producto.NombreProducto);
-                    item.SubItems.Add(producto.Cantidad.ToString());
-                    detalleStock.Items.Add(item);
-                }
-            }
+            //foreach (var espacio in inventarios)
+            //{
+            //    foreach (var producto in espacio.Productos)
+            //    {
+            //        ListViewItem item = new ListViewItem(espacio.obtenerUbicacion());
+            //        item.SubItems.Add(producto.NombreProducto);
+            //        item.SubItems.Add(producto.Cantidad.ToString());
+            //        detalleStock.Items.Add(item);
+            //    }
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)

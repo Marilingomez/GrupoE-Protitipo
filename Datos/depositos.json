@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Provincia": "Buenos Aires"
+  },
+  {
+    "Id": 2,
+    "Provincia": "Salta"
+  },
+  {
+    "Id": 3,
+    "Provincia": "Cordoba"
+  },
+  {
+    "Id": 4,
+    "Provincia": "Santa Fe"
+  }
+]
