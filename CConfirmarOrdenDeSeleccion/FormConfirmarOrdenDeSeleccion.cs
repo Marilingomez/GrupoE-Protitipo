@@ -52,11 +52,17 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
             CargarOrdenesDeSeleccionEnTransito();
         }
 
-        private void CargarOrdenesDeSeleccionEnTransito() {
+        private void CargarOrdenesDeSeleccionEnTransito()
+        {
             foreach (var orden in modelo.ObtenerOrdenesEnTransito())
             {
                 listOrdSeleccion.Items.Add(orden.IdOrden);
             }
+        }
+
+        private void MenuPrincipalVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
