@@ -35,10 +35,10 @@
             columnHeader3 = new ColumnHeader();
             groupBox1 = new GroupBox();
             label7 = new Label();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
+            dniBox = new TextBox();
+            apellidoBox = new TextBox();
             inputIdOrden = new TextBox();
-            textBox3 = new TextBox();
+            nombreBox = new TextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -88,10 +88,10 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(dniBox);
+            groupBox1.Controls.Add(apellidoBox);
             groupBox1.Controls.Add(inputIdOrden);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(nombreBox);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
@@ -115,19 +115,19 @@
             label7.TabIndex = 11;
             label7.Text = "Id Orden";
             // 
-            // textBox5
+            // dniBox
             // 
-            textBox5.Location = new Point(261, 147);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(162, 23);
-            textBox5.TabIndex = 9;
+            dniBox.Location = new Point(261, 147);
+            dniBox.Name = "dniBox";
+            dniBox.Size = new Size(162, 23);
+            dniBox.TabIndex = 9;
             // 
-            // textBox4
+            // apellidoBox
             // 
-            textBox4.Location = new Point(7, 147);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(162, 23);
-            textBox4.TabIndex = 8;
+            apellidoBox.Location = new Point(7, 147);
+            apellidoBox.Name = "apellidoBox";
+            apellidoBox.Size = new Size(162, 23);
+            apellidoBox.TabIndex = 8;
             // 
             // inputIdOrden
             // 
@@ -137,12 +137,12 @@
             inputIdOrden.Size = new Size(162, 23);
             inputIdOrden.TabIndex = 10;
             // 
-            // textBox3
+            // nombreBox
             // 
-            textBox3.Location = new Point(261, 95);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(162, 23);
-            textBox3.TabIndex = 7;
+            nombreBox.Location = new Point(261, 95);
+            nombreBox.Name = "nombreBox";
+            nombreBox.Size = new Size(162, 23);
+            nombreBox.TabIndex = 7;
             // 
             // label6
             // 
@@ -258,10 +258,10 @@
         private TextBox inputTransportista;
         private Label label3;
         private Label label2;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox apellidoBox;
+        private TextBox nombreBox;
         private Label label6;
-        private TextBox textBox5;
+        private TextBox dniBox;
         private Button btnMenu;
         private Button btnConfirmar;
         private Label label7;

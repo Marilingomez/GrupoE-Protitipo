@@ -25,7 +25,10 @@ namespace GrupoE_Protitipos.Almacenes
             }
         }
 
-        public static List<OrdenDePreparacionEntidad> ObtenerOrdenes() { return ordenesDePreparacion; }
+        public static List<OrdenDePreparacionEntidad> ObtenerOrdenes() {
+            List<OrdenDePreparacionEntidad> listaOrdenes = ordenesDePreparacion;
+            return ordenesDePreparacion;
+        }
 
         public static void GrabarDatos()
         {
@@ -47,6 +50,21 @@ namespace GrupoE_Protitipos.Almacenes
         public static List<OrdenDePreparacionEntidad> ObtenerOrdenesPorEstado(OrdenDePreparacionEstado estado)
         {
             return ordenesDePreparacion.FindAll(ods => ods.Estado == estado);
+        }
+
+        public static int ObtenerIdParaNuevaOrden()
+        {
+            return ordenesDePreparacion.Last().IdOrden + 1;
+        }
+
+        public static OrdenDePreparacionEntidad ObtenerOrdenPorId(int idOrden)
+        {
+            return ordenesDePreparacion.Find(odp => odp.IdOrden == idOrden);
+        }
+
+        public static List<OrdenDePreparacionEntidad> ObtenerOrdenesPorIdDeposito(int idDeposito)
+        {
+            return ordenesDePreparacion.FindAll(odp => odp.Deposito == idDeposito);
         }
     }
 }

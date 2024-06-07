@@ -10,6 +10,5 @@ namespace GrupoE_Protitipos.Entidades
     {
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
-        public int Deposito { get; set; }
     }
 }

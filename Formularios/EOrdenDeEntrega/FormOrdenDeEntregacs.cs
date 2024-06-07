@@ -1,7 +1,6 @@
 ﻿using GrupoE_Protitipos.ConsultaDisponibilidad;
 using GrupoE_Protitipos.ConsultarOrdenes;
 using GrupoE_Protitipos.Entidades;
-using GrupoE_Protitipos.OrdenDeEntrega.EditarOrdenDeEntrega;
 
 namespace GrupoE_Protitipos.OrdenDeEntrega
 {
@@ -18,31 +17,29 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
 
         private void OrdenDeEntregacs_Load(object sender, EventArgs e)
         {
-            foreach (var ordenDePreparacion in modeloentrega.OrdenesDePreparacion)
-            {
-                var fila = new ListViewItem();
+            IDtext.Text = modeloentrega.ObtenerNuevoIdOrdenesDeEntrega().ToString();
 
-                fila.Text = ordenDePreparacion.IdOrden.ToString();
-                fila.SubItems.Add(ordenDePreparacion.CuitCliente.ToString());
-                fila.SubItems.Add("0");
-                fila.SubItems.Add("0");
-                fila.SubItems.Add("0");
-                OrdenSeleccionadaList.Items.Add(fila);
+            List<string> depositos = modeloentrega.ObtenerDepositos();
+            foreach (var deposito in depositos)
+            {
+                depositoBox.Items.Add(deposito);
             }
 
-            IDtext.Text = modeloentrega.ObtenerNuevoIdOrdenesDeEntrega().ToString();
+            fechaBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void CancelarBoton_Click(object sender, EventArgs e)
         {
+            if (OrdenEntrega.SelectedItems.Count == 0) {
+                MessageBox.Show("Debe seleccionar al menos una Orden de Preparación para eliminar.", "Error");
+                return;
+            }
 
             foreach (ListViewItem item in OrdenEntrega.SelectedItems)
             {
                 OrdenEntrega.Items.Remove(item);
                 OrdenSeleccionadaList.Items.Add((ListViewItem)item.Clone());
             }
-
-
         }
 
         private void VolverBoton_Click(object sender, EventArgs e)
@@ -66,6 +63,9 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 }
 
                 itemsSeleccionados.Clear();
+            } else
+            {
+                MessageBox.Show("Debe seleccionar al menos una Orden de Preparación", "Error");
             }
         }
 
@@ -83,40 +83,30 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
         private void GenerarBoton_Click(object sender, EventArgs e)
         {
             string errores = modeloentrega.ValidacionesParaGenerarOrdenDeEntrega(
-                OrdenEntrega.Items.Count, 
-                DepositoText.Text, 
+                OrdenEntrega.Items.Count,
+                depositoBox.Text,
                 TransportistaCUITText.Text
                 );
             if (errores == "")
             {
-                //if (string.IsNullOrWhiteSpace(FechaText.Text))
-                //{
-                //    MessageBox.Show("Por favor ingrese la fecha.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
                 int id = int.Parse(IDtext.Text);
                 string transportistacuit = TransportistaCUITText.Text;
-                DateTime fecha = fechaPicker.Value;
-                int deposito = int.Parse(DepositoText.Text);
+                DateTime fecha = DateTime.Parse(fechaBox.Text);
+                string deposito = depositoBox.Text;
                 List<int> ordenesDePreparacion = new List<int>();
-                
+
                 foreach (ListViewItem itemSeleccionado in OrdenEntrega.Items)
                 {
                     ordenesDePreparacion.Add(int.Parse(itemSeleccionado.SubItems[0].Text));
                 }
 
-                OrdenDeEntregaEntidad nuevaOrden = new OrdenDeEntregaEntidad(id, transportistacuit, fecha, deposito, ordenesDePreparacion);
-
-                modeloentrega.GuardarOrdenEntrega(nuevaOrden);
+                modeloentrega.CrearOrdenDeEntrega(id, transportistacuit, fecha, deposito, ordenesDePreparacion);
                 modeloentrega.ActualizarOrdenesHaciaPorDespachar(ordenesDePreparacion);
 
                 MessageBox.Show("La orden se ha generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 IDtext.Text = modeloentrega.ObtenerNuevoIdOrdenesDeEntrega().ToString();
                 TransportistaCUITText.Clear();
-                fechaPicker.ResetText();
-                DepositoText.Clear();
 
                 OrdenEntrega.Items.Clear();
             }
@@ -126,7 +116,25 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             }
         }
 
-        
+        private void DepositoBox_SelectedIndexChange(object sender, EventArgs e)
+        {
+            OrdenSeleccionadaList.Items.Clear();
+
+            string nombreDeposito = depositoBox.Text;
+            CargarOrdenes(nombreDeposito);
+        }
+
+        private void CargarOrdenes(string deposito)
+        {
+            foreach (var ordenDePreparacion in modeloentrega.ObtenerOrdenesPorNombreDeposito(deposito))
+            {
+                var fila = new ListViewItem();
+
+                fila.Text = ordenDePreparacion.IdOrden.ToString();
+                fila.SubItems.Add(ordenDePreparacion.CuitCliente.ToString());
+                OrdenSeleccionadaList.Items.Add(fila);
+            }
+        }
     }
 }
 

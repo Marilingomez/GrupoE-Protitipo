@@ -52,13 +52,16 @@ namespace GrupoE_Protitipos.DPreparacionOrden
             if (listaDetalleProducto.Items.Count != 0)
             {
                 MessageBox.Show("Debe preparar todos los productos detallados antes de poder continuar.", "Error");
+            } else if (listOrdenesSeleccionada.Items.Count == 0)
+            {
+                MessageBox.Show("No existe orden a procesar.", "Error");
             } else
             {
                 ListViewItem primerOrden = listOrdenesSeleccionada.Items[0];
 
                 int idPrimerOrden = int.Parse(primerOrden.SubItems[0].Text);
 
-                modelo.ActualizarEstadoPorId(idPrimerOrden, OrdenDePreparacionEstado.Preparada);
+                modelo.ActualizarEstadoHaciaPreparado(idPrimerOrden);
 
                 MessageBox.Show("La orden ha sido confirmada como Preparada con éxito.", "Operación exitosa");
 
@@ -70,7 +73,13 @@ namespace GrupoE_Protitipos.DPreparacionOrden
 
         private void cargaDatosIniciales()
         {
-            List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionFiltradasPorEstado(OrdenDePreparacionEstado.Seleccionada);
+            List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionSeleccionadas();
+
+            if (ordenes.Count == 0)
+            {
+                MessageBox.Show("No existen Ordenes a preparar", "Aviso");
+                return;
+            }
 
             cargarOrdenes(ordenes);
 
@@ -103,8 +112,10 @@ namespace GrupoE_Protitipos.DPreparacionOrden
         {
             foreach (var producto in orden.DetalleOrdenes)
             {
+                string nombreDeProducto = modelo.ObtenerNombreDeProductoPorId(producto.IdProducto);
                 ListViewItem item = new ListViewItem(new[] {
                         producto.IdProducto.ToString(),
+                        nombreDeProducto,
                         producto.Cantidad.ToString()
                     });
                 listaDetalleProducto.Items.Add(item);

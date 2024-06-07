@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrupoE_Protitipos.DPreparacionOrden
+namespace GrupoE_Protitipos.Entidades
 {
-    public class DetalleProductos
+    public class DetalleProducto
     {
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
-
-        public DetalleProductos(int idProducto, int cantidad)
+        public DetalleProducto(int idProducto, int cantidad)
         {
             IdProducto = idProducto;
             Cantidad = cantidad;

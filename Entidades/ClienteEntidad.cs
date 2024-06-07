@@ -11,5 +11,6 @@ namespace GrupoE_Protitipos.Entidades
         public int IdCliente {  get; set; }
         public string CuitCliente { get; set; }
         public string NombreFantasia { get; set; }
+        public Prioridad Prioridad { get; set; }
     }
 }

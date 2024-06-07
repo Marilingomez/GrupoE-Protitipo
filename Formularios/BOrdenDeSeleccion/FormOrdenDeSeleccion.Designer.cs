@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listPreparar = new ListBox();
-            listSeleccionada = new ListBox();
             label1 = new Label();
             label2 = new Label();
             label4 = new Label();
@@ -37,101 +35,131 @@
             buttonAgregar = new Button();
             buttonEliminar = new Button();
             buttonFinalizar = new Button();
+            ordenesPreparar = new ListView();
+            Id = new ColumnHeader();
+            Cliente = new ColumnHeader();
+            ordenesSeleccionar = new ListView();
+            IdSeleccionado = new ColumnHeader();
+            clienteSeleccionado = new ColumnHeader();
             SuspendLayout();
-            // 
-            // listPreparar
-            // 
-            listPreparar.FormattingEnabled = true;
-            listPreparar.ItemHeight = 20;
-            listPreparar.Items.AddRange(new object[] { "Orden01", "Orden02", "Orden03", "Orden04", "Orden05" });
-            listPreparar.Location = new Point(24, 39);
-            listPreparar.Name = "listPreparar";
-            listPreparar.Size = new Size(306, 164);
-            listPreparar.TabIndex = 1;
-            // 
-            // listSeleccionada
-            // 
-            listSeleccionada.FormattingEnabled = true;
-            listSeleccionada.ItemHeight = 20;
-            listSeleccionada.Location = new Point(464, 39);
-            listSeleccionada.MultiColumn = true;
-            listSeleccionada.Name = "listSeleccionada";
-            listSeleccionada.Size = new Size(306, 164);
-            listSeleccionada.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 16);
+            label1.Location = new Point(21, 12);
             label1.Name = "label1";
-            label1.Size = new Size(137, 20);
+            label1.Size = new Size(107, 15);
             label1.TabIndex = 4;
             label1.Text = "Órdenes a preparar";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(494, 16);
+            label2.Location = new Point(403, 12);
             label2.Name = "label2";
-            label2.Size = new Size(154, 20);
+            label2.Size = new Size(122, 15);
             label2.TabIndex = 5;
             label2.Text = "Órdenes a seleccionar";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 225);
+            label4.Location = new Point(21, 169);
             label4.Name = "label4";
-            label4.Size = new Size(165, 20);
+            label4.Size = new Size(132, 15);
             label4.TabIndex = 7;
             label4.Text = "Productos a seleccionar";
             // 
             // listProductos
             // 
             listProductos.FormattingEnabled = true;
-            listProductos.ItemHeight = 20;
-            listProductos.Location = new Point(24, 248);
+            listProductos.ItemHeight = 15;
+            listProductos.Location = new Point(21, 186);
+            listProductos.Margin = new Padding(3, 2, 3, 2);
             listProductos.Name = "listProductos";
-            listProductos.Size = new Size(746, 144);
+            listProductos.Size = new Size(653, 109);
             listProductos.TabIndex = 15;
             // 
             // buttonAgregar
             // 
             buttonAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAgregar.Location = new Point(341, 85);
+            buttonAgregar.Location = new Point(298, 64);
+            buttonAgregar.Margin = new Padding(3, 2, 3, 2);
             buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(113, 41);
+            buttonAgregar.Size = new Size(99, 31);
             buttonAgregar.TabIndex = 16;
             buttonAgregar.Text = "→";
             buttonAgregar.UseVisualStyleBackColor = true;
-            buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            buttonAgregar.Click += buttonAgregar_Click;
             // 
             // buttonEliminar
             // 
             buttonEliminar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonEliminar.Location = new Point(341, 132);
+            buttonEliminar.Location = new Point(298, 99);
+            buttonEliminar.Margin = new Padding(3, 2, 3, 2);
             buttonEliminar.Name = "buttonEliminar";
-            buttonEliminar.Size = new Size(113, 41);
+            buttonEliminar.Size = new Size(99, 31);
             buttonEliminar.TabIndex = 17;
             buttonEliminar.Text = "←";
             buttonEliminar.UseVisualStyleBackColor = true;
-            buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            buttonEliminar.Click += buttonEliminar_Click;
             // 
             // buttonFinalizar
             // 
-            buttonFinalizar.Location = new Point(585, 406);
+            buttonFinalizar.Location = new Point(512, 304);
+            buttonFinalizar.Margin = new Padding(3, 2, 3, 2);
             buttonFinalizar.Name = "buttonFinalizar";
-            buttonFinalizar.Size = new Size(170, 27);
+            buttonFinalizar.Size = new Size(149, 20);
             buttonFinalizar.TabIndex = 18;
             buttonFinalizar.Text = "Finalizar y Guardar";
             buttonFinalizar.UseVisualStyleBackColor = true;
-            buttonFinalizar.Click += new System.EventHandler(this.buttonFinalizar_Click);
+            buttonFinalizar.Click += buttonFinalizar_Click;
+            // 
+            // ordenesPreparar
+            // 
+            ordenesPreparar.Columns.AddRange(new ColumnHeader[] { Id, Cliente });
+            ordenesPreparar.FullRowSelect = true;
+            ordenesPreparar.Location = new Point(21, 33);
+            ordenesPreparar.Name = "ordenesPreparar";
+            ordenesPreparar.Size = new Size(271, 133);
+            ordenesPreparar.TabIndex = 19;
+            ordenesPreparar.UseCompatibleStateImageBehavior = false;
+            ordenesPreparar.View = View.Details;
+            // 
+            // Id
+            // 
+            Id.Text = "Id";
+            // 
+            // Cliente
+            // 
+            Cliente.Text = "Cliente";
+            // 
+            // ordenesSeleccionar
+            // 
+            ordenesSeleccionar.Columns.AddRange(new ColumnHeader[] { IdSeleccionado, clienteSeleccionado });
+            ordenesSeleccionar.FullRowSelect = true;
+            ordenesSeleccionar.Location = new Point(403, 30);
+            ordenesSeleccionar.Name = "ordenesSeleccionar";
+            ordenesSeleccionar.Size = new Size(271, 133);
+            ordenesSeleccionar.TabIndex = 20;
+            ordenesSeleccionar.UseCompatibleStateImageBehavior = false;
+            ordenesSeleccionar.View = View.Details;
+            // 
+            // IdSeleccionado
+            // 
+            IdSeleccionado.Text = "Id";
+            // 
+            // clienteSeleccionado
+            // 
+            clienteSeleccionado.Text = "Cliente seleccionado";
             // 
             // FormOrdenDeSeleccion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
+            Controls.Add(ordenesSeleccionar);
+            Controls.Add(ordenesPreparar);
             Controls.Add(buttonFinalizar);
             Controls.Add(buttonEliminar);
             Controls.Add(buttonAgregar);
@@ -139,18 +167,15 @@
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(listSeleccionada);
-            Controls.Add(listPreparar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormOrdenDeSeleccion";
             Text = "Orden de Selección";
+            Load += FormOrdenDeSeleccion_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ListBox listPreparar;
-        private ListBox listSeleccionada;
         private Label label1;
         private Label label2;
         private Label label4;
@@ -158,5 +183,11 @@
         private Button buttonAgregar;
         private Button buttonEliminar;
         private Button buttonFinalizar;
+        private ListView ordenesPreparar;
+        private ColumnHeader Id;
+        private ListView ordenesSeleccionar;
+        private ColumnHeader Cliente;
+        private ColumnHeader IdSeleccionado;
+        private ColumnHeader clienteSeleccionado;
     }
 }

@@ -28,30 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listOrdSeleccion = new ListBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            dateTimePicker1 = new DateTimePicker();
             btnConfirmar = new Button();
             button2 = new Button();
             listDetalleOrden = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
+            fechaBox = new TextBox();
+            listaOrdenesEnSeleccion = new ListView();
+            Id = new ColumnHeader();
+            FechaDeCreacion = new ColumnHeader();
             SuspendLayout();
-            // 
-            // listOrdSeleccion
-            // 
-            listOrdSeleccion.FormattingEnabled = true;
-            listOrdSeleccion.ItemHeight = 15;
-            listOrdSeleccion.Location = new Point(12, 26);
-            listOrdSeleccion.Margin = new Padding(3, 2, 3, 2);
-            listOrdSeleccion.MultiColumn = true;
-            listOrdSeleccion.Name = "listOrdSeleccion";
-            listOrdSeleccion.Size = new Size(296, 124);
-            listOrdSeleccion.TabIndex = 4;
-            listOrdSeleccion.SelectedIndexChanged += listOrdSeleccion_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -74,18 +64,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 326);
+            label3.Location = new Point(12, 340);
             label3.Name = "label3";
             label3.Size = new Size(296, 15);
             label3.TabIndex = 8;
             label3.Text = "Fecha de recepcion de mercaderia en Area Preparacion";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(12, 344);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(296, 23);
-            dateTimePicker1.TabIndex = 9;
             // 
             // btnConfirmar
             // 
@@ -95,7 +78,7 @@
             btnConfirmar.TabIndex = 10;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.UseVisualStyleBackColor = true;
-            btnConfirmar.Click += button1_Click;
+            btnConfirmar.Click += btnConfirmar_click;
             // 
             // button2
             // 
@@ -120,28 +103,62 @@
             // columnHeader1
             // 
             columnHeader1.Text = "Producto";
+            columnHeader1.Width = 90;
             // 
             // columnHeader2
             // 
             columnHeader2.Text = "Cantidad";
+            columnHeader2.Width = 90;
             // 
             // columnHeader3
             // 
             columnHeader3.Text = "Ubicacion";
+            columnHeader3.Width = 90;
+            // 
+            // fechaBox
+            // 
+            fechaBox.Enabled = false;
+            fechaBox.Location = new Point(12, 358);
+            fechaBox.Name = "fechaBox";
+            fechaBox.Size = new Size(100, 23);
+            fechaBox.TabIndex = 13;
+            // 
+            // listaOrdenesEnSeleccion
+            // 
+            listaOrdenesEnSeleccion.Columns.AddRange(new ColumnHeader[] { Id, FechaDeCreacion });
+            listaOrdenesEnSeleccion.FullRowSelect = true;
+            listaOrdenesEnSeleccion.Location = new Point(12, 27);
+            listaOrdenesEnSeleccion.MultiSelect = false;
+            listaOrdenesEnSeleccion.Name = "listaOrdenesEnSeleccion";
+            listaOrdenesEnSeleccion.Size = new Size(296, 130);
+            listaOrdenesEnSeleccion.TabIndex = 14;
+            listaOrdenesEnSeleccion.UseCompatibleStateImageBehavior = false;
+            listaOrdenesEnSeleccion.View = View.Details;
+            listaOrdenesEnSeleccion.SelectedIndexChanged += listOrdSeleccion_SelectedIndexChanged;
+            // 
+            // Id
+            // 
+            Id.Text = "Id";
+            Id.Width = 120;
+            // 
+            // FechaDeCreacion
+            // 
+            FechaDeCreacion.Text = "Fecha de Creación";
+            FechaDeCreacion.Width = 120;
             // 
             // FormConfirmarOrdenDeSeleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(346, 555);
+            Controls.Add(listaOrdenesEnSeleccion);
+            Controls.Add(fechaBox);
             Controls.Add(listDetalleOrden);
             Controls.Add(button2);
             Controls.Add(btnConfirmar);
-            Controls.Add(dateTimePicker1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(listOrdSeleccion);
             Name = "FormConfirmarOrdenDeSeleccion";
             Text = "ConfirmarOrdenDeSeleccion";
             Load += ConfirmarOrdenDeSeleccion_Load;
@@ -150,17 +167,18 @@
         }
 
         #endregion
-
-        private ListBox listOrdSeleccion;
         private Label label1;
         private Label label2;
         private Label label3;
-        private DateTimePicker dateTimePicker1;
         private Button btnConfirmar;
         private Button button2;
         private ListView listDetalleOrden;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
+        private TextBox fechaBox;
+        private ListView listaOrdenesEnSeleccion;
+        private ColumnHeader Id;
+        private ColumnHeader FechaDeCreacion;
     }
 }

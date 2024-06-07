@@ -15,9 +15,13 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
         public List<OrdenDePreparacionEntidad> OrdenesDePreparacion = 
             OrdenDePreparacionAlmacen.ObtenerOrdenesPorEstado(OrdenDePreparacionEstado.Preparada);
 
-        public void GuardarOrdenEntrega(OrdenDeEntregaEntidad orden) 
+        public void CrearOrdenDeEntrega(int idOrden, string cuitTransportista, DateTime fecha, string deposito, List<int> ordenesDePreparacion) 
         {
-            OrdenesDeEntregaAlmacen.AgregarOrden(orden);
+            int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(deposito);
+
+            OrdenDeEntregaEntidad ordenDeEntrega = new OrdenDeEntregaEntidad(idOrden, cuitTransportista, fecha, idDeposito, ordenesDePreparacion);
+
+            OrdenesDeEntregaAlmacen.AgregarOrden(ordenDeEntrega);
         }
 
         public int ObtenerNuevoIdOrdenesDeEntrega()
@@ -29,7 +33,6 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
         {
             foreach (var orden in ordenes)
             {
-                MessageBox.Show(orden.ToString());
                 ActualizarOrdenDePreparacionHaciaPorDespachar(orden);
             }
         }
@@ -59,6 +62,25 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             }
 
             return errores;
+        }
+
+        public List<string> ObtenerDepositos()
+        {
+            List<DepositoEntidad> depositos = DepositoAlmacen.ObtenerDepositos();
+            List<string> nombreDepositos = new List<string>();
+
+            foreach (var deposito in depositos)
+            {
+                nombreDepositos.Add(deposito.Provincia);
+            }
+
+            return nombreDepositos;
+        }
+
+        public List<OrdenDePreparacionEntidad> ObtenerOrdenesPorNombreDeposito(string depositoNombre)
+        {
+            int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(depositoNombre);
+            return OrdenDePreparacionAlmacen.ObtenerOrdenesPorIdDeposito(idDeposito);
         }
     }
 }

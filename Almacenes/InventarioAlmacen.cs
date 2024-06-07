@@ -11,23 +11,32 @@ namespace GrupoE_Protitipos.Almacenes
 {
     public static class InventarioAlmacen
     {
-        private static List<InventarioEntidad> inventarios;
+        private static List<InventarioEntidad> inventarios = new();
 
         static InventarioAlmacen()
         {
-            if (File.Exists("inventarios.json"))
+            if (File.Exists(@"Datos/inventarios.json"))
             {
-                var contenido = File.ReadAllText("inventarios.json");
+                var contenido = File.ReadAllText(@"Datos/inventarios.json");
                 inventarios = JsonConvert.DeserializeObject<List<InventarioEntidad>>(contenido);
             }
         }
 
-        public static ReadOnlyCollection<InventarioEntidad> Inventarios = inventarios.AsReadOnly();
-
         public static void GrabarDatos()
         {
             var contenido = JsonConvert.SerializeObject(inventarios);
-            File.WriteAllText(@"inventarios.json", contenido);
+            File.WriteAllText(@"Datos/inventarios.json", contenido);
+        }
+
+        public static List<InventarioEntidad> ObtenerInventarios() { return inventarios; }
+
+        public static int ObtenerCantidadDeProductoPorClienteYDeposito(string cuitCliente, int idProducto, int idDeposito)
+        {
+            return inventarios
+                .Where(i => i.CuitCliente == cuitCliente && i.Deposito == idDeposito)
+                .SelectMany(i => i.Productos)
+                .Where(p => p.IdProducto == idProducto)
+                .Sum(p => p.Cantidad);
         }
     }
 }

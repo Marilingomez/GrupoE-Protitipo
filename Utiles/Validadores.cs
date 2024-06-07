@@ -19,6 +19,17 @@ namespace GrupoE_Protitipos.Utiles
             }
         }
 
+        public static string ValidarListaConDatos(int items, string campo)
+        {
+            if (items != 0)
+            {
+                return "";
+            } else
+            {
+                return "El listado " + campo + " no puede estar vacio.";
+            }
+        }
+
         public static string EstaVacio(string dato, string campo)
         {
             if (dato == "")

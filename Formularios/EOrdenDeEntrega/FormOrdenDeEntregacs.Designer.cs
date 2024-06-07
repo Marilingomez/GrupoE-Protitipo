@@ -47,11 +47,11 @@
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
-            fechaPicker = new DateTimePicker();
+            fechaBox = new TextBox();
+            depositoBox = new ComboBox();
             TransportistaCUITText = new TextBox();
             label4 = new Label();
             label3 = new Label();
-            DepositoText = new TextBox();
             label2 = new Label();
             IDtext = new TextBox();
             label1 = new Label();
@@ -111,6 +111,7 @@
             // OrdenEntrega
             // 
             OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, IDProductosSCol, CantidadSCol, PosicionSCol });
+            OrdenEntrega.FullRowSelect = true;
             OrdenEntrega.Location = new Point(5, 20);
             OrdenEntrega.Margin = new Padding(3, 2, 3, 2);
             OrdenEntrega.Name = "OrdenEntrega";
@@ -204,11 +205,11 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(fechaPicker);
+            groupBox3.Controls.Add(fechaBox);
+            groupBox3.Controls.Add(depositoBox);
             groupBox3.Controls.Add(TransportistaCUITText);
             groupBox3.Controls.Add(label4);
             groupBox3.Controls.Add(label3);
-            groupBox3.Controls.Add(DepositoText);
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(IDtext);
             groupBox3.Controls.Add(label1);
@@ -216,17 +217,29 @@
             groupBox3.Margin = new Padding(3, 2, 3, 2);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 2, 3, 2);
-            groupBox3.Size = new Size(708, 124);
+            groupBox3.Size = new Size(521, 124);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "Orden de Entrega";
             // 
-            // fechaPicker
+            // fechaBox
             // 
-            fechaPicker.Location = new Point(14, 86);
-            fechaPicker.Name = "fechaPicker";
-            fechaPicker.Size = new Size(200, 23);
-            fechaPicker.TabIndex = 8;
+            fechaBox.Location = new Point(14, 85);
+            fechaBox.Margin = new Padding(3, 2, 3, 2);
+            fechaBox.Name = "fechaBox";
+            fechaBox.ReadOnly = true;
+            fechaBox.Size = new Size(198, 23);
+            fechaBox.TabIndex = 10;
+            // 
+            // depositoBox
+            // 
+            depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            depositoBox.FormattingEnabled = true;
+            depositoBox.Location = new Point(236, 86);
+            depositoBox.Name = "depositoBox";
+            depositoBox.Size = new Size(200, 23);
+            depositoBox.TabIndex = 9;
+            depositoBox.SelectedIndexChanged += DepositoBox_SelectedIndexChange;
             // 
             // TransportistaCUITText
             // 
@@ -253,14 +266,6 @@
             label3.Size = new Size(38, 15);
             label3.TabIndex = 4;
             label3.Text = "Fecha";
-            // 
-            // DepositoText
-            // 
-            DepositoText.Location = new Point(236, 85);
-            DepositoText.Margin = new Padding(3, 2, 3, 2);
-            DepositoText.Name = "DepositoText";
-            DepositoText.Size = new Size(202, 23);
-            DepositoText.TabIndex = 3;
             // 
             // label2
             // 
@@ -325,7 +330,6 @@
         private GroupBox groupBox3;
         private Label label1;
         private TextBox IDtext;
-        private TextBox DepositoText;
         private Label label2;
         private ColumnHeader IDOrdenCol;
         private ColumnHeader IDClienteCol;
@@ -340,6 +344,7 @@
         private ColumnHeader IDProductosSCol;
         private ColumnHeader CantidadSCol;
         private ColumnHeader PosicionSCol;
-        private DateTimePicker fechaPicker;
+        private ComboBox depositoBox;
+        private TextBox fechaBox;
     }
 }

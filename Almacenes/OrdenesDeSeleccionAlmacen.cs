@@ -11,23 +11,23 @@ namespace GrupoE_Protitipos.Almacenes
 {
     public static class OrdenesDeSeleccionAlmacen
     {
-        private static List<OrdenDeSeleccionEntidad> ordenesDeSeleccion;
+        private static List<OrdenDeSeleccionEntidad> ordenesDeSeleccion = new();
 
         static OrdenesDeSeleccionAlmacen()
         {
-            if (File.Exists("ordenesDeSeleccion.json"))
+            if (File.Exists(@"Datos/ordenesDeSeleccion.json"))
             {
-                var contenido = File.ReadAllText("ordenesDeSeleccion.json");
+                var contenido = File.ReadAllText(@"Datos/ordenesDeSeleccion.json");
                 ordenesDeSeleccion = JsonConvert.DeserializeObject<List<OrdenDeSeleccionEntidad>>(contenido);
             }
         }
 
-        public static ReadOnlyCollection<OrdenDeSeleccionEntidad> OrdenesDeSeleccion = ordenesDeSeleccion.AsReadOnly();
+        public static List<OrdenDeSeleccionEntidad> ObtenerOrdenes() { return ordenesDeSeleccion; }
 
         public static void GrabarDatos()
         {
             var contenido = JsonConvert.SerializeObject(ordenesDeSeleccion);
-            File.WriteAllText(@"ordenesDeSeleccion.json", contenido);
+            File.WriteAllText(@"Datos/ordenesDeSeleccion.json", contenido);
         }
 
         public static void AgregarOrden(OrdenDeSeleccionEntidad orden)
@@ -39,11 +39,22 @@ namespace GrupoE_Protitipos.Almacenes
         {
             int index = ordenesDeSeleccion.FindIndex(ods => ods.IdOrden == id);
             ordenesDeSeleccion[index].Estado = Estado.Finalizada;
+            ordenesDeSeleccion[index].FechaDeEntrega = DateTime.Now;
         }
 
-        public static List<OrdenDeSeleccionEntidad> ObtenerOrdenesEnEstadoEnSeleccion()
+        public static List<OrdenDeSeleccionEntidad> ObtenerOrdenesEnEstadoEnTransito()
         {
             return ordenesDeSeleccion.FindAll(ods => ods.Estado == Estado.EnTransito);
+        }
+
+        public static OrdenDeSeleccionEntidad ObtenerOrdenPorId(int idOrden)
+        {
+            return ordenesDeSeleccion.Find(ods => ods.IdOrden == idOrden);
+        }
+
+        public static int ObtenerIdParaNuevaOrden()
+        {
+            return ordenesDeSeleccion.Last().IdOrden + 1;
         }
     }
 }

@@ -1,18 +1,18 @@
 [
   {
-    "Id": 1,
+    "IdDeposito": 1,
     "Provincia": "Buenos Aires"
   },
   {
-    "Id": 2,
+    "IdDeposito": 2,
     "Provincia": "Salta"
   },
   {
-    "Id": 3,
+    "IdDeposito": 3,
     "Provincia": "Cordoba"
   },
   {
-    "Id": 4,
+    "IdDeposito": 4,
     "Provincia": "Santa Fe"
   }
 ]

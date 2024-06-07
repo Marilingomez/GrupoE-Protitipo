@@ -39,11 +39,17 @@ namespace GrupoE_Protitipos.Almacenes
         {
             int index = ordenesDeEntrega.FindIndex(ods => ods.IdOrden == id);
             ordenesDeEntrega[index].Estado = Estado.Finalizada;
+            ordenesDeEntrega[index].FechaDeEntrega = DateTime.Now;
         }
 
-        public static List<OrdenDeEntregaEntidad> ObtenerOrdenesEnEstadoEnSeleccion()
+        public static List<OrdenDeEntregaEntidad> ObtenerOrdenesEnEstadoEnTransito()
         {
             return ordenesDeEntrega.FindAll(ods => ods.Estado == Estado.EnTransito);
+        }
+
+        public static OrdenDeEntregaEntidad ObtenerOrdenPorId(int idOrden)
+        {
+            return ordenesDeEntrega.Find(ode => ode.IdOrden == idOrden);
         }
     }
 }

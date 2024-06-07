@@ -2,16 +2,19 @@
   {
     "IdCliente": 1,
     "CuitCliente": "22-15151515-1",
-    "NombreFantasia": "El cliente uno"
+    "NombreFantasia": "El cliente uno",
+    "Prioridad":  "Alta"
   },
   {
     "IdCliente": 2,
     "CuitCliente": "22-75757575-1",
-    "NombreFantasia": "El cliente dos"
+    "NombreFantasia": "El cliente dos",
+    "Prioridad": "Media"
   },
   {
     "IdCliente": 3,
     "CuitCliente": "22-49494949-1",
-    "NombreFantasia": "El cliente tres"
+    "NombreFantasia": "El cliente tres",
+    "Prioridad": "Baja"
   }
 ]

@@ -10,11 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.DataFormats;
+using GrupoE_Protitipos.OrdenDeSeleccion;
+using GrupoE_Protitipos.Entidades;
 
 namespace GrupoE_Protitipos
 {
     public partial class FormOrdenDeSeleccion : Form
     {
+        OrdenDeSeleccionModelo modelo = new();
         public FormOrdenDeSeleccion()
         {
             InitializeComponent();
@@ -22,25 +25,22 @@ namespace GrupoE_Protitipos
 
         private void FormOrdenDeSeleccion_Load(object sender, EventArgs e)
         {
-            // Agregar datos de prueba a listPreparar
-            listPreparar.Items.Add("Orden01");
-            listPreparar.Items.Add("Orden02");
-            listPreparar.Items.Add("Orden03");
-            listPreparar.Items.Add("Orden04");
-            listPreparar.Items.Add("Orden05");
+            CargaDatosIniciales();
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            if (listPreparar.SelectedItem == null)
+            if (ordenesPreparar.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar una orden.");
-                return;
+            } else
+            {
+                foreach (ListViewItem item in ordenesPreparar.SelectedItems)
+                {
+                    ordenesSeleccionar.Items.Add((ListViewItem)item.Clone());
+                    ordenesPreparar.Items.Remove(item);
+                }
             }
-
-            string selectedOrder = listPreparar.SelectedItem.ToString();
-            listPreparar.Items.Remove(selectedOrder);
-            listSeleccionada.Items.Add(selectedOrder);
 
             // Actualizar detalles de productos
             ActualizarDetallesProductos();
@@ -48,15 +48,17 @@ namespace GrupoE_Protitipos
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            if (listSeleccionada.SelectedItem == null)
+            if (ordenesSeleccionar.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar una orden.");
-                return;
+            } else
+            {
+                foreach (ListViewItem item in ordenesSeleccionar.SelectedItems)
+                {
+                    ordenesPreparar.Items.Add((ListViewItem)item.Clone());
+                    ordenesSeleccionar.Items.Remove(item);
+                }
             }
-
-            string selectedOrder = listSeleccionada.SelectedItem.ToString();
-            listSeleccionada.Items.Remove(selectedOrder);
-            listPreparar.Items.Add(selectedOrder);
 
             // Actualizar detalles de productos
             ActualizarDetallesProductos();
@@ -64,44 +66,47 @@ namespace GrupoE_Protitipos
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
         {
-            if (listProductos.Items.Count == 0)
+            if (listProductos.Items.Count != 0)
             {
                 MessageBox.Show("Debe seleccionar al menos una orden.");
-                return;
-            }
+            } else
+            {
+                System.Windows.Forms.ListView.ListViewItemCollection ordenes = ordenesSeleccionar.Items;
+                List<int> idDeOrdenesPorActualizar = new();
+                foreach (ListViewItem item in ordenes)
+                {
+                    idDeOrdenesPorActualizar.Add(int.Parse(item.SubItems[0].Text));
+                }
 
-            MessageBox.Show("La orden de selección se ha generado correctamente.");
+                modelo.ActualizarEstadoDeOrdenes(idDeOrdenesPorActualizar);
+                modelo.CrearOrdenDeSeleccion(idDeOrdenesPorActualizar);
+
+                MessageBox.Show("La orden de selección se ha generado correctamente.");
+
+                ordenesSeleccionar.Items.Clear();
+                ordenesPreparar.Items.Clear();
+                CargaDatosIniciales();
+            }
         }
         private void ActualizarDetallesProductos()
         {
             listProductos.Items.Clear();
 
-            foreach (string orden in listSeleccionada.Items)
+            //foreach (string orden in listSeleccionada.Items)
+            //{
+            //    MostrarDetallesProductos(orden);
+            //}
+        }
+
+        private void CargaDatosIniciales()
+        {
+            List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionPendientes();
+            foreach (var orden in ordenes)
             {
-                MostrarDetallesProductos(orden);
+                ListViewItem item = new ListViewItem(new string[] { orden.IdOrden.ToString(), orden.CuitCliente.ToString() });
+                ordenesPreparar.Items.Add(item);
             }
         }
-        private void MostrarDetallesProductos(string orden)
-        {
-            switch (orden)
-            {
-                case "Orden01":
-                    listProductos.Items.Add("Orden01: Ubicacion AAA, Remeras 15, Camperas 30.");
-                    break;
-                case "Orden02":
-                    listProductos.Items.Add("Orden02: Ubicacion BBB, Pelotas 20, Mini arcos 40.");
-                    break;
-                case "Orden03":
-                    listProductos.Items.Add("Orden03: Ubicacion CCC, 10 Notebooks.");
-                    break;
-                case "Orden04":
-                    listProductos.Items.Add("Orden04: Ubicacion DDD, 50 termos, 100 bombillas.");
-                    break;
-                case "Orden05":
-                    listProductos.Items.Add("Orden05: Ubicación EEE, Buzos 25, Zapatillas 10, Gorras 30.");
-                    break;
-            }
-        }        
     }
 }
 

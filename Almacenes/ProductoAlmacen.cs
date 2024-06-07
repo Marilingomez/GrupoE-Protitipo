@@ -11,23 +11,33 @@ namespace GrupoE_Protitipos.Almacenes
 {
     public static class ProductoAlmacen
     {
-        private static List<ProductoEntidad> productos;
+        private static List<ProductoEntidad> productos = new();
 
         static ProductoAlmacen()
         {
-            if (File.Exists("productos.json"))
+            if (File.Exists(@"Datos/productos.json"))
             {
-                var contenido = File.ReadAllText("productos.json");
+                var contenido = File.ReadAllText(@"Datos/productos.json");
                 productos = JsonConvert.DeserializeObject<List<ProductoEntidad>>(contenido);
             }
         }
 
-        public static ReadOnlyCollection<ProductoEntidad> Productos = productos.AsReadOnly();
-
         public static void GrabarDatos()
         {
             var contenido = JsonConvert.SerializeObject(productos);
-            File.WriteAllText(@"productos.json", contenido);
+            File.WriteAllText(@"Datos/productos.json", contenido);
+        }
+
+        public static List<ProductoEntidad> ObtenerProductos() { return productos; }
+
+        public static int ObtenerIdPorDescripcion(string descripcion)
+        {
+            return productos.Find(p => p.Descripcion == descripcion).IdProducto;
+        }
+
+        public static ProductoEntidad ObtenerProductoPorId(int idProducto)
+        {
+            return productos.Find(p => p.IdProducto == idProducto);
         }
     }
 }

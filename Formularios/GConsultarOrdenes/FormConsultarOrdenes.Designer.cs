@@ -33,7 +33,6 @@ namespace GrupoE_Protitipos
             labelDNI = new Label();
             labelEstado = new Label();
             txtNroOrden = new TextBox();
-            txtDni = new TextBox();
             cmbEstado = new ComboBox();
             listViewEstado = new ListView();
             NroOrdenCol = new ColumnHeader();
@@ -43,6 +42,7 @@ namespace GrupoE_Protitipos
             groupBoxEdicion = new GroupBox();
             btnLimpiar = new Button();
             btnBuscar = new Button();
+            clienteBox = new ComboBox();
             groupBoxEdicion.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,10 +50,9 @@ namespace GrupoE_Protitipos
             // 
             labelNroOrden.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelNroOrden.AutoSize = true;
-            labelNroOrden.Location = new Point(9, 68);
-            labelNroOrden.Margin = new Padding(4, 0, 4, 0);
+            labelNroOrden.Location = new Point(6, 41);
             labelNroOrden.Name = "labelNroOrden";
-            labelNroOrden.Size = new Size(112, 25);
+            labelNroOrden.Size = new Size(73, 15);
             labelNroOrden.TabIndex = 0;
             labelNroOrden.Text = "N° de Orden";
             // 
@@ -61,21 +60,19 @@ namespace GrupoE_Protitipos
             // 
             labelDNI.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelDNI.AutoSize = true;
-            labelDNI.Location = new Point(449, 68);
-            labelDNI.Margin = new Padding(4, 0, 4, 0);
+            labelDNI.Location = new Point(314, 41);
             labelDNI.Name = "labelDNI";
-            labelDNI.Size = new Size(43, 25);
+            labelDNI.Size = new Size(44, 15);
             labelDNI.TabIndex = 1;
-            labelDNI.Text = "DNI";
+            labelDNI.Text = "Cliente";
             // 
             // labelEstado
             // 
             labelEstado.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelEstado.AutoSize = true;
-            labelEstado.Location = new Point(791, 68);
-            labelEstado.Margin = new Padding(4, 0, 4, 0);
+            labelEstado.Location = new Point(554, 41);
             labelEstado.Name = "labelEstado";
-            labelEstado.Size = new Size(66, 25);
+            labelEstado.Size = new Size(42, 15);
             labelEstado.TabIndex = 2;
             labelEstado.Text = "Estado";
             labelEstado.Click += labelEstado_Click;
@@ -84,30 +81,18 @@ namespace GrupoE_Protitipos
             // 
             txtNroOrden.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtNroOrden.BorderStyle = BorderStyle.FixedSingle;
-            txtNroOrden.Location = new Point(121, 65);
-            txtNroOrden.Margin = new Padding(4, 5, 4, 5);
+            txtNroOrden.Location = new Point(85, 39);
             txtNroOrden.Name = "txtNroOrden";
-            txtNroOrden.Size = new Size(261, 31);
+            txtNroOrden.Size = new Size(183, 23);
             txtNroOrden.TabIndex = 3;
-            // 
-            // txtDni
-            // 
-            txtDni.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtDni.BorderStyle = BorderStyle.FixedSingle;
-            txtDni.Location = new Point(496, 65);
-            txtDni.Margin = new Padding(4, 5, 4, 5);
-            txtDni.Name = "txtDni";
-            txtDni.Size = new Size(261, 31);
-            txtDni.TabIndex = 4;
             // 
             // cmbEstado
             // 
             cmbEstado.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cmbEstado.FormattingEnabled = true;
-            cmbEstado.Location = new Point(851, 63);
-            cmbEstado.Margin = new Padding(4, 5, 4, 5);
+            cmbEstado.Location = new Point(596, 38);
             cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(254, 33);
+            cmbEstado.Size = new Size(179, 23);
             cmbEstado.TabIndex = 5;
             // 
             // listViewEstado
@@ -115,10 +100,9 @@ namespace GrupoE_Protitipos
             listViewEstado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listViewEstado.Columns.AddRange(new ColumnHeader[] { NroOrdenCol, DniCol, EstadoCol, FechaCol });
             listViewEstado.FullRowSelect = true;
-            listViewEstado.Location = new Point(17, 335);
-            listViewEstado.Margin = new Padding(4, 5, 4, 5);
+            listViewEstado.Location = new Point(12, 201);
             listViewEstado.Name = "listViewEstado";
-            listViewEstado.Size = new Size(1132, 266);
+            listViewEstado.Size = new Size(794, 161);
             listViewEstado.TabIndex = 6;
             listViewEstado.UseCompatibleStateImageBehavior = false;
             listViewEstado.View = View.Details;
@@ -149,27 +133,24 @@ namespace GrupoE_Protitipos
             // groupBoxEdicion
             // 
             groupBoxEdicion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxEdicion.Controls.Add(clienteBox);
             groupBoxEdicion.Controls.Add(labelNroOrden);
             groupBoxEdicion.Controls.Add(cmbEstado);
             groupBoxEdicion.Controls.Add(txtNroOrden);
             groupBoxEdicion.Controls.Add(labelEstado);
-            groupBoxEdicion.Controls.Add(txtDni);
             groupBoxEdicion.Controls.Add(labelDNI);
-            groupBoxEdicion.Location = new Point(17, 20);
-            groupBoxEdicion.Margin = new Padding(4, 5, 4, 5);
+            groupBoxEdicion.Location = new Point(12, 12);
             groupBoxEdicion.Name = "groupBoxEdicion";
-            groupBoxEdicion.Padding = new Padding(4, 5, 4, 5);
-            groupBoxEdicion.Size = new Size(1132, 162);
+            groupBoxEdicion.Size = new Size(792, 97);
             groupBoxEdicion.TabIndex = 7;
             groupBoxEdicion.TabStop = false;
             // 
             // btnLimpiar
             // 
             btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnLimpiar.Location = new Point(967, 210);
-            btnLimpiar.Margin = new Padding(4, 5, 4, 5);
+            btnLimpiar.Location = new Point(677, 126);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(169, 48);
+            btnLimpiar.Size = new Size(118, 29);
             btnLimpiar.TabIndex = 8;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
@@ -178,28 +159,35 @@ namespace GrupoE_Protitipos
             // btnBuscar
             // 
             btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnBuscar.Location = new Point(787, 210);
-            btnBuscar.Margin = new Padding(4, 5, 4, 5);
+            btnBuscar.Location = new Point(551, 126);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(169, 48);
+            btnBuscar.Size = new Size(118, 29);
             btnBuscar.TabIndex = 9;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // ConsultarOrdenes
+            // clienteBox
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            clienteBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            clienteBox.FormattingEnabled = true;
+            clienteBox.Location = new Point(364, 39);
+            clienteBox.Name = "clienteBox";
+            clienteBox.Size = new Size(141, 23);
+            clienteBox.TabIndex = 10;
+            // 
+            // FormConsultarOrdenes
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1169, 625);
+            ClientSize = new Size(818, 375);
             Controls.Add(btnBuscar);
             Controls.Add(btnLimpiar);
             Controls.Add(listViewEstado);
             Controls.Add(groupBoxEdicion);
-            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "ConsultarOrdenes";
+            Name = "FormConsultarOrdenes";
             Text = "Consultar Estado de Ordenes";
             Load += ConsultarOrdenes_Load;
             groupBoxEdicion.ResumeLayout(false);
@@ -217,7 +205,6 @@ namespace GrupoE_Protitipos
         private Label labelDNI;
         private Label labelEstado;
         private TextBox txtNroOrden;
-        private TextBox txtDni;
         private ComboBox cmbEstado;
         private ListView listViewEstado;
         private ColumnHeader NroOrdenCol;
@@ -227,5 +214,6 @@ namespace GrupoE_Protitipos
         private GroupBox groupBoxEdicion;
         private Button btnLimpiar;
         private Button btnBuscar;
+        private ComboBox clienteBox;
     }
 }

@@ -39,6 +39,7 @@
             Cantidad = new ColumnHeader();
             btnProductoPreparado = new Button();
             btnConfirmaOrdenPreparada = new Button();
+            IdProducto = new ColumnHeader();
             SuspendLayout();
             // 
             // listOrdenesSeleccionada
@@ -85,7 +86,7 @@
             // 
             // listaDetalleProducto
             // 
-            listaDetalleProducto.Columns.AddRange(new ColumnHeader[] { Producto, Cantidad });
+            listaDetalleProducto.Columns.AddRange(new ColumnHeader[] { IdProducto, Producto, Cantidad });
             listaDetalleProducto.FullRowSelect = true;
             listaDetalleProducto.Location = new Point(12, 239);
             listaDetalleProducto.Name = "listaDetalleProducto";
@@ -97,10 +98,12 @@
             // Producto
             // 
             Producto.Text = "Producto";
+            Producto.Width = 150;
             // 
             // Cantidad
             // 
             Cantidad.Text = "Cantidad";
+            Cantidad.Width = 80;
             // 
             // btnProductoPreparado
             // 
@@ -121,6 +124,11 @@
             btnConfirmaOrdenPreparada.Text = "Confirma Orden Preparada";
             btnConfirmaOrdenPreparada.UseVisualStyleBackColor = true;
             btnConfirmaOrdenPreparada.Click += btnConfirmaOrdenPreparada_Click;
+            // 
+            // IdProducto
+            // 
+            IdProducto.Text = "IdProducto";
+            IdProducto.Width = 80;
             // 
             // FormPreparacionOrden
             // 
@@ -153,5 +161,6 @@
         private ColumnHeader Cantidad;
         private Button btnProductoPreparado;
         private Button btnConfirmaOrdenPreparada;
+        private ColumnHeader IdProducto;
     }
 }

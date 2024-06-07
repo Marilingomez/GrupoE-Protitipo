@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GrupoE_Protitipos.Almacenes;
+using GrupoE_Protitipos.Entidades;
+using GrupoE_Protitipos.Utiles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,24 +9,71 @@ using System.Threading.Tasks;
 
 namespace GrupoE_Protitipos.ConsultarOrdenes
 {
-    internal class ConsultarOrdenesModel
+    public class ConsultarOrdenesModel
     {
-        public List<Orden> Ordenes { get; set; }
-
-        public ConsultarOrdenesModel()
+        public List<OrdenDePreparacionEntidad> ObtenerOrdenesDePreparacionPorEstado(string estado)
         {
-            Ordenes = new List<Orden>
-            {
-                new Orden { NroOrden = 23, DNI = 17359842, Estado = "Recepción", Fecha = DateTime.Parse("4/05/2024") },
-                new Orden { NroOrden = 46, DNI = 32763267, Estado = "Preparación", Fecha = DateTime.Parse("15/04/2024") },
-                new Orden { NroOrden = 51, DNI = 25683564, Estado = "Selección", Fecha = DateTime.Parse("27/03/2024") },
-                new Orden { NroOrden = 15, DNI = 18056384, Estado = "Entrega", Fecha = DateTime.Parse("16/02/2024") },
-                new Orden { NroOrden = 68, DNI = 7468935, Estado = "Recepción", Fecha = DateTime.Parse("8/01/2024") },
-                new Orden { NroOrden = 37, DNI = 24863905, Estado = "Preparación", Fecha = DateTime.Parse("25/02/2024") },
-                new Orden { NroOrden = 49, DNI = 26853145, Estado = "Selección", Fecha = DateTime.Parse("23/03/2024") },
-
-            };
+            OrdenDePreparacionEstado status = 
+                (OrdenDePreparacionEstado)Enum.Parse(typeof(OrdenDePreparacionEstado), estado);
+            return OrdenDePreparacionAlmacen.ObtenerOrdenesPorEstado(status);
         }
 
+        public List<string> ObtenerClientes()
+        {
+            List<ClienteEntidad> clientes = ClienteAlmacen.ObtenerClientes();
+            List<string> nombreClientes = new List<string>();
+
+            foreach (var cliente in clientes)
+            {
+                nombreClientes.Add(cliente.NombreFantasia);
+            }
+
+            return nombreClientes;
+        }
+
+        public List<OrdenDePreparacionEntidad> ObtenerOrdenesFiltradas(string idOrden, string nombreCliente, string estado)
+        {
+            List<OrdenDePreparacionEntidad> ordenes = OrdenDePreparacionAlmacen.ObtenerOrdenes();
+
+            var lista = ordenes.AsEnumerable();
+
+            if (idOrden != "")
+            {
+                lista = lista.Where(o => o.IdOrden == int.Parse(idOrden));
+            }
+
+            if (nombreCliente != "Todos")
+            {
+                string cuitCliente = ClienteAlmacen.ObtenerCuitPorNombre(nombreCliente);
+                lista = lista.Where(o => o.CuitCliente == cuitCliente);
+            }
+
+            if (estado != "Todos")
+            {
+                OrdenDePreparacionEstado status =
+                    (OrdenDePreparacionEstado)Enum.Parse(typeof(OrdenDePreparacionEstado), estado);
+                lista = lista.Where(o => o.Estado == status);
+            }
+
+            return lista.ToList();
+        }
+
+        public string ValidarDatos(string idOrden, string nombreCliente, string estado)
+        {
+            string errores = "";
+
+            if(idOrden != "")
+            {
+                if (!int.TryParse(idOrden, out _))
+                {
+                    errores += "El id de la orden debe ser de tipo númerico." + Environment.NewLine;
+                }
+            }
+
+            errores += Validadores.EstaVacio(nombreCliente, "Cliente") + Environment.NewLine;
+            errores += Validadores.EstaVacio(estado, "Estado");
+
+            return errores;
+        }
     }
 }

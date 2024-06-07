@@ -14,18 +14,6 @@ namespace GrupoE_Protitipos
             InitializeComponent();
         }
 
-        public void btnConsultaDisponibilidad_Click(object sender, EventArgs e)
-        {
-            Form formConsultaDisponibilidad = new FormConsultaDisponibilidad();
-            formConsultaDisponibilidad.Show();
-        }
-
-        private void OrdendeRecepcionBtn_Click(object sender, EventArgs e)
-        {
-            Form formOrdenDeRecepcion = new FormOrdenDeRecepcion();
-            formOrdenDeRecepcion.Show();
-        }
-
         private void btnOrdenDePreparacion_Click(object sender, EventArgs e)
         {
             Form formOrdenDePreparacion = new FormOrdenDePreparacion();

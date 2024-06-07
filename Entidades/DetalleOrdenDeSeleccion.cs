@@ -14,5 +14,10 @@ namespace GrupoE_Protitipos.Entidades
         public int Pasillo { get; set; }
         public int Fila { get; set; }
         public int Estante { get; set; }
+
+        public string ObtenerUbicacion()
+        {
+            return "P" + Pasillo + " - F" + Fila + " - E" + Estante;
+        }
     }
 }

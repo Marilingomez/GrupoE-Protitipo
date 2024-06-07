@@ -21,6 +21,7 @@ namespace GrupoE_Protitipos
         {
             OrdenDePreparacionAlmacen.GrabarDatos();
             OrdenesDeEntregaAlmacen.GrabarDatos();
+            OrdenesDeSeleccionAlmacen.GrabarDatos();
         }
     }
 }

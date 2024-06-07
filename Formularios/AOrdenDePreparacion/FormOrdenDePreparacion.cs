@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GrupoE_Protitipos.Entidades;
+using GrupoE_Protitipos.OrdenDeEntrega;
 using GrupoE_Protitipos.OrdenDePreparacion;
 
 namespace GrupoE_Protitipos
@@ -21,103 +23,75 @@ namespace GrupoE_Protitipos
             InitializeComponent();
         }
 
-        private void Confirmar_Click(object sender, EventArgs e)
-        {
-            //eliminar
-        }
-
-        private void Salir_Click(object sender, EventArgs e)
-        {
-            //eliminar
-        }
-
         private void Ordenes_Load(object sender, EventArgs e)
         {
             // Obtener la fecha actual y asignarla al TextBox FechaBox
             FechaBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
             // Inicializar el ID de la orden utilizando el método del modelo
-            IdOrdenBox.Text = modelo.ObtenerSiguienteIdOrden().ToString();
-        }
+            IdOrdenBox.Text = modelo.ObtenerNuevoId().ToString();
 
-        private void OrdenesList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //lista
-        }
+            List<string> depositos = modelo.ObtenerListaDeDepositos();
+            foreach (var deposito in depositos)
+            {
+                DepositoBox.Items.Add(deposito);
+            }
 
-       
+            List<string> clientes = modelo.ObtenerListaDeCliente();
+            foreach (var cliente in clientes)
+            {
+                ClienteBox.Items.Add(cliente);
+            }
+
+            List<string> productos = modelo.ObtenerListaDeProductos();
+            foreach (var producto in productos)
+            {
+                productoBox.Items.Add(producto);
+            }
+        }
 
         private void AgregarBoton_Click(object sender, EventArgs e)
         {
-            var errores = new List<string>();
-            if (!int.TryParse(this.FilaBox.Text, out var fila))
+            string erroresDeCampos = modelo.ValidarCampos(ClienteBox.Text, DepositoBox.Text);
+            if(erroresDeCampos.Trim() != "")
             {
-                errores.Add("La fila debe ser numérica");
-                MessageBox.Show("La fila debe ser numérica");
+                MessageBox.Show(erroresDeCampos, "Error");
                 return;
             }
 
-            if (!int.TryParse(this.ColumnaBox.Text, out var columna))
+            string errores = modelo.ValidarDatosProducto(CantidadBox.Text, productoBox.Text);
+            if (errores.Trim() != "")
             {
-                errores.Add("La columna debe ser numérica");
-                MessageBox.Show("La columna debe ser numérica");
+                MessageBox.Show(errores, "Error");
                 return;
             }
 
-            if (!int.TryParse(this.CantidadBox.Text, out var cantidad))
+            string detalleError = modelo.ValidarExistenciaDeProducto(
+                ClienteBox.Text,
+                productoBox.Text,
+                int.Parse(CantidadBox.Text),
+                DepositoBox.Text
+                );
+            if (detalleError.Trim() != "")
             {
-                errores.Add("La cantidad debe ser numérica");
-                MessageBox.Show("La cantidad debe ser numérica");
+                MessageBox.Show("No hay existencias de los productos indicados para la orden solicitada. Detalle:" + Environment.NewLine +
+                    detalleError
+                    , "Error");
                 return;
             }
 
-            if (errores.Count > 0)
-            {
-                MessageBox.Show(string.Join("\n", errores));
-                return;
-            }
-
-
-            // Crear una nueva instancia de OrdenDePreparacion
-            var ordendepreparacion = new Ordendepreparacion
-            {
-                IdCliente = IdClienteBox.Text,
-                FechaAlta = DateTime.Today,
-                idproducto = IdProductoBox.Text,
-                cantidad = cantidad,
-                deposito = DepositoBox.Text,
-                columna = columna,
-                fila = fila
-            };
-
-            string error = modelo.Validar(ordendepreparacion);
-            if (error == null)
-            {
-                MessageBox.Show("Todo Ok!");
-            }
-            else
-            {
-                MessageBox.Show(error);
-            }
-
-            // Crear un nuevo objeto para representar los datos ingresados
             var nuevoDetalle = new ListViewItem(new string[]
             {
-                this.IdProductoBox.Text,
-                cantidad.ToString(),
-                this.DepositoBox.Text,
-                 columna.ToString(),
-                fila.ToString(),
-                ordendepreparacion.FechaAlta.ToString("dd/MM/yyyy")
+                modelo.ObtenerIdDelProductoPorNombre(productoBox.Text).ToString(),
+                productoBox.Text,
+                CantidadBox.Text.ToString()
             });
 
-            // Agregar el nuevo detalle a la lista visual
             DetallesList.Items.Add(nuevoDetalle);
 
             MessageBox.Show("Datos agregados correctamente a la lista.");
 
-            // Limpiar los campos del formulario después de agregar el detalle
+            VerificarBloqueoDeCampos();
             LimpiarCamposAgregar();
-
         }
 
         private void SalirBoton_Click(object sender, EventArgs e)
@@ -142,6 +116,8 @@ namespace GrupoE_Protitipos
                     DetallesList.Items.RemoveAt(indiceSeleccionado);
 
                     MessageBox.Show("Detalle eliminado correctamente.");
+
+                    VerificarBloqueoDeCampos();
                 }
             }
             else
@@ -153,89 +129,58 @@ namespace GrupoE_Protitipos
 
         private void ConfirmarBoton_Click(object sender, EventArgs e)
         {
-            // Verificar si hay detalles en la lista para confirmar
-            if (DetallesList.Items.Count == 0)
+            var errores = modelo.ValidarDatosOrden(DetallesList.Items.Count, DepositoBox.Text, ClienteBox.Text);
+
+            if (errores.Trim() != "")
             {
-                MessageBox.Show("No hay detalles para confirmar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(errores, "Error");
                 return;
             }
 
-            // Crear una nueva instancia de Ordendepreparacion
-            var nuevaOrden = new Ordendepreparacion
-            {
-                IdCliente = IdClienteBox.Text,
-                FechaAlta = DateTime.Today,
-                idproducto = IdProductoBox.Text,
-                DetalleOrdenes = new List<DetalleOrden>()
-            };
+            modelo.CrearNuevaOrdenDePreparacion(
+                    IdOrdenBox.Text,
+                    ClienteBox.Text,
+                    FechaBox.Text,
+                    DepositoBox.Text,
+                    DetallesList.Items
+                    );
 
-            // Recorrer los detalles en DetallesList y agregarlos a la nueva orden
-            foreach (ListViewItem item in DetallesList.Items)
-            {
-                int cantidad = int.Parse(item.SubItems[1].Text);
-                string deposito = item.SubItems[2].Text;
-                int columna = int.Parse(item.SubItems[3].Text);
-                int fila = int.Parse(item.SubItems[4].Text);
-
-                var detalle = new DetalleOrden
-                {
-                    IdProducto = item.SubItems[0].Text,
-                    Cantidad = cantidad,
-                    Deposito = deposito,
-                    Columna = columna,
-                    Fila = fila
-                };
-
-                nuevaOrden.DetalleOrdenes.Add(detalle);
-            }
-
-            // Validar la nueva orden antes de agregarla
-            string errores = nuevaOrden.validar();
-            if (!string.IsNullOrEmpty(errores))
-            {
-                MessageBox.Show(errores, "Errores de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            // Agregar la nueva orden al modelo o al repositorio de órdenes
-            modelo.AgregarOrden(nuevaOrden); 
-
-            // Limpiar los campos o la lista después de confirmar
-            LimpiarCampos(); 
+            LimpiarCampos();
 
             MessageBox.Show("Orden confirmada y guardada correctamente.", "Confirmación");
 
-            // Actualizar el ID de la orden para la próxima orden utilizando el método del modelo
-            IdOrdenBox.Text = modelo.ObtenerSiguienteIdOrden().ToString();
-
-
-
+            VerificarBloqueoDeCampos();
         }
 
         private void LimpiarCampos()
         {
-            // Limpiar los controles del formulario o la lista (ejemplo)
-            IdClienteBox.Text = string.Empty;
+            ClienteBox.SelectedIndex = -1;
             FechaBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
-            IdProductoBox.Text = string.Empty;
-            DepositoBox.Text = string.Empty;
-            FilaBox.Text = string.Empty;
-            ColumnaBox.Text = string.Empty;
+            productoBox.SelectedIndex = -1;
+            DepositoBox.SelectedIndex = -1;
             CantidadBox.Text = string.Empty;
             DetallesList.Items.Clear();
+            IdOrdenBox.Text = modelo.ObtenerNuevoId().ToString();
         }
 
         private void LimpiarCamposAgregar()
         {
             // Limpiar solo los controles del formulario
-            IdProductoBox.Text = string.Empty;
-            DepositoBox.Text = string.Empty;
-            FilaBox.Text = string.Empty;
-            ColumnaBox.Text = string.Empty;
-            CantidadBox.Text = string.Empty;
+            productoBox.SelectedIndex = -1;
+            CantidadBox.Text = "";
         }
 
-
+        private void VerificarBloqueoDeCampos()
+        {
+            if (DetallesList.Items.Count > 0)
+            {
+                DepositoBox.Enabled = false;
+                ClienteBox.Enabled = false;
+            } else
+            {
+                DepositoBox.Enabled = true;
+                ClienteBox.Enabled = true;
+            }
+        }
     }
 }

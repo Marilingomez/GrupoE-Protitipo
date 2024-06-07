@@ -1,5 +1,6 @@
 ﻿using GrupoE_Protitipos.ConfirmarOrdenDeSeleccion;
 using GrupoE_Protitipos.ConsultaDisponibilidad;
+using GrupoE_Protitipos.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,9 +35,8 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeEntrega
 
                 int idOrdenSeleccionada = int.Parse(selectedItem.SubItems[0].Text);
 
-                OrdEntrega ordenSeleccionada = modelo.ObtenerOrdenesDeEntrega().Find(ode => ode.IdOrden == idOrdenSeleccionada);
+                OrdenDeEntregaEntidad ordenSeleccionada = modelo.ObtenerOrdenesDeEntregaEnTransito().Find(ode => ode.IdOrden == idOrdenSeleccionada);
 
-                inputCliente.Text = ordenSeleccionada.CuitCliente.ToString();
                 inputTransportista.Text = ordenSeleccionada.CuitTransportista.ToString();
                 inputIdOrden.Text = idOrdenSeleccionada.ToString();
             }
@@ -47,20 +47,20 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeEntrega
             int idOrdenSeleccionada = int.Parse(inputIdOrden.Text);
 
             modelo.FinalizarOrdenDeEntrega(idOrdenSeleccionada);
+            modelo.FinalizarOrdenDePreparacion(idOrdenSeleccionada);
 
             MessageBox.Show("La orden de entrega ha finalizado con éxito." + Environment.NewLine +
                 "Las ordenes de preparación asociadas han pasado a estado Entregadas");
 
-            listaOrdenesDeEntrega.Items.Clear();
-
+            LimpiarDatos();
             cargarOrdenesDeEntregaEnTransito();
         }
 
         private void cargarOrdenesDeEntregaEnTransito()
         {
-            foreach (var orden in modelo.ObtenerOrdenesDeEntrega())
+            foreach (var orden in modelo.ObtenerOrdenesDeEntregaEnTransito())
             {
-                ListViewItem item = new ListViewItem(new[] { orden.IdOrden.ToString(), orden.CuitTransportista.ToString(), orden.CuitCliente.ToString() });
+                ListViewItem item = new ListViewItem(new[] { orden.IdOrden.ToString(), orden.CuitTransportista.ToString() });
                 listaOrdenesDeEntrega.Items.Add(item);
             }
         }
@@ -68,6 +68,16 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeEntrega
         private void btnMenu_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LimpiarDatos()
+        {
+            listaOrdenesDeEntrega.Items.Clear();
+            nombreBox.Clear();
+            apellidoBox.Clear();
+            dniBox.Clear();
+            inputIdOrden.Clear();
+            inputTransportista.Clear();
         }
     }
 }

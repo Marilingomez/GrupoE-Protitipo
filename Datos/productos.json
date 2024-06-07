@@ -1,0 +1,42 @@
+[
+  {
+    "IdProducto": 1,
+    "Descripcion": "Laptop"
+  },
+  {
+    "IdProducto": 2,
+    "Descripcion": "Smartphone"
+  },
+  {
+    "IdProducto": 3,
+    "Descripcion": "Tablet"
+  },
+  {
+    "IdProducto": 4,
+    "Descripcion": "Monitor"
+  },
+  {
+    "IdProducto": 5,
+    "Descripcion": "Teclado"
+  },
+  {
+    "IdProducto": 6,
+    "Descripcion": "Raton"
+  },
+  {
+    "IdProducto": 7,
+    "Descripcion": "Impresora"
+  },
+  {
+    "IdProducto": 8,
+    "Descripcion": "Camara"
+  },
+  {
+    "IdProducto": 9,
+    "Descripcion": "Auriculares"
+  },
+  {
+    "IdProducto": 10,
+    "Descripcion": "Altavoces"
+  }
+]

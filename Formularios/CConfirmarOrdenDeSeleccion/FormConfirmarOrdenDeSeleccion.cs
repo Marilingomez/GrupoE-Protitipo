@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrupoE_Protitipos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,33 +21,49 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
 
         private void ConfirmarOrdenDeSeleccion_Load(object sender, EventArgs e)
         {
+            fechaBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
             CargarOrdenesDeSeleccionEnTransito();
         }
 
         private void listOrdSeleccion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listDetalleOrden.Items.Clear();
-
-            string selectedItem = listOrdSeleccion.SelectedItem.ToString();
-
-            List<DetalleOrdSeleccion> detalle = modelo.OrdenesDeSeleccion.Find(ods => ods.IdOrden.ToString() == selectedItem).DetalleProductos;
-
-            foreach (var producto in detalle)
+            if (listaOrdenesEnSeleccion.SelectedItems.Count > 0)
             {
-                ListViewItem item = new ListViewItem(new[] { producto.IdProducto.ToString(), producto.Cantidad.ToString(), producto.ObtenerUbicacion() });
-                listDetalleOrden.Items.Add(item);
+                listDetalleOrden.Items.Clear();
+
+                ListView.SelectedListViewItemCollection selectedItem = listaOrdenesEnSeleccion.SelectedItems;
+
+                int idOrden = int.Parse(selectedItem[0].SubItems[0].Text);
+
+                List<DetalleOrdenDeSeleccion> detalle = modelo.ObtenerOrdenDeSeleccionPorId(idOrden).DetalleProductos;
+
+                foreach (var producto in detalle)
+                {
+                    ListViewItem item = new ListViewItem(new[] { 
+                        producto.IdProducto.ToString(), 
+                        producto.Cantidad.ToString(),
+                        producto.ObtenerUbicacion()
+                    });
+                    listDetalleOrden.Items.Add(item);
+                }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConfirmar_click(object sender, EventArgs e)
         {
-            string ordenSeleccionada = listOrdSeleccion.SelectedItem.ToString();
+            if (listaOrdenesEnSeleccion.SelectedItems.Count == 0) {
+                MessageBox.Show("Debe seleccionar una Orden para confirmala como Seleccionada.", "Error");
+                return;
+            }
 
-            modelo.FinalizarOrdenDeSeleccion(int.Parse(ordenSeleccionada));
+            int idOrdenSeleccionada = int.Parse(listaOrdenesEnSeleccion.SelectedItems[0].SubItems[0].Text);
+
+            modelo.FinalizarOrdenDeSeleccion(idOrdenSeleccionada);
+            modelo.ActualizarOrdenesDePreparacion(idOrdenSeleccionada);
 
             MessageBox.Show("La orden de Selección fue finalizada con éxito." + Environment.NewLine + "Las ordenes de preparación asociadas pasaron a estado Seleccionada");
 
-            listOrdSeleccion.Items.Clear();
+            listaOrdenesEnSeleccion.Items.Clear();
             listDetalleOrden.Items.Clear();
 
             CargarOrdenesDeSeleccionEnTransito();
@@ -55,7 +72,11 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
         private void CargarOrdenesDeSeleccionEnTransito() {
             foreach (var orden in modelo.ObtenerOrdenesEnTransito())
             {
-                listOrdSeleccion.Items.Add(orden.IdOrden);
+                ListViewItem item = new(new string[] { 
+                    orden.IdOrden.ToString(), 
+                    orden.FechaDeCreacion.ToString("dd/MM/yyyy") 
+                });
+                listaOrdenesEnSeleccion.Items.Add(item);
             }
         }
     }
