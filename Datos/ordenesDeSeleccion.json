@@ -1,0 +1,20 @@
+[
+  {
+    "IdOrden": 1,
+    "CuitCliente": "23-45454545-9",
+    "Estado": "EnTransito",
+    "OrdenesDePreparacion": [ 1, 2 ],
+    "DetalleProductos": [
+      {
+        "IdProducto": 1,
+        "Cantidad": 10,
+        "Deposito": 1,
+        "Pasillo": 1,
+        "Fila": 1,
+        "Estante": 1
+      }
+    ],
+    "FechaDeCreacion": "2024-05-31T00:00:00.00Z",
+    "FechaDeEntrega": "2024-05-30T00:00:00.00Z"
+  }
+]

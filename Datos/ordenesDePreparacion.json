@@ -1,0 +1,127 @@
+[
+  {
+    "IdOrden": 1,
+    "CuitCliente": "23-35353535-3",
+    "FechaAlta": "2024-05-31T02:00:00.00Z",
+    "Prioridad": "Alta",
+    "Estado": "EnSeleccion",
+    "Deposito":  1,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 1,
+        "Cantidad": 10,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 2,
+        "Cantidad": 9,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 3,
+        "Cantidad": 8,
+        "Deposito": 1
+      }
+    ]
+  },
+  {
+    "IdOrden": 2,
+    "CuitCliente": "23-48484848-3",
+    "FechaAlta": "2024-05-30T00:00:00.00Z",
+    "Prioridad": "Media",
+    "Estado": "EnSeleccion",
+    "Deposito": 2,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 1,
+        "Cantidad": 8,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 2,
+        "Cantidad": 9,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 3,
+        "Cantidad": 8,
+        "Deposito": 1
+      }
+    ]
+  },
+  {
+    "IdOrden": 3,
+    "CuitCliente": "23-35353535-3",
+    "FechaAlta": "2024-05-30T00:00:00.00Z",
+    "Prioridad": "Alta",
+    "Estado": "Preparada",
+    "Deposito": 3,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 1,
+        "Cantidad": 10,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 2,
+        "Cantidad": 8,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 3,
+        "Cantidad": 8,
+        "Deposito": 1
+      }
+    ]
+  },
+  {
+    "IdOrden": 4,
+    "CuitCliente": "23-35353535-3",
+    "FechaAlta": "2024-05-30T00:00:00.00Z",
+    "Prioridad": "Alta",
+    "Estado": "Preparada",
+    "Deposito": 4,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 1,
+        "Cantidad": 9,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 2,
+        "Cantidad": 9,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 3,
+        "Cantidad": 8,
+        "Deposito": 1
+      }
+    ]
+  },
+  {
+    "IdOrden": 5,
+    "CuitCliente": "23-35353535-3",
+    "FechaAlta": "2024-05-30T00:00:00.00Z",
+    "Prioridad": "Baja",
+    "Estado": "Pendiente",
+    "Deposito": 1,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 1,
+        "Cantidad": 9,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 2,
+        "Cantidad": 9,
+        "Deposito": 1
+      },
+      {
+        "IdProducto": 3,
+        "Cantidad": 8,
+        "Deposito": 1
+      }
+    ]
+  }
+]

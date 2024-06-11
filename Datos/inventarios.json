@@ -1,0 +1,36 @@
+[
+  {
+    "Deposito": 1,
+    "Pasillo": "A",
+    "Fila": "A",
+    "Estante": 1,
+    "CuitCliente": "22-15151515-1",
+    "Productos": [
+      {
+        "IdProducto": 1,
+        "Cantidad": 4
+      },
+      {
+        "IdProducto": 2,
+        "Cantidad": 9
+      }
+    ]
+  },
+  {
+    "Deposito": 2,
+    "Pasillo": "A",
+    "Fila": "A",
+    "Estante": 2,
+    "CuitCliente": "22-15151515-1",
+    "Productos": [
+      {
+        "IdProducto": 3,
+        "Cantidad": 2
+      },
+      {
+        "IdProducto": 4,
+        "Cantidad": 10
+      }
+    ]
+  }
+]

@@ -29,9 +29,7 @@ namespace GrupoE_Protitipos
         /// </summary>
         private void InitializeComponent()
         {
-            btnConsultaDisponibilidad = new Button();
             btnOrdenDePreparacion = new Button();
-            OrdendeRecepcionBtn = new Button();
             btnOrdenDeSeleccion = new Button();
             btnOrdenDeEntrega = new Button();
             btnEstadoOrdenes = new Button();
@@ -40,20 +38,9 @@ namespace GrupoE_Protitipos
             btnPrepararMercaderia = new Button();
             SuspendLayout();
             // 
-            // btnConsultaDisponibilidad
-            // 
-            btnConsultaDisponibilidad.Location = new Point(144, 32);
-            btnConsultaDisponibilidad.Margin = new Padding(3, 2, 3, 2);
-            btnConsultaDisponibilidad.Name = "btnConsultaDisponibilidad";
-            btnConsultaDisponibilidad.Size = new Size(270, 35);
-            btnConsultaDisponibilidad.TabIndex = 0;
-            btnConsultaDisponibilidad.Text = "Informar espacio disponible";
-            btnConsultaDisponibilidad.UseVisualStyleBackColor = true;
-            btnConsultaDisponibilidad.Click += btnConsultaDisponibilidad_Click;
-            // 
             // btnOrdenDePreparacion
             // 
-            btnOrdenDePreparacion.Location = new Point(144, 132);
+            btnOrdenDePreparacion.Location = new Point(144, 29);
             btnOrdenDePreparacion.Margin = new Padding(3, 2, 3, 2);
             btnOrdenDePreparacion.Name = "btnOrdenDePreparacion";
             btnOrdenDePreparacion.Size = new Size(270, 35);
@@ -62,20 +49,9 @@ namespace GrupoE_Protitipos
             btnOrdenDePreparacion.UseVisualStyleBackColor = true;
             btnOrdenDePreparacion.Click += btnOrdenDePreparacion_Click;
             // 
-            // OrdendeRecepcionBtn
-            // 
-            OrdendeRecepcionBtn.Location = new Point(144, 84);
-            OrdendeRecepcionBtn.Margin = new Padding(4);
-            OrdendeRecepcionBtn.Name = "OrdendeRecepcionBtn";
-            OrdendeRecepcionBtn.Size = new Size(270, 35);
-            OrdendeRecepcionBtn.TabIndex = 2;
-            OrdendeRecepcionBtn.Text = "Orden recepción";
-            OrdendeRecepcionBtn.UseVisualStyleBackColor = true;
-            OrdendeRecepcionBtn.Click += OrdendeRecepcionBtn_Click;
-            // 
             // btnOrdenDeSeleccion
             // 
-            btnOrdenDeSeleccion.Location = new Point(144, 178);
+            btnOrdenDeSeleccion.Location = new Point(144, 89);
             btnOrdenDeSeleccion.Margin = new Padding(3, 2, 3, 2);
             btnOrdenDeSeleccion.Name = "btnOrdenDeSeleccion";
             btnOrdenDeSeleccion.Size = new Size(270, 35);
@@ -86,7 +62,7 @@ namespace GrupoE_Protitipos
             // 
             // btnOrdenDeEntrega
             // 
-            btnOrdenDeEntrega.Location = new Point(144, 319);
+            btnOrdenDeEntrega.Location = new Point(144, 274);
             btnOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
             btnOrdenDeEntrega.Name = "btnOrdenDeEntrega";
             btnOrdenDeEntrega.Size = new Size(270, 35);
@@ -97,7 +73,7 @@ namespace GrupoE_Protitipos
             // 
             // btnEstadoOrdenes
             // 
-            btnEstadoOrdenes.Location = new Point(144, 418);
+            btnEstadoOrdenes.Location = new Point(144, 395);
             btnEstadoOrdenes.Margin = new Padding(3, 2, 3, 2);
             btnEstadoOrdenes.Name = "btnEstadoOrdenes";
             btnEstadoOrdenes.Size = new Size(270, 35);
@@ -108,7 +84,7 @@ namespace GrupoE_Protitipos
             // 
             // confirmarOrdenDeSeleccion
             // 
-            confirmarOrdenDeSeleccion.Location = new Point(144, 226);
+            confirmarOrdenDeSeleccion.Location = new Point(144, 149);
             confirmarOrdenDeSeleccion.Margin = new Padding(3, 2, 3, 2);
             confirmarOrdenDeSeleccion.Name = "confirmarOrdenDeSeleccion";
             confirmarOrdenDeSeleccion.Size = new Size(270, 35);
@@ -119,7 +95,7 @@ namespace GrupoE_Protitipos
             // 
             // btnConfirmarOrdenDeEntrega
             // 
-            btnConfirmarOrdenDeEntrega.Location = new Point(144, 368);
+            btnConfirmarOrdenDeEntrega.Location = new Point(144, 333);
             btnConfirmarOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
             btnConfirmarOrdenDeEntrega.Name = "btnConfirmarOrdenDeEntrega";
             btnConfirmarOrdenDeEntrega.Size = new Size(270, 35);
@@ -130,7 +106,7 @@ namespace GrupoE_Protitipos
             // 
             // btnPrepararMercaderia
             // 
-            btnPrepararMercaderia.Location = new Point(144, 265);
+            btnPrepararMercaderia.Location = new Point(144, 212);
             btnPrepararMercaderia.Margin = new Padding(3, 2, 3, 2);
             btnPrepararMercaderia.Name = "btnPrepararMercaderia";
             btnPrepararMercaderia.Size = new Size(270, 35);
@@ -143,16 +119,14 @@ namespace GrupoE_Protitipos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(523, 501);
+            ClientSize = new Size(523, 458);
             Controls.Add(btnPrepararMercaderia);
             Controls.Add(btnConfirmarOrdenDeEntrega);
             Controls.Add(confirmarOrdenDeSeleccion);
             Controls.Add(btnEstadoOrdenes);
             Controls.Add(btnOrdenDeEntrega);
             Controls.Add(btnOrdenDeSeleccion);
-            Controls.Add(OrdendeRecepcionBtn);
             Controls.Add(btnOrdenDePreparacion);
-            Controls.Add(btnConsultaDisponibilidad);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Menu";
             Text = "Menu Principal";
@@ -165,11 +139,8 @@ namespace GrupoE_Protitipos
             //throw new NotImplementedException();
         }
 
-        #endregion
-
-        private Button btnConsultaDisponibilidad;
+#endregion
         private Button btnOrdenDePreparacion;
-        private Button OrdendeRecepcionBtn;
         private Button btnOrdenDeSeleccion;
         private Button btnOrdenDeEntrega;
         private Button btnEstadoOrdenes;

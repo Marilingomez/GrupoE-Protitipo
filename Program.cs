@@ -1,3 +1,5 @@
+using GrupoE_Protitipos.Almacenes;
+
 namespace GrupoE_Protitipos
 {
     internal static class Program
@@ -12,6 +14,14 @@ namespace GrupoE_Protitipos
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Menu());
+            GuardarDatos();
+        }
+
+        private static void GuardarDatos()
+        {
+            OrdenDePreparacionAlmacen.GrabarDatos();
+            OrdenesDeEntregaAlmacen.GrabarDatos();
+            OrdenesDeSeleccionAlmacen.GrabarDatos();
         }
     }
 }
