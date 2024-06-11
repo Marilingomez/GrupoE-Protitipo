@@ -9,11 +9,11 @@ namespace GrupoE_Protitipos.Entidades
     public class DetalleProducto
     {
         public int IdProducto { get; set; }
-        public int Cantidad { get; set; }
-        public DetalleProducto(int idProducto, int cantidad)
+        public DetalleProductoDisponibilidad Disponibilidad { get; set; }
+        public DetalleProducto(int idProducto, DetalleProductoDisponibilidad disponibilidad)
         {
             IdProducto = idProducto;
-            Cantidad = cantidad;
+            Disponibilidad = disponibilidad;
         }
     }
 }

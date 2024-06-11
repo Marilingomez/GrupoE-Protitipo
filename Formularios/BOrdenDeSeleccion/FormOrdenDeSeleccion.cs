@@ -88,6 +88,7 @@ namespace GrupoE_Protitipos
                 CargaDatosIniciales();
             }
         }
+
         private void ActualizarDetallesProductos()
         {
             listProductos.Items.Clear();

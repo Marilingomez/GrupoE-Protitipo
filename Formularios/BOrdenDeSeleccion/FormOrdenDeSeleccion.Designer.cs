@@ -31,7 +31,6 @@
             label1 = new Label();
             label2 = new Label();
             label4 = new Label();
-            listProductos = new ListBox();
             buttonAgregar = new Button();
             buttonEliminar = new Button();
             buttonFinalizar = new Button();
@@ -41,6 +40,10 @@
             ordenesSeleccionar = new ListView();
             IdSeleccionado = new ColumnHeader();
             clienteSeleccionado = new ColumnHeader();
+            listProductos = new ListView();
+            Ubicacion = new ColumnHeader();
+            Producto = new ColumnHeader();
+            Cantidad = new ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -69,16 +72,6 @@
             label4.Size = new Size(132, 15);
             label4.TabIndex = 7;
             label4.Text = "Productos a seleccionar";
-            // 
-            // listProductos
-            // 
-            listProductos.FormattingEnabled = true;
-            listProductos.ItemHeight = 15;
-            listProductos.Location = new Point(21, 186);
-            listProductos.Margin = new Padding(3, 2, 3, 2);
-            listProductos.Name = "listProductos";
-            listProductos.Size = new Size(653, 109);
-            listProductos.TabIndex = 15;
             // 
             // buttonAgregar
             // 
@@ -153,17 +146,41 @@
             // 
             clienteSeleccionado.Text = "Cliente seleccionado";
             // 
+            // listProductos
+            // 
+            listProductos.Columns.AddRange(new ColumnHeader[] { Ubicacion, Producto, Cantidad });
+            listProductos.Location = new Point(21, 187);
+            listProductos.Name = "listProductos";
+            listProductos.Size = new Size(653, 112);
+            listProductos.TabIndex = 21;
+            listProductos.UseCompatibleStateImageBehavior = false;
+            listProductos.View = View.Details;
+            // 
+            // Ubicacion
+            // 
+            Ubicacion.Text = "Ubicacion";
+            Ubicacion.Width = 120;
+            // 
+            // Producto
+            // 
+            Producto.Text = "Producto";
+            Producto.Width = 150;
+            // 
+            // Cantidad
+            // 
+            Cantidad.Text = "Cantidad";
+            // 
             // FormOrdenDeSeleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(listProductos);
             Controls.Add(ordenesSeleccionar);
             Controls.Add(ordenesPreparar);
             Controls.Add(buttonFinalizar);
             Controls.Add(buttonEliminar);
             Controls.Add(buttonAgregar);
-            Controls.Add(listProductos);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -179,7 +196,6 @@
         private Label label1;
         private Label label2;
         private Label label4;
-        private ListBox listProductos;
         private Button buttonAgregar;
         private Button buttonEliminar;
         private Button buttonFinalizar;
@@ -189,5 +205,9 @@
         private ColumnHeader Cliente;
         private ColumnHeader IdSeleccionado;
         private ColumnHeader clienteSeleccionado;
+        private ListView listProductos;
+        private ColumnHeader Ubicacion;
+        private ColumnHeader Producto;
+        private ColumnHeader Cantidad;
     }
 }

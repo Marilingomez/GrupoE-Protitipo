@@ -36,7 +36,7 @@ namespace GrupoE_Protitipos.Almacenes
                 .Where(i => i.CuitCliente == cuitCliente && i.Deposito == idDeposito)
                 .SelectMany(i => i.Productos)
                 .Where(p => p.IdProducto == idProducto)
-                .Sum(p => p.Cantidad);
+                .Sum(p => p.Disponibilidad.Disponible);
         }
     }
 }

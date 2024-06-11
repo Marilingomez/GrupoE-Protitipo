@@ -31,16 +31,10 @@
             OrdenSeleccionadaList = new ListView();
             IDOrdenCol = new ColumnHeader();
             IDClienteCol = new ColumnHeader();
-            IDProductosCol = new ColumnHeader();
-            CantidadCol = new ColumnHeader();
-            PosicionDepositoCol = new ColumnHeader();
             SeleccionarBoton = new Button();
             OrdenEntrega = new ListView();
             IDOrdenSCol = new ColumnHeader();
             IdClienteSCol = new ColumnHeader();
-            IDProductosSCol = new ColumnHeader();
-            CantidadSCol = new ColumnHeader();
-            PosicionSCol = new ColumnHeader();
             GenerarBoton = new Button();
             VolverBoton = new Button();
             EliminarSeleccionBoton = new Button();
@@ -55,6 +49,8 @@
             label2 = new Label();
             IDtext = new TextBox();
             label1 = new Label();
+            Prioridad = new ColumnHeader();
+            PrioridadTwo = new ColumnHeader();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -62,7 +58,7 @@
             // 
             // OrdenSeleccionadaList
             // 
-            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, IDProductosCol, CantidadCol, PosicionDepositoCol });
+            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, Prioridad });
             OrdenSeleccionadaList.FullRowSelect = true;
             OrdenSeleccionadaList.Location = new Point(5, 22);
             OrdenSeleccionadaList.Margin = new Padding(3, 2, 3, 2);
@@ -82,21 +78,6 @@
             IDClienteCol.Text = "ID Cliente";
             IDClienteCol.Width = 100;
             // 
-            // IDProductosCol
-            // 
-            IDProductosCol.Text = "ID Productos";
-            IDProductosCol.Width = 100;
-            // 
-            // CantidadCol
-            // 
-            CantidadCol.Text = "Cantidad";
-            CantidadCol.Width = 100;
-            // 
-            // PosicionDepositoCol
-            // 
-            PosicionDepositoCol.Text = "Posicion";
-            PosicionDepositoCol.Width = 100;
-            // 
             // SeleccionarBoton
             // 
             SeleccionarBoton.Location = new Point(30, 338);
@@ -110,7 +91,7 @@
             // 
             // OrdenEntrega
             // 
-            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, IDProductosSCol, CantidadSCol, PosicionSCol });
+            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, PrioridadTwo });
             OrdenEntrega.FullRowSelect = true;
             OrdenEntrega.Location = new Point(5, 20);
             OrdenEntrega.Margin = new Padding(3, 2, 3, 2);
@@ -130,21 +111,6 @@
             // 
             IdClienteSCol.Text = "ID Cliente";
             IdClienteSCol.Width = 100;
-            // 
-            // IDProductosSCol
-            // 
-            IDProductosSCol.Text = "ID Productos";
-            IDProductosSCol.Width = 100;
-            // 
-            // CantidadSCol
-            // 
-            CantidadSCol.Text = "Cantidad";
-            CantidadSCol.Width = 100;
-            // 
-            // PosicionSCol
-            // 
-            PosicionSCol.Text = "Posicion";
-            PosicionSCol.Width = 100;
             // 
             // GenerarBoton
             // 
@@ -294,6 +260,14 @@
             label1.TabIndex = 0;
             label1.Text = "ID";
             // 
+            // Prioridad
+            // 
+            Prioridad.Text = "Prioridad";
+            // 
+            // PrioridadTwo
+            // 
+            PrioridadTwo.Text = "Prioridad";
+            // 
             // FormOrdenDeEntrega
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -338,13 +312,9 @@
         private Label label3;
         private ColumnHeader IDOrdenSCol;
         private ColumnHeader IdClienteSCol;
-        private ColumnHeader IDProductosCol;
-        private ColumnHeader CantidadCol;
-        private ColumnHeader PosicionDepositoCol;
-        private ColumnHeader IDProductosSCol;
-        private ColumnHeader CantidadSCol;
-        private ColumnHeader PosicionSCol;
         private ComboBox depositoBox;
         private TextBox fechaBox;
+        private ColumnHeader Prioridad;
+        private ColumnHeader PrioridadTwo;
     }
 }

@@ -10,6 +10,7 @@ namespace GrupoE_Protitipos.Entidades
     public class OrdenDeSeleccionEntidad
     {
         public int IdOrden {  get; set; }
+        public int Deposito { get; set; }
         public Estado Estado { get; set; }
         public List<int> OrdenesDePreparacion { get; set; }
         public List<DetalleOrdenDeSeleccion> DetalleProductos { get; set; }

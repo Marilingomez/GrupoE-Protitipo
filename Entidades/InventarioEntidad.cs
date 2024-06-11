@@ -8,6 +8,7 @@ namespace GrupoE_Protitipos.Entidades
 {
     public class InventarioEntidad
     {
+        public int IdInventario {  get; set; }
         public int Deposito { get; set; }
         public string Pasillo { get; set; }
         public string Fila {  get; set; }
