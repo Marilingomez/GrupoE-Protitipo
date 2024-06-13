@@ -67,6 +67,7 @@
             DetallesList.FullRowSelect = true;
             DetallesList.GridLines = true;
             DetallesList.Location = new Point(12, 210);
+            DetallesList.MultiSelect = false;
             DetallesList.Name = "DetallesList";
             DetallesList.Size = new Size(634, 216);
             DetallesList.TabIndex = 5;

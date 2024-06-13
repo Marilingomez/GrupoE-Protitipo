@@ -145,7 +145,7 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             if(cantidadEnAlmacen < cantidadProducto)
             {
                 return "- Cantidad solicitada: " + cantidadProducto + "." + Environment.NewLine +
-                    "- Cantidad en almacen: " + cantidadEnAlmacen + ".";
+                    "- Cantidad en almacen disponible: " + cantidadEnAlmacen + ".";
             }
             return "";
         }
@@ -157,6 +157,21 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             errores += Validadores.EstaVacio(deposito, "Deposito");
 
             return errores;
+        }
+
+        public void PrereservaDeProducto(string cuitCliente, string nombreDeposito, int cantidad, string nombreProducto)
+        {
+            int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(nombreDeposito);
+            int idProducto = ProductoAlmacen.ObtenerIdPorDescripcion(nombreProducto);
+
+            InventarioAlmacen.GenerarPrereservaDeProducto(cuitCliente, idProducto, idDeposito, cantidad);
+        }
+
+        public void CancelarPrereservaDeProducto(string cuitCliente, string nombreDeposito, int cantidad, int idProducto)
+        {
+            int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(nombreDeposito);
+
+            InventarioAlmacen.CancelarPrereservaDeProducto(cuitCliente, idProducto, idDeposito, cantidad);
         }
     }
 }

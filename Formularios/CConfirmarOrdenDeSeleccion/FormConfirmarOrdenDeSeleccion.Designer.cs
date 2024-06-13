@@ -88,7 +88,7 @@
             MenuPrincipalVolver.TabIndex = 11;
             MenuPrincipalVolver.Text = "Menu principal";
             MenuPrincipalVolver.UseVisualStyleBackColor = true;
-            MenuPrincipalVolver.Click += MenuPrincipalVolver_Click;
+            // MenuPrincipalVolver.Click += MenuPrincipalVolver_Click;
             // 
             // listDetalleOrden
             // 

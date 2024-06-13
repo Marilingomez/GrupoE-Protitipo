@@ -87,6 +87,12 @@ namespace GrupoE_Protitipos
             });
 
             DetallesList.Items.Add(nuevoDetalle);
+            modelo.PrereservaDeProducto(
+                ClienteBox.Text,
+                DepositoBox.Text,
+                int.Parse(CantidadBox.Text),
+                productoBox.Text
+                );
 
             MessageBox.Show("Datos agregados correctamente a la lista.");
 
@@ -113,7 +119,15 @@ namespace GrupoE_Protitipos
                 if (confirmacion == DialogResult.Yes)
                 {
                     // Eliminar la fila seleccionada del ListView
+                    ListViewItem item = DetallesList.SelectedItems[0];
                     DetallesList.Items.RemoveAt(indiceSeleccionado);
+
+                    modelo.CancelarPrereservaDeProducto(
+                        ClienteBox.Text, 
+                        DepositoBox.Text,
+                        int.Parse(item.SubItems[2].Text),
+                        int.Parse(item.SubItems[0].Text)
+                        );
 
                     MessageBox.Show("Detalle eliminado correctamente.");
 
