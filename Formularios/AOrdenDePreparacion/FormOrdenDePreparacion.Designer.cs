@@ -50,6 +50,8 @@
             DepositoBox = new ComboBox();
             ClienteBox = new ComboBox();
             productoBox = new ComboBox();
+            transportistaLabel = new Label();
+            transportistaBox = new ComboBox();
             SuspendLayout();
             // 
             // Orden
@@ -245,11 +247,31 @@
             productoBox.Size = new Size(211, 23);
             productoBox.TabIndex = 29;
             // 
+            // transportistaLabel
+            // 
+            transportistaLabel.AutoSize = true;
+            transportistaLabel.Location = new Point(263, 131);
+            transportistaLabel.Name = "transportistaLabel";
+            transportistaLabel.Size = new Size(74, 15);
+            transportistaLabel.TabIndex = 30;
+            transportistaLabel.Text = "Transportista";
+            // 
+            // transportistaBox
+            // 
+            transportistaBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            transportistaBox.FormattingEnabled = true;
+            transportistaBox.Location = new Point(360, 128);
+            transportistaBox.Name = "transportistaBox";
+            transportistaBox.Size = new Size(121, 23);
+            transportistaBox.TabIndex = 31;
+            // 
             // FormOrdenDePreparacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(668, 473);
+            Controls.Add(transportistaBox);
+            Controls.Add(transportistaLabel);
             Controls.Add(productoBox);
             Controls.Add(ClienteBox);
             Controls.Add(DepositoBox);
@@ -300,5 +322,7 @@
         private ComboBox DepositoBox;
         private ComboBox ClienteBox;
         private ComboBox productoBox;
+        private Label transportistaLabel;
+        private ComboBox transportistaBox;
     }
 }

@@ -1,5 +1,4 @@
-﻿using GrupoE_Protitipos.ConsultaDisponibilidad;
-using GrupoE_Protitipos.Entidades;
+﻿using GrupoE_Protitipos.Entidades;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -93,6 +92,33 @@ namespace GrupoE_Protitipos.Almacenes
             }
         }
 
+        public static void GenerarReservaDeProducto(string cuitCliente, int idProducto, int idDeposito, int cantidad)
+        {
+            int contador = cantidad;
+            List<InventarioEntidad> posicionesConPrereserva =
+                ObtenerPosicionesConPrereservaDeProducto(idProducto, idDeposito, cantidad, cuitCliente);
+
+            foreach (var posicion in posicionesConPrereserva)
+            {
+                int index = inventarios.IndexOf(posicion);
+                int productoIndex = posicion.Productos.FindIndex(p => p.IdProducto == idProducto);
+
+                if (posicion.Productos[productoIndex].Disponibilidad.Prereservado > contador)
+                {
+                    inventarios[index].GeneraReserva(idProducto, contador);
+                    inventarios[index].CancelaPrereserva(idProducto, contador);
+                    break;
+                }
+                else
+                {
+                    int disponibilidad = inventarios[index].Productos[productoIndex].Disponibilidad.Prereservado;
+                    inventarios[index].GeneraReserva(idProducto, disponibilidad);
+                    inventarios[index].CancelaPrereserva(idProducto, disponibilidad);
+                    contador -= disponibilidad;
+                }
+            }
+        }
+
         private static List<InventarioEntidad> ObtenerPosicionesConDisponibilidadDeProducto(
             int idProducto,
             int idDeposito, 
@@ -119,6 +145,85 @@ namespace GrupoE_Protitipos.Almacenes
                     p => p.IdProducto == idProducto && p.Disponibilidad.Prereservado > 0
                     ) && i.CuitCliente == cuitCliente && i.Deposito == idDeposito
                 ).ToList();
+        }
+
+        public static List<InventarioEntidad> ObtenerInventariosAcumulados(int idProducto, int cantidad)
+        {
+            List<InventarioEntidad> nuevaLista = new();
+            foreach (var item in inventarios)
+            {
+                nuevaLista.Add(item.Clonar());
+            }
+
+            // Filtrar y ordenar
+            var filtradoYOrdenado = nuevaLista
+                .Select(i => new InventarioEntidad
+                {
+                    Deposito = i.Deposito,
+                    Pasillo = i.Pasillo,
+                    Fila = i.Fila,
+                    Estante = i.Estante,
+                    CuitCliente = i.CuitCliente,
+                    Productos = i.Productos.Where(p => p.IdProducto == idProducto).ToList()
+                })
+                .Where(i => i.Productos.Count > 0)
+                .OrderBy(i => i.Pasillo)
+                .ThenBy(i => i.Fila)
+                .ThenBy(i => i.Estante)
+                .ToList();
+
+            // Acumular la cantidad de Reservado
+            List<InventarioEntidad> resultado = new List<InventarioEntidad>();
+            int acumulado = 0;
+
+            foreach (var inv in filtradoYOrdenado)
+            {
+                int reservadoTotal = inv.Productos.Sum(p => p.Disponibilidad.Reservado);
+                acumulado += reservadoTotal;
+
+                if (acumulado > cantidad)
+                {
+                    // Ajustar el último objeto para que la sumatoria de Reservado sea igual a Cantidad
+                    int diferencia = acumulado - cantidad;
+                    inv.Productos.First(p => p.IdProducto == idProducto).Disponibilidad.Reservado -= diferencia;
+                    resultado.Add(inv);
+                    break;
+                }
+                else
+                {
+                    resultado.Add(inv);
+                }
+            }
+
+            return resultado;
+        }
+
+        public static void GenerarSeleccionDeProducto(int idDeposito, string pasillo, string fila, int estante, int idProducto, int cantidad)
+        {
+            int index = inventarios.FindIndex(i => i.Deposito == idDeposito && i.Pasillo == pasillo && i.Fila == fila && i.Estante == estante);
+
+            inventarios[index].GeneraSeleccionado(idProducto, cantidad);
+            inventarios[index].CancelaReserva(idProducto, cantidad);
+        }
+
+        public static void BajaDeProducto(int idDeposito, string pasillo, string fila, int estante, int idProducto, int cantidad)
+        {
+            int index = inventarios.FindIndex(i => i.Deposito == idDeposito && i.Pasillo == pasillo && i.Fila == fila && i.Estante == estante);
+
+            inventarios[index].BajaProducto(idProducto, cantidad);
+            EliminarProductosVacios();
+        }
+
+        private static void EliminarProductosVacios()
+        {
+            foreach (var inventario in inventarios)
+            {
+                inventario.Productos.RemoveAll(p =>
+                    p.Disponibilidad.Disponible == 0 &&
+                    p.Disponibilidad.Prereservado == 0 &&
+                    p.Disponibilidad.Reservado == 0 &&
+                    p.Disponibilidad.Seleccionado == 0);
+            }
         }
     }
 }

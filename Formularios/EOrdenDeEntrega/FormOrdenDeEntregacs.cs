@@ -1,5 +1,4 @@
-﻿using GrupoE_Protitipos.ConsultaDisponibilidad;
-using GrupoE_Protitipos.ConsultarOrdenes;
+﻿using GrupoE_Protitipos.ConsultarOrdenes;
 using GrupoE_Protitipos.Entidades;
 
 namespace GrupoE_Protitipos.OrdenDeEntrega
@@ -84,36 +83,41 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
         {
             string errores = modeloentrega.ValidacionesParaGenerarOrdenDeEntrega(
                 OrdenEntrega.Items.Count,
-                depositoBox.Text,
-                TransportistaCUITText.Text
+                depositoBox.Text
                 );
-            if (errores == "")
-            {
-                int id = int.Parse(IDtext.Text);
-                string transportistacuit = TransportistaCUITText.Text;
-                DateTime fecha = DateTime.Parse(fechaBox.Text);
-                string deposito = depositoBox.Text;
-                List<int> ordenesDePreparacion = new List<int>();
 
-                foreach (ListViewItem itemSeleccionado in OrdenEntrega.Items)
-                {
-                    ordenesDePreparacion.Add(int.Parse(itemSeleccionado.SubItems[0].Text));
-                }
-
-                modeloentrega.CrearOrdenDeEntrega(id, transportistacuit, fecha, deposito, ordenesDePreparacion);
-                modeloentrega.ActualizarOrdenesHaciaPorDespachar(ordenesDePreparacion);
-
-                MessageBox.Show("La orden se ha generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                IDtext.Text = modeloentrega.ObtenerNuevoIdOrdenesDeEntrega().ToString();
-                TransportistaCUITText.Clear();
-
-                OrdenEntrega.Items.Clear();
-            }
-            else
+            if (errores != "")
             {
                 MessageBox.Show(errores, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            bool validacion = modeloentrega.ValidacionSobreTransportista(OrdenEntrega.Items);
+            if (validacion) {
+                MessageBox.Show("Las ordenes seleccionadas deben pertenecer a un mismo transportista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int id = int.Parse(IDtext.Text);
+            DateTime fecha = DateTime.Parse(fechaBox.Text);
+            string deposito = depositoBox.Text;
+            List<int> ordenesDePreparacion = new List<int>();
+
+            foreach (ListViewItem itemSeleccionado in OrdenEntrega.Items)
+            {
+                ordenesDePreparacion.Add(int.Parse(itemSeleccionado.SubItems[0].Text));
+            }
+
+            string nombreTransportista = OrdenEntrega.Items[0].SubItems[3].Text;
+
+            modeloentrega.CrearOrdenDeEntrega(id, nombreTransportista, fecha, deposito, ordenesDePreparacion);
+            modeloentrega.ActualizarOrdenesHaciaPorDespachar(ordenesDePreparacion);
+
+            MessageBox.Show("La orden se ha generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            IDtext.Text = modeloentrega.ObtenerNuevoIdOrdenesDeEntrega().ToString();
+
+            OrdenEntrega.Items.Clear();
         }
 
         private void DepositoBox_SelectedIndexChange(object sender, EventArgs e)
@@ -122,16 +126,24 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
 
             string nombreDeposito = depositoBox.Text;
             CargarOrdenes(nombreDeposito);
+
+            OrdenEntrega.Items.Clear();
         }
 
         private void CargarOrdenes(string deposito)
         {
-            foreach (var ordenDePreparacion in modeloentrega.ObtenerOrdenesPorNombreDeposito(deposito))
+            foreach (var ordenDePreparacion in modeloentrega.ObtenerOrdenesPorNombreDeposito(
+                deposito,
+                OrdenDePreparacionEstado.Preparada
+                ))
             {
                 var fila = new ListViewItem();
+                string nombreTransportista = modeloentrega.ObtenerNombreTransportistaPorId(ordenDePreparacion.IdTransportista);
 
                 fila.Text = ordenDePreparacion.IdOrden.ToString();
                 fila.SubItems.Add(ordenDePreparacion.CuitCliente.ToString());
+                fila.SubItems.Add(ordenDePreparacion.Prioridad.ToString());
+                fila.SubItems.Add(nombreTransportista);
                 OrdenSeleccionadaList.Items.Add(fila);
             }
         }

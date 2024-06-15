@@ -62,9 +62,12 @@ namespace GrupoE_Protitipos.Almacenes
             return ordenesDePreparacion.Find(odp => odp.IdOrden == idOrden);
         }
 
-        public static List<OrdenDePreparacionEntidad> ObtenerOrdenesPorIdDeposito(int idDeposito)
+        public static List<OrdenDePreparacionEntidad> ObtenerOrdenesPorIdDepositoAndEstado(
+            int idDeposito,
+            OrdenDePreparacionEstado estado
+            )
         {
-            return ordenesDePreparacion.FindAll(odp => odp.Deposito == idDeposito);
+            return ordenesDePreparacion.FindAll(odp => odp.Deposito == idDeposito && odp.Estado == estado);
         }
     }
 }

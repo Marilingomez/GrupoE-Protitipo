@@ -15,5 +15,16 @@ namespace GrupoE_Protitipos.Entidades
             IdProducto = idProducto;
             Disponibilidad = disponibilidad;
         }
+
+        public DetalleProducto() { }
+
+        public DetalleProducto Clonar()
+        {
+            return new DetalleProducto
+            {
+                IdProducto = IdProducto,
+                Disponibilidad = Disponibilidad.Clonar(),
+            };
+        }
     }
 }

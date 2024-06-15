@@ -35,18 +35,20 @@
             label1 = new Label();
             labelDetallePreparar = new Label();
             listaDetalleProducto = new ListView();
+            IdProducto = new ColumnHeader();
             Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
             btnProductoPreparado = new Button();
             btnConfirmaOrdenPreparada = new Button();
-            IdProducto = new ColumnHeader();
+            depositoLabel = new Label();
+            depositoBox = new ComboBox();
             SuspendLayout();
             // 
             // listOrdenesSeleccionada
             // 
             listOrdenesSeleccionada.Columns.AddRange(new ColumnHeader[] { IdOrden, IdCliente, Prioridad });
             listOrdenesSeleccionada.FullRowSelect = true;
-            listOrdenesSeleccionada.Location = new Point(12, 27);
+            listOrdenesSeleccionada.Location = new Point(12, 69);
             listOrdenesSeleccionada.Name = "listOrdenesSeleccionada";
             listOrdenesSeleccionada.Size = new Size(392, 176);
             listOrdenesSeleccionada.TabIndex = 0;
@@ -69,7 +71,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 51);
             label1.Name = "label1";
             label1.Size = new Size(201, 15);
             label1.TabIndex = 1;
@@ -78,7 +80,7 @@
             // labelDetallePreparar
             // 
             labelDetallePreparar.AutoSize = true;
-            labelDetallePreparar.Location = new Point(12, 221);
+            labelDetallePreparar.Location = new Point(12, 263);
             labelDetallePreparar.Name = "labelDetallePreparar";
             labelDetallePreparar.Size = new Size(99, 15);
             labelDetallePreparar.TabIndex = 2;
@@ -88,12 +90,17 @@
             // 
             listaDetalleProducto.Columns.AddRange(new ColumnHeader[] { IdProducto, Producto, Cantidad });
             listaDetalleProducto.FullRowSelect = true;
-            listaDetalleProducto.Location = new Point(12, 239);
+            listaDetalleProducto.Location = new Point(12, 281);
             listaDetalleProducto.Name = "listaDetalleProducto";
             listaDetalleProducto.Size = new Size(392, 176);
             listaDetalleProducto.TabIndex = 3;
             listaDetalleProducto.UseCompatibleStateImageBehavior = false;
             listaDetalleProducto.View = View.Details;
+            // 
+            // IdProducto
+            // 
+            IdProducto.Text = "IdProducto";
+            IdProducto.Width = 80;
             // 
             // Producto
             // 
@@ -107,7 +114,7 @@
             // 
             // btnProductoPreparado
             // 
-            btnProductoPreparado.Location = new Point(410, 239);
+            btnProductoPreparado.Location = new Point(410, 281);
             btnProductoPreparado.Name = "btnProductoPreparado";
             btnProductoPreparado.Size = new Size(264, 23);
             btnProductoPreparado.TabIndex = 4;
@@ -117,7 +124,7 @@
             // 
             // btnConfirmaOrdenPreparada
             // 
-            btnConfirmaOrdenPreparada.Location = new Point(410, 27);
+            btnConfirmaOrdenPreparada.Location = new Point(410, 69);
             btnConfirmaOrdenPreparada.Name = "btnConfirmaOrdenPreparada";
             btnConfirmaOrdenPreparada.Size = new Size(264, 23);
             btnConfirmaOrdenPreparada.TabIndex = 5;
@@ -125,16 +132,32 @@
             btnConfirmaOrdenPreparada.UseVisualStyleBackColor = true;
             btnConfirmaOrdenPreparada.Click += btnConfirmaOrdenPreparada_Click;
             // 
-            // IdProducto
+            // depositoLabel
             // 
-            IdProducto.Text = "IdProducto";
-            IdProducto.Width = 80;
+            depositoLabel.AutoSize = true;
+            depositoLabel.Location = new Point(12, 19);
+            depositoLabel.Name = "depositoLabel";
+            depositoLabel.Size = new Size(54, 15);
+            depositoLabel.TabIndex = 6;
+            depositoLabel.Text = "Deposito";
+            // 
+            // depositoBox
+            // 
+            depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            depositoBox.FormattingEnabled = true;
+            depositoBox.Location = new Point(92, 16);
+            depositoBox.Name = "depositoBox";
+            depositoBox.Size = new Size(182, 23);
+            depositoBox.TabIndex = 7;
+            depositoBox.SelectedIndexChanged += depositoBox_SelectedIndexChanged;
             // 
             // FormPreparacionOrden
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 519);
+            Controls.Add(depositoBox);
+            Controls.Add(depositoLabel);
             Controls.Add(btnConfirmaOrdenPreparada);
             Controls.Add(btnProductoPreparado);
             Controls.Add(listaDetalleProducto);
@@ -162,5 +185,7 @@
         private Button btnProductoPreparado;
         private Button btnConfirmaOrdenPreparada;
         private ColumnHeader IdProducto;
+        private Label depositoLabel;
+        private ComboBox depositoBox;
     }
 }

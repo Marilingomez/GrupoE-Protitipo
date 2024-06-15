@@ -12,9 +12,11 @@ namespace GrupoE_Protitipos.DPreparacionOrden
     {
         private List<OrdenDePreparacionEntidad> OrdenesDePreparacion = OrdenDePreparacionAlmacen.ObtenerOrdenes();
 
-        public List<OrdenDePreparacionEntidad> ObtenerOrdenesDePreparacionSeleccionadas()
+        public List<OrdenDePreparacionEntidad> ObtenerOrdenesDePreparacionSeleccionadasPorDeposito(string nombreDeposito)
         {
-            return OrdenDePreparacionAlmacen.ObtenerOrdenesPorEstado(OrdenDePreparacionEstado.Seleccionada);
+            int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(nombreDeposito);
+
+            return OrdenDePreparacionAlmacen.ObtenerOrdenesPorIdDepositoAndEstado(idDeposito, OrdenDePreparacionEstado.Seleccionada);
         }
 
         public OrdenDePreparacionEntidad ObtenerOrdenPorId(int idOrden)
@@ -30,6 +32,11 @@ namespace GrupoE_Protitipos.DPreparacionOrden
         public string ObtenerNombreDeProductoPorId(int idProducto)
         {
             return ProductoAlmacen.ObtenerProductoPorId(idProducto).Descripcion;
+        }
+
+        public List<string> ObtenerDepositos()
+        {
+            return DepositoAlmacen.ObtenerNombreDepositos();
         }
     }
 }

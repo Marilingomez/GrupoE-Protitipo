@@ -31,10 +31,14 @@
             OrdenSeleccionadaList = new ListView();
             IDOrdenCol = new ColumnHeader();
             IDClienteCol = new ColumnHeader();
+            Prioridad = new ColumnHeader();
+            transportista = new ColumnHeader();
             SeleccionarBoton = new Button();
             OrdenEntrega = new ListView();
             IDOrdenSCol = new ColumnHeader();
             IdClienteSCol = new ColumnHeader();
+            PrioridadTwo = new ColumnHeader();
+            transportistaTwo = new ColumnHeader();
             GenerarBoton = new Button();
             VolverBoton = new Button();
             EliminarSeleccionBoton = new Button();
@@ -43,14 +47,10 @@
             groupBox3 = new GroupBox();
             fechaBox = new TextBox();
             depositoBox = new ComboBox();
-            TransportistaCUITText = new TextBox();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             IDtext = new TextBox();
             label1 = new Label();
-            Prioridad = new ColumnHeader();
-            PrioridadTwo = new ColumnHeader();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -58,7 +58,7 @@
             // 
             // OrdenSeleccionadaList
             // 
-            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, Prioridad });
+            OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, Prioridad, transportista });
             OrdenSeleccionadaList.FullRowSelect = true;
             OrdenSeleccionadaList.Location = new Point(5, 22);
             OrdenSeleccionadaList.Margin = new Padding(3, 2, 3, 2);
@@ -78,6 +78,15 @@
             IDClienteCol.Text = "ID Cliente";
             IDClienteCol.Width = 100;
             // 
+            // Prioridad
+            // 
+            Prioridad.Text = "Prioridad";
+            // 
+            // transportista
+            // 
+            transportista.Text = "Transportista";
+            transportista.Width = 100;
+            // 
             // SeleccionarBoton
             // 
             SeleccionarBoton.Location = new Point(30, 338);
@@ -91,7 +100,7 @@
             // 
             // OrdenEntrega
             // 
-            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, PrioridadTwo });
+            OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, PrioridadTwo, transportistaTwo });
             OrdenEntrega.FullRowSelect = true;
             OrdenEntrega.Location = new Point(5, 20);
             OrdenEntrega.Margin = new Padding(3, 2, 3, 2);
@@ -111,6 +120,15 @@
             // 
             IdClienteSCol.Text = "ID Cliente";
             IdClienteSCol.Width = 100;
+            // 
+            // PrioridadTwo
+            // 
+            PrioridadTwo.Text = "Prioridad";
+            // 
+            // transportistaTwo
+            // 
+            transportistaTwo.Text = "Transportista";
+            transportistaTwo.Width = 100;
             // 
             // GenerarBoton
             // 
@@ -173,8 +191,6 @@
             // 
             groupBox3.Controls.Add(fechaBox);
             groupBox3.Controls.Add(depositoBox);
-            groupBox3.Controls.Add(TransportistaCUITText);
-            groupBox3.Controls.Add(label4);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(IDtext);
@@ -206,23 +222,6 @@
             depositoBox.Size = new Size(200, 23);
             depositoBox.TabIndex = 9;
             depositoBox.SelectedIndexChanged += DepositoBox_SelectedIndexChange;
-            // 
-            // TransportistaCUITText
-            // 
-            TransportistaCUITText.Location = new Point(236, 37);
-            TransportistaCUITText.Margin = new Padding(3, 2, 3, 2);
-            TransportistaCUITText.Name = "TransportistaCUITText";
-            TransportistaCUITText.Size = new Size(198, 23);
-            TransportistaCUITText.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(236, 17);
-            label4.Name = "label4";
-            label4.Size = new Size(102, 15);
-            label4.TabIndex = 6;
-            label4.Text = "Transportista CUIT";
             // 
             // label3
             // 
@@ -259,14 +258,6 @@
             label1.Size = new Size(18, 15);
             label1.TabIndex = 0;
             label1.Text = "ID";
-            // 
-            // Prioridad
-            // 
-            Prioridad.Text = "Prioridad";
-            // 
-            // PrioridadTwo
-            // 
-            PrioridadTwo.Text = "Prioridad";
             // 
             // FormOrdenDeEntrega
             // 
@@ -307,8 +298,6 @@
         private Label label2;
         private ColumnHeader IDOrdenCol;
         private ColumnHeader IDClienteCol;
-        private TextBox TransportistaCUITText;
-        private Label label4;
         private Label label3;
         private ColumnHeader IDOrdenSCol;
         private ColumnHeader IdClienteSCol;
@@ -316,5 +305,7 @@
         private TextBox fechaBox;
         private ColumnHeader Prioridad;
         private ColumnHeader PrioridadTwo;
+        private ColumnHeader transportista;
+        private ColumnHeader transportistaTwo;
     }
 }

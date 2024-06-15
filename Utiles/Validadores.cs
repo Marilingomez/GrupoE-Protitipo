@@ -40,5 +40,42 @@ namespace GrupoE_Protitipos.Utiles
                 return "";
             }
         }
+
+        public static string EsNegativoOCero(int dato, string campo)
+        {
+            if (dato < 1)
+            {
+                return "El campo " + campo + " debe ser igual a 1 o superior.";
+            } else
+            {
+                return "";
+            }
+        }
+
+        public static string EsDni(string dato, string campo)
+        {
+            string errores = "";
+
+            errores += EsNumero(dato, campo);
+            if (errores != "")
+            {
+                return errores;
+            }
+
+            errores += EsNegativoOCero(int.Parse(dato), campo);
+            if (errores != "")
+            {
+                return errores;
+            }
+
+            if (dato.Length != 8 && dato.Length != 7)
+            {
+                return "El campo " + campo + " debe ser un DNI de 7 u 8 cifras.";
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }

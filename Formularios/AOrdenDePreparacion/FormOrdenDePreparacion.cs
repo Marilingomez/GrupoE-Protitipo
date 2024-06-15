@@ -21,6 +21,7 @@ namespace GrupoE_Protitipos
         public FormOrdenDePreparacion()
         {
             InitializeComponent();
+            this.FormClosing += new FormClosingEventHandler(CancelarProductosPrereservados);
         }
 
         private void Ordenes_Load(object sender, EventArgs e)
@@ -47,11 +48,17 @@ namespace GrupoE_Protitipos
             {
                 productoBox.Items.Add(producto);
             }
+
+            List<string> transportistas = modelo.ObtenerListaDeTransportistas();
+            foreach (var transportista in transportistas)
+            {
+                transportistaBox.Items.Add(transportista);
+            }
         }
 
         private void AgregarBoton_Click(object sender, EventArgs e)
         {
-            string erroresDeCampos = modelo.ValidarCampos(ClienteBox.Text, DepositoBox.Text);
+            string erroresDeCampos = modelo.ValidarCampos(ClienteBox.Text, DepositoBox.Text, CantidadBox.Text);
             if(erroresDeCampos.Trim() != "")
             {
                 MessageBox.Show(erroresDeCampos, "Error");
@@ -143,7 +150,12 @@ namespace GrupoE_Protitipos
 
         private void ConfirmarBoton_Click(object sender, EventArgs e)
         {
-            var errores = modelo.ValidarDatosOrden(DetallesList.Items.Count, DepositoBox.Text, ClienteBox.Text);
+            var errores = modelo.ValidarDatosOrden(
+                DetallesList.Items.Count, 
+                DepositoBox.Text, 
+                ClienteBox.Text,
+                transportistaBox.Text
+                );
 
             if (errores.Trim() != "")
             {
@@ -156,8 +168,20 @@ namespace GrupoE_Protitipos
                     ClienteBox.Text,
                     FechaBox.Text,
                     DepositoBox.Text,
+                    transportistaBox.Text,
                     DetallesList.Items
                     );
+
+            var productos = DetallesList.Items;
+            foreach (ListViewItem item in productos)
+            {
+                modelo.ConfirmarReservaDeProducto(
+                    ClienteBox.Text,
+                    DepositoBox.Text,
+                    int.Parse(item.SubItems[2].Text),
+                    int.Parse(item.SubItems[0].Text)
+                    );
+            }
 
             LimpiarCampos();
 
@@ -174,6 +198,7 @@ namespace GrupoE_Protitipos
             DepositoBox.SelectedIndex = -1;
             CantidadBox.Text = string.Empty;
             DetallesList.Items.Clear();
+            transportistaBox.SelectedIndex = -1;
             IdOrdenBox.Text = modelo.ObtenerNuevoId().ToString();
         }
 
@@ -194,6 +219,21 @@ namespace GrupoE_Protitipos
             {
                 DepositoBox.Enabled = true;
                 ClienteBox.Enabled = true;
+            }
+        }
+
+        private void CancelarProductosPrereservados(object sender, FormClosingEventArgs e)
+        {
+            var itemsSeleccionados = DetallesList.Items;
+
+            foreach (ListViewItem item in itemsSeleccionados)
+            {
+                modelo.CancelarPrereservaDeProducto(
+                ClienteBox.Text,
+                DepositoBox.Text,
+                int.Parse(item.SubItems[2].Text),
+                int.Parse(item.SubItems[0].Text)
+                );
             }
         }
     }

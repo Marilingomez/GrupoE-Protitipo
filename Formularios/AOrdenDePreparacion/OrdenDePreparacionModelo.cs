@@ -1,5 +1,4 @@
 ﻿using GrupoE_Protitipos.Almacenes;
-using GrupoE_Protitipos.ConsultaDisponibilidad;
 using GrupoE_Protitipos.ConsultarOrdenes;
 using GrupoE_Protitipos.Entidades;
 using GrupoE_Protitipos.Utiles;
@@ -14,12 +13,18 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
     internal class OrdenDePreparacionModelo
 
     {
-        public string ValidarDatosOrden (int cantidadDeItems, string deposito, string cuitCliente)
+        public string ValidarDatosOrden (
+            int cantidadDeItems, 
+            string deposito, 
+            string cuitCliente,
+            string transportista
+            )
         {
             // string errores = Validadores.EsNumero(cantidad, "Cantidad") + Environment.NewLine;
             string errores = Validadores.ValidarListaConDatos(cantidadDeItems, "Detalle de productos") + Environment.NewLine;
             errores += Validadores.EstaVacio(deposito, "Deposito") + Environment.NewLine;
             errores += Validadores.EstaVacio(cuitCliente, "Cuit del Cliente") + Environment.NewLine;
+            errores += Validadores.EstaVacio(transportista, "Transportista");
 
             return errores;
 
@@ -35,12 +40,14 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             string cuitCliente,
             string fecha,
             string deposito,
+            string transportista,
             ListView.ListViewItemCollection detalleDeProductos
             )
         {
             ClienteEntidad cliente = ClienteAlmacen.ObtenerClientePorCuit(cuitCliente);
             List<DetalleOrdenDePreparacion> detalleOrden = ObtenerDetalleDeOrden(detalleDeProductos);
             int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(deposito);
+            int idTransportista = TransportistaAlmacen.ObtenerIdTransportistaPorNombre(transportista);
 
             OrdenDePreparacionEntidad nuevaOrden = new OrdenDePreparacionEntidad(
                 int.Parse(idOrden),
@@ -48,6 +55,7 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
                 DateTime.Now,
                 cliente.Prioridad,
                 idDeposito,
+                idTransportista,
                 OrdenDePreparacionEstado.Pendiente,
                 detalleOrden
                 );
@@ -64,8 +72,8 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
         {
             string errores = "";
 
-            errores += Validadores.EsNumero(cantidad, "Cantidad") + Environment.NewLine;
             errores += Validadores.EstaVacio(producto, "Producto");
+            errores += Validadores.EsNegativoOCero(int.Parse(cantidad), "Cantidad");
 
             return errores;
         }
@@ -92,15 +100,7 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
 
         public List<string> ObtenerListaDeDepositos()
         {
-            List<DepositoEntidad> depositos = DepositoAlmacen.ObtenerDepositos();
-            List<string> listaDepositos = new();
-
-            foreach (var deposito in depositos)
-            {
-                listaDepositos.Add(deposito.Provincia);
-            }
-
-            return listaDepositos;
+            return DepositoAlmacen.ObtenerNombreDepositos();
         }
 
         public List<string> ObtenerListaDeCliente()
@@ -129,6 +129,19 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             return listaProductos;
         }
 
+        public List<string> ObtenerListaDeTransportistas()
+        {
+            List<TransportistaEntidad> transportistas = TransportistaAlmacen.ObtenerTransportistas();
+            List<string> listaTransportistas = new();
+
+            foreach (var transportista in transportistas)
+            {
+                listaTransportistas.Add(transportista.NombreFantasia);
+            }
+
+            return listaTransportistas;
+        }
+
         public int ObtenerIdDelProductoPorNombre(string descripcion)
         {
             return ProductoAlmacen.ObtenerIdPorDescripcion(descripcion);
@@ -150,11 +163,12 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             return "";
         }
    
-        public string ValidarCampos(string cuitCliente, string deposito)
+        public string ValidarCampos(string cuitCliente, string deposito, string cantidad)
         {
             string errores = "";
             errores += Validadores.EstaVacio(cuitCliente, "Cuit Cliente") + Environment.NewLine;
-            errores += Validadores.EstaVacio(deposito, "Deposito");
+            errores += Validadores.EstaVacio(deposito, "Deposito") + Environment.NewLine;
+            errores += Validadores.EsNumero(cantidad, "Cantidad");
 
             return errores;
         }
@@ -172,6 +186,13 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(nombreDeposito);
 
             InventarioAlmacen.CancelarPrereservaDeProducto(cuitCliente, idProducto, idDeposito, cantidad);
+        }
+
+        public void ConfirmarReservaDeProducto(string cuitCliente, string nombreDeposito, int cantidad, int idProducto)
+        {
+            int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(nombreDeposito);
+
+            InventarioAlmacen.GenerarReservaDeProducto(cuitCliente, idProducto, idDeposito, cantidad);
         }
     }
 }

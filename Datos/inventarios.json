@@ -9,17 +9,10 @@
       {
         "IdProducto": 1,
         "Disponibilidad": {
-          "Disponible": 10,
+          "Disponible": 0,
           "Prereservado": 0,
-          "Reservado": 0
-        }
-      },
-      {
-        "IdProducto": 2,
-        "Disponibilidad": {
-          "Disponible": 9,
-          "Prereservado": 0,
-          "Reservado": 0
+          "Reservado": 20,
+          "Seleccionado": 0
         }
       }
     ]
@@ -32,19 +25,21 @@
     "CuitCliente": "22-15151515-1",
     "Productos": [
       {
-        "IdProducto": 3,
+        "IdProducto": 4,
         "Disponibilidad": {
           "Disponible": 5,
           "Prereservado": 0,
-          "Reservado": 0
+          "Reservado": 4,
+          "Seleccionado": 0
         }
       },
       {
-        "IdProducto": 4,
+        "IdProducto": 3,
         "Disponibilidad": {
           "Disponible": 6,
           "Prereservado": 0,
-          "Reservado": 0
+          "Reservado": 2,
+          "Seleccionado": 0
         }
       }
     ]
@@ -57,19 +52,30 @@
     "CuitCliente": "22-15151515-1",
     "Productos": [
       {
-        "IdProducto": 1,
+        "IdProducto": 2,
         "Disponibilidad": {
           "Disponible": 12,
           "Prereservado": 0,
-          "Reservado": 0
+          "Reservado": 17,
+          "Seleccionado": 0
         }
-      },
+      }
+    ]
+  },
+  {
+    "Deposito": 1,
+    "Pasillo": "A",
+    "Fila": "C",
+    "Estante": 1,
+    "CuitCliente": "22-15151515-1",
+    "Productos": [
       {
-        "IdProducto": 2,
+        "IdProducto": 3,
         "Disponibilidad": {
-          "Disponible": 10,
+          "Disponible": 12,
           "Prereservado": 0,
-          "Reservado": 0
+          "Reservado": 5,
+          "Seleccionado": 0
         }
       }
     ]

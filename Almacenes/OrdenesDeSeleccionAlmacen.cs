@@ -42,9 +42,9 @@ namespace GrupoE_Protitipos.Almacenes
             ordenesDeSeleccion[index].FechaDeEntrega = DateTime.Now;
         }
 
-        public static List<OrdenDeSeleccionEntidad> ObtenerOrdenesEnEstadoEnTransito()
+        public static List<OrdenDeSeleccionEntidad> ObtenerOrdenesEnEstadoEnTransitoPorDeposito(int idDeposito)
         {
-            return ordenesDeSeleccion.FindAll(ods => ods.Estado == Estado.EnTransito);
+            return ordenesDeSeleccion.FindAll(ods => ods.Estado == Estado.EnTransito && ods.Deposito == idDeposito);
         }
 
         public static OrdenDeSeleccionEntidad ObtenerOrdenPorId(int idOrden)

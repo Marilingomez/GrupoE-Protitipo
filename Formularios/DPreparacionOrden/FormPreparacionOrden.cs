@@ -23,7 +23,11 @@ namespace GrupoE_Protitipos.DPreparacionOrden
 
         private void FormPreparacionOrden_Load(object sender, EventArgs e)
         {
-            cargaDatosIniciales();
+            List<string> depositos = modelo.ObtenerDepositos();
+            foreach (var deposito in depositos)
+            {
+                depositoBox.Items.Add(deposito);
+            }
         }
 
         private void listOrdenesSeleccionada_ListViewItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -73,7 +77,8 @@ namespace GrupoE_Protitipos.DPreparacionOrden
 
         private void cargaDatosIniciales()
         {
-            List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionSeleccionadas();
+            string nombreDeposito = depositoBox.Text;
+            List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionSeleccionadasPorDeposito(nombreDeposito);
 
             if (ordenes.Count == 0)
             {
@@ -120,6 +125,12 @@ namespace GrupoE_Protitipos.DPreparacionOrden
                     });
                 listaDetalleProducto.Items.Add(item);
             }
+        }
+
+        private void depositoBox_SelectedIndexChanged(object sender, EventArgs e) {
+            listOrdenesSeleccionada.Items.Clear();
+            listaDetalleProducto.Items.Clear();
+            cargaDatosIniciales();
         }
     }
 }

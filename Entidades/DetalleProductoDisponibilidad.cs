@@ -11,6 +11,7 @@ namespace GrupoE_Protitipos.Entidades
         public int Disponible {  get; set; }
         public int Prereservado { get; set; }
         public int Reservado { get; set; }
+        public int Seleccionado { get; set; }
 
         public void AumentaDisponible(int cantidad)
         {
@@ -37,9 +38,29 @@ namespace GrupoE_Protitipos.Entidades
             Reservado += cantidad;
         }
 
-        public void DisminuyePreservado(int cantidad)
+        public void DisminuyeReservado(int cantidad)
         {
             Reservado -= cantidad;
+        }
+
+        public void AumentaSeleccionado(int cantidad)
+        {
+            Seleccionado += cantidad;
+        }
+
+        public void DisminuyeSeleccionado(int cantidad)
+        {
+            Seleccionado -= cantidad;
+        }
+
+        public DetalleProductoDisponibilidad Clonar()
+        {
+            return new DetalleProductoDisponibilidad
+            {
+                Disponible = Disponible,
+                Prereservado = Prereservado,
+                Reservado = Reservado
+            };
         }
     }
 }

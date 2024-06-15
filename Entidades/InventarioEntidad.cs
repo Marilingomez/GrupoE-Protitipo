@@ -39,5 +39,49 @@ namespace GrupoE_Protitipos.Entidades
             int productoIndex = Productos.FindIndex(p => p.IdProducto == idProducto);
             Productos[productoIndex].Disponibilidad.AumentaDisponible(cantidad);
         }
+
+        public void GeneraReserva(int idProducto, int cantidad)
+        {
+            int productoIndex = Productos.FindIndex(p => p.IdProducto == idProducto);
+            Productos[productoIndex].Disponibilidad.AumentaReservado(cantidad);
+        }
+
+        public void CancelaReserva(int idProducto, int cantidad)
+        {
+            int productoIndex = Productos.FindIndex(p => p.IdProducto == idProducto);
+            Productos[productoIndex].Disponibilidad.DisminuyeReservado(cantidad);
+        }
+
+        public void GeneraSeleccionado(int idProducto, int cantidad)
+        {
+            int productoIndex = Productos.FindIndex(p => p.IdProducto == idProducto);
+            Productos[productoIndex].Disponibilidad.AumentaSeleccionado(cantidad);
+        }
+
+        public void BajaProducto(int idProducto, int cantidad)
+        {
+            int productoIndex = Productos.FindIndex(p => p.IdProducto == idProducto);
+            Productos[productoIndex].Disponibilidad.DisminuyeSeleccionado(cantidad);
+        }
+
+        public InventarioEntidad Clonar()
+        {
+            List<DetalleProducto> lista = new();
+            foreach (var item in Productos)
+            {
+                lista.Add(item.Clonar());
+            }
+
+            return new InventarioEntidad
+            {
+                IdInventario = IdInventario,
+                Deposito = Deposito,
+                Pasillo = Pasillo,
+                Fila = Fila,
+                Estante = Estante,
+                CuitCliente = CuitCliente,
+                Productos = lista
+            };
+        }
     }
 }

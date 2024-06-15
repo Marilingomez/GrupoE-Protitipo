@@ -14,6 +14,7 @@ namespace GrupoE_Protitipos.Entidades
         public DateTime FechaAlta { get; set; }
         public Prioridad Prioridad { get; set; }
         public int Deposito { get; set; }
+        public int IdTransportista { get; set; }
         public OrdenDePreparacionEstado Estado { get; set; }
         public List<DetalleOrdenDePreparacion> DetalleOrdenes { get; set; }
 
@@ -23,6 +24,7 @@ namespace GrupoE_Protitipos.Entidades
             DateTime fechaAlta, 
             Prioridad prioridad, 
             int deposito, 
+            int idTransportista,
             OrdenDePreparacionEstado estado, 
             List<DetalleOrdenDePreparacion> detalleOrdenes
             )
@@ -32,6 +34,7 @@ namespace GrupoE_Protitipos.Entidades
             FechaAlta = fechaAlta;
             Prioridad = prioridad;
             Deposito = deposito;
+            IdTransportista = idTransportista;
             Estado = estado;
             DetalleOrdenes = detalleOrdenes;
         }

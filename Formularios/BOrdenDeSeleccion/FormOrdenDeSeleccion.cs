@@ -25,7 +25,11 @@ namespace GrupoE_Protitipos
 
         private void FormOrdenDeSeleccion_Load(object sender, EventArgs e)
         {
-            CargaDatosIniciales();
+            List<string> depositos = modelo.ObtenerListaDeDepositos();
+            foreach (var deposito in depositos)
+            {
+                depositoBox.Items.Add(deposito);
+            }
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -40,10 +44,13 @@ namespace GrupoE_Protitipos
                     ordenesSeleccionar.Items.Add((ListViewItem)item.Clone());
                     ordenesPreparar.Items.Remove(item);
                 }
-            }
 
-            // Actualizar detalles de productos
-            ActualizarDetallesProductos();
+                listProductos.Items.Clear();
+
+                ActualizarDetallesProductos();
+
+                depositoBox.Enabled = false;
+            }
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
@@ -58,55 +65,88 @@ namespace GrupoE_Protitipos
                     ordenesPreparar.Items.Add((ListViewItem)item.Clone());
                     ordenesSeleccionar.Items.Remove(item);
                 }
-            }
 
-            // Actualizar detalles de productos
-            ActualizarDetallesProductos();
+                listProductos.Items.Clear();
+
+                ActualizarDetallesProductos();
+
+                if (ordenesSeleccionar.Items.Count == 0) { depositoBox.Enabled = true; }
+            }
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
         {
-            if (listProductos.Items.Count != 0)
+            if (listProductos.Items.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar al menos una orden.");
-            } else
-            {
-                System.Windows.Forms.ListView.ListViewItemCollection ordenes = ordenesSeleccionar.Items;
-                List<int> idDeOrdenesPorActualizar = new();
-                foreach (ListViewItem item in ordenes)
-                {
-                    idDeOrdenesPorActualizar.Add(int.Parse(item.SubItems[0].Text));
-                }
-
-                modelo.ActualizarEstadoDeOrdenes(idDeOrdenesPorActualizar);
-                modelo.CrearOrdenDeSeleccion(idDeOrdenesPorActualizar);
-
-                MessageBox.Show("La orden de selección se ha generado correctamente.");
-
-                ordenesSeleccionar.Items.Clear();
-                ordenesPreparar.Items.Clear();
-                CargaDatosIniciales();
+                MessageBox.Show("Debe seleccionar al menos una orden.", "Error");
+                return;
             }
+
+            if (depositoBox.Enabled) {
+                MessageBox.Show("Debe seleccionar al menos una orden.", "Error");
+                return;
+            }
+
+            System.Windows.Forms.ListView.ListViewItemCollection ordenes = ordenesSeleccionar.Items;
+            List<int> idDeOrdenesPorActualizar = new();
+            foreach (ListViewItem item in ordenes)
+            {
+                idDeOrdenesPorActualizar.Add(int.Parse(item.SubItems[0].Text));
+            }
+            string nombreDeposito = depositoBox.Text;
+            var productos = listProductos.Items;
+
+            modelo.ActualizarEstadoDeOrdenes(idDeOrdenesPorActualizar);
+            OrdenDeSeleccionEntidad orden = modelo.CrearOrdenDeSeleccion(idDeOrdenesPorActualizar, nombreDeposito, productos);
+            modelo.ActualizarEstadoProductos(orden);
+
+            MessageBox.Show("La orden de selección se ha generado correctamente.");
+
+            ordenesSeleccionar.Items.Clear();
+            ordenesPreparar.Items.Clear();
+            depositoBox.Enabled = true;
+            CargaDatos();
+            
         }
 
         private void ActualizarDetallesProductos()
         {
-            listProductos.Items.Clear();
+            var lista = ordenesSeleccionar.Items;
+            List<int> idOrdenes = new();
 
-            //foreach (string orden in listSeleccionada.Items)
-            //{
-            //    MostrarDetallesProductos(orden);
-            //}
+            foreach (ListViewItem item in lista)
+            {
+                string id = item.SubItems[0].Text;
+                idOrdenes.Add(int.Parse(id));
+            }
+
+            List<DetalleOrdenDeSeleccion> detalleProductos = modelo.ObtenerProductosParaSeleccionarDeOrdenes(idOrdenes);
+
+            foreach (var producto in detalleProductos)
+            {
+                string nombreProducto = modelo.ObtenerNombreProductoPorId(producto.IdProducto);
+
+                ListViewItem item = new ListViewItem(new string[] { producto.Pasillo, producto.Fila, producto.Estante.ToString(), nombreProducto, producto.Cantidad.ToString() });
+                listProductos.Items.Add(item);
+            }
         }
 
-        private void CargaDatosIniciales()
+        private void CargaDatos()
         {
-            List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionPendientes();
+            ordenesPreparar.Items.Clear();
+            listProductos.Items.Clear();
+
+            List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionPendientesPorDeposito(depositoBox.Text);
             foreach (var orden in ordenes)
             {
                 ListViewItem item = new ListViewItem(new string[] { orden.IdOrden.ToString(), orden.CuitCliente.ToString() });
                 ordenesPreparar.Items.Add(item);
             }
+        }
+
+        private void depositoBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargaDatos();
         }
     }
 }

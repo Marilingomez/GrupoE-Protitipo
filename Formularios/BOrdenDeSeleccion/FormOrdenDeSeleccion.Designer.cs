@@ -41,15 +41,19 @@
             IdSeleccionado = new ColumnHeader();
             clienteSeleccionado = new ColumnHeader();
             listProductos = new ListView();
-            Ubicacion = new ColumnHeader();
+            Pasillo = new ColumnHeader();
+            Fila = new ColumnHeader();
+            Estante = new ColumnHeader();
             Producto = new ColumnHeader();
             Cantidad = new ColumnHeader();
+            depositoLabel = new Label();
+            depositoBox = new ComboBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(21, 12);
+            label1.Location = new Point(12, 43);
             label1.Name = "label1";
             label1.Size = new Size(107, 15);
             label1.TabIndex = 4;
@@ -58,7 +62,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(403, 12);
+            label2.Location = new Point(394, 43);
             label2.Name = "label2";
             label2.Size = new Size(122, 15);
             label2.TabIndex = 5;
@@ -67,7 +71,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(21, 169);
+            label4.Location = new Point(12, 200);
             label4.Name = "label4";
             label4.Size = new Size(132, 15);
             label4.TabIndex = 7;
@@ -76,7 +80,7 @@
             // buttonAgregar
             // 
             buttonAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAgregar.Location = new Point(298, 64);
+            buttonAgregar.Location = new Point(289, 95);
             buttonAgregar.Margin = new Padding(3, 2, 3, 2);
             buttonAgregar.Name = "buttonAgregar";
             buttonAgregar.Size = new Size(99, 31);
@@ -88,7 +92,7 @@
             // buttonEliminar
             // 
             buttonEliminar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonEliminar.Location = new Point(298, 99);
+            buttonEliminar.Location = new Point(289, 130);
             buttonEliminar.Margin = new Padding(3, 2, 3, 2);
             buttonEliminar.Name = "buttonEliminar";
             buttonEliminar.Size = new Size(99, 31);
@@ -99,7 +103,7 @@
             // 
             // buttonFinalizar
             // 
-            buttonFinalizar.Location = new Point(512, 304);
+            buttonFinalizar.Location = new Point(503, 335);
             buttonFinalizar.Margin = new Padding(3, 2, 3, 2);
             buttonFinalizar.Name = "buttonFinalizar";
             buttonFinalizar.Size = new Size(149, 20);
@@ -112,7 +116,7 @@
             // 
             ordenesPreparar.Columns.AddRange(new ColumnHeader[] { Id, Cliente });
             ordenesPreparar.FullRowSelect = true;
-            ordenesPreparar.Location = new Point(21, 33);
+            ordenesPreparar.Location = new Point(12, 64);
             ordenesPreparar.Name = "ordenesPreparar";
             ordenesPreparar.Size = new Size(271, 133);
             ordenesPreparar.TabIndex = 19;
@@ -131,7 +135,7 @@
             // 
             ordenesSeleccionar.Columns.AddRange(new ColumnHeader[] { IdSeleccionado, clienteSeleccionado });
             ordenesSeleccionar.FullRowSelect = true;
-            ordenesSeleccionar.Location = new Point(403, 30);
+            ordenesSeleccionar.Location = new Point(394, 61);
             ordenesSeleccionar.Name = "ordenesSeleccionar";
             ordenesSeleccionar.Size = new Size(271, 133);
             ordenesSeleccionar.TabIndex = 20;
@@ -148,18 +152,25 @@
             // 
             // listProductos
             // 
-            listProductos.Columns.AddRange(new ColumnHeader[] { Ubicacion, Producto, Cantidad });
-            listProductos.Location = new Point(21, 187);
+            listProductos.Columns.AddRange(new ColumnHeader[] { Pasillo, Fila, Estante, Producto, Cantidad });
+            listProductos.Location = new Point(12, 218);
             listProductos.Name = "listProductos";
             listProductos.Size = new Size(653, 112);
             listProductos.TabIndex = 21;
             listProductos.UseCompatibleStateImageBehavior = false;
             listProductos.View = View.Details;
             // 
-            // Ubicacion
+            // Pasillo
             // 
-            Ubicacion.Text = "Ubicacion";
-            Ubicacion.Width = 120;
+            Pasillo.Text = "Pasillo";
+            // 
+            // Fila
+            // 
+            Fila.Text = "Fila";
+            // 
+            // Estante
+            // 
+            Estante.Text = "Estante";
             // 
             // Producto
             // 
@@ -170,11 +181,32 @@
             // 
             Cantidad.Text = "Cantidad";
             // 
+            // depositoLabel
+            // 
+            depositoLabel.AutoSize = true;
+            depositoLabel.Location = new Point(12, 19);
+            depositoLabel.Name = "depositoLabel";
+            depositoLabel.Size = new Size(54, 15);
+            depositoLabel.TabIndex = 22;
+            depositoLabel.Text = "Deposito";
+            // 
+            // depositoBox
+            // 
+            depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            depositoBox.FormattingEnabled = true;
+            depositoBox.Location = new Point(72, 16);
+            depositoBox.Name = "depositoBox";
+            depositoBox.Size = new Size(179, 23);
+            depositoBox.TabIndex = 23;
+            depositoBox.SelectedIndexChanged += depositoBox_SelectedIndexChanged;
+            // 
             // FormOrdenDeSeleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(700, 388);
+            Controls.Add(depositoBox);
+            Controls.Add(depositoLabel);
             Controls.Add(listProductos);
             Controls.Add(ordenesSeleccionar);
             Controls.Add(ordenesPreparar);
@@ -206,8 +238,12 @@
         private ColumnHeader IdSeleccionado;
         private ColumnHeader clienteSeleccionado;
         private ListView listProductos;
-        private ColumnHeader Ubicacion;
+        private ColumnHeader Pasillo;
         private ColumnHeader Producto;
         private ColumnHeader Cantidad;
+        private ColumnHeader Fila;
+        private ColumnHeader Estante;
+        private Label depositoLabel;
+        private ComboBox depositoBox;
     }
 }

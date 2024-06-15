@@ -1,5 +1,4 @@
 ﻿using GrupoE_Protitipos.ConfirmarOrdenDeSeleccion;
-using GrupoE_Protitipos.ConsultaDisponibilidad;
 using GrupoE_Protitipos.Entidades;
 using System;
 using System.Collections.Generic;
@@ -44,6 +43,19 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeEntrega
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            if (listaOrdenesDeEntrega.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar una Orden de Entrega a confirmar", "Error");
+                return;
+            }
+
+            string errores = modelo.ValidarDatos(nombreBox.Text, apellidoBox.Text, dniBox.Text);
+            if (errores.Trim() != "")
+            {
+                MessageBox.Show(errores, "Error");
+                return;
+            }
+
             int idOrdenSeleccionada = int.Parse(inputIdOrden.Text);
 
             modelo.FinalizarOrdenDeEntrega(idOrdenSeleccionada);

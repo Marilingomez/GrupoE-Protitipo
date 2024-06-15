@@ -22,7 +22,12 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
         private void ConfirmarOrdenDeSeleccion_Load(object sender, EventArgs e)
         {
             fechaBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            CargarOrdenesDeSeleccionEnTransito();
+
+            List<string> depositos = modelo.ObtenerListaDeDepositos();
+            foreach (var deposito in depositos)
+            {
+                depositoBox.Items.Add(deposito);
+            }
         }
 
         private void listOrdSeleccion_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,10 +44,14 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
 
                 foreach (var producto in detalle)
                 {
-                    ListViewItem item = new ListViewItem(new[] { 
-                        producto.IdProducto.ToString(), 
+                    string nombreDeposito = modelo.ObtenerNombreDeProductoPorId(producto.IdProducto);
+
+                    ListViewItem item = new ListViewItem(new[] {
+                        nombreDeposito, 
                         producto.Cantidad.ToString(),
-                        producto.ObtenerUbicacion()
+                        producto.Pasillo.ToString(),
+                        producto.Fila.ToString(),
+                        producto.Estante.ToString()
                     });
                     listDetalleOrden.Items.Add(item);
                 }
@@ -60,6 +69,7 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
 
             modelo.FinalizarOrdenDeSeleccion(idOrdenSeleccionada);
             modelo.ActualizarOrdenesDePreparacion(idOrdenSeleccionada);
+            modelo.GenerarBajaDeProductos(listDetalleOrden.Items, depositoBox.Text);
 
             MessageBox.Show("La orden de Selección fue finalizada con éxito." + Environment.NewLine + "Las ordenes de preparación asociadas pasaron a estado Seleccionada");
 
@@ -70,7 +80,8 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
         }
 
         private void CargarOrdenesDeSeleccionEnTransito() {
-            foreach (var orden in modelo.ObtenerOrdenesEnTransito())
+            string nombreDeposito = depositoBox.Text;
+            foreach (var orden in modelo.ObtenerOrdenesEnTransitoPorDeposito(nombreDeposito))
             {
                 ListViewItem item = new(new string[] { 
                     orden.IdOrden.ToString(), 
@@ -78,6 +89,12 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
                 });
                 listaOrdenesEnSeleccion.Items.Add(item);
             }
+        }
+
+        public void depositoBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listaOrdenesEnSeleccion.Items.Clear();
+            CargarOrdenesDeSeleccionEnTransito();
         }
     }
 }

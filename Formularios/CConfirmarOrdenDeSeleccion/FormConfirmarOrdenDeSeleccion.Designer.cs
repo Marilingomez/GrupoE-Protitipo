@@ -36,17 +36,21 @@
             listDetalleOrden = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
+            pasillo = new ColumnHeader();
             fechaBox = new TextBox();
             listaOrdenesEnSeleccion = new ListView();
             Id = new ColumnHeader();
             FechaDeCreacion = new ColumnHeader();
+            depositoBox = new ComboBox();
+            Deposito = new Label();
+            Fila = new ColumnHeader();
+            estante = new ColumnHeader();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 38);
             label1.Name = "label1";
             label1.Size = new Size(181, 15);
             label1.TabIndex = 5;
@@ -55,7 +59,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 170);
+            label2.Location = new Point(12, 199);
             label2.Name = "label2";
             label2.Size = new Size(232, 15);
             label2.TabIndex = 7;
@@ -64,7 +68,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 340);
+            label3.Location = new Point(12, 369);
             label3.Name = "label3";
             label3.Size = new Size(296, 15);
             label3.TabIndex = 8;
@@ -72,7 +76,7 @@
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(207, 407);
+            btnConfirmar.Location = new Point(418, 437);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(101, 23);
             btnConfirmar.TabIndex = 10;
@@ -82,21 +86,20 @@
             // 
             // MenuPrincipalVolver
             // 
-            MenuPrincipalVolver.Location = new Point(207, 453);
+            MenuPrincipalVolver.Location = new Point(418, 483);
             MenuPrincipalVolver.Name = "MenuPrincipalVolver";
             MenuPrincipalVolver.Size = new Size(101, 23);
             MenuPrincipalVolver.TabIndex = 11;
             MenuPrincipalVolver.Text = "Menu principal";
             MenuPrincipalVolver.UseVisualStyleBackColor = true;
-            // MenuPrincipalVolver.Click += MenuPrincipalVolver_Click;
             // 
             // listDetalleOrden
             // 
-            listDetalleOrden.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            listDetalleOrden.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, pasillo, Fila, estante });
             listDetalleOrden.FullRowSelect = true;
-            listDetalleOrden.Location = new Point(12, 188);
+            listDetalleOrden.Location = new Point(12, 217);
             listDetalleOrden.Name = "listDetalleOrden";
-            listDetalleOrden.Size = new Size(296, 135);
+            listDetalleOrden.Size = new Size(507, 135);
             listDetalleOrden.TabIndex = 12;
             listDetalleOrden.UseCompatibleStateImageBehavior = false;
             listDetalleOrden.View = View.Details;
@@ -111,15 +114,15 @@
             columnHeader2.Text = "Cantidad";
             columnHeader2.Width = 90;
             // 
-            // columnHeader3
+            // pasillo
             // 
-            columnHeader3.Text = "Ubicacion";
-            columnHeader3.Width = 90;
+            pasillo.Text = "Pasillo";
+            pasillo.Width = 90;
             // 
             // fechaBox
             // 
             fechaBox.Enabled = false;
-            fechaBox.Location = new Point(12, 358);
+            fechaBox.Location = new Point(12, 387);
             fechaBox.Name = "fechaBox";
             fechaBox.Size = new Size(100, 23);
             fechaBox.TabIndex = 13;
@@ -128,10 +131,10 @@
             // 
             listaOrdenesEnSeleccion.Columns.AddRange(new ColumnHeader[] { Id, FechaDeCreacion });
             listaOrdenesEnSeleccion.FullRowSelect = true;
-            listaOrdenesEnSeleccion.Location = new Point(12, 27);
+            listaOrdenesEnSeleccion.Location = new Point(12, 56);
             listaOrdenesEnSeleccion.MultiSelect = false;
             listaOrdenesEnSeleccion.Name = "listaOrdenesEnSeleccion";
-            listaOrdenesEnSeleccion.Size = new Size(296, 130);
+            listaOrdenesEnSeleccion.Size = new Size(507, 130);
             listaOrdenesEnSeleccion.TabIndex = 14;
             listaOrdenesEnSeleccion.UseCompatibleStateImageBehavior = false;
             listaOrdenesEnSeleccion.View = View.Details;
@@ -147,11 +150,40 @@
             FechaDeCreacion.Text = "Fecha de Creación";
             FechaDeCreacion.Width = 120;
             // 
+            // depositoBox
+            // 
+            depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            depositoBox.FormattingEnabled = true;
+            depositoBox.Location = new Point(101, 12);
+            depositoBox.Name = "depositoBox";
+            depositoBox.Size = new Size(162, 23);
+            depositoBox.TabIndex = 15;
+            depositoBox.SelectedIndexChanged += depositoBox_SelectedIndexChanged;
+            // 
+            // Deposito
+            // 
+            Deposito.AutoSize = true;
+            Deposito.Location = new Point(12, 15);
+            Deposito.Name = "Deposito";
+            Deposito.Size = new Size(54, 15);
+            Deposito.TabIndex = 16;
+            Deposito.Text = "Deposito";
+            // 
+            // Fila
+            // 
+            Fila.Text = "Fila";
+            // 
+            // estante
+            // 
+            estante.Text = "Estante";
+            // 
             // FormConfirmarOrdenDeSeleccion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(346, 555);
+            ClientSize = new Size(531, 555);
+            Controls.Add(Deposito);
+            Controls.Add(depositoBox);
             Controls.Add(listaOrdenesEnSeleccion);
             Controls.Add(fechaBox);
             Controls.Add(listDetalleOrden);
@@ -176,10 +208,14 @@
         private ListView listDetalleOrden;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
+        private ColumnHeader pasillo;
         private TextBox fechaBox;
         private ListView listaOrdenesEnSeleccion;
         private ColumnHeader Id;
         private ColumnHeader FechaDeCreacion;
+        private ComboBox depositoBox;
+        private Label Deposito;
+        private ColumnHeader Fila;
+        private ColumnHeader estante;
     }
 }

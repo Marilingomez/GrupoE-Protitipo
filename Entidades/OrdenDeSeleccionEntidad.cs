@@ -17,13 +17,15 @@ namespace GrupoE_Protitipos.Entidades
         public DateTime FechaDeCreacion { get; set; }
         public DateTime FechaDeEntrega { get; set; }
 
-        public OrdenDeSeleccionEntidad(int idOrden, Estado estado, List<int> ordenesDePreparacion, DateTime fechaDeCreacion)
+        public OrdenDeSeleccionEntidad(int idOrden, Estado estado, List<int> ordenesDePreparacion, DateTime fechaDeCreacion, int idDeposito, List<DetalleOrdenDeSeleccion> productos)
         {
             IdOrden = idOrden;
             Estado = estado;
             OrdenesDePreparacion = ordenesDePreparacion;
             DetalleProductos = new List<DetalleOrdenDeSeleccion>();
             FechaDeCreacion = fechaDeCreacion;
+            Deposito = idDeposito;
+            DetalleProductos = productos;
         }
     }
 }

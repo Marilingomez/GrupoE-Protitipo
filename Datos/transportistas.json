@@ -1,0 +1,12 @@
+[
+  {
+    "IdTransportista": 1,
+    "CuitTransportista": "29-27272727-2",
+    "NombreFantasia": "El Teletrasportador"
+  },
+  {
+    "IdTransportista": 2,
+    "CuitTransportista": "25-25252525-3",
+    "NombreFantasia": "El Camion de Juana"
+  }
+]

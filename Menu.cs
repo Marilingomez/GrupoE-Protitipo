@@ -1,6 +1,5 @@
 using GrupoE_Protitipos.ConfirmarOrdenDeEntrega;
 using GrupoE_Protitipos.ConfirmarOrdenDeSeleccion;
-using GrupoE_Protitipos.ConsultaDisponibilidad;
 using GrupoE_Protitipos.DPreparacionOrden;
 using GrupoE_Protitipos.OrdenDeEntrega;
 

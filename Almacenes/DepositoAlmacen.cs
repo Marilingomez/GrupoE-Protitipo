@@ -41,5 +41,17 @@ namespace GrupoE_Protitipos.Almacenes
         {
             return depositos.Find(d => d.Provincia == nombre).IdDeposito;
         }
+
+        public static List<string> ObtenerNombreDepositos()
+        {
+            List<string> listaDepositos = new();
+
+            foreach (var deposito in depositos)
+            {
+                listaDepositos.Add(deposito.Provincia);
+            }
+
+            return listaDepositos;
+        }
     }
 }
