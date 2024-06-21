@@ -2,8 +2,36 @@
   {
     "IdOrden": 1,
     "CuitCliente": "23-45454545-9",
+    "Deposito":  1,
     "Estado": "EnTransito",
-    "OrdenesDePreparacion": [ 1, 2 ],
+    "OrdenesDePreparacion": [ 2 ],
+    "DetalleProductos": [
+      {
+        "IdProducto": 3,
+        "Cantidad": 5,
+        "Deposito": 1,
+        "Pasillo": "A",
+        "Fila": "A",
+        "Estante": 2
+      },
+      {
+        "IdProducto": 4,
+        "Cantidad": 4,
+        "Deposito": 1,
+        "Pasillo": "A",
+        "Fila": "C",
+        "Estante": 1
+      }
+    ],
+    "FechaDeCreacion": "2024-05-31T00:00:00.00Z",
+    "FechaDeEntrega": "2024-05-30T00:00:00.00Z"
+  },
+  {
+    "IdOrden": 2,
+    "CuitCliente": "23-45454545-9",
+    "Deposito": 1,
+    "Estado": "Finalizada",
+    "OrdenesDePreparacion": [ 3 ],
     "DetalleProductos": [
       {
         "IdProducto": 1,

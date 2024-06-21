@@ -15,6 +15,13 @@ namespace GrupoE_Protitipos.DPreparacionOrden
 {
     public partial class FormPreparacionOrden : Form
     {
+        private System.Windows.Forms.Timer timer;
+        private int r = 0;
+        private int g = 0;
+        private int b = 0;
+        private int step = 1;
+        private static Random random = new Random();
+
         OrdenDePreparacionModelo modelo = new OrdenDePreparacionModelo();
         public FormPreparacionOrden()
         {
@@ -45,7 +52,8 @@ namespace GrupoE_Protitipos.DPreparacionOrden
                 ListViewItem selectedItem = listaDetalleProducto.SelectedItems[0];
 
                 listaDetalleProducto.Items.Remove(selectedItem);
-            } else
+            }
+            else
             {
                 MessageBox.Show("Debe seleccionar el producto que ha sido preparado.", "Error");
             }
@@ -56,10 +64,12 @@ namespace GrupoE_Protitipos.DPreparacionOrden
             if (listaDetalleProducto.Items.Count != 0)
             {
                 MessageBox.Show("Debe preparar todos los productos detallados antes de poder continuar.", "Error");
-            } else if (listOrdenesSeleccionada.Items.Count == 0)
+            }
+            else if (listOrdenesSeleccionada.Items.Count == 0)
             {
                 MessageBox.Show("No existe orden a procesar.", "Error");
-            } else
+            }
+            else
             {
                 ListViewItem primerOrden = listOrdenesSeleccionada.Items[0];
 
@@ -127,10 +137,16 @@ namespace GrupoE_Protitipos.DPreparacionOrden
             }
         }
 
-        private void depositoBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void depositoBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             listOrdenesSeleccionada.Items.Clear();
             listaDetalleProducto.Items.Clear();
             cargaDatosIniciales();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

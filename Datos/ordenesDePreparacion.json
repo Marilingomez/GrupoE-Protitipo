@@ -6,7 +6,7 @@
     "Prioridad": "Alta",
     "Estado": "Pendiente",
     "IdTransportista": 1,
-    "Deposito":  1,
+    "Deposito": 1,
     "DetalleOrdenes": [
       {
         "IdProducto": 1,
@@ -23,16 +23,16 @@
     "CuitCliente": "22-15151515-1",
     "FechaAlta": "2024-05-31T00:00:00.00Z",
     "Prioridad": "Media",
-    "Estado": "Pendiente",
+    "Estado": "EnSeleccion",
     "Deposito": 1,
     "IdTransportista": 2,
     "DetalleOrdenes": [
       {
-        "IdProducto": 1,
+        "IdProducto": 3,
         "Cantidad": 5
       },
       {
-        "IdProducto": 3,
+        "IdProducto": 4,
         "Cantidad": 4
       }
     ]
@@ -42,13 +42,107 @@
     "CuitCliente": "22-15151515-1",
     "FechaAlta": "2024-05-31T00:00:00.00Z",
     "Prioridad": "Alta",
-    "Estado": "Pendiente",
+    "Estado": "Seleccionada",
     "Deposito": 1,
     "IdTransportista": 1,
     "DetalleOrdenes": [
       {
         "IdProducto": 2,
         "Cantidad": 7
+      }
+    ]
+  },
+  {
+    "IdOrden": 4,
+    "CuitCliente": "22-15151515-1",
+    "FechaAlta": "2024-05-31T00:00:00.00Z",
+    "Prioridad": "Media",
+    "Estado": "Seleccionada",
+    "Deposito": 2,
+    "IdTransportista": 1,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 2,
+        "Cantidad": 7
+      },
+      {
+        "IdProducto": 4,
+        "Cantidad": 9
+      }
+    ]
+  },
+  {
+    "IdOrden": 5,
+    "CuitCliente": "22-15151515-1",
+    "FechaAlta": "2024-05-31T00:00:00.00Z",
+    "Prioridad": "Alta",
+    "Estado": "Preparada",
+    "Deposito": 1,
+    "IdTransportista": 1,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 2,
+        "Cantidad": 7
+      }
+    ]
+  },
+  {
+    "IdOrden": 6,
+    "CuitCliente": "22-15151515-1",
+    "FechaAlta": "2024-05-31T00:00:00.00Z",
+    "Prioridad": "Alta",
+    "Estado": "Preparada",
+    "Deposito": 1,
+    "IdTransportista": 2,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 3,
+        "Cantidad": 4
+      }
+    ]
+  },
+  {
+    "IdOrden": 7,
+    "CuitCliente": "22-15151515-1",
+    "FechaAlta": "2024-05-31T00:00:00.00Z",
+    "Prioridad": "Alta",
+    "Estado": "PorDespachar",
+    "Deposito": 1,
+    "IdTransportista": 1,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 2,
+        "Cantidad": 7
+      }
+    ]
+  },
+  {
+    "IdOrden": 8,
+    "CuitCliente": "22-15151515-1",
+    "FechaAlta": "2024-05-31T00:00:00.00Z",
+    "Prioridad": "Alta",
+    "Estado": "Despachada",
+    "Deposito": 1,
+    "IdTransportista": 1,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 2,
+        "Cantidad": 7
+      }
+    ]
+  },
+  {
+    "IdOrden": 9,
+    "CuitCliente": "22-15151515-1",
+    "FechaAlta": "2024-05-31T00:00:00.00Z",
+    "Prioridad": "Media",
+    "Estado": "Pendiente",
+    "Deposito": 1,
+    "IdTransportista": 1,
+    "DetalleOrdenes": [
+      {
+        "IdProducto": 2,
+        "Cantidad": 1
       }
     ]
   }

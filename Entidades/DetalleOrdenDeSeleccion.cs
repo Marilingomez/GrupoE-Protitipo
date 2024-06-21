@@ -14,11 +14,6 @@ namespace GrupoE_Protitipos.Entidades
         public string Fila { get; set; }
         public int Estante { get; set; }
 
-        public string ObtenerUbicacion()
-        {
-            return "P" + Pasillo + " - F" + Fila + " - E" + Estante;
-        }
-
         public DetalleOrdenDeSeleccion(int idProducto, int cantidad, string pasillo, string fila, int estante)
         {
             IdProducto = idProducto;

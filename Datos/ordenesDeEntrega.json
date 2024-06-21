@@ -5,8 +5,20 @@
     "FechaCreacion": "",
     "FechaEntrega": "",
     "Deposito": 1,
-    "OrdenesDePreparacion": [ 3, 4 ],
+    "OrdenesDePreparacion": [ 5 ],
     "Estado": "EnTransito",
+    "Nombre": null,
+    "Apellido": null,
+    "DNI": 0
+  },
+  {
+    "IdOrden": 1,
+    "CuitTransportista": "23-23232323-3",
+    "FechaCreacion": "",
+    "FechaEntrega": "",
+    "Deposito": 1,
+    "OrdenesDePreparacion": [ 6 ],
+    "Estado": "Finalizada",
     "Nombre": null,
     "Apellido": null,
     "DNI": 0
