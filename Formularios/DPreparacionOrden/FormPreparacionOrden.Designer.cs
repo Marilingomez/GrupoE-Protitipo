@@ -43,17 +43,23 @@
             depositoLabel = new Label();
             depositoBox = new ComboBox();
             Pampazon = new GroupBox();
+            VolverBoton = new Button();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             Pampazon.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // listOrdenesSeleccionada
             // 
             listOrdenesSeleccionada.Columns.AddRange(new ColumnHeader[] { IdOrden, IdCliente, Prioridad });
-            listOrdenesSeleccionada.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            listOrdenesSeleccionada.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             listOrdenesSeleccionada.FullRowSelect = true;
-            listOrdenesSeleccionada.Location = new Point(20, 111);
+            listOrdenesSeleccionada.Location = new Point(22, 93);
+            listOrdenesSeleccionada.Margin = new Padding(3, 4, 3, 4);
             listOrdenesSeleccionada.Name = "listOrdenesSeleccionada";
-            listOrdenesSeleccionada.Size = new Size(392, 176);
+            listOrdenesSeleccionada.Size = new Size(447, 233);
             listOrdenesSeleccionada.TabIndex = 0;
             listOrdenesSeleccionada.UseCompatibleStateImageBehavior = false;
             listOrdenesSeleccionada.View = View.Details;
@@ -62,35 +68,38 @@
             // IdOrden
             // 
             IdOrden.Text = "IdOrden";
+            IdOrden.Width = 120;
             // 
             // IdCliente
             // 
             IdCliente.Text = "IdCliente";
+            IdCliente.Width = 120;
             // 
             // Prioridad
             // 
             Prioridad.Text = "Prioridad";
+            Prioridad.Width = 120;
             // 
             // label1
             // 
-            label1.BackColor = Color.CornflowerBlue;
-            label1.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(20, 89);
+            label1.BackColor = SystemColors.ButtonHighlight;
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(161, 32, 89);
+            label1.Location = new Point(22, 64);
             label1.Name = "label1";
-            label1.Size = new Size(392, 26);
+            label1.Size = new Size(448, 35);
             label1.TabIndex = 1;
             label1.Text = "Ordenes de preparación por preparar";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // labelDetallePreparar
             // 
-            labelDetallePreparar.BackColor = Color.CornflowerBlue;
-            labelDetallePreparar.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            labelDetallePreparar.ForeColor = SystemColors.ControlLightLight;
-            labelDetallePreparar.Location = new Point(20, 310);
+            labelDetallePreparar.BackColor = SystemColors.ButtonHighlight;
+            labelDetallePreparar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDetallePreparar.ForeColor = Color.FromArgb(161, 32, 89);
+            labelDetallePreparar.Location = new Point(21, 353);
             labelDetallePreparar.Name = "labelDetallePreparar";
-            labelDetallePreparar.Size = new Size(392, 26);
+            labelDetallePreparar.Size = new Size(448, 35);
             labelDetallePreparar.TabIndex = 2;
             labelDetallePreparar.Text = "Detalle a preparar";
             labelDetallePreparar.TextAlign = ContentAlignment.MiddleLeft;
@@ -98,11 +107,12 @@
             // listaDetalleProducto
             // 
             listaDetalleProducto.Columns.AddRange(new ColumnHeader[] { IdProducto, Producto, Cantidad });
-            listaDetalleProducto.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            listaDetalleProducto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             listaDetalleProducto.FullRowSelect = true;
-            listaDetalleProducto.Location = new Point(20, 332);
+            listaDetalleProducto.Location = new Point(22, 383);
+            listaDetalleProducto.Margin = new Padding(3, 4, 3, 4);
             listaDetalleProducto.Name = "listaDetalleProducto";
-            listaDetalleProducto.Size = new Size(392, 176);
+            listaDetalleProducto.Size = new Size(447, 233);
             listaDetalleProducto.TabIndex = 3;
             listaDetalleProducto.UseCompatibleStateImageBehavior = false;
             listaDetalleProducto.View = View.Details;
@@ -110,26 +120,27 @@
             // IdProducto
             // 
             IdProducto.Text = "IdProducto";
-            IdProducto.Width = 80;
+            IdProducto.Width = 120;
             // 
             // Producto
             // 
             Producto.Text = "Producto";
-            Producto.Width = 150;
+            Producto.Width = 120;
             // 
             // Cantidad
             // 
             Cantidad.Text = "Cantidad";
-            Cantidad.Width = 80;
+            Cantidad.Width = 120;
             // 
             // btnProductoPreparado
             // 
-            btnProductoPreparado.BackColor = Color.CornflowerBlue;
-            btnProductoPreparado.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnProductoPreparado.BackColor = Color.FromArgb(161, 32, 89);
+            btnProductoPreparado.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnProductoPreparado.ForeColor = SystemColors.ButtonFace;
-            btnProductoPreparado.Location = new Point(449, 338);
+            btnProductoPreparado.Location = new Point(475, 292);
+            btnProductoPreparado.Margin = new Padding(3, 4, 3, 4);
             btnProductoPreparado.Name = "btnProductoPreparado";
-            btnProductoPreparado.Size = new Size(264, 32);
+            btnProductoPreparado.Size = new Size(302, 34);
             btnProductoPreparado.TabIndex = 4;
             btnProductoPreparado.Text = "Producto embalado";
             btnProductoPreparado.UseVisualStyleBackColor = false;
@@ -137,13 +148,13 @@
             // 
             // btnConfirmaOrdenPreparada
             // 
-            btnConfirmaOrdenPreparada.BackColor = Color.FromArgb(46, 189, 37);
-            btnConfirmaOrdenPreparada.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnConfirmaOrdenPreparada.BackColor = Color.FromArgb(161, 32, 89);
+            btnConfirmaOrdenPreparada.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnConfirmaOrdenPreparada.ForeColor = SystemColors.ButtonFace;
-            btnConfirmaOrdenPreparada.Location = new Point(449, 126);
+            btnConfirmaOrdenPreparada.Location = new Point(475, 581);
             btnConfirmaOrdenPreparada.Margin = new Padding(0);
             btnConfirmaOrdenPreparada.Name = "btnConfirmaOrdenPreparada";
-            btnConfirmaOrdenPreparada.Size = new Size(264, 31);
+            btnConfirmaOrdenPreparada.Size = new Size(302, 35);
             btnConfirmaOrdenPreparada.TabIndex = 5;
             btnConfirmaOrdenPreparada.Text = "Confirma Orden Preparada";
             btnConfirmaOrdenPreparada.UseVisualStyleBackColor = false;
@@ -152,12 +163,12 @@
             // depositoLabel
             // 
             depositoLabel.AutoSize = true;
-            depositoLabel.BackColor = Color.CornflowerBlue;
-            depositoLabel.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            depositoLabel.ForeColor = SystemColors.ButtonFace;
-            depositoLabel.Location = new Point(51, 76);
+            depositoLabel.BackColor = Color.White;
+            depositoLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            depositoLabel.ForeColor = Color.Black;
+            depositoLabel.Location = new Point(22, 24);
             depositoLabel.Name = "depositoLabel";
-            depositoLabel.Size = new Size(72, 18);
+            depositoLabel.Size = new Size(70, 20);
             depositoLabel.TabIndex = 6;
             depositoLabel.Text = "Deposito";
             // 
@@ -166,43 +177,83 @@
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
             depositoBox.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             depositoBox.FormattingEnabled = true;
-            depositoBox.Location = new Point(131, 73);
+            depositoBox.Location = new Point(114, 24);
+            depositoBox.Margin = new Padding(3, 4, 3, 4);
             depositoBox.Name = "depositoBox";
-            depositoBox.Size = new Size(182, 25);
+            depositoBox.Size = new Size(207, 30);
             depositoBox.TabIndex = 7;
             depositoBox.SelectedIndexChanged += depositoBox_SelectedIndexChanged;
             // 
             // Pampazon
             // 
-            Pampazon.BackColor = SystemColors.ControlLight;
+            Pampazon.BackColor = SystemColors.ButtonHighlight;
+            Pampazon.Controls.Add(VolverBoton);
+            Pampazon.Controls.Add(depositoLabel);
+            Pampazon.Controls.Add(depositoBox);
+            Pampazon.Controls.Add(btnProductoPreparado);
             Pampazon.Controls.Add(listaDetalleProducto);
             Pampazon.Controls.Add(labelDetallePreparar);
+            Pampazon.Controls.Add(btnConfirmaOrdenPreparada);
             Pampazon.Controls.Add(listOrdenesSeleccionada);
             Pampazon.Controls.Add(label1);
-            Pampazon.Location = new Point(31, 28);
+            Pampazon.Location = new Point(35, 37);
             Pampazon.Margin = new Padding(0);
             Pampazon.Name = "Pampazon";
             Pampazon.Padding = new Padding(0);
-            Pampazon.Size = new Size(776, 561);
+            Pampazon.Size = new Size(807, 748);
             Pampazon.TabIndex = 8;
             Pampazon.TabStop = false;
             // 
+            // VolverBoton
+            // 
+            VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
+            VolverBoton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            VolverBoton.ForeColor = SystemColors.ButtonFace;
+            VolverBoton.Location = new Point(602, 640);
+            VolverBoton.Margin = new Padding(0);
+            VolverBoton.Name = "VolverBoton";
+            VolverBoton.Size = new Size(175, 35);
+            VolverBoton.TabIndex = 8;
+            VolverBoton.Text = "Volver al menu";
+            VolverBoton.UseVisualStyleBackColor = false;
+            VolverBoton.Click += VolverBoton_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(161, 32, 89);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(1, 1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(854, 33);
+            panel1.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.GrupoE;
+            pictureBox1.Location = new Point(34, 5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(120, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
             // FormPreparacionOrden
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(844, 615);
-            Controls.Add(depositoBox);
-            Controls.Add(depositoLabel);
-            Controls.Add(btnConfirmaOrdenPreparada);
-            Controls.Add(btnProductoPreparado);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(855, 721);
+            Controls.Add(panel1);
             Controls.Add(Pampazon);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormPreparacionOrden";
             Text = "FormPreparacionOrden";
             Load += FormPreparacionOrden_Load;
             Pampazon.ResumeLayout(false);
+            Pampazon.PerformLayout();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -222,5 +273,8 @@
         private Label depositoLabel;
         private ComboBox depositoBox;
         private GroupBox Pampazon;
+        private Panel panel1;
+        private Button VolverBoton;
+        private PictureBox pictureBox1;
     }
 }

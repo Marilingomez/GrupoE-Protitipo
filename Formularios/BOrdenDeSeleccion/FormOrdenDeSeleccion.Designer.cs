@@ -48,77 +48,92 @@
             Cantidad = new ColumnHeader();
             depositoLabel = new Label();
             depositoBox = new ComboBox();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            VolverBoton = new Button();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 43);
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(161, 32, 89);
+            label1.Location = new Point(17, 88);
             label1.Name = "label1";
-            label1.Size = new Size(107, 15);
+            label1.Size = new Size(142, 20);
             label1.TabIndex = 4;
             label1.Text = "Órdenes a preparar";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(394, 43);
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.FromArgb(161, 32, 89);
+            label2.Location = new Point(453, 88);
             label2.Name = "label2";
-            label2.Size = new Size(122, 15);
+            label2.Size = new Size(158, 20);
             label2.TabIndex = 5;
             label2.Text = "Órdenes a seleccionar";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 200);
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.FromArgb(161, 32, 89);
+            label4.Location = new Point(16, 308);
             label4.Name = "label4";
-            label4.Size = new Size(132, 15);
+            label4.Size = new Size(170, 20);
             label4.TabIndex = 7;
             label4.Text = "Productos a seleccionar";
             // 
             // buttonAgregar
             // 
+            buttonAgregar.BackColor = Color.FromArgb(161, 32, 89);
             buttonAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonAgregar.Location = new Point(289, 95);
-            buttonAgregar.Margin = new Padding(3, 2, 3, 2);
+            buttonAgregar.ForeColor = SystemColors.ButtonHighlight;
+            buttonAgregar.Location = new Point(333, 158);
             buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(99, 31);
+            buttonAgregar.Size = new Size(113, 41);
             buttonAgregar.TabIndex = 16;
             buttonAgregar.Text = "→";
-            buttonAgregar.UseVisualStyleBackColor = true;
+            buttonAgregar.UseVisualStyleBackColor = false;
             buttonAgregar.Click += buttonAgregar_Click;
             // 
             // buttonEliminar
             // 
+            buttonEliminar.BackColor = Color.FromArgb(161, 32, 89);
             buttonEliminar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonEliminar.Location = new Point(289, 130);
-            buttonEliminar.Margin = new Padding(3, 2, 3, 2);
+            buttonEliminar.ForeColor = SystemColors.ButtonHighlight;
+            buttonEliminar.Location = new Point(333, 204);
             buttonEliminar.Name = "buttonEliminar";
-            buttonEliminar.Size = new Size(99, 31);
+            buttonEliminar.Size = new Size(113, 41);
             buttonEliminar.TabIndex = 17;
             buttonEliminar.Text = "←";
-            buttonEliminar.UseVisualStyleBackColor = true;
+            buttonEliminar.UseVisualStyleBackColor = false;
             buttonEliminar.Click += buttonEliminar_Click;
             // 
             // buttonFinalizar
             // 
-            buttonFinalizar.Location = new Point(503, 335);
-            buttonFinalizar.Margin = new Padding(3, 2, 3, 2);
+            buttonFinalizar.BackColor = Color.FromArgb(161, 32, 89);
+            buttonFinalizar.ForeColor = SystemColors.ButtonHighlight;
+            buttonFinalizar.Location = new Point(577, 506);
             buttonFinalizar.Name = "buttonFinalizar";
-            buttonFinalizar.Size = new Size(149, 20);
+            buttonFinalizar.Size = new Size(185, 36);
             buttonFinalizar.TabIndex = 18;
             buttonFinalizar.Text = "Finalizar y Guardar";
-            buttonFinalizar.UseVisualStyleBackColor = true;
+            buttonFinalizar.UseVisualStyleBackColor = false;
             buttonFinalizar.Click += buttonFinalizar_Click;
             // 
             // ordenesPreparar
             // 
             ordenesPreparar.Columns.AddRange(new ColumnHeader[] { Id, Cliente });
             ordenesPreparar.FullRowSelect = true;
-            ordenesPreparar.Location = new Point(12, 64);
+            ordenesPreparar.Location = new Point(17, 116);
+            ordenesPreparar.Margin = new Padding(3, 4, 3, 4);
             ordenesPreparar.Name = "ordenesPreparar";
-            ordenesPreparar.Size = new Size(271, 133);
+            ordenesPreparar.Size = new Size(309, 176);
             ordenesPreparar.TabIndex = 19;
             ordenesPreparar.UseCompatibleStateImageBehavior = false;
             ordenesPreparar.View = View.Details;
@@ -126,18 +141,21 @@
             // Id
             // 
             Id.Text = "Id";
+            Id.Width = 100;
             // 
             // Cliente
             // 
             Cliente.Text = "Cliente";
+            Cliente.Width = 400;
             // 
             // ordenesSeleccionar
             // 
             ordenesSeleccionar.Columns.AddRange(new ColumnHeader[] { IdSeleccionado, clienteSeleccionado });
             ordenesSeleccionar.FullRowSelect = true;
-            ordenesSeleccionar.Location = new Point(394, 61);
+            ordenesSeleccionar.Location = new Point(453, 112);
+            ordenesSeleccionar.Margin = new Padding(3, 4, 3, 4);
             ordenesSeleccionar.Name = "ordenesSeleccionar";
-            ordenesSeleccionar.Size = new Size(271, 133);
+            ordenesSeleccionar.Size = new Size(309, 176);
             ordenesSeleccionar.TabIndex = 20;
             ordenesSeleccionar.UseCompatibleStateImageBehavior = false;
             ordenesSeleccionar.View = View.Details;
@@ -145,17 +163,20 @@
             // IdSeleccionado
             // 
             IdSeleccionado.Text = "Id";
+            IdSeleccionado.Width = 100;
             // 
             // clienteSeleccionado
             // 
             clienteSeleccionado.Text = "Cliente seleccionado";
+            clienteSeleccionado.Width = 400;
             // 
             // listProductos
             // 
             listProductos.Columns.AddRange(new ColumnHeader[] { Pasillo, Fila, Estante, Producto, Cantidad });
-            listProductos.Location = new Point(12, 218);
+            listProductos.Location = new Point(16, 332);
+            listProductos.Margin = new Padding(3, 4, 3, 4);
             listProductos.Name = "listProductos";
-            listProductos.Size = new Size(653, 112);
+            listProductos.Size = new Size(746, 148);
             listProductos.TabIndex = 21;
             listProductos.UseCompatibleStateImageBehavior = false;
             listProductos.View = View.Details;
@@ -163,30 +184,34 @@
             // Pasillo
             // 
             Pasillo.Text = "Pasillo";
+            Pasillo.Width = 90;
             // 
             // Fila
             // 
             Fila.Text = "Fila";
+            Fila.Width = 90;
             // 
             // Estante
             // 
             Estante.Text = "Estante";
+            Estante.Width = 90;
             // 
             // Producto
             // 
             Producto.Text = "Producto";
-            Producto.Width = 150;
+            Producto.Width = 300;
             // 
             // Cantidad
             // 
             Cantidad.Text = "Cantidad";
+            Cantidad.Width = 90;
             // 
             // depositoLabel
             // 
             depositoLabel.AutoSize = true;
-            depositoLabel.Location = new Point(12, 19);
+            depositoLabel.Location = new Point(17, 56);
             depositoLabel.Name = "depositoLabel";
-            depositoLabel.Size = new Size(54, 15);
+            depositoLabel.Size = new Size(70, 20);
             depositoLabel.TabIndex = 22;
             depositoLabel.Text = "Deposito";
             // 
@@ -194,17 +219,52 @@
             // 
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
             depositoBox.FormattingEnabled = true;
-            depositoBox.Location = new Point(72, 16);
+            depositoBox.Location = new Point(85, 52);
+            depositoBox.Margin = new Padding(3, 4, 3, 4);
             depositoBox.Name = "depositoBox";
-            depositoBox.Size = new Size(179, 23);
+            depositoBox.Size = new Size(204, 28);
             depositoBox.TabIndex = 23;
             depositoBox.SelectedIndexChanged += depositoBox_SelectedIndexChanged;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(161, 32, 89);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(-2, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(801, 34);
+            panel1.TabIndex = 33;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.GrupoE;
+            pictureBox1.Location = new Point(-26, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(174, 25);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // VolverBoton
+            // 
+            VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
+            VolverBoton.ForeColor = SystemColors.ButtonHighlight;
+            VolverBoton.Location = new Point(577, 548);
+            VolverBoton.Name = "VolverBoton";
+            VolverBoton.Size = new Size(185, 36);
+            VolverBoton.TabIndex = 34;
+            VolverBoton.Text = "Volver al menu";
+            VolverBoton.UseVisualStyleBackColor = false;
+            VolverBoton.Click += VolverBoton_Click;
+            // 
             // FormOrdenDeSeleccion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 388);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(800, 589);
+            Controls.Add(VolverBoton);
+            Controls.Add(panel1);
             Controls.Add(depositoBox);
             Controls.Add(depositoLabel);
             Controls.Add(listProductos);
@@ -216,10 +276,11 @@
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormOrdenDeSeleccion";
             Text = "Orden de Selección";
             Load += FormOrdenDeSeleccion_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,5 +306,8 @@
         private ColumnHeader Estante;
         private Label depositoLabel;
         private ComboBox depositoBox;
+        private Panel panel1;
+        private Button VolverBoton;
+        private PictureBox pictureBox1;
     }
 }

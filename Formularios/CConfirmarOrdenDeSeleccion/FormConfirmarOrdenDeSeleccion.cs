@@ -47,7 +47,7 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
                     string nombreDeposito = modelo.ObtenerNombreDeProductoPorId(producto.IdProducto);
 
                     ListViewItem item = new ListViewItem(new[] {
-                        nombreDeposito, 
+                        nombreDeposito,
                         producto.Cantidad.ToString(),
                         producto.Pasillo.ToString(),
                         producto.Fila.ToString(),
@@ -60,7 +60,8 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
 
         private void btnConfirmar_click(object sender, EventArgs e)
         {
-            if (listaOrdenesEnSeleccion.SelectedItems.Count == 0) {
+            if (listaOrdenesEnSeleccion.SelectedItems.Count == 0)
+            {
                 MessageBox.Show("Debe seleccionar una Orden para confirmala como Seleccionada.", "Error");
                 return;
             }
@@ -79,13 +80,14 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
             CargarOrdenesDeSeleccionEnTransito();
         }
 
-        private void CargarOrdenesDeSeleccionEnTransito() {
+        private void CargarOrdenesDeSeleccionEnTransito()
+        {
             string nombreDeposito = depositoBox.Text;
             foreach (var orden in modelo.ObtenerOrdenesEnTransitoPorDeposito(nombreDeposito))
             {
-                ListViewItem item = new(new string[] { 
-                    orden.IdOrden.ToString(), 
-                    orden.FechaDeCreacion.ToString("dd/MM/yyyy") 
+                ListViewItem item = new(new string[] {
+                    orden.IdOrden.ToString(),
+                    orden.FechaDeCreacion.ToString("dd/MM/yyyy")
                 });
                 listaOrdenesEnSeleccion.Items.Add(item);
             }
@@ -95,6 +97,11 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
         {
             listaOrdenesEnSeleccion.Items.Clear();
             CargarOrdenesDeSeleccionEnTransito();
+        }
+
+        private void MenuPrincipalVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

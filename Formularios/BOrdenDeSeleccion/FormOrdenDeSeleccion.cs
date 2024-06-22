@@ -37,7 +37,8 @@ namespace GrupoE_Protitipos
             if (ordenesPreparar.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar una orden.");
-            } else
+            }
+            else
             {
                 foreach (ListViewItem item in ordenesPreparar.SelectedItems)
                 {
@@ -58,7 +59,8 @@ namespace GrupoE_Protitipos
             if (ordenesSeleccionar.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar una orden.");
-            } else
+            }
+            else
             {
                 foreach (ListViewItem item in ordenesSeleccionar.SelectedItems)
                 {
@@ -82,7 +84,8 @@ namespace GrupoE_Protitipos
                 return;
             }
 
-            if (depositoBox.Enabled) {
+            if (depositoBox.Enabled)
+            {
                 MessageBox.Show("Debe seleccionar al menos una orden.", "Error");
                 return;
             }
@@ -106,7 +109,7 @@ namespace GrupoE_Protitipos
             ordenesPreparar.Items.Clear();
             depositoBox.Enabled = true;
             CargaDatos();
-            
+
         }
 
         private void ActualizarDetallesProductos()
@@ -147,6 +150,11 @@ namespace GrupoE_Protitipos
         private void depositoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargaDatos();
+        }
+
+        private void VolverBoton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

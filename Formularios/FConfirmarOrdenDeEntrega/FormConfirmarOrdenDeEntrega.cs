@@ -91,5 +91,10 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeEntrega
             inputIdOrden.Clear();
             inputTransportista.Clear();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,6 +29,7 @@ namespace GrupoE_Protitipos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             btnOrdenDePreparacion = new Button();
             btnOrdenDeSeleccion = new Button();
             btnOrdenDeEntrega = new Button();
@@ -36,90 +37,123 @@ namespace GrupoE_Protitipos
             confirmarOrdenDeSeleccion = new Button();
             btnConfirmarOrdenDeEntrega = new Button();
             btnPrepararMercaderia = new Button();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnOrdenDePreparacion
             // 
-            btnOrdenDePreparacion.Location = new Point(144, 29);
-            btnOrdenDePreparacion.Margin = new Padding(3, 2, 3, 2);
+            btnOrdenDePreparacion.BackColor = Color.FromArgb(161, 32, 89);
+            btnOrdenDePreparacion.ForeColor = SystemColors.ButtonHighlight;
+            btnOrdenDePreparacion.Location = new Point(146, 85);
             btnOrdenDePreparacion.Name = "btnOrdenDePreparacion";
-            btnOrdenDePreparacion.Size = new Size(270, 35);
+            btnOrdenDePreparacion.Size = new Size(309, 47);
             btnOrdenDePreparacion.TabIndex = 1;
             btnOrdenDePreparacion.Text = "Procesamiento orden de preparacion";
-            btnOrdenDePreparacion.UseVisualStyleBackColor = true;
+            btnOrdenDePreparacion.UseVisualStyleBackColor = false;
             btnOrdenDePreparacion.Click += btnOrdenDePreparacion_Click;
             // 
             // btnOrdenDeSeleccion
             // 
-            btnOrdenDeSeleccion.Location = new Point(144, 89);
-            btnOrdenDeSeleccion.Margin = new Padding(3, 2, 3, 2);
+            btnOrdenDeSeleccion.BackColor = Color.FromArgb(161, 32, 89);
+            btnOrdenDeSeleccion.ForeColor = SystemColors.ButtonHighlight;
+            btnOrdenDeSeleccion.Location = new Point(146, 165);
             btnOrdenDeSeleccion.Name = "btnOrdenDeSeleccion";
-            btnOrdenDeSeleccion.Size = new Size(270, 35);
+            btnOrdenDeSeleccion.Size = new Size(309, 47);
             btnOrdenDeSeleccion.TabIndex = 3;
             btnOrdenDeSeleccion.Text = "Orden de seleccion";
-            btnOrdenDeSeleccion.UseVisualStyleBackColor = true;
+            btnOrdenDeSeleccion.UseVisualStyleBackColor = false;
             btnOrdenDeSeleccion.Click += btnOrdenDeSeleccion_Click;
             // 
             // btnOrdenDeEntrega
             // 
-            btnOrdenDeEntrega.Location = new Point(144, 274);
-            btnOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
+            btnOrdenDeEntrega.BackColor = Color.FromArgb(161, 32, 89);
+            btnOrdenDeEntrega.ForeColor = SystemColors.ButtonHighlight;
+            btnOrdenDeEntrega.Location = new Point(146, 411);
             btnOrdenDeEntrega.Name = "btnOrdenDeEntrega";
-            btnOrdenDeEntrega.Size = new Size(270, 35);
+            btnOrdenDeEntrega.Size = new Size(309, 47);
             btnOrdenDeEntrega.TabIndex = 4;
             btnOrdenDeEntrega.Text = "Orden de entrega";
-            btnOrdenDeEntrega.UseVisualStyleBackColor = true;
+            btnOrdenDeEntrega.UseVisualStyleBackColor = false;
             btnOrdenDeEntrega.Click += btnOrdenDeEntrega_Click;
             // 
             // btnEstadoOrdenes
             // 
-            btnEstadoOrdenes.Location = new Point(144, 395);
-            btnEstadoOrdenes.Margin = new Padding(3, 2, 3, 2);
+            btnEstadoOrdenes.BackColor = Color.FromArgb(161, 32, 89);
+            btnEstadoOrdenes.ForeColor = SystemColors.ButtonHighlight;
+            btnEstadoOrdenes.Location = new Point(146, 573);
             btnEstadoOrdenes.Name = "btnEstadoOrdenes";
-            btnEstadoOrdenes.Size = new Size(270, 35);
+            btnEstadoOrdenes.Size = new Size(309, 47);
             btnEstadoOrdenes.TabIndex = 5;
             btnEstadoOrdenes.Text = "Estado de ordenes";
-            btnEstadoOrdenes.UseVisualStyleBackColor = true;
+            btnEstadoOrdenes.UseVisualStyleBackColor = false;
             btnEstadoOrdenes.Click += btnEstadoOrdenes_Click;
             // 
             // confirmarOrdenDeSeleccion
             // 
-            confirmarOrdenDeSeleccion.Location = new Point(144, 149);
-            confirmarOrdenDeSeleccion.Margin = new Padding(3, 2, 3, 2);
+            confirmarOrdenDeSeleccion.BackColor = Color.FromArgb(161, 32, 89);
+            confirmarOrdenDeSeleccion.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            confirmarOrdenDeSeleccion.ForeColor = SystemColors.ButtonHighlight;
+            confirmarOrdenDeSeleccion.Location = new Point(146, 245);
             confirmarOrdenDeSeleccion.Name = "confirmarOrdenDeSeleccion";
-            confirmarOrdenDeSeleccion.Size = new Size(270, 35);
+            confirmarOrdenDeSeleccion.Size = new Size(309, 47);
             confirmarOrdenDeSeleccion.TabIndex = 6;
             confirmarOrdenDeSeleccion.Text = "Confirmar orden de seleccion";
-            confirmarOrdenDeSeleccion.UseVisualStyleBackColor = true;
+            confirmarOrdenDeSeleccion.UseVisualStyleBackColor = false;
             confirmarOrdenDeSeleccion.Click += confirmarOrdenDeSeleccion_Click;
             // 
             // btnConfirmarOrdenDeEntrega
             // 
-            btnConfirmarOrdenDeEntrega.Location = new Point(144, 333);
-            btnConfirmarOrdenDeEntrega.Margin = new Padding(3, 2, 3, 2);
+            btnConfirmarOrdenDeEntrega.BackColor = Color.FromArgb(161, 32, 89);
+            btnConfirmarOrdenDeEntrega.ForeColor = SystemColors.ButtonHighlight;
+            btnConfirmarOrdenDeEntrega.Location = new Point(146, 490);
             btnConfirmarOrdenDeEntrega.Name = "btnConfirmarOrdenDeEntrega";
-            btnConfirmarOrdenDeEntrega.Size = new Size(270, 35);
+            btnConfirmarOrdenDeEntrega.Size = new Size(309, 47);
             btnConfirmarOrdenDeEntrega.TabIndex = 7;
             btnConfirmarOrdenDeEntrega.Text = "Confirmar Orden de Entrega";
-            btnConfirmarOrdenDeEntrega.UseVisualStyleBackColor = true;
+            btnConfirmarOrdenDeEntrega.UseVisualStyleBackColor = false;
             btnConfirmarOrdenDeEntrega.Click += btnConfirmarOrdenDeEntrega_Click;
             // 
             // btnPrepararMercaderia
             // 
-            btnPrepararMercaderia.Location = new Point(144, 212);
-            btnPrepararMercaderia.Margin = new Padding(3, 2, 3, 2);
+            btnPrepararMercaderia.BackColor = Color.FromArgb(161, 32, 89);
+            btnPrepararMercaderia.ForeColor = SystemColors.ButtonHighlight;
+            btnPrepararMercaderia.Location = new Point(146, 329);
             btnPrepararMercaderia.Name = "btnPrepararMercaderia";
-            btnPrepararMercaderia.Size = new Size(270, 35);
+            btnPrepararMercaderia.Size = new Size(309, 47);
             btnPrepararMercaderia.TabIndex = 8;
             btnPrepararMercaderia.Text = "Preparar Mercaderia";
-            btnPrepararMercaderia.UseVisualStyleBackColor = true;
+            btnPrepararMercaderia.UseVisualStyleBackColor = false;
             btnPrepararMercaderia.Click += btnPrepararMercaderia_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(161, 32, 89);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(605, 44);
+            panel1.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 11);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(129, 30);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 15;
+            pictureBox1.TabStop = false;
             // 
             // Menu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(523, 458);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(598, 647);
+            Controls.Add(panel1);
             Controls.Add(btnPrepararMercaderia);
             Controls.Add(btnConfirmarOrdenDeEntrega);
             Controls.Add(confirmarOrdenDeSeleccion);
@@ -127,10 +161,11 @@ namespace GrupoE_Protitipos
             Controls.Add(btnOrdenDeEntrega);
             Controls.Add(btnOrdenDeSeleccion);
             Controls.Add(btnOrdenDePreparacion);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Menu";
             Text = "Menu Principal";
             Load += Menu_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -147,6 +182,8 @@ namespace GrupoE_Protitipos
         private Button confirmarOrdenDeSeleccion;
         private Button btnConfirmarOrdenDeEntrega;
         private Button btnPrepararMercaderia;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 
 }

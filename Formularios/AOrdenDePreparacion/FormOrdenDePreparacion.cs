@@ -59,7 +59,7 @@ namespace GrupoE_Protitipos
         private void AgregarBoton_Click(object sender, EventArgs e)
         {
             string erroresDeCampos = modelo.ValidarCampos(ClienteBox.Text, DepositoBox.Text, CantidadBox.Text);
-            if(erroresDeCampos.Trim() != "")
+            if (erroresDeCampos.Trim() != "")
             {
                 MessageBox.Show(erroresDeCampos, "Error");
                 return;
@@ -130,7 +130,7 @@ namespace GrupoE_Protitipos
                     DetallesList.Items.RemoveAt(indiceSeleccionado);
 
                     modelo.CancelarPrereservaDeProducto(
-                        ClienteBox.Text, 
+                        ClienteBox.Text,
                         DepositoBox.Text,
                         int.Parse(item.SubItems[2].Text),
                         int.Parse(item.SubItems[0].Text)
@@ -151,8 +151,8 @@ namespace GrupoE_Protitipos
         private void ConfirmarBoton_Click(object sender, EventArgs e)
         {
             var errores = modelo.ValidarDatosOrden(
-                DetallesList.Items.Count, 
-                DepositoBox.Text, 
+                DetallesList.Items.Count,
+                DepositoBox.Text,
                 ClienteBox.Text,
                 transportistaBox.Text
                 );
@@ -215,7 +215,8 @@ namespace GrupoE_Protitipos
             {
                 DepositoBox.Enabled = false;
                 ClienteBox.Enabled = false;
-            } else
+            }
+            else
             {
                 DepositoBox.Enabled = true;
                 ClienteBox.Enabled = true;
@@ -235,6 +236,16 @@ namespace GrupoE_Protitipos
                 int.Parse(item.SubItems[0].Text)
                 );
             }
+        }
+
+        private void CantidadLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DetallesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

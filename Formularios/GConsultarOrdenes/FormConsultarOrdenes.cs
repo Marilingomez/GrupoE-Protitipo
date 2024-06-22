@@ -31,7 +31,7 @@ namespace GrupoE_Protitipos
             cmbEstado.Items.Add("Todos");
             foreach (var estado in estados)
             {
-                cmbEstado.Items.Add(estado);   
+                cmbEstado.Items.Add(estado);
             }
 
             List<string> clientes = Model.ObtenerClientes();
@@ -46,7 +46,7 @@ namespace GrupoE_Protitipos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string errores = Model.ValidarDatos(txtNroOrden.Text, clienteBox.Text, cmbEstado.Text);
-            if(errores.Trim() != "")
+            if (errores.Trim() != "")
             {
                 MessageBox.Show(errores, "Error");
                 return;
@@ -62,7 +62,7 @@ namespace GrupoE_Protitipos
             {
                 MessageBox.Show("No hay ordenes que coincidan con el filtro indicado: " + Environment.NewLine +
                     "- IdOrden: " + txtNroOrden.Text + Environment.NewLine +
-                    "- Cliente: " + clienteBox.Text + Environment.NewLine + 
+                    "- Cliente: " + clienteBox.Text + Environment.NewLine +
                     "- Estado: " + estado + "."
                     , "Sin resultados");
                 return;
@@ -70,8 +70,8 @@ namespace GrupoE_Protitipos
 
             foreach (var orden in ordenes)
             {
-                ListViewItem item = new ListViewItem(new string[] { 
-                    orden.IdOrden.ToString(), 
+                ListViewItem item = new ListViewItem(new string[] {
+                    orden.IdOrden.ToString(),
                     orden.CuitCliente,
                     orden.Estado.ToString()
                 });
@@ -95,6 +95,10 @@ namespace GrupoE_Protitipos
             listViewEstado.Items.Clear();
         }
 
+        private void VolverBoton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 

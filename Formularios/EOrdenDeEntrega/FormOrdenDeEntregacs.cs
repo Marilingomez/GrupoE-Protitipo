@@ -29,7 +29,8 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
 
         private void CancelarBoton_Click(object sender, EventArgs e)
         {
-            if (OrdenEntrega.SelectedItems.Count == 0) {
+            if (OrdenEntrega.SelectedItems.Count == 0)
+            {
                 MessageBox.Show("Debe seleccionar al menos una Orden de Preparación para eliminar.", "Error");
                 return;
             }
@@ -62,7 +63,8 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 }
 
                 itemsSeleccionados.Clear();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Debe seleccionar al menos una Orden de Preparación", "Error");
             }
@@ -93,7 +95,8 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             }
 
             bool validacion = modeloentrega.ValidacionSobreTransportista(OrdenEntrega.Items);
-            if (validacion) {
+            if (validacion)
+            {
                 MessageBox.Show("Las ordenes seleccionadas deben pertenecer a un mismo transportista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -146,6 +149,16 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
                 fila.SubItems.Add(nombreTransportista);
                 OrdenSeleccionadaList.Items.Add(fila);
             }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
