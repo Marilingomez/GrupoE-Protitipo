@@ -32,7 +32,6 @@
             listaOrdenesDeEntrega = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
             groupBox1 = new GroupBox();
             label8 = new Label();
             label7 = new Label();
@@ -69,7 +68,7 @@
             // 
             // listaOrdenesDeEntrega
             // 
-            listaOrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            listaOrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             listaOrdenesDeEntrega.FullRowSelect = true;
             listaOrdenesDeEntrega.Location = new Point(13, 67);
             listaOrdenesDeEntrega.Margin = new Padding(3, 4, 3, 4);
@@ -90,11 +89,6 @@
             // 
             columnHeader2.Text = "CUIT transportista";
             columnHeader2.Width = 200;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "CUIT cliente";
-            columnHeader3.Width = 200;
             // 
             // groupBox1
             // 
@@ -311,7 +305,6 @@
         private ListView listaOrdenesDeEntrega;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
         private GroupBox groupBox1;
         private Label label5;
         private Label label4;

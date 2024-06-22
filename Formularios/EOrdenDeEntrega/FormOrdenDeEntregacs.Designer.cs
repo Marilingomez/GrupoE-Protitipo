@@ -79,6 +79,7 @@
             // OrdenEntrega
             // 
             OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, PrioridadTwo, transportistaTwo });
+            OrdenEntrega.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             OrdenEntrega.FullRowSelect = true;
             OrdenEntrega.Location = new Point(6, 27);
             OrdenEntrega.Name = "OrdenEntrega";
@@ -212,15 +213,17 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(16, 91);
             label3.Name = "label3";
-            label3.Size = new Size(49, 20);
+            label3.Size = new Size(47, 20);
             label3.TabIndex = 4;
             label3.Text = "Fecha";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(270, 91);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
@@ -238,6 +241,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(16, 27);
             label1.Name = "label1";
             label1.Size = new Size(24, 20);
@@ -247,6 +251,7 @@
             // OrdenSeleccionadaList
             // 
             OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, Prioridad, transportista });
+            OrdenSeleccionadaList.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             OrdenSeleccionadaList.FullRowSelect = true;
             OrdenSeleccionadaList.Location = new Point(6, 29);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
