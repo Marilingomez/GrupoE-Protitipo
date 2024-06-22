@@ -40,8 +40,8 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeEntrega
         {
             string errores = "";
 
-            errores += Validadores.EstaVacio(nombre, "Nombre") + Environment.NewLine;
-            errores += Validadores.EstaVacio(apellido, "Apellido") + Environment.NewLine;
+            errores += Validadores.EsNombre(nombre, "Nombre") + Environment.NewLine;
+            errores += Validadores.EsNombre(apellido, "Apellido") + Environment.NewLine;
             errores += Validadores.EsDni(dni, "DNI");
 
             return errores;

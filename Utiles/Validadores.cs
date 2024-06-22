@@ -77,5 +77,38 @@ namespace GrupoE_Protitipos.Utiles
                 return "";
             }
         }
+
+        public static string ContieneNumeros(string dato, string campo)
+        {
+            if (dato.Any(char.IsDigit))
+            {
+                return "El campo " + campo + " no puede contener números.";
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        public static string EsNombre(string dato, string campo)
+        {
+            string errores = "";
+
+            errores += EstaVacio(dato, campo);
+
+            if (errores != "")
+            {
+                return errores;
+            }
+
+            errores += ContieneNumeros(dato, campo);
+
+            if (errores != "")
+            {
+                return errores;
+            }
+
+            return errores;
+        }
     }
 }
