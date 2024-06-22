@@ -67,7 +67,10 @@ namespace GrupoE_Protitipos.Almacenes
             OrdenDePreparacionEstado estado
             )
         {
-            return ordenesDePreparacion.FindAll(odp => odp.Deposito == idDeposito && odp.Estado == estado);
+            return ordenesDePreparacion
+                .FindAll(odp => odp.Deposito == idDeposito && odp.Estado == estado)
+                .OrderBy(odp => odp.Prioridad)
+                .ToList();
         }
     }
 }
