@@ -51,6 +51,8 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             VolverBoton = new Button();
+            PrioridadPreparar = new ColumnHeader();
+            PrioridadSeleccionado = new ColumnHeader();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -60,9 +62,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(161, 32, 89);
-            label1.Location = new Point(17, 88);
+            label1.Location = new Point(15, 66);
             label1.Name = "label1";
-            label1.Size = new Size(142, 20);
+            label1.Size = new Size(107, 15);
             label1.TabIndex = 4;
             label1.Text = "Órdenes a preparar";
             // 
@@ -71,9 +73,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(161, 32, 89);
-            label2.Location = new Point(453, 88);
+            label2.Location = new Point(396, 66);
             label2.Name = "label2";
-            label2.Size = new Size(158, 20);
+            label2.Size = new Size(122, 15);
             label2.TabIndex = 5;
             label2.Text = "Órdenes a seleccionar";
             // 
@@ -82,9 +84,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(161, 32, 89);
-            label4.Location = new Point(16, 308);
+            label4.Location = new Point(14, 231);
             label4.Name = "label4";
-            label4.Size = new Size(170, 20);
+            label4.Size = new Size(132, 15);
             label4.TabIndex = 7;
             label4.Text = "Productos a seleccionar";
             // 
@@ -93,9 +95,10 @@
             buttonAgregar.BackColor = Color.FromArgb(161, 32, 89);
             buttonAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonAgregar.ForeColor = SystemColors.ButtonHighlight;
-            buttonAgregar.Location = new Point(333, 158);
+            buttonAgregar.Location = new Point(291, 118);
+            buttonAgregar.Margin = new Padding(3, 2, 3, 2);
             buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(113, 41);
+            buttonAgregar.Size = new Size(99, 31);
             buttonAgregar.TabIndex = 16;
             buttonAgregar.Text = "→";
             buttonAgregar.UseVisualStyleBackColor = false;
@@ -106,9 +109,10 @@
             buttonEliminar.BackColor = Color.FromArgb(161, 32, 89);
             buttonEliminar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonEliminar.ForeColor = SystemColors.ButtonHighlight;
-            buttonEliminar.Location = new Point(333, 204);
+            buttonEliminar.Location = new Point(291, 153);
+            buttonEliminar.Margin = new Padding(3, 2, 3, 2);
             buttonEliminar.Name = "buttonEliminar";
-            buttonEliminar.Size = new Size(113, 41);
+            buttonEliminar.Size = new Size(99, 31);
             buttonEliminar.TabIndex = 17;
             buttonEliminar.Text = "←";
             buttonEliminar.UseVisualStyleBackColor = false;
@@ -118,9 +122,10 @@
             // 
             buttonFinalizar.BackColor = Color.FromArgb(161, 32, 89);
             buttonFinalizar.ForeColor = SystemColors.ButtonHighlight;
-            buttonFinalizar.Location = new Point(577, 506);
+            buttonFinalizar.Location = new Point(505, 380);
+            buttonFinalizar.Margin = new Padding(3, 2, 3, 2);
             buttonFinalizar.Name = "buttonFinalizar";
-            buttonFinalizar.Size = new Size(185, 36);
+            buttonFinalizar.Size = new Size(162, 27);
             buttonFinalizar.TabIndex = 18;
             buttonFinalizar.Text = "Finalizar y Guardar";
             buttonFinalizar.UseVisualStyleBackColor = false;
@@ -128,12 +133,11 @@
             // 
             // ordenesPreparar
             // 
-            ordenesPreparar.Columns.AddRange(new ColumnHeader[] { Id, Cliente });
+            ordenesPreparar.Columns.AddRange(new ColumnHeader[] { Id, Cliente, PrioridadPreparar });
             ordenesPreparar.FullRowSelect = true;
-            ordenesPreparar.Location = new Point(17, 116);
-            ordenesPreparar.Margin = new Padding(3, 4, 3, 4);
+            ordenesPreparar.Location = new Point(15, 87);
             ordenesPreparar.Name = "ordenesPreparar";
-            ordenesPreparar.Size = new Size(309, 176);
+            ordenesPreparar.Size = new Size(271, 133);
             ordenesPreparar.TabIndex = 19;
             ordenesPreparar.UseCompatibleStateImageBehavior = false;
             ordenesPreparar.View = View.Details;
@@ -141,21 +145,20 @@
             // Id
             // 
             Id.Text = "Id";
-            Id.Width = 100;
+            Id.Width = 50;
             // 
             // Cliente
             // 
             Cliente.Text = "Cliente";
-            Cliente.Width = 400;
+            Cliente.Width = 120;
             // 
             // ordenesSeleccionar
             // 
-            ordenesSeleccionar.Columns.AddRange(new ColumnHeader[] { IdSeleccionado, clienteSeleccionado });
+            ordenesSeleccionar.Columns.AddRange(new ColumnHeader[] { IdSeleccionado, clienteSeleccionado, PrioridadSeleccionado });
             ordenesSeleccionar.FullRowSelect = true;
-            ordenesSeleccionar.Location = new Point(453, 112);
-            ordenesSeleccionar.Margin = new Padding(3, 4, 3, 4);
+            ordenesSeleccionar.Location = new Point(396, 84);
             ordenesSeleccionar.Name = "ordenesSeleccionar";
-            ordenesSeleccionar.Size = new Size(309, 176);
+            ordenesSeleccionar.Size = new Size(271, 133);
             ordenesSeleccionar.TabIndex = 20;
             ordenesSeleccionar.UseCompatibleStateImageBehavior = false;
             ordenesSeleccionar.View = View.Details;
@@ -163,20 +166,19 @@
             // IdSeleccionado
             // 
             IdSeleccionado.Text = "Id";
-            IdSeleccionado.Width = 100;
+            IdSeleccionado.Width = 50;
             // 
             // clienteSeleccionado
             // 
             clienteSeleccionado.Text = "Cliente seleccionado";
-            clienteSeleccionado.Width = 400;
+            clienteSeleccionado.Width = 120;
             // 
             // listProductos
             // 
             listProductos.Columns.AddRange(new ColumnHeader[] { Pasillo, Fila, Estante, Producto, Cantidad });
-            listProductos.Location = new Point(16, 332);
-            listProductos.Margin = new Padding(3, 4, 3, 4);
+            listProductos.Location = new Point(14, 249);
             listProductos.Name = "listProductos";
-            listProductos.Size = new Size(746, 148);
+            listProductos.Size = new Size(653, 112);
             listProductos.TabIndex = 21;
             listProductos.UseCompatibleStateImageBehavior = false;
             listProductos.View = View.Details;
@@ -209,9 +211,9 @@
             // depositoLabel
             // 
             depositoLabel.AutoSize = true;
-            depositoLabel.Location = new Point(17, 56);
+            depositoLabel.Location = new Point(15, 42);
             depositoLabel.Name = "depositoLabel";
-            depositoLabel.Size = new Size(70, 20);
+            depositoLabel.Size = new Size(54, 15);
             depositoLabel.TabIndex = 22;
             depositoLabel.Text = "Deposito";
             // 
@@ -219,10 +221,9 @@
             // 
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
             depositoBox.FormattingEnabled = true;
-            depositoBox.Location = new Point(85, 52);
-            depositoBox.Margin = new Padding(3, 4, 3, 4);
+            depositoBox.Location = new Point(74, 39);
             depositoBox.Name = "depositoBox";
-            depositoBox.Size = new Size(204, 28);
+            depositoBox.Size = new Size(179, 23);
             depositoBox.TabIndex = 23;
             depositoBox.SelectedIndexChanged += depositoBox_SelectedIndexChanged;
             // 
@@ -231,16 +232,18 @@
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(-2, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(801, 34);
+            panel1.Size = new Size(701, 26);
             panel1.TabIndex = 33;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(-26, 6);
+            pictureBox1.Location = new Point(-23, 4);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(174, 25);
+            pictureBox1.Size = new Size(152, 19);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -249,20 +252,31 @@
             // 
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.ForeColor = SystemColors.ButtonHighlight;
-            VolverBoton.Location = new Point(577, 548);
+            VolverBoton.Location = new Point(505, 411);
+            VolverBoton.Margin = new Padding(3, 2, 3, 2);
             VolverBoton.Name = "VolverBoton";
-            VolverBoton.Size = new Size(185, 36);
+            VolverBoton.Size = new Size(162, 27);
             VolverBoton.TabIndex = 34;
             VolverBoton.Text = "Volver al menu";
             VolverBoton.UseVisualStyleBackColor = false;
             VolverBoton.Click += VolverBoton_Click;
             // 
+            // PrioridadPreparar
+            // 
+            PrioridadPreparar.Text = "Prioridad";
+            PrioridadPreparar.Width = 100;
+            // 
+            // PrioridadSeleccionado
+            // 
+            PrioridadSeleccionado.Text = "Prioridad";
+            PrioridadSeleccionado.Width = 100;
+            // 
             // FormOrdenDeSeleccion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(800, 589);
+            ClientSize = new Size(700, 442);
             Controls.Add(VolverBoton);
             Controls.Add(panel1);
             Controls.Add(depositoBox);
@@ -276,6 +290,7 @@
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormOrdenDeSeleccion";
             Text = "Orden de Selección";
             Load += FormOrdenDeSeleccion_Load;
@@ -309,5 +324,7 @@
         private Panel panel1;
         private Button VolverBoton;
         private PictureBox pictureBox1;
+        private ColumnHeader PrioridadPreparar;
+        private ColumnHeader PrioridadSeleccionado;
     }
 }

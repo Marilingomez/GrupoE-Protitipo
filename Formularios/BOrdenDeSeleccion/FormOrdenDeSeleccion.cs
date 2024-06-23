@@ -142,7 +142,9 @@ namespace GrupoE_Protitipos
             List<OrdenDePreparacionEntidad> ordenes = modelo.ObtenerOrdenesDePreparacionPendientesPorDeposito(depositoBox.Text);
             foreach (var orden in ordenes)
             {
-                ListViewItem item = new ListViewItem(new string[] { orden.IdOrden.ToString(), orden.CuitCliente.ToString() });
+                string nombreCliente = modelo.ObtenerNombrePorCuit(orden.CuitCliente);
+
+                ListViewItem item = new ListViewItem(new string[] { orden.IdOrden.ToString(), nombreCliente, orden.Prioridad.ToString() });
                 ordenesPreparar.Items.Add(item);
             }
         }

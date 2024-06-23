@@ -158,6 +158,11 @@ namespace GrupoE_Protitipos.OrdenDeSeleccion
                     );
             }
         }
+
+        public string ObtenerNombrePorCuit(string cuitCliente)
+        {
+            return ClienteAlmacen.ObtenerClientePorCuit(cuitCliente).NombreFantasia;
+        }
     }
 }
 
