@@ -48,6 +48,7 @@
             label2 = new Label();
             IDtext = new TextBox();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
             OrdenSeleccionadaList = new ListView();
             IDOrdenCol = new ColumnHeader();
             IDClienteCol = new ColumnHeader();
@@ -55,15 +56,14 @@
             transportista = new ColumnHeader();
             groupBox1 = new GroupBox();
             label4 = new Label();
-            label6 = new Label();
             panel1 = new Panel();
             label8 = new Label();
-            pictureBox1 = new PictureBox();
+            label6 = new Label();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // SeleccionarBoton
@@ -116,7 +116,7 @@
             // 
             GenerarBoton.BackColor = Color.FromArgb(161, 32, 89);
             GenerarBoton.ForeColor = SystemColors.ButtonHighlight;
-            GenerarBoton.Location = new Point(358, 1063);
+            GenerarBoton.Location = new Point(334, 823);
             GenerarBoton.Margin = new Padding(3, 4, 3, 4);
             GenerarBoton.Name = "GenerarBoton";
             GenerarBoton.Size = new Size(144, 29);
@@ -129,7 +129,7 @@
             // 
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.ForeColor = SystemColors.ButtonHighlight;
-            VolverBoton.Location = new Point(543, 1063);
+            VolverBoton.Location = new Point(484, 823);
             VolverBoton.Margin = new Padding(3, 4, 3, 4);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(144, 29);
@@ -189,7 +189,6 @@
             groupBox3.Size = new Size(595, 165);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
-            groupBox3.Enter += groupBox3_Enter;
             // 
             // label7
             // 
@@ -256,6 +255,17 @@
             label1.TabIndex = 0;
             label1.Text = "ID";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(34, 8);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(162, 57);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // OrdenSeleccionadaList
             // 
             OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, Prioridad, transportista });
@@ -309,27 +319,15 @@
             label4.Size = new Size(147, 20);
             label4.TabIndex = 10;
             label4.Text = "Ordenes preparadas";
-            label4.Click += label4_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.FromArgb(161, 32, 89);
-            label6.Location = new Point(42, 101);
-            label6.Name = "label6";
-            label6.Size = new Size(130, 20);
-            label6.TabIndex = 10;
-            label6.Text = "Orden de Entrega";
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(1, 0);
+            panel1.Location = new Point(1, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(769, 69);
+            panel1.Size = new Size(651, 69);
             panel1.TabIndex = 11;
             // 
             // label8
@@ -343,23 +341,23 @@
             label8.TabIndex = 21;
             label8.Text = "Orden de Entrega";
             // 
-            // pictureBox1
+            // label6
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-13, 4);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(162, 57);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.FromArgb(161, 32, 89);
+            label6.Location = new Point(42, 101);
+            label6.Name = "label6";
+            label6.Size = new Size(130, 20);
+            label6.TabIndex = 10;
+            label6.Text = "Orden de Entrega";
             // 
             // FormOrdenDeEntrega
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(650, 803);
+            ClientSize = new Size(651, 862);
             Controls.Add(panel1);
             Controls.Add(label6);
             Controls.Add(groupBox3);
@@ -370,17 +368,17 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "FormOrdenDeEntrega";
-            Text = " ";
+            Text = " Orden de Entrega";
             Load += OrdenDeEntregacs_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

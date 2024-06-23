@@ -144,11 +144,12 @@ namespace GrupoE_Protitipos.DPreparacionOrden
             cargaDatosIniciales();
         }
 
-        
+
 
         private void VolverBoton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

@@ -211,10 +211,10 @@
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             VolverBoton.ForeColor = SystemColors.ButtonFace;
-            VolverBoton.Location = new Point(517, 640);
+            VolverBoton.Location = new Point(530, 633);
             VolverBoton.Margin = new Padding(0);
             VolverBoton.Name = "VolverBoton";
-            VolverBoton.Size = new Size(175, 35);
+            VolverBoton.Size = new Size(162, 35);
             VolverBoton.TabIndex = 8;
             VolverBoton.Text = "Volver al menu";
             VolverBoton.UseVisualStyleBackColor = false;
@@ -225,7 +225,7 @@
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(1, 1);
+            panel1.Location = new Point(3, 1);
             panel1.Name = "panel1";
             panel1.Size = new Size(755, 52);
             panel1.TabIndex = 9;
@@ -233,7 +233,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-11, 3);
+            pictureBox1.Location = new Point(3, 6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -245,7 +245,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(232, 15);
+            label4.Location = new Point(239, 8);
             label4.Name = "label4";
             label4.Size = new Size(334, 31);
             label4.TabIndex = 20;
