@@ -39,6 +39,7 @@ namespace GrupoE_Protitipos
             btnPrepararMercaderia = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -51,7 +52,7 @@ namespace GrupoE_Protitipos
             btnOrdenDePreparacion.Name = "btnOrdenDePreparacion";
             btnOrdenDePreparacion.Size = new Size(309, 47);
             btnOrdenDePreparacion.TabIndex = 1;
-            btnOrdenDePreparacion.Text = "Procesamiento orden de preparacion";
+            btnOrdenDePreparacion.Text = "Orden de preparación";
             btnOrdenDePreparacion.UseVisualStyleBackColor = false;
             btnOrdenDePreparacion.Click += btnOrdenDePreparacion_Click;
             // 
@@ -63,7 +64,7 @@ namespace GrupoE_Protitipos
             btnOrdenDeSeleccion.Name = "btnOrdenDeSeleccion";
             btnOrdenDeSeleccion.Size = new Size(309, 47);
             btnOrdenDeSeleccion.TabIndex = 3;
-            btnOrdenDeSeleccion.Text = "Orden de seleccion";
+            btnOrdenDeSeleccion.Text = "Orden de selección";
             btnOrdenDeSeleccion.UseVisualStyleBackColor = false;
             btnOrdenDeSeleccion.Click += btnOrdenDeSeleccion_Click;
             // 
@@ -100,7 +101,7 @@ namespace GrupoE_Protitipos
             confirmarOrdenDeSeleccion.Name = "confirmarOrdenDeSeleccion";
             confirmarOrdenDeSeleccion.Size = new Size(309, 47);
             confirmarOrdenDeSeleccion.TabIndex = 6;
-            confirmarOrdenDeSeleccion.Text = "Confirmar orden de seleccion";
+            confirmarOrdenDeSeleccion.Text = "Confirmar orden de selección";
             confirmarOrdenDeSeleccion.UseVisualStyleBackColor = false;
             confirmarOrdenDeSeleccion.Click += confirmarOrdenDeSeleccion_Click;
             // 
@@ -124,7 +125,7 @@ namespace GrupoE_Protitipos
             btnPrepararMercaderia.Name = "btnPrepararMercaderia";
             btnPrepararMercaderia.Size = new Size(309, 47);
             btnPrepararMercaderia.TabIndex = 8;
-            btnPrepararMercaderia.Text = "Preparar Mercaderia";
+            btnPrepararMercaderia.Text = "Preparar Mercaderia a Entregar";
             btnPrepararMercaderia.UseVisualStyleBackColor = false;
             btnPrepararMercaderia.Click += btnPrepararMercaderia_Click;
             // 
@@ -132,20 +133,32 @@ namespace GrupoE_Protitipos
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(605, 44);
+            panel1.Size = new Size(673, 52);
             panel1.TabIndex = 9;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 11);
+            pictureBox1.Location = new Point(-11, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(129, 30);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 15;
+            pictureBox1.Size = new Size(142, 43);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 17;
             pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(216, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(168, 31);
+            label1.TabIndex = 16;
+            label1.Text = "Menú Principal";
             // 
             // Menu
             // 
@@ -162,9 +175,10 @@ namespace GrupoE_Protitipos
             Controls.Add(btnOrdenDeSeleccion);
             Controls.Add(btnOrdenDePreparacion);
             Name = "Menu";
-            Text = "Menu Principal";
+            Text = "Menu principal";
             Load += Menu_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -183,6 +197,7 @@ namespace GrupoE_Protitipos
         private Button btnConfirmarOrdenDeEntrega;
         private Button btnPrepararMercaderia;
         private Panel panel1;
+        private Label label1;
         private PictureBox pictureBox1;
     }
 

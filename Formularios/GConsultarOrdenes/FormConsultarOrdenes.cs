@@ -99,6 +99,8 @@ namespace GrupoE_Protitipos
         {
             this.Close();
         }
+
+       
     }
 
 

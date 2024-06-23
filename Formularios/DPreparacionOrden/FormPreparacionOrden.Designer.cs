@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPreparacionOrden));
             listOrdenesSeleccionada = new ListView();
             IdOrden = new ColumnHeader();
             IdCliente = new ColumnHeader();
@@ -46,6 +47,7 @@
             VolverBoton = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            label4 = new Label();
             Pampazon.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -140,7 +142,7 @@
             btnProductoPreparado.Location = new Point(475, 292);
             btnProductoPreparado.Margin = new Padding(3, 4, 3, 4);
             btnProductoPreparado.Name = "btnProductoPreparado";
-            btnProductoPreparado.Size = new Size(302, 34);
+            btnProductoPreparado.Size = new Size(217, 34);
             btnProductoPreparado.TabIndex = 4;
             btnProductoPreparado.Text = "Producto embalado";
             btnProductoPreparado.UseVisualStyleBackColor = false;
@@ -154,7 +156,7 @@
             btnConfirmaOrdenPreparada.Location = new Point(475, 581);
             btnConfirmaOrdenPreparada.Margin = new Padding(0);
             btnConfirmaOrdenPreparada.Name = "btnConfirmaOrdenPreparada";
-            btnConfirmaOrdenPreparada.Size = new Size(302, 35);
+            btnConfirmaOrdenPreparada.Size = new Size(217, 35);
             btnConfirmaOrdenPreparada.TabIndex = 5;
             btnConfirmaOrdenPreparada.Text = "Confirma Orden Preparada";
             btnConfirmaOrdenPreparada.UseVisualStyleBackColor = false;
@@ -196,11 +198,11 @@
             Pampazon.Controls.Add(btnConfirmaOrdenPreparada);
             Pampazon.Controls.Add(listOrdenesSeleccionada);
             Pampazon.Controls.Add(label1);
-            Pampazon.Location = new Point(35, 37);
+            Pampazon.Location = new Point(35, 69);
             Pampazon.Margin = new Padding(0);
             Pampazon.Name = "Pampazon";
             Pampazon.Padding = new Padding(0);
-            Pampazon.Size = new Size(807, 748);
+            Pampazon.Size = new Size(713, 716);
             Pampazon.TabIndex = 8;
             Pampazon.TabStop = false;
             // 
@@ -209,7 +211,7 @@
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             VolverBoton.ForeColor = SystemColors.ButtonFace;
-            VolverBoton.Location = new Point(602, 640);
+            VolverBoton.Location = new Point(517, 640);
             VolverBoton.Margin = new Padding(0);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(175, 35);
@@ -222,27 +224,39 @@
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label4);
             panel1.Location = new Point(1, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(854, 33);
+            panel1.Size = new Size(755, 52);
             panel1.TabIndex = 9;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(34, 5);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-11, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(120, 25);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 9;
+            pictureBox1.TabIndex = 21;
             pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = SystemColors.ButtonHighlight;
+            label4.Location = new Point(232, 15);
+            label4.Name = "label4";
+            label4.Size = new Size(334, 31);
+            label4.TabIndex = 20;
+            label4.Text = "Preparar Mercaderia a Entregar";
             // 
             // FormPreparacionOrden
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(855, 721);
+            ClientSize = new Size(757, 767);
             Controls.Add(panel1);
             Controls.Add(Pampazon);
             Margin = new Padding(3, 4, 3, 4);
@@ -252,6 +266,7 @@
             Pampazon.ResumeLayout(false);
             Pampazon.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -275,6 +290,7 @@
         private GroupBox Pampazon;
         private Panel panel1;
         private Button VolverBoton;
+        private Label label4;
         private PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrdenDePreparacion));
             Orden = new Label();
             DetallesList = new ListView();
             IDProducto = new ColumnHeader();
@@ -54,6 +55,7 @@
             transportistaBox = new ComboBox();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -67,7 +69,7 @@
             Orden.Name = "Orden";
             Orden.Size = new Size(133, 15);
             Orden.TabIndex = 0;
-            Orden.Text = "Ordenes de preparacion";
+            Orden.Text = "Ordenes de preparación";
             // 
             // DetallesList
             // 
@@ -286,29 +288,40 @@
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label3);
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(669, 28);
+            panel1.Size = new Size(765, 52);
             panel1.TabIndex = 32;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(-30, 7);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-11, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(152, 19);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
+            pictureBox1.TabIndex = 34;
             pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(253, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(238, 31);
+            label3.TabIndex = 33;
+            label3.Text = "Orden de Preparación";
             // 
             // FormOrdenDePreparacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(668, 514);
+            ClientSize = new Size(763, 695);
             Controls.Add(panel1);
             Controls.Add(transportistaBox);
             Controls.Add(transportistaLabel);
@@ -335,6 +348,7 @@
             Text = "Ordenes";
             Load += Ordenes_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -367,6 +381,7 @@
         private Label transportistaLabel;
         private ComboBox transportistaBox;
         private Panel panel1;
+        private Label label3;
         private PictureBox pictureBox1;
     }
 }

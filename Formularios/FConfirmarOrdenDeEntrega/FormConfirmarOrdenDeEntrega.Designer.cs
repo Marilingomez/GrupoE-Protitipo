@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfirmarOrdenDeEntrega));
             label1 = new Label();
             listaOrdenesDeEntrega = new ListView();
             columnHeader1 = new ColumnHeader();
@@ -48,6 +49,7 @@
             btnConfirmar = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            label9 = new Label();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -58,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(161, 32, 89);
-            label1.Location = new Point(11, 32);
+            label1.Location = new Point(10, 76);
             label1.Name = "label1";
             label1.Size = new Size(169, 15);
             label1.TabIndex = 0;
@@ -68,7 +70,8 @@
             // 
             listaOrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             listaOrdenesDeEntrega.FullRowSelect = true;
-            listaOrdenesDeEntrega.Location = new Point(11, 50);
+            listaOrdenesDeEntrega.Location = new Point(10, 100);
+            listaOrdenesDeEntrega.Margin = new Padding(3, 4, 3, 4);
             listaOrdenesDeEntrega.MultiSelect = false;
             listaOrdenesDeEntrega.Name = "listaOrdenesDeEntrega";
             listaOrdenesDeEntrega.Size = new Size(518, 165);
@@ -100,7 +103,8 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(inputTransportista);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(11, 221);
+            groupBox1.Location = new Point(10, 328);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(518, 187);
             groupBox1.TabIndex = 2;
@@ -204,7 +208,8 @@
             // 
             btnMenu.BackColor = Color.FromArgb(161, 32, 89);
             btnMenu.ForeColor = SystemColors.ButtonHighlight;
-            btnMenu.Location = new Point(421, 425);
+            btnMenu.Location = new Point(478, 600);
+            btnMenu.Margin = new Padding(3, 4, 3, 4);
             btnMenu.Name = "btnMenu";
             btnMenu.Size = new Size(108, 23);
             btnMenu.TabIndex = 3;
@@ -216,7 +221,8 @@
             // 
             btnConfirmar.BackColor = Color.FromArgb(161, 32, 89);
             btnConfirmar.ForeColor = SystemColors.ButtonHighlight;
-            btnConfirmar.Location = new Point(307, 425);
+            btnConfirmar.Location = new Point(348, 600);
+            btnConfirmar.Margin = new Padding(3, 4, 3, 4);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(108, 23);
             btnConfirmar.TabIndex = 4;
@@ -228,29 +234,40 @@
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label9);
             panel1.Location = new Point(3, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(539, 28);
+            panel1.Size = new Size(673, 52);
             panel1.TabIndex = 5;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(-12, 7);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-11, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(108, 19);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 13;
+            pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = SystemColors.ButtonHighlight;
+            label9.Location = new Point(174, 21);
+            label9.Name = "label9";
+            label9.Size = new Size(302, 31);
+            label9.TabIndex = 22;
+            label9.Text = "Confirmar Orden de Entrega";
             // 
             // FormConfirmarOrdenDeEntrega
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(541, 450);
+            ClientSize = new Size(618, 635);
             Controls.Add(panel1);
             Controls.Add(btnConfirmar);
             Controls.Add(btnMenu);
@@ -263,6 +280,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -289,6 +307,7 @@
         private TextBox inputIdOrden;
         private Label label8;
         private Panel panel1;
+        private Label label9;
         private PictureBox pictureBox1;
     }
 }

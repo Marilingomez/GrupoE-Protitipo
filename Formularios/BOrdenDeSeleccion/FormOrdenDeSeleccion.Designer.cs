@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrdenDeSeleccion));
             label1 = new Label();
             label2 = new Label();
             label4 = new Label();
@@ -50,6 +51,7 @@
             depositoBox = new ComboBox();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            label3 = new Label();
             VolverBoton = new Button();
             PrioridadPreparar = new ColumnHeader();
             PrioridadSeleccionado = new ColumnHeader();
@@ -62,7 +64,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(161, 32, 89);
-            label1.Location = new Point(15, 66);
+            label1.Location = new Point(18, 116);
             label1.Name = "label1";
             label1.Size = new Size(107, 15);
             label1.TabIndex = 4;
@@ -73,7 +75,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(161, 32, 89);
-            label2.Location = new Point(396, 66);
+            label2.Location = new Point(454, 116);
             label2.Name = "label2";
             label2.Size = new Size(122, 15);
             label2.TabIndex = 5;
@@ -84,7 +86,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(161, 32, 89);
-            label4.Location = new Point(14, 231);
+            label4.Location = new Point(17, 336);
             label4.Name = "label4";
             label4.Size = new Size(132, 15);
             label4.TabIndex = 7;
@@ -95,8 +97,7 @@
             buttonAgregar.BackColor = Color.FromArgb(161, 32, 89);
             buttonAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonAgregar.ForeColor = SystemColors.ButtonHighlight;
-            buttonAgregar.Location = new Point(291, 118);
-            buttonAgregar.Margin = new Padding(3, 2, 3, 2);
+            buttonAgregar.Location = new Point(334, 186);
             buttonAgregar.Name = "buttonAgregar";
             buttonAgregar.Size = new Size(99, 31);
             buttonAgregar.TabIndex = 16;
@@ -109,8 +110,7 @@
             buttonEliminar.BackColor = Color.FromArgb(161, 32, 89);
             buttonEliminar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonEliminar.ForeColor = SystemColors.ButtonHighlight;
-            buttonEliminar.Location = new Point(291, 153);
-            buttonEliminar.Margin = new Padding(3, 2, 3, 2);
+            buttonEliminar.Location = new Point(334, 232);
             buttonEliminar.Name = "buttonEliminar";
             buttonEliminar.Size = new Size(99, 31);
             buttonEliminar.TabIndex = 17;
@@ -122,8 +122,7 @@
             // 
             buttonFinalizar.BackColor = Color.FromArgb(161, 32, 89);
             buttonFinalizar.ForeColor = SystemColors.ButtonHighlight;
-            buttonFinalizar.Location = new Point(505, 380);
-            buttonFinalizar.Margin = new Padding(3, 2, 3, 2);
+            buttonFinalizar.Location = new Point(578, 534);
             buttonFinalizar.Name = "buttonFinalizar";
             buttonFinalizar.Size = new Size(162, 27);
             buttonFinalizar.TabIndex = 18;
@@ -135,7 +134,8 @@
             // 
             ordenesPreparar.Columns.AddRange(new ColumnHeader[] { Id, Cliente, PrioridadPreparar });
             ordenesPreparar.FullRowSelect = true;
-            ordenesPreparar.Location = new Point(15, 87);
+            ordenesPreparar.Location = new Point(18, 144);
+            ordenesPreparar.Margin = new Padding(3, 4, 3, 4);
             ordenesPreparar.Name = "ordenesPreparar";
             ordenesPreparar.Size = new Size(271, 133);
             ordenesPreparar.TabIndex = 19;
@@ -150,13 +150,14 @@
             // Cliente
             // 
             Cliente.Text = "Cliente";
-            Cliente.Width = 120;
+            Cliente.Width = 200;
             // 
             // ordenesSeleccionar
             // 
             ordenesSeleccionar.Columns.AddRange(new ColumnHeader[] { IdSeleccionado, clienteSeleccionado, PrioridadSeleccionado });
             ordenesSeleccionar.FullRowSelect = true;
-            ordenesSeleccionar.Location = new Point(396, 84);
+            ordenesSeleccionar.Location = new Point(454, 140);
+            ordenesSeleccionar.Margin = new Padding(3, 4, 3, 4);
             ordenesSeleccionar.Name = "ordenesSeleccionar";
             ordenesSeleccionar.Size = new Size(271, 133);
             ordenesSeleccionar.TabIndex = 20;
@@ -171,12 +172,13 @@
             // clienteSeleccionado
             // 
             clienteSeleccionado.Text = "Cliente seleccionado";
-            clienteSeleccionado.Width = 120;
+            clienteSeleccionado.Width = 200;
             // 
             // listProductos
             // 
             listProductos.Columns.AddRange(new ColumnHeader[] { Pasillo, Fila, Estante, Producto, Cantidad });
-            listProductos.Location = new Point(14, 249);
+            listProductos.Location = new Point(17, 360);
+            listProductos.Margin = new Padding(3, 4, 3, 4);
             listProductos.Name = "listProductos";
             listProductos.Size = new Size(653, 112);
             listProductos.TabIndex = 21;
@@ -211,7 +213,7 @@
             // depositoLabel
             // 
             depositoLabel.AutoSize = true;
-            depositoLabel.Location = new Point(15, 42);
+            depositoLabel.Location = new Point(18, 84);
             depositoLabel.Name = "depositoLabel";
             depositoLabel.Size = new Size(54, 15);
             depositoLabel.TabIndex = 22;
@@ -221,7 +223,8 @@
             // 
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
             depositoBox.FormattingEnabled = true;
-            depositoBox.Location = new Point(74, 39);
+            depositoBox.Location = new Point(86, 80);
+            depositoBox.Margin = new Padding(3, 4, 3, 4);
             depositoBox.Name = "depositoBox";
             depositoBox.Size = new Size(179, 23);
             depositoBox.TabIndex = 23;
@@ -231,29 +234,39 @@
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label3);
             panel1.Location = new Point(-2, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(701, 26);
+            panel1.Size = new Size(804, 52);
             panel1.TabIndex = 33;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(-23, 4);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-11, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(152, 19);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
+            pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(277, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(212, 31);
+            label3.TabIndex = 2;
+            label3.Text = "Orden de Selección";
             // 
             // VolverBoton
             // 
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.ForeColor = SystemColors.ButtonHighlight;
-            VolverBoton.Location = new Point(505, 411);
-            VolverBoton.Margin = new Padding(3, 2, 3, 2);
+            VolverBoton.Location = new Point(578, 576);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(162, 27);
             VolverBoton.TabIndex = 34;
@@ -276,7 +289,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(700, 442);
+            ClientSize = new Size(800, 630);
             Controls.Add(VolverBoton);
             Controls.Add(panel1);
             Controls.Add(depositoBox);
@@ -295,6 +308,7 @@
             Text = "Orden de Selección";
             Load += FormOrdenDeSeleccion_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -323,6 +337,7 @@
         private ComboBox depositoBox;
         private Panel panel1;
         private Button VolverBoton;
+        private Label label3;
         private PictureBox pictureBox1;
         private ColumnHeader PrioridadPreparar;
         private ColumnHeader PrioridadSeleccionado;

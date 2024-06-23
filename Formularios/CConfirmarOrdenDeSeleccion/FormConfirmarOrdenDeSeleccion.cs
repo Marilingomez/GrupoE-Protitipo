@@ -103,5 +103,7 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
         {
             this.Close();
         }
+
+       
     }
 }
