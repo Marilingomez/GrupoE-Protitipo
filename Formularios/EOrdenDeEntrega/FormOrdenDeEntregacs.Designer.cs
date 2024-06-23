@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrdenDeEntrega));
             SeleccionarBoton = new Button();
             OrdenEntrega = new ListView();
             IDOrdenSCol = new ColumnHeader();
@@ -56,6 +57,7 @@
             label4 = new Label();
             label6 = new Label();
             panel1 = new Panel();
+            label8 = new Label();
             pictureBox1 = new PictureBox();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -68,7 +70,7 @@
             // 
             SeleccionarBoton.BackColor = Color.FromArgb(161, 32, 89);
             SeleccionarBoton.ForeColor = SystemColors.ButtonHighlight;
-            SeleccionarBoton.Location = new Point(34, 472);
+            SeleccionarBoton.Location = new Point(35, 509);
             SeleccionarBoton.Name = "SeleccionarBoton";
             SeleccionarBoton.Size = new Size(139, 29);
             SeleccionarBoton.TabIndex = 1;
@@ -113,7 +115,7 @@
             // 
             GenerarBoton.BackColor = Color.FromArgb(161, 32, 89);
             GenerarBoton.ForeColor = SystemColors.ButtonHighlight;
-            GenerarBoton.Location = new Point(312, 760);
+            GenerarBoton.Location = new Point(313, 797);
             GenerarBoton.Name = "GenerarBoton";
             GenerarBoton.Size = new Size(144, 29);
             GenerarBoton.TabIndex = 3;
@@ -125,7 +127,7 @@
             // 
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.ForeColor = SystemColors.ButtonHighlight;
-            VolverBoton.Location = new Point(474, 760);
+            VolverBoton.Location = new Point(475, 797);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(144, 29);
             VolverBoton.TabIndex = 4;
@@ -137,7 +139,7 @@
             // 
             EliminarSeleccionBoton.BackColor = Color.FromArgb(161, 32, 89);
             EliminarSeleccionBoton.ForeColor = SystemColors.ButtonHighlight;
-            EliminarSeleccionBoton.Location = new Point(34, 725);
+            EliminarSeleccionBoton.Location = new Point(35, 762);
             EliminarSeleccionBoton.Name = "EliminarSeleccionBoton";
             EliminarSeleccionBoton.Size = new Size(139, 29);
             EliminarSeleccionBoton.TabIndex = 5;
@@ -150,7 +152,7 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(OrdenEntrega);
             groupBox2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(30, 520);
+            groupBox2.Location = new Point(31, 557);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(593, 199);
             groupBox2.TabIndex = 1;
@@ -176,7 +178,7 @@
             groupBox3.Controls.Add(IDtext);
             groupBox3.Controls.Add(label1);
             groupBox3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox3.Location = new Point(30, 56);
+            groupBox3.Location = new Point(31, 88);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(595, 165);
             groupBox3.TabIndex = 9;
@@ -285,7 +287,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(OrdenSeleccionadaList);
             groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(30, 241);
+            groupBox1.Location = new Point(35, 278);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(595, 225);
             groupBox1.TabIndex = 8;
@@ -307,7 +309,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(161, 32, 89);
-            label6.Location = new Point(36, 44);
+            label6.Location = new Point(37, 76);
             label6.Name = "label6";
             label6.Size = new Size(130, 20);
             label6.TabIndex = 10;
@@ -316,18 +318,30 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
+            panel1.Controls.Add(label8);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(1, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(673, 37);
+            panel1.Size = new Size(673, 52);
             panel1.TabIndex = 11;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = SystemColors.ButtonHighlight;
+            label8.Location = new Point(226, 15);
+            label8.Name = "label8";
+            label8.Size = new Size(195, 31);
+            label8.TabIndex = 21;
+            label8.Text = "Orden de Entrega";
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(0, 9);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-11, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(129, 25);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -337,7 +351,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(674, 801);
+            ClientSize = new Size(674, 847);
             Controls.Add(panel1);
             Controls.Add(label6);
             Controls.Add(groupBox3);
@@ -357,6 +371,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -392,5 +407,6 @@
         private Label label7;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private Label label8;
     }
 }

@@ -29,6 +29,7 @@ namespace GrupoE_Protitipos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultarOrdenes));
             labelNroOrden = new Label();
             labelDNI = new Label();
             labelEstado = new Label();
@@ -47,6 +48,7 @@ namespace GrupoE_Protitipos
             VolverBoton = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            label9 = new Label();
             groupBoxEdicion.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -224,20 +226,32 @@ namespace GrupoE_Protitipos
             // 
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label9);
             panel1.Location = new Point(1, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(935, 41);
+            panel1.Size = new Size(939, 52);
             panel1.TabIndex = 11;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(3, 11);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-11, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(123, 25);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 14;
+            pictureBox1.TabIndex = 24;
             pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = SystemColors.ButtonHighlight;
+            label9.Location = new Point(286, 15);
+            label9.Name = "label9";
+            label9.Size = new Size(316, 31);
+            label9.TabIndex = 23;
+            label9.Text = "Consultar Estado de Ordenes ";
             // 
             // FormConsultarOrdenes
             // 
@@ -260,6 +274,7 @@ namespace GrupoE_Protitipos
             groupBoxEdicion.ResumeLayout(false);
             groupBoxEdicion.PerformLayout();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -287,6 +302,7 @@ namespace GrupoE_Protitipos
         private Label label1;
         private Button VolverBoton;
         private Panel panel1;
+        private Label label9;
         private PictureBox pictureBox1;
     }
 }

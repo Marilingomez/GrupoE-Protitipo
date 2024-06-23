@@ -54,5 +54,10 @@ namespace GrupoE_Protitipos
             Form formPrepararMercaderia = new FormPreparacionOrden();
             formPrepararMercaderia.Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
