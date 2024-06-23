@@ -110,7 +110,7 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
 
             foreach (var cliente in clientes)
             {
-                listaClientes.Add(cliente.CuitCliente);
+                listaClientes.Add(cliente.NombreFantasia);
             }
 
             return listaClientes;
