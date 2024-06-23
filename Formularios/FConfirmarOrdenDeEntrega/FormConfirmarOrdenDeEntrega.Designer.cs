@@ -60,9 +60,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(161, 32, 89);
-            label1.Location = new Point(10, 76);
+            label1.Location = new Point(11, 101);
             label1.Name = "label1";
-            label1.Size = new Size(169, 15);
+            label1.Size = new Size(221, 20);
             label1.TabIndex = 0;
             label1.Text = "Ordenes de Entrega en transito";
             // 
@@ -70,11 +70,11 @@
             // 
             listaOrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             listaOrdenesDeEntrega.FullRowSelect = true;
-            listaOrdenesDeEntrega.Location = new Point(10, 100);
-            listaOrdenesDeEntrega.Margin = new Padding(3, 4, 3, 4);
+            listaOrdenesDeEntrega.Location = new Point(11, 133);
+            listaOrdenesDeEntrega.Margin = new Padding(3, 5, 3, 5);
             listaOrdenesDeEntrega.MultiSelect = false;
             listaOrdenesDeEntrega.Name = "listaOrdenesDeEntrega";
-            listaOrdenesDeEntrega.Size = new Size(518, 165);
+            listaOrdenesDeEntrega.Size = new Size(591, 219);
             listaOrdenesDeEntrega.TabIndex = 1;
             listaOrdenesDeEntrega.UseCompatibleStateImageBehavior = false;
             listaOrdenesDeEntrega.View = View.Details;
@@ -103,10 +103,11 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(inputTransportista);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(10, 328);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(11, 372);
+            groupBox1.Margin = new Padding(3, 5, 3, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(518, 187);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(592, 249);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
@@ -117,7 +118,7 @@
             label8.ForeColor = Color.FromArgb(161, 32, 89);
             label8.Location = new Point(-2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(128, 15);
+            label8.Size = new Size(165, 20);
             label8.TabIndex = 12;
             label8.Text = "Datos del Transportista";
             label8.Click += label8_Click;
@@ -125,82 +126,87 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(7, 19);
+            label7.Location = new Point(8, 25);
             label7.Name = "label7";
-            label7.Size = new Size(53, 15);
+            label7.Size = new Size(67, 20);
             label7.TabIndex = 11;
             label7.Text = "Id Orden";
             // 
             // dniBox
             // 
-            dniBox.Location = new Point(261, 147);
+            dniBox.Location = new Point(298, 196);
+            dniBox.Margin = new Padding(3, 4, 3, 4);
             dniBox.Name = "dniBox";
-            dniBox.Size = new Size(162, 23);
+            dniBox.Size = new Size(185, 27);
             dniBox.TabIndex = 9;
             // 
             // apellidoBox
             // 
-            apellidoBox.Location = new Point(7, 147);
+            apellidoBox.Location = new Point(8, 196);
+            apellidoBox.Margin = new Padding(3, 4, 3, 4);
             apellidoBox.Name = "apellidoBox";
-            apellidoBox.Size = new Size(162, 23);
+            apellidoBox.Size = new Size(185, 27);
             apellidoBox.TabIndex = 8;
             // 
             // inputIdOrden
             // 
             inputIdOrden.Enabled = false;
-            inputIdOrden.Location = new Point(7, 37);
+            inputIdOrden.Location = new Point(8, 49);
+            inputIdOrden.Margin = new Padding(3, 4, 3, 4);
             inputIdOrden.Name = "inputIdOrden";
-            inputIdOrden.Size = new Size(162, 23);
+            inputIdOrden.Size = new Size(185, 27);
             inputIdOrden.TabIndex = 10;
             // 
             // nombreBox
             // 
-            nombreBox.Location = new Point(261, 95);
+            nombreBox.Location = new Point(298, 127);
+            nombreBox.Margin = new Padding(3, 4, 3, 4);
             nombreBox.Name = "nombreBox";
-            nombreBox.Size = new Size(162, 23);
+            nombreBox.Size = new Size(185, 27);
             nombreBox.TabIndex = 7;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(261, 129);
+            label6.Location = new Point(298, 172);
             label6.Name = "label6";
-            label6.Size = new Size(27, 15);
+            label6.Size = new Size(35, 20);
             label6.TabIndex = 6;
             label6.Text = "DNI";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(7, 129);
+            label5.Location = new Point(8, 172);
             label5.Name = "label5";
-            label5.Size = new Size(51, 15);
+            label5.Size = new Size(66, 20);
             label5.TabIndex = 5;
             label5.Text = "Apellido";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(261, 77);
+            label4.Location = new Point(298, 103);
             label4.Name = "label4";
-            label4.Size = new Size(51, 15);
+            label4.Size = new Size(64, 20);
             label4.TabIndex = 4;
             label4.Text = "Nombre";
             // 
             // inputTransportista
             // 
             inputTransportista.Enabled = false;
-            inputTransportista.Location = new Point(6, 95);
+            inputTransportista.Location = new Point(7, 127);
+            inputTransportista.Margin = new Padding(3, 4, 3, 4);
             inputTransportista.Name = "inputTransportista";
-            inputTransportista.Size = new Size(162, 23);
+            inputTransportista.Size = new Size(185, 27);
             inputTransportista.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 77);
+            label2.Location = new Point(7, 103);
             label2.Name = "label2";
-            label2.Size = new Size(101, 15);
+            label2.Size = new Size(127, 20);
             label2.TabIndex = 0;
             label2.Text = "CUIT transportista";
             // 
@@ -208,10 +214,10 @@
             // 
             btnMenu.BackColor = Color.FromArgb(161, 32, 89);
             btnMenu.ForeColor = SystemColors.ButtonHighlight;
-            btnMenu.Location = new Point(478, 600);
-            btnMenu.Margin = new Padding(3, 4, 3, 4);
+            btnMenu.Location = new Point(484, 631);
+            btnMenu.Margin = new Padding(3, 5, 3, 5);
             btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(108, 23);
+            btnMenu.Size = new Size(123, 31);
             btnMenu.TabIndex = 3;
             btnMenu.Text = "Volver al menu";
             btnMenu.UseVisualStyleBackColor = false;
@@ -221,10 +227,10 @@
             // 
             btnConfirmar.BackColor = Color.FromArgb(161, 32, 89);
             btnConfirmar.ForeColor = SystemColors.ButtonHighlight;
-            btnConfirmar.Location = new Point(348, 600);
-            btnConfirmar.Margin = new Padding(3, 4, 3, 4);
+            btnConfirmar.Location = new Point(336, 631);
+            btnConfirmar.Margin = new Padding(3, 5, 3, 5);
             btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(108, 23);
+            btnConfirmar.Size = new Size(123, 31);
             btnConfirmar.TabIndex = 4;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.UseVisualStyleBackColor = false;
@@ -236,17 +242,17 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label9);
             panel1.Location = new Point(3, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(673, 52);
+            panel1.Size = new Size(769, 69);
             panel1.TabIndex = 5;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-11, 3);
+            pictureBox1.Location = new Point(-13, 4);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(142, 43);
+            pictureBox1.Size = new Size(162, 57);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
@@ -256,7 +262,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(174, 21);
+            label9.Location = new Point(199, 28);
             label9.Name = "label9";
             label9.Size = new Size(302, 31);
             label9.TabIndex = 22;
@@ -264,16 +270,17 @@
             // 
             // FormConfirmarOrdenDeEntrega
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(618, 635);
+            ClientSize = new Size(633, 682);
             Controls.Add(panel1);
             Controls.Add(btnConfirmar);
             Controls.Add(btnMenu);
             Controls.Add(groupBox1);
             Controls.Add(listaOrdenesDeEntrega);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormConfirmarOrdenDeEntrega";
             Text = "FormConfirmarOrdenDeEntrega";
             Load += FormConfirmarOrdenDeEntrega_Load;
