@@ -68,9 +68,10 @@
             // 
             SeleccionarBoton.BackColor = Color.FromArgb(161, 32, 89);
             SeleccionarBoton.ForeColor = SystemColors.ButtonHighlight;
-            SeleccionarBoton.Location = new Point(34, 472);
+            SeleccionarBoton.Location = new Point(30, 354);
+            SeleccionarBoton.Margin = new Padding(3, 2, 3, 2);
             SeleccionarBoton.Name = "SeleccionarBoton";
-            SeleccionarBoton.Size = new Size(139, 29);
+            SeleccionarBoton.Size = new Size(122, 22);
             SeleccionarBoton.TabIndex = 1;
             SeleccionarBoton.Text = "Seleccionar";
             SeleccionarBoton.UseVisualStyleBackColor = false;
@@ -81,9 +82,10 @@
             OrdenEntrega.Columns.AddRange(new ColumnHeader[] { IDOrdenSCol, IdClienteSCol, PrioridadTwo, transportistaTwo });
             OrdenEntrega.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             OrdenEntrega.FullRowSelect = true;
-            OrdenEntrega.Location = new Point(6, 27);
+            OrdenEntrega.Location = new Point(5, 20);
+            OrdenEntrega.Margin = new Padding(3, 2, 3, 2);
             OrdenEntrega.Name = "OrdenEntrega";
-            OrdenEntrega.Size = new Size(580, 165);
+            OrdenEntrega.Size = new Size(508, 125);
             OrdenEntrega.TabIndex = 2;
             OrdenEntrega.UseCompatibleStateImageBehavior = false;
             OrdenEntrega.View = View.Details;
@@ -96,7 +98,7 @@
             // 
             // IdClienteSCol
             // 
-            IdClienteSCol.Text = "ID Cliente";
+            IdClienteSCol.Text = "Cliente";
             IdClienteSCol.Width = 120;
             // 
             // PrioridadTwo
@@ -113,9 +115,10 @@
             // 
             GenerarBoton.BackColor = Color.FromArgb(161, 32, 89);
             GenerarBoton.ForeColor = SystemColors.ButtonHighlight;
-            GenerarBoton.Location = new Point(312, 760);
+            GenerarBoton.Location = new Point(273, 570);
+            GenerarBoton.Margin = new Padding(3, 2, 3, 2);
             GenerarBoton.Name = "GenerarBoton";
-            GenerarBoton.Size = new Size(144, 29);
+            GenerarBoton.Size = new Size(126, 22);
             GenerarBoton.TabIndex = 3;
             GenerarBoton.Text = "Generar ";
             GenerarBoton.UseVisualStyleBackColor = false;
@@ -125,9 +128,10 @@
             // 
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.ForeColor = SystemColors.ButtonHighlight;
-            VolverBoton.Location = new Point(474, 760);
+            VolverBoton.Location = new Point(415, 570);
+            VolverBoton.Margin = new Padding(3, 2, 3, 2);
             VolverBoton.Name = "VolverBoton";
-            VolverBoton.Size = new Size(144, 29);
+            VolverBoton.Size = new Size(126, 22);
             VolverBoton.TabIndex = 4;
             VolverBoton.Text = "Volver al menu";
             VolverBoton.UseVisualStyleBackColor = false;
@@ -137,9 +141,10 @@
             // 
             EliminarSeleccionBoton.BackColor = Color.FromArgb(161, 32, 89);
             EliminarSeleccionBoton.ForeColor = SystemColors.ButtonHighlight;
-            EliminarSeleccionBoton.Location = new Point(34, 725);
+            EliminarSeleccionBoton.Location = new Point(30, 544);
+            EliminarSeleccionBoton.Margin = new Padding(3, 2, 3, 2);
             EliminarSeleccionBoton.Name = "EliminarSeleccionBoton";
-            EliminarSeleccionBoton.Size = new Size(139, 29);
+            EliminarSeleccionBoton.Size = new Size(122, 22);
             EliminarSeleccionBoton.TabIndex = 5;
             EliminarSeleccionBoton.Text = "Eliminar selección";
             EliminarSeleccionBoton.UseVisualStyleBackColor = false;
@@ -150,9 +155,11 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(OrdenEntrega);
             groupBox2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(30, 520);
+            groupBox2.Location = new Point(26, 390);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(593, 199);
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(519, 149);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
@@ -160,9 +167,9 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.FromArgb(161, 32, 89);
-            label5.Location = new Point(6, 0);
+            label5.Location = new Point(5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(236, 20);
+            label5.Size = new Size(182, 15);
             label5.TabIndex = 10;
             label5.Text = "Selección de Ordenes Preparadas";
             // 
@@ -176,9 +183,11 @@
             groupBox3.Controls.Add(IDtext);
             groupBox3.Controls.Add(label1);
             groupBox3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox3.Location = new Point(30, 56);
+            groupBox3.Location = new Point(26, 42);
+            groupBox3.Margin = new Padding(3, 2, 3, 2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(595, 165);
+            groupBox3.Padding = new Padding(3, 2, 3, 2);
+            groupBox3.Size = new Size(521, 124);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Enter += groupBox3_Enter;
@@ -186,27 +195,27 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(391, 23);
+            label7.Location = new Point(342, 17);
             label7.Name = "label7";
-            label7.Size = new Size(0, 20);
+            label7.Size = new Size(0, 15);
             label7.TabIndex = 11;
             // 
             // fechaBox
             // 
-            fechaBox.Location = new Point(16, 113);
+            fechaBox.Location = new Point(14, 85);
+            fechaBox.Margin = new Padding(3, 2, 3, 2);
             fechaBox.Name = "fechaBox";
             fechaBox.ReadOnly = true;
-            fechaBox.Size = new Size(226, 27);
+            fechaBox.Size = new Size(198, 23);
             fechaBox.TabIndex = 10;
             // 
             // depositoBox
             // 
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
             depositoBox.FormattingEnabled = true;
-            depositoBox.Location = new Point(270, 115);
-            depositoBox.Margin = new Padding(3, 4, 3, 4);
+            depositoBox.Location = new Point(236, 86);
             depositoBox.Name = "depositoBox";
-            depositoBox.Size = new Size(228, 28);
+            depositoBox.Size = new Size(200, 23);
             depositoBox.TabIndex = 9;
             depositoBox.SelectedIndexChanged += DepositoBox_SelectedIndexChange;
             // 
@@ -214,9 +223,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(16, 91);
+            label3.Location = new Point(14, 68);
             label3.Name = "label3";
-            label3.Size = new Size(47, 20);
+            label3.Size = new Size(38, 15);
             label3.TabIndex = 4;
             label3.Text = "Fecha";
             // 
@@ -224,27 +233,28 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(270, 91);
+            label2.Location = new Point(236, 68);
             label2.Name = "label2";
-            label2.Size = new Size(70, 20);
+            label2.Size = new Size(54, 15);
             label2.TabIndex = 2;
             label2.Text = "Deposito";
             // 
             // IDtext
             // 
-            IDtext.Location = new Point(16, 49);
+            IDtext.Location = new Point(14, 37);
+            IDtext.Margin = new Padding(3, 2, 3, 2);
             IDtext.Name = "IDtext";
             IDtext.ReadOnly = true;
-            IDtext.Size = new Size(226, 27);
+            IDtext.Size = new Size(198, 23);
             IDtext.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(16, 27);
+            label1.Location = new Point(14, 20);
             label1.Name = "label1";
-            label1.Size = new Size(24, 20);
+            label1.Size = new Size(18, 15);
             label1.TabIndex = 0;
             label1.Text = "ID";
             // 
@@ -253,9 +263,10 @@
             OrdenSeleccionadaList.Columns.AddRange(new ColumnHeader[] { IDOrdenCol, IDClienteCol, Prioridad, transportista });
             OrdenSeleccionadaList.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             OrdenSeleccionadaList.FullRowSelect = true;
-            OrdenSeleccionadaList.Location = new Point(6, 29);
+            OrdenSeleccionadaList.Location = new Point(5, 22);
+            OrdenSeleccionadaList.Margin = new Padding(3, 2, 3, 2);
             OrdenSeleccionadaList.Name = "OrdenSeleccionadaList";
-            OrdenSeleccionadaList.Size = new Size(582, 189);
+            OrdenSeleccionadaList.Size = new Size(510, 143);
             OrdenSeleccionadaList.TabIndex = 0;
             OrdenSeleccionadaList.UseCompatibleStateImageBehavior = false;
             OrdenSeleccionadaList.View = View.Details;
@@ -267,7 +278,7 @@
             // 
             // IDClienteCol
             // 
-            IDClienteCol.Text = "ID Cliente";
+            IDClienteCol.Text = "Cliente";
             IDClienteCol.Width = 120;
             // 
             // Prioridad
@@ -285,9 +296,11 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(OrdenSeleccionadaList);
             groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(30, 241);
+            groupBox1.Location = new Point(26, 181);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(595, 225);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(521, 169);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             // 
@@ -295,9 +308,9 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.FromArgb(161, 32, 89);
-            label4.Location = new Point(6, 0);
+            label4.Location = new Point(5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(147, 20);
+            label4.Size = new Size(112, 15);
             label4.TabIndex = 10;
             label4.Text = "Ordenes preparadas";
             label4.Click += label4_Click;
@@ -307,9 +320,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(161, 32, 89);
-            label6.Location = new Point(36, 44);
+            label6.Location = new Point(32, 33);
             label6.Name = "label6";
-            label6.Size = new Size(130, 20);
+            label6.Size = new Size(99, 15);
             label6.TabIndex = 10;
             label6.Text = "Orden de Entrega";
             // 
@@ -318,26 +331,28 @@
             panel1.BackColor = Color.FromArgb(161, 32, 89);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(1, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(673, 37);
+            panel1.Size = new Size(589, 28);
             panel1.TabIndex = 11;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.GrupoE;
-            pictureBox1.Location = new Point(0, 9);
+            pictureBox1.Location = new Point(0, 7);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(129, 25);
+            pictureBox1.Size = new Size(113, 19);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // FormOrdenDeEntrega
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(674, 801);
+            ClientSize = new Size(590, 602);
             Controls.Add(panel1);
             Controls.Add(label6);
             Controls.Add(groupBox3);
@@ -347,6 +362,7 @@
             Controls.Add(SeleccionarBoton);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormOrdenDeEntrega";
             Text = " ";
             Load += OrdenDeEntregacs_Load;

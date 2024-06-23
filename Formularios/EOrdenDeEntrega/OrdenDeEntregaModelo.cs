@@ -131,5 +131,10 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
         {
             return TransportistaAlmacen.ObtenerNombrePorId(idTransportista);
         }
+
+        public string ObtenerNombreClientePorCuit(string cuitCliente)
+        {
+            return ClienteAlmacen.ObtenerClientePorCuit(cuitCliente).NombreFantasia;
+        }
     }
 }

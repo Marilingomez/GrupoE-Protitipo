@@ -142,9 +142,10 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             {
                 var fila = new ListViewItem();
                 string nombreTransportista = modeloentrega.ObtenerNombreTransportistaPorId(ordenDePreparacion.IdTransportista);
+                string nombreCliente = modeloentrega.ObtenerNombreClientePorCuit(ordenDePreparacion.CuitCliente);
 
                 fila.Text = ordenDePreparacion.IdOrden.ToString();
-                fila.SubItems.Add(ordenDePreparacion.CuitCliente.ToString());
+                fila.SubItems.Add(nombreCliente);
                 fila.SubItems.Add(ordenDePreparacion.Prioridad.ToString());
                 fila.SubItems.Add(nombreTransportista);
                 OrdenSeleccionadaList.Items.Add(fila);
