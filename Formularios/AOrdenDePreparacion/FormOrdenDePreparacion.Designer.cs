@@ -358,7 +358,7 @@
             Controls.Add(Orden);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormOrdenDePreparacion";
-            Text = "Ordenes";
+            Text = "Orden de Preparación";
             Load += Ordenes_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

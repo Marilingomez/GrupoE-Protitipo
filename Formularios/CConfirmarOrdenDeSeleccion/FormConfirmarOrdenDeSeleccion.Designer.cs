@@ -248,7 +248,7 @@
             Controls.Add(label1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormConfirmarOrdenDeSeleccion";
-            Text = "ConfirmarOrdenDeSeleccion";
+            Text = "Confirmar Orden de Selección";
             Load += ConfirmarOrdenDeSeleccion_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

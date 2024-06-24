@@ -261,7 +261,7 @@
             Controls.Add(Pampazon);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormPreparacionOrden";
-            Text = "FormPreparacionOrden";
+            Text = "Preparar Mercaderia a Entregar";
             Load += FormPreparacionOrden_Load;
             Pampazon.ResumeLayout(false);
             Pampazon.PerformLayout();

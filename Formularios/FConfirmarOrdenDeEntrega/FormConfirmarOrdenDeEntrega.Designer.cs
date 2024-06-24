@@ -282,7 +282,7 @@
             Controls.Add(label1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormConfirmarOrdenDeEntrega";
-            Text = "FormConfirmarOrdenDeEntrega";
+            Text = "Confirmar Orden de Entrega";
             Load += FormConfirmarOrdenDeEntrega_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
