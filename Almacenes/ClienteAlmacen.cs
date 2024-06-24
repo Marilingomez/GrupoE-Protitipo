@@ -43,5 +43,10 @@ namespace GrupoE_Protitipos.Almacenes
         {
             return clientes.Find(c => c.NombreFantasia == nombre).CuitCliente;
         }
+
+        public static ClienteEntidad ObtenerClientePorNombre(string nombreCliente)
+        {
+            return clientes.Find(c => c.NombreFantasia == nombreCliente);
+        }
     }
 }

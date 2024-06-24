@@ -64,9 +64,15 @@ namespace GrupoE_Protitipos.ConsultarOrdenes
 
             if(idOrden != "")
             {
-                if (!int.TryParse(idOrden, out _))
+                if (!int.TryParse(idOrden, out var numero))
                 {
                     errores += "El id de la orden debe ser de tipo númerico." + Environment.NewLine;
+                } else
+                {
+                    if (numero < 1)
+                    {
+                        errores += "El id de la orden debe ser igual a 1 o superior." + Environment.NewLine;
+                    }
                 }
             }
 

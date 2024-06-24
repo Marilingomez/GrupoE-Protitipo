@@ -9,7 +9,7 @@
       {
         "IdProducto": 1,
         "Disponibilidad": {
-          "Disponible": 10,
+          "Disponible": 9,
           "Prereservado": 0,
           "Reservado": 20,
           "Seleccionado": 0

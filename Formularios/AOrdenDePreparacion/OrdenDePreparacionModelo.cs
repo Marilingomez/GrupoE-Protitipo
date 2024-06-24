@@ -37,21 +37,21 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
 
         public void CrearNuevaOrdenDePreparacion(
             string idOrden,
-            string cuitCliente,
+            string nombreCliente,
             string fecha,
             string deposito,
             string transportista,
             ListView.ListViewItemCollection detalleDeProductos
             )
         {
-            ClienteEntidad cliente = ClienteAlmacen.ObtenerClientePorCuit(cuitCliente);
+            ClienteEntidad cliente = ClienteAlmacen.ObtenerClientePorNombre(nombreCliente);
             List<DetalleOrdenDePreparacion> detalleOrden = ObtenerDetalleDeOrden(detalleDeProductos);
             int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(deposito);
             int idTransportista = TransportistaAlmacen.ObtenerIdTransportistaPorNombre(transportista);
 
             OrdenDePreparacionEntidad nuevaOrden = new OrdenDePreparacionEntidad(
                 int.Parse(idOrden),
-                cuitCliente,
+                nombreCliente,
                 DateTime.Now,
                 cliente.Prioridad,
                 idDeposito,
@@ -147,10 +147,11 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             return ProductoAlmacen.ObtenerIdPorDescripcion(descripcion);
         }
 
-        public string ValidarExistenciaDeProducto(string cuitCliente, string nombreProducto, int cantidadProducto, string nombreDeposito)
+        public string ValidarExistenciaDeProducto(string nombreCliente, string nombreProducto, int cantidadProducto, string nombreDeposito)
         {
             int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(nombreDeposito);
             int idProducto = ProductoAlmacen.ObtenerIdPorDescripcion(nombreProducto);
+            string cuitCliente = ClienteAlmacen.ObtenerCuitPorNombre(nombreCliente);
 
             int cantidadEnAlmacen = 
                 InventarioAlmacen.ObtenerCantidadDeProductoPorClienteYDeposito(cuitCliente, idProducto, idDeposito);
@@ -173,10 +174,11 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
             return errores;
         }
 
-        public void PrereservaDeProducto(string cuitCliente, string nombreDeposito, int cantidad, string nombreProducto)
+        public void PrereservaDeProducto(string nombreCliente, string nombreDeposito, int cantidad, string nombreProducto)
         {
             int idDeposito = DepositoAlmacen.ObtenerIdDeDepositoPorNombre(nombreDeposito);
             int idProducto = ProductoAlmacen.ObtenerIdPorDescripcion(nombreProducto);
+            string cuitCliente = ClienteAlmacen.ObtenerCuitPorNombre(nombreCliente);
 
             InventarioAlmacen.GenerarPrereservaDeProducto(cuitCliente, idProducto, idDeposito, cantidad);
         }
