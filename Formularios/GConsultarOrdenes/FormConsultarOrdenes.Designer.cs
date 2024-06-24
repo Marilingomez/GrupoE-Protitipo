@@ -229,7 +229,7 @@ namespace GrupoE_Protitipos
             panel1.Controls.Add(label9);
             panel1.Location = new Point(1, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(939, 52);
+            panel1.Size = new Size(936, 52);
             panel1.TabIndex = 11;
             // 
             // pictureBox1

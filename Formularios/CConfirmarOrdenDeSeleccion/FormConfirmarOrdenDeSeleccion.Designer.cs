@@ -58,7 +58,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(161, 32, 89);
-            label1.Location = new Point(16, 127);
+            label1.Location = new Point(16, 104);
             label1.Name = "label1";
             label1.Size = new Size(234, 20);
             label1.TabIndex = 5;
@@ -69,7 +69,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(161, 32, 89);
-            label2.Location = new Point(16, 341);
+            label2.Location = new Point(16, 326);
             label2.Name = "label2";
             label2.Size = new Size(303, 20);
             label2.TabIndex = 7;
@@ -78,7 +78,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(16, 568);
+            label3.Location = new Point(16, 553);
             label3.Name = "label3";
             label3.Size = new Size(375, 20);
             label3.TabIndex = 8;
@@ -88,7 +88,7 @@
             // 
             btnConfirmar.BackColor = Color.FromArgb(161, 32, 89);
             btnConfirmar.ForeColor = SystemColors.ButtonHighlight;
-            btnConfirmar.Location = new Point(471, 657);
+            btnConfirmar.Location = new Point(471, 627);
             btnConfirmar.Margin = new Padding(3, 4, 3, 4);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(124, 31);
@@ -101,7 +101,7 @@
             // 
             MenuPrincipalVolver.BackColor = Color.FromArgb(161, 32, 89);
             MenuPrincipalVolver.ForeColor = SystemColors.ButtonHighlight;
-            MenuPrincipalVolver.Location = new Point(471, 696);
+            MenuPrincipalVolver.Location = new Point(471, 666);
             MenuPrincipalVolver.Margin = new Padding(3, 4, 3, 4);
             MenuPrincipalVolver.Name = "MenuPrincipalVolver";
             MenuPrincipalVolver.Size = new Size(124, 31);
@@ -114,7 +114,7 @@
             // 
             listDetalleOrden.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, pasillo, Fila, estante });
             listDetalleOrden.FullRowSelect = true;
-            listDetalleOrden.Location = new Point(16, 365);
+            listDetalleOrden.Location = new Point(16, 350);
             listDetalleOrden.Margin = new Padding(3, 4, 3, 4);
             listDetalleOrden.Name = "listDetalleOrden";
             listDetalleOrden.Size = new Size(579, 179);
@@ -148,7 +148,7 @@
             // fechaBox
             // 
             fechaBox.Enabled = false;
-            fechaBox.Location = new Point(16, 592);
+            fechaBox.Location = new Point(16, 577);
             fechaBox.Margin = new Padding(3, 4, 3, 4);
             fechaBox.Name = "fechaBox";
             fechaBox.Size = new Size(114, 27);
@@ -158,7 +158,7 @@
             // 
             listaOrdenesEnSeleccion.Columns.AddRange(new ColumnHeader[] { Id, FechaDeCreacion });
             listaOrdenesEnSeleccion.FullRowSelect = true;
-            listaOrdenesEnSeleccion.Location = new Point(16, 151);
+            listaOrdenesEnSeleccion.Location = new Point(16, 128);
             listaOrdenesEnSeleccion.Margin = new Padding(3, 4, 3, 4);
             listaOrdenesEnSeleccion.MultiSelect = false;
             listaOrdenesEnSeleccion.Name = "listaOrdenesEnSeleccion";
@@ -182,7 +182,7 @@
             // 
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
             depositoBox.FormattingEnabled = true;
-            depositoBox.Location = new Point(117, 92);
+            depositoBox.Location = new Point(117, 69);
             depositoBox.Margin = new Padding(3, 4, 3, 4);
             depositoBox.Name = "depositoBox";
             depositoBox.Size = new Size(185, 28);
@@ -192,7 +192,7 @@
             // Deposito
             // 
             Deposito.AutoSize = true;
-            Deposito.Location = new Point(16, 96);
+            Deposito.Location = new Point(16, 73);
             Deposito.Name = "Deposito";
             Deposito.Size = new Size(70, 20);
             Deposito.TabIndex = 16;
@@ -223,7 +223,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(16, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(115, 43);
+            pictureBox1.Size = new Size(97, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
@@ -233,7 +233,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(620, 740);
+            ClientSize = new Size(620, 706);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(Deposito);

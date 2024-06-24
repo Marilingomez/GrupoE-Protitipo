@@ -64,7 +64,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(161, 32, 89);
-            label1.Location = new Point(21, 155);
+            label1.Location = new Point(19, 108);
             label1.Name = "label1";
             label1.Size = new Size(142, 20);
             label1.TabIndex = 4;
@@ -75,7 +75,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(161, 32, 89);
-            label2.Location = new Point(454, 169);
+            label2.Location = new Point(452, 122);
             label2.Name = "label2";
             label2.Size = new Size(158, 20);
             label2.TabIndex = 5;
@@ -86,7 +86,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(161, 32, 89);
-            label4.Location = new Point(21, 386);
+            label4.Location = new Point(19, 339);
             label4.Name = "label4";
             label4.Size = new Size(170, 20);
             label4.TabIndex = 7;
@@ -97,7 +97,7 @@
             buttonAgregar.BackColor = Color.FromArgb(161, 32, 89);
             buttonAgregar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonAgregar.ForeColor = SystemColors.ButtonHighlight;
-            buttonAgregar.Location = new Point(336, 242);
+            buttonAgregar.Location = new Point(334, 195);
             buttonAgregar.Margin = new Padding(3, 4, 3, 4);
             buttonAgregar.Name = "buttonAgregar";
             buttonAgregar.Size = new Size(113, 41);
@@ -111,7 +111,7 @@
             buttonEliminar.BackColor = Color.FromArgb(161, 32, 89);
             buttonEliminar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonEliminar.ForeColor = SystemColors.ButtonHighlight;
-            buttonEliminar.Location = new Point(336, 307);
+            buttonEliminar.Location = new Point(334, 260);
             buttonEliminar.Margin = new Padding(3, 4, 3, 4);
             buttonEliminar.Name = "buttonEliminar";
             buttonEliminar.Size = new Size(113, 41);
@@ -124,7 +124,7 @@
             // 
             buttonFinalizar.BackColor = Color.FromArgb(161, 32, 89);
             buttonFinalizar.ForeColor = SystemColors.ButtonHighlight;
-            buttonFinalizar.Location = new Point(582, 584);
+            buttonFinalizar.Location = new Point(580, 540);
             buttonFinalizar.Margin = new Padding(3, 4, 3, 4);
             buttonFinalizar.Name = "buttonFinalizar";
             buttonFinalizar.Size = new Size(185, 36);
@@ -137,7 +137,7 @@
             // 
             ordenesPreparar.Columns.AddRange(new ColumnHeader[] { Id, Cliente, PrioridadPreparar });
             ordenesPreparar.FullRowSelect = true;
-            ordenesPreparar.Location = new Point(21, 192);
+            ordenesPreparar.Location = new Point(19, 145);
             ordenesPreparar.Margin = new Padding(3, 5, 3, 5);
             ordenesPreparar.Name = "ordenesPreparar";
             ordenesPreparar.Size = new Size(309, 176);
@@ -164,7 +164,7 @@
             // 
             ordenesSeleccionar.Columns.AddRange(new ColumnHeader[] { IdSeleccionado, clienteSeleccionado, PrioridadSeleccionado });
             ordenesSeleccionar.FullRowSelect = true;
-            ordenesSeleccionar.Location = new Point(454, 201);
+            ordenesSeleccionar.Location = new Point(452, 154);
             ordenesSeleccionar.Margin = new Padding(3, 5, 3, 5);
             ordenesSeleccionar.Name = "ordenesSeleccionar";
             ordenesSeleccionar.Size = new Size(309, 176);
@@ -190,7 +190,7 @@
             // listProductos
             // 
             listProductos.Columns.AddRange(new ColumnHeader[] { Pasillo, Fila, Estante, Producto, Cantidad });
-            listProductos.Location = new Point(21, 418);
+            listProductos.Location = new Point(19, 374);
             listProductos.Margin = new Padding(3, 5, 3, 5);
             listProductos.Name = "listProductos";
             listProductos.Size = new Size(746, 148);
@@ -226,7 +226,7 @@
             // depositoLabel
             // 
             depositoLabel.AutoSize = true;
-            depositoLabel.Location = new Point(21, 112);
+            depositoLabel.Location = new Point(19, 65);
             depositoLabel.Name = "depositoLabel";
             depositoLabel.Size = new Size(70, 20);
             depositoLabel.TabIndex = 22;
@@ -236,7 +236,7 @@
             // 
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
             depositoBox.FormattingEnabled = true;
-            depositoBox.Location = new Point(98, 107);
+            depositoBox.Location = new Point(96, 60);
             depositoBox.Margin = new Padding(3, 5, 3, 5);
             depositoBox.Name = "depositoBox";
             depositoBox.Size = new Size(204, 28);
@@ -250,7 +250,7 @@
             panel1.Controls.Add(label3);
             panel1.Location = new Point(-2, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(919, 69);
+            panel1.Size = new Size(783, 52);
             panel1.TabIndex = 33;
             // 
             // pictureBox1
@@ -259,7 +259,7 @@
             pictureBox1.Location = new Point(-13, 4);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(162, 57);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -279,7 +279,7 @@
             // 
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.ForeColor = SystemColors.ButtonHighlight;
-            VolverBoton.Location = new Point(582, 628);
+            VolverBoton.Location = new Point(580, 584);
             VolverBoton.Margin = new Padding(3, 4, 3, 4);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(185, 36);
@@ -293,7 +293,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(779, 675);
+            ClientSize = new Size(779, 628);
             Controls.Add(VolverBoton);
             Controls.Add(panel1);
             Controls.Add(depositoBox);

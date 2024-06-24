@@ -60,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(161, 32, 89);
-            label1.Location = new Point(11, 101);
+            label1.Location = new Point(9, 69);
             label1.Name = "label1";
             label1.Size = new Size(221, 20);
             label1.TabIndex = 0;
@@ -70,7 +70,7 @@
             // 
             listaOrdenesDeEntrega.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             listaOrdenesDeEntrega.FullRowSelect = true;
-            listaOrdenesDeEntrega.Location = new Point(11, 133);
+            listaOrdenesDeEntrega.Location = new Point(9, 101);
             listaOrdenesDeEntrega.Margin = new Padding(3, 5, 3, 5);
             listaOrdenesDeEntrega.MultiSelect = false;
             listaOrdenesDeEntrega.Name = "listaOrdenesDeEntrega";
@@ -103,7 +103,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(inputTransportista);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(11, 372);
+            groupBox1.Location = new Point(12, 348);
             groupBox1.Margin = new Padding(3, 5, 3, 5);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
@@ -214,7 +214,7 @@
             // 
             btnMenu.BackColor = Color.FromArgb(161, 32, 89);
             btnMenu.ForeColor = SystemColors.ButtonHighlight;
-            btnMenu.Location = new Point(484, 631);
+            btnMenu.Location = new Point(485, 607);
             btnMenu.Margin = new Padding(3, 5, 3, 5);
             btnMenu.Name = "btnMenu";
             btnMenu.Size = new Size(123, 31);
@@ -227,7 +227,7 @@
             // 
             btnConfirmar.BackColor = Color.FromArgb(161, 32, 89);
             btnConfirmar.ForeColor = SystemColors.ButtonHighlight;
-            btnConfirmar.Location = new Point(336, 631);
+            btnConfirmar.Location = new Point(337, 607);
             btnConfirmar.Margin = new Padding(3, 5, 3, 5);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(123, 31);
@@ -243,7 +243,7 @@
             panel1.Controls.Add(label9);
             panel1.Location = new Point(3, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(769, 69);
+            panel1.Size = new Size(673, 52);
             panel1.TabIndex = 5;
             // 
             // pictureBox1
@@ -252,7 +252,7 @@
             pictureBox1.Location = new Point(-13, 4);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(162, 57);
+            pictureBox1.Size = new Size(142, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
@@ -262,7 +262,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(199, 28);
+            label9.Location = new Point(189, 16);
             label9.Name = "label9";
             label9.Size = new Size(302, 31);
             label9.TabIndex = 22;
@@ -273,7 +273,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(633, 682);
+            ClientSize = new Size(633, 646);
             Controls.Add(panel1);
             Controls.Add(btnConfirmar);
             Controls.Add(btnMenu);

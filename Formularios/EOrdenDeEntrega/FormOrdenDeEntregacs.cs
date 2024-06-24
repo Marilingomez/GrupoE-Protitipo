@@ -66,7 +66,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             }
             else
             {
-                MessageBox.Show("Debe seleccionar al menos una Orden de Preparación", "Error");
+                MessageBox.Show("No ha seleccionado ninguna Orden", "Error");
             }
         }
 

@@ -142,7 +142,7 @@
             btnProductoPreparado.Location = new Point(475, 292);
             btnProductoPreparado.Margin = new Padding(3, 4, 3, 4);
             btnProductoPreparado.Name = "btnProductoPreparado";
-            btnProductoPreparado.Size = new Size(217, 34);
+            btnProductoPreparado.Size = new Size(286, 34);
             btnProductoPreparado.TabIndex = 4;
             btnProductoPreparado.Text = "Producto embalado";
             btnProductoPreparado.UseVisualStyleBackColor = false;
@@ -156,7 +156,7 @@
             btnConfirmaOrdenPreparada.Location = new Point(475, 581);
             btnConfirmaOrdenPreparada.Margin = new Padding(0);
             btnConfirmaOrdenPreparada.Name = "btnConfirmaOrdenPreparada";
-            btnConfirmaOrdenPreparada.Size = new Size(217, 35);
+            btnConfirmaOrdenPreparada.Size = new Size(286, 35);
             btnConfirmaOrdenPreparada.TabIndex = 5;
             btnConfirmaOrdenPreparada.Text = "Confirma Orden Preparada";
             btnConfirmaOrdenPreparada.UseVisualStyleBackColor = false;
@@ -177,12 +177,12 @@
             // depositoBox
             // 
             depositoBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            depositoBox.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            depositoBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             depositoBox.FormattingEnabled = true;
             depositoBox.Location = new Point(114, 24);
             depositoBox.Margin = new Padding(3, 4, 3, 4);
             depositoBox.Name = "depositoBox";
-            depositoBox.Size = new Size(207, 30);
+            depositoBox.Size = new Size(207, 28);
             depositoBox.TabIndex = 7;
             depositoBox.SelectedIndexChanged += depositoBox_SelectedIndexChanged;
             // 
@@ -202,7 +202,7 @@
             Pampazon.Margin = new Padding(0);
             Pampazon.Name = "Pampazon";
             Pampazon.Padding = new Padding(0);
-            Pampazon.Size = new Size(713, 716);
+            Pampazon.Size = new Size(786, 696);
             Pampazon.TabIndex = 8;
             Pampazon.TabStop = false;
             // 
@@ -211,7 +211,7 @@
             VolverBoton.BackColor = Color.FromArgb(161, 32, 89);
             VolverBoton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             VolverBoton.ForeColor = SystemColors.ButtonFace;
-            VolverBoton.Location = new Point(530, 633);
+            VolverBoton.Location = new Point(599, 634);
             VolverBoton.Margin = new Padding(0);
             VolverBoton.Name = "VolverBoton";
             VolverBoton.Size = new Size(162, 35);
@@ -227,7 +227,7 @@
             panel1.Controls.Add(label4);
             panel1.Location = new Point(3, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(755, 52);
+            panel1.Size = new Size(818, 52);
             panel1.TabIndex = 9;
             // 
             // pictureBox1
@@ -245,18 +245,18 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(239, 8);
+            label4.Location = new Point(304, 8);
             label4.Name = "label4";
-            label4.Size = new Size(334, 31);
+            label4.Size = new Size(171, 31);
             label4.TabIndex = 20;
-            label4.Text = "Preparar Mercaderia a Entregar";
+            label4.Text = "Preparar Orden";
             // 
             // FormPreparacionOrden
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(757, 767);
+            ClientSize = new Size(824, 767);
             Controls.Add(panel1);
             Controls.Add(Pampazon);
             Margin = new Padding(3, 4, 3, 4);

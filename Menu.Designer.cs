@@ -125,7 +125,7 @@ namespace GrupoE_Protitipos
             btnPrepararMercaderia.Name = "btnPrepararMercaderia";
             btnPrepararMercaderia.Size = new Size(309, 47);
             btnPrepararMercaderia.TabIndex = 8;
-            btnPrepararMercaderia.Text = "Preparar Mercaderia a Entregar";
+            btnPrepararMercaderia.Text = "Preparar Orden";
             btnPrepararMercaderia.UseVisualStyleBackColor = false;
             btnPrepararMercaderia.Click += btnPrepararMercaderia_Click;
             // 
@@ -136,7 +136,7 @@ namespace GrupoE_Protitipos
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(673, 52);
+            panel1.Size = new Size(599, 52);
             panel1.TabIndex = 9;
             // 
             // pictureBox1

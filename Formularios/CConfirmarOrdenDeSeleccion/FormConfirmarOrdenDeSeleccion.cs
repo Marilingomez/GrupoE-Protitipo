@@ -72,7 +72,7 @@ namespace GrupoE_Protitipos.ConfirmarOrdenDeSeleccion
             modelo.ActualizarOrdenesDePreparacion(idOrdenSeleccionada);
             modelo.GenerarBajaDeProductos(listDetalleOrden.Items, depositoBox.Text);
 
-            MessageBox.Show("La orden de Selección fue finalizada con éxito." + Environment.NewLine + "Las ordenes de preparación asociadas pasaron a estado Seleccionada");
+            MessageBox.Show("La orden de selección se ha confirmado correctamente." + Environment.NewLine + "Las ordenes de preparación asociadas pasaron a estado Seleccionada");
 
             listaOrdenesEnSeleccion.Items.Clear();
             listDetalleOrden.Items.Clear();
