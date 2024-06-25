@@ -51,7 +51,7 @@ namespace GrupoE_Protitipos.OrdenDePreparacion
 
             OrdenDePreparacionEntidad nuevaOrden = new OrdenDePreparacionEntidad(
                 int.Parse(idOrden),
-                nombreCliente,
+                cliente.CuitCliente,
                 DateTime.Now,
                 cliente.Prioridad,
                 idDeposito,
