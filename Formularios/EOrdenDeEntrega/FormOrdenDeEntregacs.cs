@@ -1,5 +1,6 @@
 ﻿using GrupoE_Protitipos.ConsultarOrdenes;
 using GrupoE_Protitipos.Entidades;
+using System.Globalization;
 
 namespace GrupoE_Protitipos.OrdenDeEntrega
 {
@@ -102,7 +103,7 @@ namespace GrupoE_Protitipos.OrdenDeEntrega
             }
 
             int id = int.Parse(IDtext.Text);
-            DateTime fecha = DateTime.Parse(fechaBox.Text);
+            DateTime fecha = DateTime.ParseExact(fechaBox.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             string deposito = depositoBox.Text;
             List<int> ordenesDePreparacion = new List<int>();
 
